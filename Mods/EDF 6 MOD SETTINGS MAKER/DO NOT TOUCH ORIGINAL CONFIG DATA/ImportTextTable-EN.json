@@ -1,0 +1,6107 @@
+{
+    "format": "SGO",
+    "endian": "LE",
+    "version": 258,
+    "variables": [
+        {
+            "name": "%CHAT_APPEAL%",
+            "type": "string",
+            "value": "Gesture"
+        },
+        {
+            "name": "%CHAT_EPIC_OVERLAY%",
+            "type": "string",
+            "value": "Send Invitations via Epic"
+        },
+        {
+            "name": "%CHAT_FRIENDS%",
+            "type": "string",
+            "value": "Send Invitations via Steam"
+        },
+        {
+            "name": "%CHAT_KEYBOARD%",
+            "type": "string",
+            "value": "Soft Keyboard Input"
+        },
+        {
+            "name": "%CHAT_PARTY_UI%",
+            "type": "string",
+            "value": "Check Invite Messages"
+        },
+        {
+            "name": "%CHAT_PROFILES%",
+            "type": "string",
+            "value": "Confirm Steam ID"
+        },
+        {
+            "name": "%CHAT_VOICEENABLE%",
+            "type": "string",
+            "value": "Switch Voice Chat"
+        },
+        {
+            "name": "401_STRIKER_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "401_STRIKER_SHEET1",
+            "type": "string",
+            "value": "Seat 1"
+        },
+        {
+            "name": "401_STRIKER_SHEET2",
+            "type": "string",
+            "value": "Seat 2"
+        },
+        {
+            "name": "401_STRIKER_SHEET3",
+            "type": "string",
+            "value": "Seat 3"
+        },
+        {
+            "name": "401_STRIKER_SHEET4",
+            "type": "string",
+            "value": "Seat 4"
+        },
+        {
+            "name": "402_ROCKET_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "403_TANK_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "403_TANK_GUNNER_L",
+            "type": "string",
+            "value": "Machine Gun - Left"
+        },
+        {
+            "name": "403_TANK_GUNNER_R",
+            "type": "string",
+            "value": "Machine Gun - Right"
+        },
+        {
+            "name": "404_TANK_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "404_TANK_GUNNER_L",
+            "type": "string",
+            "value": "Turret - Left"
+        },
+        {
+            "name": "404_TANK_GUNNER_R",
+            "type": "string",
+            "value": "Turret - Right"
+        },
+        {
+            "name": "407_BIGBEGARUTA_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "407_BIGBEGARUTA_GUNNER_C",
+            "type": "string",
+            "value": "Center Missile"
+        },
+        {
+            "name": "407_BIGBEGARUTA_GUNNER_L",
+            "type": "string",
+            "value": "Turret - Left"
+        },
+        {
+            "name": "407_BIGBEGARUTA_GUNNER_R",
+            "type": "string",
+            "value": "Turret - Right"
+        },
+        {
+            "name": "409_HELI_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "410_HELI_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "410_HELI_GUNNER_L",
+            "type": "string",
+            "value": "Turret - Left"
+        },
+        {
+            "name": "410_HELI_GUNNER_R",
+            "type": "string",
+            "value": "Turret - Right"
+        },
+        {
+            "name": "502_GROUNDROBO_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "503_BIKE_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "504_BEGARUTA_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "505_TANK_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "506_HELI_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "507_RESCUE_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "507_RESCUE_SHEET1",
+            "type": "string",
+            "value": "Seat 1"
+        },
+        {
+            "name": "507_RESCUE_SHEET2",
+            "type": "string",
+            "value": "Seat 2"
+        },
+        {
+            "name": "507_RESCUE_SHEET3",
+            "type": "string",
+            "value": "Seat 3"
+        },
+        {
+            "name": "507_RESCUE_SHEET4",
+            "type": "string",
+            "value": "Seat 4"
+        },
+        {
+            "name": "510_MASER_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "512_KEITRUCK_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "512_KEITRUCK_SHEET1",
+            "type": "string",
+            "value": "Seat 1"
+        },
+        {
+            "name": "512_KEITRUCK_SHEET2",
+            "type": "string",
+            "value": "Seat 2"
+        },
+        {
+            "name": "512_KEITRUCK_SHEET3",
+            "type": "string",
+            "value": "Seat 3"
+        },
+        {
+            "name": "512_KEITRUCK_SHEET4",
+            "type": "string",
+            "value": "Seat 4"
+        },
+        {
+            "name": "513_TRAILER_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "515_RETROBALAM_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "613_BIKE_DRIVER",
+            "type": "string",
+            "value": "Pilot Seat"
+        },
+        {
+            "name": "CHAT_DOWN",
+            "type": "string",
+            "value": "Bottom"
+        },
+        {
+            "name": "CHAT_LEFT",
+            "type": "string",
+            "value": "Left"
+        },
+        {
+            "name": "CHAT_LEFTDOWN",
+            "type": "string",
+            "value": "Bottom Left"
+        },
+        {
+            "name": "CHAT_LEFTUP",
+            "type": "string",
+            "value": "Top Left"
+        },
+        {
+            "name": "CHAT_RIGHT",
+            "type": "string",
+            "value": "Right"
+        },
+        {
+            "name": "CHAT_RIGHTDOWN",
+            "type": "string",
+            "value": "Bottom Right"
+        },
+        {
+            "name": "CHAT_RIGHTUP",
+            "type": "string",
+            "value": "Top Right"
+        },
+        {
+            "name": "CHAT_UP",
+            "type": "string",
+            "value": "Top"
+        },
+        {
+            "name": "CHAT_VOICE_STATUS_OFF",
+            "type": "string",
+            "value": "[× Voice Disable]"
+        },
+        {
+            "name": "CHAT_VOICE_STATUS_ON",
+            "type": "string",
+            "value": "[○ Voice Enable]"
+        },
+        {
+            "name": "CHAT_VOICE_TEMPLATE",
+            "type": "string",
+            "value": "%VOICE_STATUS%%NAME%"
+        },
+        {
+            "name": "CLEAR_MSG_A",
+            "type": "string",
+            "value": "The Primer is trying to interfere with the past and change history. They send a fleet of timeships back in time to alter the course of battle. That is their strategy."
+        },
+        {
+            "name": "CLEAR_MSG_B",
+            "type": "string",
+            "value": "We have no way of knowing if our current history is the result of something having been changed or not.\nWhat even is the future, really...?"
+        },
+        {
+            "name": "CONNECT_EOS_FAILED",
+            "type": "string",
+            "value": "Could not connect to EpicOnlineServices."
+        },
+        {
+            "name": "CONNECT_EPIC_ONLINE_SERVICE",
+            "type": "string",
+            "value": "Connecting to EpicOnlineServices."
+        },
+        {
+            "name": "Chat_Type_Game",
+            "type": "string",
+            "value": "Game Chat"
+        },
+        {
+            "name": "Chat_Type_Menu",
+            "type": "string",
+            "value": "Menu Chat"
+        },
+        {
+            "name": "ColorChange_Change1",
+            "type": "string",
+            "value": "Color 1"
+        },
+        {
+            "name": "ColorChange_Change2",
+            "type": "string",
+            "value": "Color 2"
+        },
+        {
+            "name": "ColorChange_ColorDesc",
+            "type": "string",
+            "value": "Press the Y button to create a color of your choice.\nPress the A button to set the color; press the B button to return to the previous screen with the set color."
+        },
+        {
+            "name": "ColorChange_ConfirmDefault",
+            "type": "string",
+            "value": "Are you sure you want to return to the default settings?"
+        },
+        {
+            "name": "ColorChange_Default",
+            "type": "string",
+            "value": "Restore Default Settings"
+        },
+        {
+            "name": "ColorChange_DefaultDesc",
+            "type": "string",
+            "value": "All colors will be restored to their default settings."
+        },
+        {
+            "name": "ColorChange_H",
+            "type": "string",
+            "value": "H"
+        },
+        {
+            "name": "ColorChange_Keyboard_ColorDesc",
+            "type": "string",
+            "value": "Press the Y key to create a color of your choice.\nPress Enter to set the color; press Esc to return to the previous screen with the set color."
+        },
+        {
+            "name": "ColorChange_Now",
+            "type": "string",
+            "value": "Current Color"
+        },
+        {
+            "name": "ColorChange_PS4Controller_ColorDesc",
+            "type": "string",
+            "value": "Press the △ button to create a color of your choice.\nPress the ○ button to set the color; press the × button to return to the previous screen with the set color."
+        },
+        {
+            "name": "ColorChange_S",
+            "type": "string",
+            "value": "S"
+        },
+        {
+            "name": "ColorChange_SwitchController_ColorDesc",
+            "type": "string",
+            "value": "Press the X button to create a color of your choice.\nPress the B button to set the color; press the A button to return to the previous screen with the set color."
+        },
+        {
+            "name": "ColorChange_TitleBar",
+            "type": "string",
+            "value": "Change Color"
+        },
+        {
+            "name": "ColorChange_V",
+            "type": "string",
+            "value": "V"
+        },
+        {
+            "name": "ContentSelect_Warning",
+            "type": "string",
+            "value": "%MPACKNAME% hasn't been purchased yet."
+        },
+        {
+            "name": "Contents_AutoSaveRetry",
+            "type": "string",
+            "value": "Auto save failed. \nTo retry auto save, select YES. \nIf you select NO, the game data will not be saved until the next auto save."
+        },
+        {
+            "name": "Contents_AutoSaveRetry_ReturnTitle",
+            "type": "string",
+            "value": "Auto save failed. \nTo retry auto save, select YES. \nIf you select NO, you will lose your current progress."
+        },
+        {
+            "name": "Contents_SaveSlotDelete",
+            "type": "string",
+            "value": "Are you sure you want to delete the save data in this slot?"
+        },
+        {
+            "name": "Contents_SaveSlotDeleteConfirm",
+            "type": "string",
+            "value": "Are you sure you want to delete the save data in this slot?"
+        },
+        {
+            "name": "Contents_SaveSlotDeleteMiss",
+            "type": "string",
+            "value": "Failed to delete the save data."
+        },
+        {
+            "name": "Contents_SaveSlotDeleted",
+            "type": "string",
+            "value": "The save data has been deleted."
+        },
+        {
+            "name": "Contents_SlotBroken",
+            "type": "string",
+            "value": "Earth Defense Force 6 save data corrupted.\nYou must select a different slot to play or delete the corrupted Earth Defense Force 6 save data."
+        },
+        {
+            "name": "Contents_SlotBrokenRemakeSave",
+            "type": "string",
+            "value": "The slot file is corrupted.\nSelect YES if you want to delete the corrupted slot file and retry saving your game data. Select NO to cancel saving."
+        },
+        {
+            "name": "Contents_SlotRestoreAsk",
+            "type": "string",
+            "value": "Do you want to restore the save data slot from a backup?\nWhen the restore process is complete, you will be returned to the title screen."
+        },
+        {
+            "name": "Contents_SystemBrokenRemake",
+            "type": "string",
+            "value": "The system file is corrupted.\nDelete the corrupted system file, and create a new one."
+        },
+        {
+            "name": "Contents_SystemBrokenRemakeSave",
+            "type": "string",
+            "value": "The system file is corrupted.\nTo delete the corrupted system file and continue saving your game data, select YES. \nTo cancel saving, select NO."
+        },
+        {
+            "name": "EDF6_M118_BarugaControl",
+            "type": "string",
+            "value": "LS button to prepare to fire.\nPress Y button to fire."
+        },
+        {
+            "name": "EDF6_M118_BarugaControl_Keyboard",
+            "type": "string",
+            "value": "%BULGAPOSE_SP% to prepare to fire.\n%BULGAATTACK_SP% to fire."
+        },
+        {
+            "name": "EDF6_M118_BarugaControl_PS",
+            "type": "string",
+            "value": "Prepare to fire with L3 button　△ button to fire"
+        },
+        {
+            "name": "EDF6_M118_BarugaControl_Switch",
+            "type": "string",
+            "value": "Press the L Stick to prepare to fire.\nX button to fire."
+        },
+        {
+            "name": "EDFMenuInfo_Equipment",
+            "type": "string",
+            "value": "Select your soldier class and equipment.\nYou can also change color (Outfit) and adjust your Armor (HP)."
+        },
+        {
+            "name": "EDFMenuInfo_Option",
+            "type": "string",
+            "value": "You can also configure sound or \ncontrol settings, change button mappings, \nset up chat shortcut or read the instruction\nmanual. You can change these\nsettings during the game."
+        },
+        {
+            "name": "EDFMenuInfo_Return",
+            "type": "string",
+            "value": "Save the game and return to the title screen."
+        },
+        {
+            "name": "EDFMenuInfo_Start",
+            "type": "string",
+            "value": "Select a mission and begin the game."
+        },
+        {
+            "name": "EDFMenuInfo_Status",
+            "type": "string",
+            "value": "Check your progress and statistics."
+        },
+        {
+            "name": "EDFMenuInfo_SystemOption",
+            "type": "string",
+            "value": "Configure screen settings and graphic quality settings."
+        },
+        {
+            "name": "EDFMenu_ConfirmReturn",
+            "type": "string",
+            "value": "You are about to save the game and return to the title screen. \nContinue?"
+        },
+        {
+            "name": "EDFMenu_Equipment",
+            "type": "string",
+            "value": "Class / Equipment"
+        },
+        {
+            "name": "EDFMenu_Equipment2P1",
+            "type": "string",
+            "value": "P1 Class / Equipment"
+        },
+        {
+            "name": "EDFMenu_Equipment2P2",
+            "type": "string",
+            "value": "P2 Class / Equipment"
+        },
+        {
+            "name": "EDFMenu_Option",
+            "type": "string",
+            "value": "Game Settings"
+        },
+        {
+            "name": "EDFMenu_Retuen",
+            "type": "string",
+            "value": "Back"
+        },
+        {
+            "name": "EDFMenu_RetuenTitle",
+            "type": "string",
+            "value": "Back to Title Screen"
+        },
+        {
+            "name": "EDFMenu_ReturnNoSave",
+            "type": "string",
+            "value": "You will be returned to the title screen. \nContinue?"
+        },
+        {
+            "name": "EDFMenu_Start",
+            "type": "string",
+            "value": "Start Mission"
+        },
+        {
+            "name": "EDFMenu_Status",
+            "type": "string",
+            "value": "View Battle History"
+        },
+        {
+            "name": "EDFMenu_SystemOption",
+            "type": "string",
+            "value": "System Settings"
+        },
+        {
+            "name": "EDFMenu_TitleBar",
+            "type": "string",
+            "value": "Headquarters"
+        },
+        {
+            "name": "EPIC_OWNERSHIP_FAILED",
+            "type": "string",
+            "value": "Your eligibility has expired."
+        },
+        {
+            "name": "Eos_FailedCrossplay_Caption",
+            "type": "string",
+            "value": "Error：Verify Integrity of Game Files"
+        },
+        {
+            "name": "Eos_FailedCrossplay_Text",
+            "type": "string",
+            "value": "The data files required to start %dq%Earth Defense Force 6%dq% are missing. Please verify the integrity of the game files.\nErrorCode: %d_%d"
+        },
+        {
+            "name": "EquipSel_Armor",
+            "type": "string",
+            "value": "Adjust Armor"
+        },
+        {
+            "name": "EquipSel_ArmorCurrent",
+            "type": "string",
+            "value": "Current Value:"
+        },
+        {
+            "name": "EquipSel_ArmorEdit",
+            "type": "string",
+            "value": "Change Armor"
+        },
+        {
+            "name": "EquipSel_ArmorLimit",
+            "type": "string",
+            "value": "Adjusting Armor"
+        },
+        {
+            "name": "EquipSel_ArmorMax",
+            "type": "string",
+            "value": "Maximum Value:"
+        },
+        {
+            "name": "EquipSel_ArmorMin",
+            "type": "string",
+            "value": "Minimum Value:"
+        },
+        {
+            "name": "EquipSel_ArmorNoLimit",
+            "type": "string",
+            "value": "Maximum"
+        },
+        {
+            "name": "EquipSel_ArmorSetMin",
+            "type": "string",
+            "value": "Minimum"
+        },
+        {
+            "name": "EquipSel_Custom",
+            "type": "string",
+            "value": "Change Color"
+        },
+        {
+            "name": "EquipSel_Title",
+            "type": "string",
+            "value": "Class / Equipment"
+        },
+        {
+            "name": "EquipSel_WeaponContentWarning",
+            "type": "string",
+            "value": "Purchase %MPACKNAME% first to equip this weapon."
+        },
+        {
+            "name": "EquipSel_WeaponLevel",
+            "type": "string",
+            "value": "Weapon Level"
+        },
+        {
+            "name": "EquipSel_WeaponLv",
+            "type": "string",
+            "value": "Lv"
+        },
+        {
+            "name": "EquipSel_WeaponMultiWarning",
+            "type": "string",
+            "value": "Cannot equip two of the same weapons."
+        },
+        {
+            "name": "FilterSetting_Category",
+            "type": "string",
+            "value": "Category"
+        },
+        {
+            "name": "FilterSetting_info",
+            "type": "string",
+            "value": "Contents"
+        },
+        {
+            "name": "GameMode_Content",
+            "type": "string",
+            "value": "Select Content"
+        },
+        {
+            "name": "GameMode_DescOnlineScenario",
+            "type": "string",
+            "value": "Start online game. Up to four players can work together to complete a mission.\nThere will be no tutorial mission. Learn the controls in an offline game first."
+        },
+        {
+            "name": "GameMode_DescScenario",
+            "type": "string",
+            "value": "Start offline game. 1 player. Gather items, strengthen the player character, and clear all the missions.\n\nTutorial mission available at the beginning."
+        },
+        {
+            "name": "GameMode_DescTwoPlayers",
+            "type": "string",
+            "value": "Start two-player split-screen mode. You will need two controllers to play in this mode.\n\nTutorial mission available at the beginning."
+        },
+        {
+            "name": "GameMode_Desc_Offline_MissionPack01",
+            "type": "string",
+            "value": "Lost Days\n\nPlay the Mission Pack 1 offline. Take on super hard missions. Play the game on hard difficulty to receive a new weapon."
+        },
+        {
+            "name": "GameMode_Desc_Offline_MissionPack02",
+            "type": "string",
+            "value": "Visions of Malice\n\nPlay the Mission Pack 2 offline. Take on the challenges of combat training simulator that are managed and operated by the Strategic Information Division. Play the game on a hard difficulty to receive a new weapon."
+        },
+        {
+            "name": "GameMode_Desc_Online_MissionPack01",
+            "type": "string",
+            "value": "Lost Days\n\nPlay the Mission Pack 1 online. Take on super hard missions. Play the game on hard difficulty to receive a new weapon."
+        },
+        {
+            "name": "GameMode_Desc_Online_MissionPack02",
+            "type": "string",
+            "value": "Visions of Malice\n\nPlay the Mission Pack 2 online. Take on the challenges of combat training simulator that are managed and operated by the Strategic Information Division. Play the game on a hard difficulty to receive a new weapon."
+        },
+        {
+            "name": "GameMode_NoSignin",
+            "type": "string",
+            "value": "You're not signed in. \nYou will be returned to the title screen."
+        },
+        {
+            "name": "GameMode_Offline_MissionPack01",
+            "type": "string",
+            "value": "Mission Pack 1 Offline"
+        },
+        {
+            "name": "GameMode_Offline_MissionPack02",
+            "type": "string",
+            "value": "Mission Pack 2 Offline"
+        },
+        {
+            "name": "GameMode_OnlineFailed",
+            "type": "string",
+            "value": "Unable to connect to the Internet. \nYou will be returned to the title screen."
+        },
+        {
+            "name": "GameMode_OnlineScenario",
+            "type": "string",
+            "value": "Online Mission Mode"
+        },
+        {
+            "name": "GameMode_Online_MissionPack01",
+            "type": "string",
+            "value": "Mission Pack 1 Online"
+        },
+        {
+            "name": "GameMode_Online_MissionPack02",
+            "type": "string",
+            "value": "Mission Pack 2 Online"
+        },
+        {
+            "name": "GameMode_Player2Assign",
+            "type": "string",
+            "value": "Press the START button on the controller of Player 2."
+        },
+        {
+            "name": "GameMode_Player2Assign_PS4Controller",
+            "type": "string",
+            "value": "Press the OPTIONS button on the controller of Player 2."
+        },
+        {
+            "name": "GameMode_Player2Assign_SwitchProController",
+            "type": "string",
+            "value": "Press the ＋ button on the controller of Player 2."
+        },
+        {
+            "name": "GameMode_SaveSlot",
+            "type": "string",
+            "value": "Select Slot"
+        },
+        {
+            "name": "GameMode_Scenario",
+            "type": "string",
+            "value": "Offline Mission Mode"
+        },
+        {
+            "name": "GameMode_Title",
+            "type": "string",
+            "value": "Select Game Mode"
+        },
+        {
+            "name": "GameMode_TwoPlayers",
+            "type": "string",
+            "value": "2 Player Split-Screen Mode"
+        },
+        {
+            "name": "GameMode_Versus",
+            "type": "string",
+            "value": "Versus Mode"
+        },
+        {
+            "name": "GameMode_Warning2Player",
+            "type": "string",
+            "value": "Achievements earned by Player 2 will be reflected in Player 1's achievements."
+        },
+        {
+            "name": "GameOver_Exit",
+            "type": "string",
+            "value": "Retreat"
+        },
+        {
+            "name": "GameOver_HostWait",
+            "type": "string",
+            "value": "Waiting for the host player to make a selection.\nYou can also return to the lobby with the START button."
+        },
+        {
+            "name": "GameOver_HostWait_Keyboard",
+            "type": "string",
+            "value": "Waiting for the host player to make a selection.\nYou can also return to the lobby with the Esc key."
+        },
+        {
+            "name": "GameOver_HostWait_PS4Controller",
+            "type": "string",
+            "value": "Waiting for the host player to make a selection.\nYou can also return to the lobby with the OPTIONS button."
+        },
+        {
+            "name": "GameOver_HostWait_SwitchProController",
+            "type": "string",
+            "value": "Waiting for the host player to make a selection.\nYou can also return to the lobby with the ＋ button."
+        },
+        {
+            "name": "GameOver_Retry",
+            "type": "string",
+            "value": "Restart Mission"
+        },
+        {
+            "name": "HUD_BOARD_RESCUE",
+            "type": "string",
+            "value": "Press the Vehicle/Rescue button to perform a rescue."
+        },
+        {
+            "name": "HUD_BOARD_VEHICLE_RIDE",
+            "type": "string",
+            "value": "Press the Vehicle/Rescue button to mount a vehicle."
+        },
+        {
+            "name": "INGAME_STORY_TEXT_M011",
+            "type": "string",
+            "value": "The Earth Defense Force 6\nbegins now."
+        },
+        {
+            "name": "INGAME_STORY_TEXT_M039",
+            "type": "string",
+            "value": "We go back in time,\nand the accident reoccurs.\nTime does not move forward.\n\nThe Earth Defense Force 7\nbegins now."
+        },
+        {
+            "name": "INGAME_STORY_TEXT_M055",
+            "type": "string",
+            "value": "Destroyed mobile base,\nbarely preventing a major enemy offensive.\n\n3 years later..."
+        },
+        {
+            "name": "INGAME_STORY_TEXT_M066",
+            "type": "string",
+            "value": "This cascade of light...\nIt's the same.\nBut...\nSomething's definitely off.\n\nThe Earth Defense Force 8\nbegins now."
+        },
+        {
+            "name": "INGAME_STORY_TEXT_M093_2",
+            "type": "string",
+            "value": "Humanity has won a series of major victories.\nAnd yet... the fighting continues.\n\n3 years later..."
+        },
+        {
+            "name": "INGAME_STORY_TEXT_M099",
+            "type": "string",
+            "value": "We succeeded.\nBut there is no guarantee that it won't happen again.\nStill...\nThere is hope.\nSurely...\n\nThe Earth Defense Force 9\nbegins now."
+        },
+        {
+            "name": "INGAME_STORY_TEXT_M116",
+            "type": "string",
+            "value": "Mothership Number 11 successfully destroyed.\nAnd yet...\nThe Primer continued to fight.\nAs though without fear of death.\n\n3 years later..."
+        },
+        {
+            "name": "INGAME_STORY_TEXT_RM081",
+            "type": "string",
+            "value": "Devastating attack by 10 motherships.\nAnd yet...\nHumans continued to fight.\nTo protect what was important to them.\n\n3 years later..."
+        },
+        {
+            "name": "InviteType_Desc",
+            "type": "string",
+            "value": "Members who can invite"
+        },
+        {
+            "name": "InviteType_Leader_Desc",
+            "type": "string",
+            "value": "Only the leader can send invitations"
+        },
+        {
+            "name": "InviteType_Member_Desc",
+            "type": "string",
+            "value": "All participants can send invitations"
+        },
+        {
+            "name": "InviteType_NoOne_Desc",
+            "type": "string",
+            "value": "No one can be invited"
+        },
+        {
+            "name": "Invite_Default",
+            "type": "string",
+            "value": "Calling all Earth Defense Force soldiers. The Earth is in danger. Prepare for immediate deployment!\n【%MODENAME%】\n【%MISSIONNAME%】\n【%DIFFICULTY%】"
+        },
+        {
+            "name": "Invite_Status",
+            "type": "string",
+            "value": "Playing %MODENAME%."
+        },
+        {
+            "name": "LevelSelect_Easy",
+            "type": "string",
+            "value": "EASY"
+        },
+        {
+            "name": "LevelSelect_Easy_Desc",
+            "type": "string",
+            "value": "Winning battles is a breeze in this mode, but you're unlikely to find any worthwhile weapons. Select this mode when a mission is too hard for you.\n\n[Friendly Fire Damage]\n\n10% of normal damage\nYour attacks don't knock your allies down."
+        },
+        {
+            "name": "LevelSelect_Hard",
+            "type": "string",
+            "value": "HARD"
+        },
+        {
+            "name": "LevelSelect_Hard_Desc",
+            "type": "string",
+            "value": "This mode is challenging. Try this mode after you have completed NORMAL mode, increased your Armor (HP) and obtained a respectable arsenal. \n\n[Friendly Fire Damage]\n\n50% of normal damage\nYour attacks don't knock your allies down."
+        },
+        {
+            "name": "LevelSelect_Hardest",
+            "type": "string",
+            "value": "HARDEST"
+        },
+        {
+            "name": "LevelSelect_Hardest_Desc",
+            "type": "string",
+            "value": "This is much harder than HARD mode. Winning requires not only high-end equipment, but well-honed skills. For experienced and confident players.\n\n[Friendly Fire Damage]\n\n75% of normal damage"
+        },
+        {
+            "name": "LevelSelect_Inferno",
+            "type": "string",
+            "value": "INFERNO"
+        },
+        {
+            "name": "LevelSelect_Inferno_Desc",
+            "type": "string",
+            "value": "A special difficulty, requiring exceptional gear, great skills and careful strategies. You don't have to play this mode.\n\n[Friendly Fire Damage]\n\n100% of normal damage"
+        },
+        {
+            "name": "LevelSelect_Normal",
+            "type": "string",
+            "value": "NORMAL"
+        },
+        {
+            "name": "LevelSelect_Normal_Desc",
+            "type": "string",
+            "value": "This is the regular difficulty. Try to complete this mode first.\n\n[Friendly Fire Damage]\n\n25% of normal damage\nYour attacks don't knock your allies down."
+        },
+        {
+            "name": "LoadSaveInfo_Day",
+            "type": "string",
+            "value": "/"
+        },
+        {
+            "name": "LoadSaveInfo_HH",
+            "type": "string",
+            "value": ":"
+        },
+        {
+            "name": "LoadSaveInfo_Hours",
+            "type": "string",
+            "value": "hours"
+        },
+        {
+            "name": "LoadSaveInfo_MM",
+            "type": "string",
+            "value": ":"
+        },
+        {
+            "name": "LoadSaveInfo_Month",
+            "type": "string",
+            "value": "/"
+        },
+        {
+            "name": "LoadSaveInfo_PlayTime",
+            "type": "string",
+            "value": "Gameplay Time"
+        },
+        {
+            "name": "LoadSaveInfo_SS",
+            "type": "string",
+            "value": ""
+        },
+        {
+            "name": "LoadSaveInfo_SaveTime",
+            "type": "string",
+            "value": "Save Date and Time"
+        },
+        {
+            "name": "LoadSaveInfo_Slot",
+            "type": "string",
+            "value": "Slot"
+        },
+        {
+            "name": "LoadSaveInfo_SlotCorrupt",
+            "type": "string",
+            "value": "Corrupted Data"
+        },
+        {
+            "name": "LoadSaveInfo_SlotCorruptDesc",
+            "type": "string",
+            "value": "The save data in this slot is corrupted."
+        },
+        {
+            "name": "LoadSaveInfo_SlotDesc",
+            "type": "string",
+            "value": "Continue the game where you left off."
+        },
+        {
+            "name": "LoadSaveInfo_SlotExistBackupDesc",
+            "type": "string",
+            "value": "The save data in this slot is corrupted. Press OK to restore from backup."
+        },
+        {
+            "name": "LoadSaveInfo_SlotNew",
+            "type": "string",
+            "value": "New"
+        },
+        {
+            "name": "LoadSaveInfo_SlotNewDesc",
+            "type": "string",
+            "value": "Start a new game."
+        },
+        {
+            "name": "LoadSaveInfo_Year",
+            "type": "string",
+            "value": ""
+        },
+        {
+            "name": "LoadSave_LoadNg",
+            "type": "string",
+            "value": "Loading failed."
+        },
+        {
+            "name": "LoadSave_SaveNg",
+            "type": "string",
+            "value": "Save failed."
+        },
+        {
+            "name": "Loading_Desc_001",
+            "type": "string",
+            "value": "Infantry special forces. Rangers are combat experts who can handle a wide range of weapons. They are also licensed to operate military vehicles on the battlefield.\n\n*This soldier class is the easiest to use and has the highest combat strength. If you are playing the game for the first time, you should start out by choosing this soldier class."
+        },
+        {
+            "name": "Loading_Desc_002",
+            "type": "string",
+            "value": "An all-female special forces unit equipped with jetpacks. They carry state-of-the-art energy weapons instead of ballistic weapons to reduce weight. They deal the most damage among all classes.\n\n*This soldier class is swift and deadly. However, their low HP (Armor) and defensive strength make them particularly susceptible to attacks."
+        },
+        {
+            "name": "Loading_Desc_003",
+            "type": "string",
+            "value": "A tactical soldier that is equipped with a communication system. The mission of the Air Raider is to work with the air force and provide coordinates for air strikes. The Air Raider annihilates the enemy by calling in bombers and gunships and designating attack targets. An Air Raider can even request vehicle drops.\n\n*This soldier class is for intermediate players. It has the potential to deal a lot of damage, but it has to find itself in certain optimal situations to do so. Because the main purpose of this soldier class is to assist allies, it is best suited for cooperative gameplay. You should probably select this soldier class after you've gained a certain degree of familiarity with the game."
+        },
+        {
+            "name": "Loading_Desc_004",
+            "type": "string",
+            "value": "A heavily armed soldier fully equipped with a powered exoskeleton. Thanks to their powered exoskeletons, this soldier class is capable of equipping enormous weapons. Also, this soldier class can carry separate weapons in both arms and wield both of them at the same time. \n\n*This soldier class is for advanced players. Its controls are different from those of other soldier classes, and playing this class well requires learning several new techniques. Mastery of this class will grant players terrifying power, but the path to mastery is very challenging."
+        },
+        {
+            "name": "Loading_Desc_005",
+            "type": "string",
+            "value": "You can aim even while you're being bitten. Aim at the enemy, and press the attack button to shoot. You can escape from an enemy that is biting you by defeating it."
+        },
+        {
+            "name": "Loading_Desc_006",
+            "type": "string",
+            "value": "You can switch weapons even while you're being bitten. Aim at the enemy, and attack! But remember that using explosives is dangerous. You may blow yourself up."
+        },
+        {
+            "name": "Loading_Desc_007",
+            "type": "string",
+            "value": "You can aim even when you've been caught in a net. Aim for the net and attack! You can escape by destroying the net. But remember that using explosives is dangerous. You may blow yourself up."
+        },
+        {
+            "name": "Loading_Desc_008",
+            "type": "string",
+            "value": "Aranea threads are extremely dangerous. If you are caught in an Aranea web, you will be pulled toward the Aranea with a tremendous force. The only way to save yourself from a web is to defeat the Aranea that created it."
+        },
+        {
+            "name": "Loading_Desc_009",
+            "type": "string",
+            "value": "Aranea use threads to pull in their prey, and they bind their prey with spider nets. If you get stuck in a net, you can escape from the net by destroying it."
+        },
+        {
+            "name": "Loading_Desc_010",
+            "type": "string",
+            "value": "Some vehicles can only be driven by Air Raiders and Rangers. The Fencers and Wing Divers have larger equipment and can't enter a pilot seat. Check the instruction manual for further details.\n\nOnly pilot seats have these restrictions. Gunner seats and compartment seats can be mounted by all classes."
+        },
+        {
+            "name": "Loading_Desc_011",
+            "type": "string",
+            "value": "Get close to ally soldiers with icons over their heads, and recruit them. The soldiers you recruit will fall under your command and will work together with you. If you recruit a team leader, the entire team will fall under your command."
+        },
+        {
+            "name": "Loading_Desc_012",
+            "type": "string",
+            "value": "By obtaining healing items, you can heal all the soldiers under your command. Try to team up as much as possible."
+        },
+        {
+            "name": "Loading_Desc_013",
+            "type": "string",
+            "value": "You can read the instruction manual under the Pause screen even during the game. Try to read through the manual. \n\nEach class has a special action. Read the instruction manual to utilize them."
+        },
+        {
+            "name": "Loading_Desc_014",
+            "type": "string",
+            "value": "A Ranger will put down the weapon when dashing in order to lower enemy awareness. Your mind will focus on your feet hence increasing the item collection range during dash. In addition, you can also increase collection range by equipping probes.\n\nYour enlarged item collection range will be indicated by a circle. You will automatically acquire the items within the circle."
+        },
+        {
+            "name": "Loading_Desc_015",
+            "type": "string",
+            "value": "Some weapons come with a laser sight. You can use it to confirm whether a target is within range. If a target is in range, a red dot will appear at the center of the reticle. If you are out of range, the red dot will not be displayed, and you will not be able to hit the target."
+        },
+        {
+            "name": "Loading_Desc_016",
+            "type": "string",
+            "value": "You have to use a beacon to designate the target when requesting a gunship attack. However, if the beacon doesn't land on a target within range, the attack will fail. You can use the laser sight to confirm whether a target is in range. If it is within range, a red dot will appear."
+        },
+        {
+            "name": "Loading_Desc_017",
+            "type": "string",
+            "value": "An icon will appear when another player is being bitten. If you see this icon, save the other player immediately. The other player will be free after you defeat the enemy that's taken a liking to them."
+        },
+        {
+            "name": "Loading_Desc_018",
+            "type": "string",
+            "value": "Some weapons used by Fencers have two functions. For example, if you have a Vibro Hammer in your right hand, not only can you use it to attack by pressing the right-hand attack button, you can also use it for a thrust-dash by pressing the right-hand equipment use button."
+        },
+        {
+            "name": "Loading_Desc_019",
+            "type": "string",
+            "value": "A Fencer's shield is an extremely powerful piece of equipment. However, shields do have their drawbacks. For example, while brandishing a shield, a Fencer's walking speed will be reduced, and shields can only be used to block attacks from the front. (The angles from which attacks can be blocked vary depending on the shield.)"
+        },
+        {
+            "name": "Loading_Desc_020",
+            "type": "string",
+            "value": "Even if you fail a mission, you will still acquire a certain amount of items. The amount of items received scales with difficulty.\n\nEASY: 100%\nNORMAL: 75%\nHARD: 50%\nHARDEST: 25%\nINFERNO: 0%"
+        },
+        {
+            "name": "Loading_Desc_021",
+            "type": "string",
+            "value": "To reload air raids and vehicle drop requests, you need 'credits'. You will get more credits as you defeat enemies. Enemies defeated by ally soldiers and other players will also count as credits."
+        },
+        {
+            "name": "Loading_Desc_022",
+            "type": "string",
+            "value": "When Wing Divers are knocked down, they can recover quickly by pressing the flight button. Be aware that this consumes Energy Gauge."
+        },
+        {
+            "name": "Loading_Desc_023",
+            "type": "string",
+            "value": "You cannot carry two of the same weapons. Only the Fencer can equip the same weapons."
+        },
+        {
+            "name": "Loading_Desc_024",
+            "type": "string",
+            "value": "The same weapons will perform differently. For example, Magazine Capacity and Damage can both be customized.\n\nYou can upgrade a weapon once you acquire two or more of the same kind. For further details, please read the instruction manual."
+        },
+        {
+            "name": "Loading_Desc_025",
+            "type": "string",
+            "value": "The Ranger's backpack tool lets you reload hand-held weapons without interruption. Use it for cover while reloading."
+        },
+        {
+            "name": "Loading_Desc_026",
+            "type": "string",
+            "value": "Androids are equipped with wired, ejectable knives in their hands.\nThey are powerful weapons, but they can be shot down before they hit.\nJust aim and fire away!"
+        },
+        {
+            "name": "Loading_Desc_027",
+            "type": "string",
+            "value": "When mankind discovered aliens, they built three submarine carriers.\nInvaders from space aren't likely to anticipate the perils of the deep sea―they thought―so perhaps the safest place to fight an alien war is underwater. With this in mind, the submarines' hulls, over a kilometer in length, were loaded with vast quantities of weapons and ammunition, food and medicine, and even plant seeds and DNA from living organisms.\nIn the event of an emergency, the ships would hide deep in the ocean, offering supplies to support the war effort over an extended period of time. In the unlikely event that humanity is wiped out, it will play an integral role in Earth's rebirth."
+        },
+        {
+            "name": "Loading_Desc_028",
+            "type": "string",
+            "value": "Giant Androids are protected by thick armor and cannot be easily destroyed. However, continuous attacks will damage the armor's surface. Aiming for the damaged areas can make them flinch."
+        },
+        {
+            "name": "Loading_Desc_029",
+            "type": "string",
+            "value": "The Kruul's shields are strong, but some weapons, such as grenades, can inflict extra damage. Keep an eye on your damage indicators.\nThat said, there's no guarantee that these weapons are truly effective. Get creative with your strategy!"
+        },
+        {
+            "name": "Loading_Desc_030",
+            "type": "string",
+            "value": "The giant android Cyclops has a big bullseye on its head. It's probably some sort of vision sensor, which is considered to be its only weak point. Don't bother attacking anywhere else!"
+        },
+        {
+            "name": "Loading_Desc_031",
+            "type": "string",
+            "value": "The Excavators, a subterranean drilling robot, is protected by armor. It has no tires or legs, and its weapons are stored within, leaving no weak points.\nBut when the Excavators attacks, its armor opens wide to reveal its weapons. A window of opportunity if there ever was one!"
+        },
+        {
+            "name": "Loading_Desc_032",
+            "type": "string",
+            "value": "A Scylla's deadliest weapon is the poison it sprays.\nThe poison appears as a tinted mist that surrounds the Scylla, lethal to all living creatures.\n\nThe denser (closer to the point of origin) the poison mist is, the more damage it causes.\nGet as far away from the Scylla as possible when it sprays!"
+        },
+        {
+            "name": "Loading_Desc_033",
+            "type": "string",
+            "value": "The Kraken is a fearsome creature %dq%armed%dq% with many tentacles.\nNot only can it manipulate two shields at once, but it can also extend and retract its tentacles to defend a wide area.\nHowever, its limbs are more fragile than its body.\nFirst, attack its shields. When the shields turn black, target the tentacles to disarm it."
+        },
+        {
+            "name": "Loading_Title_001",
+            "type": "string",
+            "value": "Ranger"
+        },
+        {
+            "name": "Loading_Title_002",
+            "type": "string",
+            "value": "Wing Diver"
+        },
+        {
+            "name": "Loading_Title_003",
+            "type": "string",
+            "value": "Air Raider"
+        },
+        {
+            "name": "Loading_Title_004",
+            "type": "string",
+            "value": "Fencer"
+        },
+        {
+            "name": "Loading_Title_005",
+            "type": "string",
+            "value": "Fight a Bite"
+        },
+        {
+            "name": "Loading_Title_006",
+            "type": "string",
+            "value": "Choosing the Proper Weapon"
+        },
+        {
+            "name": "Loading_Title_007",
+            "type": "string",
+            "value": "Fight to Escape from a Net"
+        },
+        {
+            "name": "Loading_Title_008",
+            "type": "string",
+            "value": "Beware of Aranea Threads"
+        },
+        {
+            "name": "Loading_Title_009",
+            "type": "string",
+            "value": "Don't Let Them Drag You Down"
+        },
+        {
+            "name": "Loading_Title_010",
+            "type": "string",
+            "value": "Pilot Seats Are Not for Everyone"
+        },
+        {
+            "name": "Loading_Title_011",
+            "type": "string",
+            "value": "Team Up with Allies"
+        },
+        {
+            "name": "Loading_Title_012",
+            "type": "string",
+            "value": "Heal Your Team"
+        },
+        {
+            "name": "Loading_Title_013",
+            "type": "string",
+            "value": "Instruction Manual Available During Gameplay"
+        },
+        {
+            "name": "Loading_Title_014",
+            "type": "string",
+            "value": "Increasing Item Collection Range"
+        },
+        {
+            "name": "Loading_Title_015",
+            "type": "string",
+            "value": "Using Laser Sight to Confirm Target Range"
+        },
+        {
+            "name": "Loading_Title_016",
+            "type": "string",
+            "value": "Using Laser Sight to Confirm Beacon Range"
+        },
+        {
+            "name": "Loading_Title_017",
+            "type": "string",
+            "value": "Save an Ally Who's Being Bitten"
+        },
+        {
+            "name": "Loading_Title_018",
+            "type": "string",
+            "value": "Dual-Use Weapons"
+        },
+        {
+            "name": "Loading_Title_019",
+            "type": "string",
+            "value": "Understand Shield Characteristics"
+        },
+        {
+            "name": "Loading_Title_020",
+            "type": "string",
+            "value": "Acquire Items Even When Mission Fails"
+        },
+        {
+            "name": "Loading_Title_021",
+            "type": "string",
+            "value": "Where Credits Are Due"
+        },
+        {
+            "name": "Loading_Title_022",
+            "type": "string",
+            "value": "Wing Diver's Fast Recovery"
+        },
+        {
+            "name": "Loading_Title_023",
+            "type": "string",
+            "value": "Cannot Carry Two of the Same Weapons"
+        },
+        {
+            "name": "Loading_Title_024",
+            "type": "string",
+            "value": "Upgrade Your Weapons"
+        },
+        {
+            "name": "Loading_Title_025",
+            "type": "string",
+            "value": "Putting the Backpack to Good Use"
+        },
+        {
+            "name": "Loading_Title_026",
+            "type": "string",
+            "value": "Knock off the Android's Arms"
+        },
+        {
+            "name": "Loading_Title_027",
+            "type": "string",
+            "value": "Submarine Carriers"
+        },
+        {
+            "name": "Loading_Title_028",
+            "type": "string",
+            "value": "Hit 'Em Where It Hurts"
+        },
+        {
+            "name": "Loading_Title_029",
+            "type": "string",
+            "value": "Damage to Kruul Shields"
+        },
+        {
+            "name": "Loading_Title_030",
+            "type": "string",
+            "value": "The Eyes Have It"
+        },
+        {
+            "name": "Loading_Title_031",
+            "type": "string",
+            "value": "Aim for the inside of the Excavator's armor"
+        },
+        {
+            "name": "Loading_Title_032",
+            "type": "string",
+            "value": "Stay away from Scylla!"
+        },
+        {
+            "name": "Loading_Title_033",
+            "type": "string",
+            "value": "Aim for the Kraken's Arms"
+        },
+        {
+            "name": "LobbyLanguageDesc_cn",
+            "type": "string",
+            "value": "Preferred chat language is set to Chinese (Traditional).\n(Filter applied when searching for rooms)\nOnly rooms with Chinese (Traditional) language setting will appear in the lobby."
+        },
+        {
+            "name": "LobbyLanguageDesc_en",
+            "type": "string",
+            "value": "Preferred chat language is set to English.\n(Filter applied when searching for rooms)\nOnly rooms with English language setting will appear in the lobby."
+        },
+        {
+            "name": "LobbyLanguageDesc_ja",
+            "type": "string",
+            "value": "Preferred chat language is set to Japanese.\n(Filter applied when searching for rooms)\nOnly rooms with Japanese language setting will appear in the lobby."
+        },
+        {
+            "name": "LobbyLanguageDesc_kr",
+            "type": "string",
+            "value": "Preferred chat language is set to Korean.\n(Filter applied when searching for rooms)\nOnly rooms with Korean language setting will appear in the lobby."
+        },
+        {
+            "name": "LobbyLanguageDesc_none",
+            "type": "string",
+            "value": "Preferred chat language not set."
+        },
+        {
+            "name": "LobbyLanguageDesc_sc",
+            "type": "string",
+            "value": "Preferred chat language is set to Chinese (Simplified).\n(Filter applied when searching for rooms)\nOnly rooms with Chinese (Simplified) language setting will appear in the lobby."
+        },
+        {
+            "name": "LobbyLanguageDisp_cn",
+            "type": "string",
+            "value": "Chinese (Traditional)"
+        },
+        {
+            "name": "LobbyLanguageDisp_en",
+            "type": "string",
+            "value": "English"
+        },
+        {
+            "name": "LobbyLanguageDisp_ja",
+            "type": "string",
+            "value": "Japanese"
+        },
+        {
+            "name": "LobbyLanguageDisp_kr",
+            "type": "string",
+            "value": "Korean"
+        },
+        {
+            "name": "LobbyLanguageDisp_none",
+            "type": "string",
+            "value": "All Languages"
+        },
+        {
+            "name": "LobbyLanguageDisp_sc",
+            "type": "string",
+            "value": "Chinese (Simplified)"
+        },
+        {
+            "name": "Lobby_ArmorCap",
+            "type": "string",
+            "value": "Armor Limit"
+        },
+        {
+            "name": "Lobby_Chat",
+            "type": "string",
+            "value": "Chat %IS_ENABLE%"
+        },
+        {
+            "name": "Lobby_ChatEnable",
+            "type": "string",
+            "value": "Chat"
+        },
+        {
+            "name": "Lobby_Chat_NotInvite",
+            "type": "string",
+            "value": "Because chat is restricted, you cannot join a room that allows chat. \nYou will be returned to the title screen."
+        },
+        {
+            "name": "Lobby_ContentsName",
+            "type": "string",
+            "value": "Mission Pack Name"
+        },
+        {
+            "name": "Lobby_CreateRoom",
+            "type": "string",
+            "value": "Create a Room"
+        },
+        {
+            "name": "Lobby_Difficulty",
+            "type": "string",
+            "value": "Difficulty"
+        },
+        {
+            "name": "Lobby_DisplayDLC",
+            "type": "string",
+            "value": "%MPACKNAME%"
+        },
+        {
+            "name": "Lobby_Equip",
+            "type": "string",
+            "value": "Select Weapon"
+        },
+        {
+            "name": "Lobby_Exit",
+            "type": "string",
+            "value": "Return to Title Screen"
+        },
+        {
+            "name": "Lobby_Exit_Confirmation",
+            "type": "string",
+            "value": "Return to the title screen?"
+        },
+        {
+            "name": "Lobby_Filter",
+            "type": "string",
+            "value": "Search for a Room"
+        },
+        {
+            "name": "Lobby_FixedPhrase1",
+            "type": "string",
+            "value": "Set Phrase 1"
+        },
+        {
+            "name": "Lobby_FixedPhrase2",
+            "type": "string",
+            "value": "Set Phrase 2"
+        },
+        {
+            "name": "Lobby_FreeWord",
+            "type": "string",
+            "value": "Open Message"
+        },
+        {
+            "name": "Lobby_HostName",
+            "type": "string",
+            "value": "Host Name"
+        },
+        {
+            "name": "Lobby_Join_Impossible",
+            "type": "string",
+            "value": "In order to play the HARDEST or INFERNO difficulties,\nyou will need to complete the final mission on\nEASY, NORMAL or HARD difficulty first.\n\n*You can play both difficulties if you have been invited or if you join an online session."
+        },
+        {
+            "name": "Lobby_MissionName",
+            "type": "string",
+            "value": "Mission Name"
+        },
+        {
+            "name": "Lobby_NotHaveContents",
+            "type": "string",
+            "value": "You cannot enter this room because you do not have the required content."
+        },
+        {
+            "name": "Lobby_OnRoom",
+            "type": "string",
+            "value": "Room"
+        },
+        {
+            "name": "Lobby_OnTime_Elapsed",
+            "type": "string",
+            "value": "%ONTIME% passed"
+        },
+        {
+            "name": "Lobby_OnTime_Hour",
+            "type": "string",
+            "value": "over 1 hour"
+        },
+        {
+            "name": "Lobby_OnTime_MinSec",
+            "type": "string",
+            "value": "%MIN% min(s) %SEC% sec(s)"
+        },
+        {
+            "name": "Lobby_OnTime_Sec",
+            "type": "string",
+            "value": "%SEC% sec(s)"
+        },
+        {
+            "name": "Lobby_Option",
+            "type": "string",
+            "value": "Game Settings"
+        },
+        {
+            "name": "Lobby_Party",
+            "type": "string",
+            "value": "Check Invite Messages"
+        },
+        {
+            "name": "Lobby_Refresh",
+            "type": "string",
+            "value": "Refresh"
+        },
+        {
+            "name": "Lobby_Refreshing",
+            "type": "string",
+            "value": "Refreshing..."
+        },
+        {
+            "name": "Lobby_RoomName",
+            "type": "string",
+            "value": "Room Name"
+        },
+        {
+            "name": "Lobby_RoomName_NoInput",
+            "type": "string",
+            "value": "Enter the room name you're looking for."
+        },
+        {
+            "name": "Lobby_RoomName_Search_Descript",
+            "type": "string",
+            "value": "Enter a Room Name"
+        },
+        {
+            "name": "Lobby_RoomName_Search_Title",
+            "type": "string",
+            "value": "Search by Room Name"
+        },
+        {
+            "name": "Lobby_Seach_PassCode",
+            "type": "string",
+            "value": "Room with Passcode"
+        },
+        {
+            "name": "Lobby_Seach_PassCode_Disable",
+            "type": "string",
+            "value": "No Display"
+        },
+        {
+            "name": "Lobby_Seach_PassCode_Enable",
+            "type": "string",
+            "value": "Display"
+        },
+        {
+            "name": "Lobby_SearchHeader_CHAT",
+            "type": "string",
+            "value": "Chat: %FILTER%"
+        },
+        {
+            "name": "Lobby_SearchHeader_PassCode",
+            "type": "string",
+            "value": "Passcode: %FILTER%"
+        },
+        {
+            "name": "Lobby_SearchHeader_UGC",
+            "type": "string",
+            "value": "Instant Rooms: %FILTER%"
+        },
+        {
+            "name": "Lobby_Search_ByFilter",
+            "type": "string",
+            "value": "Set Search Conditions"
+        },
+        {
+            "name": "Lobby_Search_ByFilter_Desc",
+            "type": "string",
+            "value": "Set conditions and start to search."
+        },
+        {
+            "name": "Lobby_Search_ByName",
+            "type": "string",
+            "value": "Search by Room Name"
+        },
+        {
+            "name": "Lobby_Search_ByName_Desc",
+            "type": "string",
+            "value": "Search by specific Room Name"
+        },
+        {
+            "name": "Lobby_Search_Clear",
+            "type": "string",
+            "value": "Clear Search Conditions"
+        },
+        {
+            "name": "Lobby_Search_Clear_Desc",
+            "type": "string",
+            "value": "Clear Search Conditions, and use default status to search."
+        },
+        {
+            "name": "Lobby_Search_Confirmation",
+            "type": "string",
+            "value": "Search for a Room"
+        },
+        {
+            "name": "Lobby_Search_Next",
+            "type": "string",
+            "value": "Show Next Room"
+        },
+        {
+            "name": "Lobby_Status",
+            "type": "string",
+            "value": "View Battle History"
+        },
+        {
+            "name": "Lobby_SystemOption",
+            "type": "string",
+            "value": "System Settings"
+        },
+        {
+            "name": "Lobby_Title",
+            "type": "string",
+            "value": "Lobby"
+        },
+        {
+            "name": "Lobby_UGC_NotInvite",
+            "type": "string",
+            "value": "You cannot enter non-Instant Rooms due to your preferences. You will be returned to the title screen."
+        },
+        {
+            "name": "Lobby_WarnWeaponEquip",
+            "type": "string",
+            "value": "%MPACKNAME% hasn't been purchased yet. You can still play it but you will not be able to equip newly acquired weapons.\nPurchase %MPACKNAME% to equip new weapons."
+        },
+        {
+            "name": "Lobby_WeaponCap",
+            "type": "string",
+            "value": "Weapon Level Limit"
+        },
+        {
+            "name": "Lobby_search_title",
+            "type": "string",
+            "value": "Keyword Search"
+        },
+        {
+            "name": "MODESAVEDATA_DETAIL",
+            "type": "string",
+            "value": "EDF6 Save Data File."
+        },
+        {
+            "name": "MODESAVEDATA_SUBTITLE",
+            "type": "string",
+            "value": "Earth Defense Force 6 save data slot"
+        },
+        {
+            "name": "MPack2_Message_M503",
+            "type": "string",
+            "value": "Do not leave your post.\nAny defectors will be punished."
+        },
+        {
+            "name": "Manual_Title",
+            "type": "string",
+            "value": "Manual"
+        },
+        {
+            "name": "Mission000_KeyName",
+            "type": "string",
+            "value": "%PAD%"
+        },
+        {
+            "name": "Mission000_KeyWarning",
+            "type": "string",
+            "value": "%BUTTON% button hasn’t been assigned yet.\nPlease assign %BUTTON% button in the Change Controls menu."
+        },
+        {
+            "name": "Mission000_Tuto0_AirRaider01",
+            "type": "string",
+            "value": "Left stick to move"
+        },
+        {
+            "name": "Mission000_Tuto0_AirRaider01_Keyboard",
+            "type": "string",
+            "value": "Move by pressing the %MOVE_UP%, %MOVE_DOWN%, %MOVE_LEFT%, %MOVE_RIGHT%"
+        },
+        {
+            "name": "Mission000_Tuto0_AirRaider01_Switch",
+            "type": "string",
+            "value": "Left Stick to move"
+        },
+        {
+            "name": "Mission000_Tuto0_AirRaider02",
+            "type": "string",
+            "value": "Right stick to change direction"
+        },
+        {
+            "name": "Mission000_Tuto0_AirRaider02_Keyboard",
+            "type": "string",
+            "value": "Move the mouse to change the orientation"
+        },
+        {
+            "name": "Mission000_Tuto0_AirRaider02_Switch",
+            "type": "string",
+            "value": "Right Stick to change direction"
+        },
+        {
+            "name": "Mission000_Tuto0_AirRaider03",
+            "type": "string",
+            "value": "Press %JUMP% to jump"
+        },
+        {
+            "name": "Mission000_Tuto0_Complete",
+            "type": "string",
+            "value": "You have learned the basic controls."
+        },
+        {
+            "name": "Mission000_Tuto0_Fencer01",
+            "type": "string",
+            "value": "Left stick to move"
+        },
+        {
+            "name": "Mission000_Tuto0_Fencer01_Keyboard",
+            "type": "string",
+            "value": "Move by pressing the %MOVE_UP%, %MOVE_DOWN%, %MOVE_LEFT%, %MOVE_RIGHT%"
+        },
+        {
+            "name": "Mission000_Tuto0_Fencer01_Switch",
+            "type": "string",
+            "value": "Left Stick to move"
+        },
+        {
+            "name": "Mission000_Tuto0_Fencer02",
+            "type": "string",
+            "value": "Right stick to change direction"
+        },
+        {
+            "name": "Mission000_Tuto0_Fencer02_Keyboard",
+            "type": "string",
+            "value": "Move the mouse to change the orientation"
+        },
+        {
+            "name": "Mission000_Tuto0_Fencer02_Switch",
+            "type": "string",
+            "value": "Right Stick to change direction"
+        },
+        {
+            "name": "Mission000_Tuto0_Fencer03",
+            "type": "string",
+            "value": "Press %MULTIWEAPON_JUMP% to jump"
+        },
+        {
+            "name": "Mission000_Tuto0_Ranger01",
+            "type": "string",
+            "value": "Left stick to move"
+        },
+        {
+            "name": "Mission000_Tuto0_Ranger01_Keyboard",
+            "type": "string",
+            "value": "Move by pressing the %MOVE_UP%, %MOVE_DOWN%, %MOVE_LEFT%, %MOVE_RIGHT%"
+        },
+        {
+            "name": "Mission000_Tuto0_Ranger01_Switch",
+            "type": "string",
+            "value": "Left Stick to move"
+        },
+        {
+            "name": "Mission000_Tuto0_Ranger02",
+            "type": "string",
+            "value": "Right stick to change direction"
+        },
+        {
+            "name": "Mission000_Tuto0_Ranger02_Keyboard",
+            "type": "string",
+            "value": "Move the mouse to change the orientation"
+        },
+        {
+            "name": "Mission000_Tuto0_Ranger02_Switch",
+            "type": "string",
+            "value": "Right Stick to change direction"
+        },
+        {
+            "name": "Mission000_Tuto0_Ranger03",
+            "type": "string",
+            "value": "Press %JUMP% to jump"
+        },
+        {
+            "name": "Mission000_Tuto0_WingDiver01",
+            "type": "string",
+            "value": "Left stick to move"
+        },
+        {
+            "name": "Mission000_Tuto0_WingDiver01_Keyboard",
+            "type": "string",
+            "value": "Move by pressing the %MOVE_UP%, %MOVE_DOWN%, %MOVE_LEFT%, %MOVE_RIGHT%"
+        },
+        {
+            "name": "Mission000_Tuto0_WingDiver01_Switch",
+            "type": "string",
+            "value": "Left Stick to move"
+        },
+        {
+            "name": "Mission000_Tuto0_WingDiver02",
+            "type": "string",
+            "value": "Right stick to change direction"
+        },
+        {
+            "name": "Mission000_Tuto0_WingDiver02_Keyboard",
+            "type": "string",
+            "value": "Move the mouse to change the orientation"
+        },
+        {
+            "name": "Mission000_Tuto0_WingDiver02_Switch",
+            "type": "string",
+            "value": "Right Stick to change direction"
+        },
+        {
+            "name": "Mission000_Tuto0_WingDiver03",
+            "type": "string",
+            "value": "Press %JUMP% to jump"
+        },
+        {
+            "name": "Mission000_Tuto0_WingDiver04",
+            "type": "string",
+            "value": "Hold %JUMP% to fly"
+        },
+        {
+            "name": "Mission000_Tuto1_AirRaider01",
+            "type": "string",
+            "value": "Press %PRIMARY_ATTACK% to discharge bombs"
+        },
+        {
+            "name": "Mission000_Tuto1_AirRaider02",
+            "type": "string",
+            "value": "Press %SECONDADY_ATTACK% to detonate\nMultishot (%PRIMARY_ATTACK%) and detonate (%SECONDADY_ATTACK%)\nDestroy 4 targets"
+        },
+        {
+            "name": "Mission000_Tuto1_AirRaider03",
+            "type": "string",
+            "value": "Press %RELOAD% to reload\nPress %RELOAD% to cancel bombs"
+        },
+        {
+            "name": "Mission000_Tuto1_AirRaider04",
+            "type": "string",
+            "value": "Press %CYCLE_WEAPON% to switch weapons\nAir Raiders can equip three weapons\nSome weapons cannot be used depending on the mission"
+        },
+        {
+            "name": "Mission000_Tuto1_AirRaider05",
+            "type": "string",
+            "value": "Eject a marker by pressing the %PRIMARY_ATTACK%\nA Multicopter will attack the marker's landing point\nDestroy all targets"
+        },
+        {
+            "name": "Mission000_Tuto1_AirRaider06",
+            "type": "string",
+            "value": "Move left/right and press %JUMP% at the same time to perform emergency avoidance"
+        },
+        {
+            "name": "Mission000_Tuto1_AirRaider07",
+            "type": "string",
+            "value": "Press %USE_SUB% to use the backpack equipment\nActivate Guard Capsule\nGuard Capsule will automatically attack the enemy"
+        },
+        {
+            "name": "Mission000_Tuto1_Client",
+            "type": "string",
+            "value": "Waiting for host's action."
+        },
+        {
+            "name": "Mission000_Tuto1_Complete",
+            "type": "string",
+            "value": "You have learned the attack controls."
+        },
+        {
+            "name": "Mission000_Tuto1_Fencer01",
+            "type": "string",
+            "value": "Press %MULTIWEAPON_PRIMARYATTACK1% to use right-hand weapon\nHold button to launch\nDestroy 4 targets"
+        },
+        {
+            "name": "Mission000_Tuto1_Fencer02",
+            "type": "string",
+            "value": "Press %MULTIWEAPON_PRIMARYATTACK2% to use left-hand weapon"
+        },
+        {
+            "name": "Mission000_Tuto1_Fencer03",
+            "type": "string",
+            "value": "Press %MULTIWEAPON_RELOAD% to reload"
+        },
+        {
+            "name": "Mission000_Tuto1_Fencer04",
+            "type": "string",
+            "value": "Press %MULTIWEAPON_CYCLEWEAPON% to switch weapons"
+        },
+        {
+            "name": "Mission000_Tuto1_Fencer05",
+            "type": "string",
+            "value": "Press %MULTIWEAPON_PRIMARYATTACK1% to use right-hand weapon\nDestroy all targets"
+        },
+        {
+            "name": "Mission000_Tuto1_Fencer06",
+            "type": "string",
+            "value": "Press %MULTIWEAPON_SECONDADYATTACK1% to use right-hand weapon's special action\n(Right-hand weapon's second function)"
+        },
+        {
+            "name": "Mission000_Tuto1_Fencer07",
+            "type": "string",
+            "value": "Press %MULTIWEAPON_SECONDADYATTACK2% to use left-hand weapon's special action\n(Left-hand weapon's second function)"
+        },
+        {
+            "name": "Mission000_Tuto1_Ranger01",
+            "type": "string",
+            "value": "Press %PRIMARY_ATTACK% to shoot　　Destroy 4 targets"
+        },
+        {
+            "name": "Mission000_Tuto1_Ranger02",
+            "type": "string",
+            "value": "Press %RELOAD% to reload"
+        },
+        {
+            "name": "Mission000_Tuto1_Ranger03",
+            "type": "string",
+            "value": "Press %CYCLE_WEAPON% to switch weapons"
+        },
+        {
+            "name": "Mission000_Tuto1_Ranger04",
+            "type": "string",
+            "value": "Press %PRIMARY_ATTACK% to shoot　　Destroy all targets"
+        },
+        {
+            "name": "Mission000_Tuto1_Ranger05",
+            "type": "string",
+            "value": "Move left/right and press %JUMP% at the same time to perform emergency avoidance"
+        },
+        {
+            "name": "Mission000_Tuto1_Ranger06",
+            "type": "string",
+            "value": "Press %SPECIAL_ACTION% to dash\nPut down your weapon during dash,\nfocus on your feet to widen the item collection range"
+        },
+        {
+            "name": "Mission000_Tuto1_Ranger07",
+            "type": "string",
+            "value": "Use backpack equipment with %USE_SUB%\nGrenades, etc. are usually carried in the backpack, not in the hand"
+        },
+        {
+            "name": "Mission000_Tuto1_WingDiver01",
+            "type": "string",
+            "value": "Hold %PRIMARY_ATTACK% to attack\nDestroy 4 targets"
+        },
+        {
+            "name": "Mission000_Tuto1_WingDiver02",
+            "type": "string",
+            "value": "Press %RELOAD% to reload"
+        },
+        {
+            "name": "Mission000_Tuto1_WingDiver03",
+            "type": "string",
+            "value": "Press %CYCLE_WEAPON% to switch weapons"
+        },
+        {
+            "name": "Mission000_Tuto1_WingDiver04",
+            "type": "string",
+            "value": "Hold %PRIMARY_ATTACK% to charge power\nRelease to fire continuously until the charged power is used up\nDestroy all targets"
+        },
+        {
+            "name": "Mission000_Tuto1_WingDiver05",
+            "type": "string",
+            "value": "Press %SPECIAL_ACTION% midair to thrust-boost\nCan be used on the ground, but with shortened distance\nThrust-boost increases item collection range"
+        },
+        {
+            "name": "Mission000_Tuto1_WingDiver06",
+            "type": "string",
+            "value": "Press %USE_SUB% to use independently operated equipment\nRuns on internal batteries and does not consume the flight unit's energy\nIndependently operated equipment can be reused after a certain amount of time"
+        },
+        {
+            "name": "Mission072_3_Balga_Control",
+            "type": "string",
+            "value": "Left stick:  Move\nRight stick: Change direction\n　　　　　　  Upper body back and forth\nLB, RB : Punch\nLT, RT : Stomp\n\nThe order in which LB and RB are pressed changes the way the arms swing."
+        },
+        {
+            "name": "Mission072_3_Balga_Control_Keyboard",
+            "type": "string",
+            "value": "%MOVE_UP%, %MOVE_DOWN%, %MOVE_LEFT%, %MOVE_RIGHT%: Movement\nMouse operation: change direction\n　　　　　　　　  Upper body forward/backward\n%BULGAATTACK2_1%, %BULGAATTACK1_1%: Punch\n%BULGAATTACK2_2%, %BULGAATTACK1_2%: Stomp\n\nThe order in which  %BULGAATTACK2_1% and %BULGAATTACK1_1% \nare pressed changes the way the arms swing."
+        },
+        {
+            "name": "Mission072_3_Balga_Control_PS",
+            "type": "string",
+            "value": "Left stick:  Move\nRight stick: Change direction\n　　　　　　  Upper body forward/backward\nL1, R1 : Punch\nL2, R2 : Stomp\n\nThe order in which L1 and R1 are pressed changes the way the arms swing."
+        },
+        {
+            "name": "Mission072_3_Balga_Control_Switch",
+            "type": "string",
+            "value": "Left Stick:  Move\nRight Stick: Change direction\n　　　　　　  Upper body forward/backward\nL, R　 : Punch\nZL, ZR : Stomp\n\nThe order in which L and R are pressed changes the way the arms swing."
+        },
+        {
+            "name": "MissionFailedResult_TitleBar",
+            "type": "string",
+            "value": "Result Failed"
+        },
+        {
+            "name": "MissionFailedResult_armor",
+            "type": "string",
+            "value": "Armor"
+        },
+        {
+            "name": "MissionFailedResult_tortal",
+            "type": "string",
+            "value": "Total"
+        },
+        {
+            "name": "MissionFailedResult_weapon",
+            "type": "string",
+            "value": "Weapon"
+        },
+        {
+            "name": "MissionPackName1",
+            "type": "string",
+            "value": "Mission Pack 1: Lost Days"
+        },
+        {
+            "name": "MissionPackName2",
+            "type": "string",
+            "value": "Mission Pack 2: Visions of Malice"
+        },
+        {
+            "name": "MissionResult_ArmorNum",
+            "type": "string",
+            "value": ""
+        },
+        {
+            "name": "MissionResult_ItemArmor",
+            "type": "string",
+            "value": "Armor (Raises HP)"
+        },
+        {
+            "name": "MissionResult_ItemWeapon",
+            "type": "string",
+            "value": "Weapons"
+        },
+        {
+            "name": "MissionResult_TitleBar",
+            "type": "string",
+            "value": "Items Acquired"
+        },
+        {
+            "name": "MissionSelectNotOpen",
+            "type": "string",
+            "value": "You cannot select this mission. You need to complete all the prior missions first."
+        },
+        {
+            "name": "MissionSelectTitleBar",
+            "type": "string",
+            "value": "Select Mission"
+        },
+        {
+            "name": "MissionSelect_Format",
+            "type": "string",
+            "value": "%NUM%.%TITLE%"
+        },
+        {
+            "name": "MissionSelect_NotOpenMissionDesc",
+            "type": "string",
+            "value": "???"
+        },
+        {
+            "name": "MissionSelect_NotOpenMissionTitle",
+            "type": "string",
+            "value": "???"
+        },
+        {
+            "name": "ModelIndexChgDlgMsg",
+            "type": "string",
+            "value": "Change Character Model"
+        },
+        {
+            "name": "ModelIndexEDF5Soldier",
+            "type": "string",
+            "value": "Soldier"
+        },
+        {
+            "name": "ModelIndexEDF5Trainee",
+            "type": "string",
+            "value": "Civilian"
+        },
+        {
+            "name": "ModelIndexMission",
+            "type": "string",
+            "value": "Follow the Mission"
+        },
+        {
+            "name": "ModelIndexSoldier",
+            "type": "string",
+            "value": "Up-and-Coming"
+        },
+        {
+            "name": "ModelIndexTrainee",
+            "type": "string",
+            "value": "Devastation"
+        },
+        {
+            "name": "Nickname_BlankText",
+            "type": "string",
+            "value": "Enter a name with at least one character."
+        },
+        {
+            "name": "Nickname_Confirm",
+            "type": "string",
+            "value": "Is this the name you want?"
+        },
+        {
+            "name": "Nickname_Default",
+            "type": "string",
+            "value": "Callsign"
+        },
+        {
+            "name": "Nickname_Desc",
+            "type": "string",
+            "value": "Enter your name.\nOther players will be able to see this name when you play online."
+        },
+        {
+            "name": "Nickname_TitleEdit",
+            "type": "string",
+            "value": "Edit Name"
+        },
+        {
+            "name": "Nickname_TitleNew",
+            "type": "string",
+            "value": "Name Entry"
+        },
+        {
+            "name": "NotifyAllMissionClear",
+            "type": "string",
+            "value": "You can now select HARDEST and INFERNO difficulties from your current save data."
+        },
+        {
+            "name": "OnlineError_RoomError",
+            "type": "string",
+            "value": "You were unable to join the room."
+        },
+        {
+            "name": "OnlineError_RoomFull",
+            "type": "string",
+            "value": "Because this room is full, you cannot join at this time."
+        },
+        {
+            "name": "OnlineError_RoomPassFailed",
+            "type": "string",
+            "value": "Wrong passcode.\nDo you want to try again?"
+        },
+        {
+            "name": "OnlineError_SearchFailed",
+            "type": "string",
+            "value": "Refresh failed."
+        },
+        {
+            "name": "OnlineSys_ArmorCapLock",
+            "type": "string",
+            "value": "The Armor limit has been changed to %VALUE1% or less (%SOLDIERTYPE%)."
+        },
+        {
+            "name": "OnlineSys_ArmorCapUnlock",
+            "type": "string",
+            "value": "The Armor limit has been removed."
+        },
+        {
+            "name": "OnlineSys_ContentChanged",
+            "type": "string",
+            "value": "The current mission pack was changed to %CONTENTNAME%."
+        },
+        {
+            "name": "OnlineSys_DifficultyChanged",
+            "type": "string",
+            "value": "The difficulty has been changed to %DIFFICULTY%."
+        },
+        {
+            "name": "OnlineSys_IndirectRequest",
+            "type": "string",
+            "value": "%PLAYERNAME1% has requested a %WEAPON_NAME%!"
+        },
+        {
+            "name": "OnlineSys_JoinRoom",
+            "type": "string",
+            "value": "%PLAYERNAME1% has entered the room."
+        },
+        {
+            "name": "OnlineSys_LeaveRoom",
+            "type": "string",
+            "value": "%PLAYERNAME1% has left the room."
+        },
+        {
+            "name": "OnlineSys_MissionChanged",
+            "type": "string",
+            "value": "The mission has been changed to %MISSIONNAME%."
+        },
+        {
+            "name": "OnlineSys_PlayerDown",
+            "type": "string",
+            "value": "%PLAYERNAME1% has been knocked out."
+        },
+        {
+            "name": "OnlineSys_PlayerOK",
+            "type": "string",
+            "value": "%PLAYERNAME1% has selected Mission Preparations Complete (%VALUE1%／%VALUE2%)."
+        },
+        {
+            "name": "OnlineSys_PlayerRescue",
+            "type": "string",
+            "value": "%PLAYERNAME2% succeeded in saving %PLAYERNAME1%."
+        },
+        {
+            "name": "OnlineSys_Plurally",
+            "type": "string",
+            "value": "x %NUM%"
+        },
+        {
+            "name": "OnlineSys_VehicleRequest",
+            "type": "string",
+            "value": "%PLAYERNAME1% has requested a %WEAPON_NAME%!"
+        },
+        {
+            "name": "OnlineSys_WeaponCapLock",
+            "type": "string",
+            "value": "The weapon level limit has been changed to %VALUE1% or less."
+        },
+        {
+            "name": "OnlineSys_WeaponCapUnlock",
+            "type": "string",
+            "value": "The weapon level limit has been removed."
+        },
+        {
+            "name": "Online_All_Post",
+            "type": "string",
+            "value": "All Members"
+        },
+        {
+            "name": "Online_Armor_Limit_None",
+            "type": "string",
+            "value": "－"
+        },
+        {
+            "name": "Online_Armor_Limit_Off",
+            "type": "string",
+            "value": "OFF"
+        },
+        {
+            "name": "Online_Armor_Limit_On",
+            "type": "string",
+            "value": "ON"
+        },
+        {
+            "name": "Online_DefaultFreeWord",
+            "type": "string",
+            "value": "You can enter a message to the participants."
+        },
+        {
+            "name": "Online_DefaultRoomName",
+            "type": "string",
+            "value": "%PLAYERNAME%'s Squad Quarters"
+        },
+        {
+            "name": "Online_Game_Disconnect",
+            "type": "string",
+            "value": "You have been disconnected from the session."
+        },
+        {
+            "name": "Online_Game_Exit",
+            "type": "string",
+            "value": "The host has chosen to retreat."
+        },
+        {
+            "name": "Online_Game_Retry",
+            "type": "string",
+            "value": "The host has chosen to restart the mission."
+        },
+        {
+            "name": "Online_History",
+            "type": "string",
+            "value": "You have played EDF 6 together."
+        },
+        {
+            "name": "Online_InvitationError",
+            "type": "string",
+            "value": "An error has occurred. Failed to connect to the invite servers. You cannot invite other players until it has been fixed."
+        },
+        {
+            "name": "Online_InvitationLeaderOnly",
+            "type": "string",
+            "value": "Only leaders can invite others to this room."
+        },
+        {
+            "name": "Online_InvitationNone",
+            "type": "string",
+            "value": "No one can be invited to this room."
+        },
+        {
+            "name": "Online_InvitationSteamError",
+            "type": "string",
+            "value": "Invitations cannot be sent via Steam from the current room."
+        },
+        {
+            "name": "Online_MaskString",
+            "type": "string",
+            "value": "Display not permitted."
+        },
+        {
+            "name": "Online_NameVerify",
+            "type": "string",
+            "value": "Preparing for online gameplay."
+        },
+        {
+            "name": "Online_NameVerifyError",
+            "type": "string",
+            "value": "The player name contains words that cannot be used. \nTo play online, you will need to change your name."
+        },
+        {
+            "name": "Online_NoInput_Warning",
+            "type": "string",
+            "value": "The controls have not been used for a while. If there continues to be no controller input,\nyou will be removed from the room."
+        },
+        {
+            "name": "Online_NotHaveContents",
+            "type": "string",
+            "value": "You do not have this content."
+        },
+        {
+            "name": "Online_PT_Already",
+            "type": "string",
+            "value": "You do not need this message."
+        },
+        {
+            "name": "Online_PT_Invitation",
+            "type": "string",
+            "value": "You cannot use the Play Together feature\nsince you have accepted an invitation."
+        },
+        {
+            "name": "Online_PT_InvitationFailed",
+            "type": "string",
+            "value": "A connection error with the server has occurred.\nYou cannot use the Play Together feature until it has been fixed."
+        },
+        {
+            "name": "Online_PT_RequireExitRoom",
+            "type": "string",
+            "value": "You cannot use the Play Together feature\nsince you have already joined a room.\nPlease leave the room and try again."
+        },
+        {
+            "name": "Online_Phrase_None",
+            "type": "string",
+            "value": "No setting"
+        },
+        {
+            "name": "Online_PlayerTag_2P",
+            "type": "string",
+            "value": "Player 2"
+        },
+        {
+            "name": "Online_StringVerify",
+            "type": "string",
+            "value": "Checking message content."
+        },
+        {
+            "name": "Online_StringVerifyError",
+            "type": "string",
+            "value": "%INPUTWORD%\nThe characters you entered contain words that cannot be used."
+        },
+        {
+            "name": "Online_StringVerify_ServerErr",
+            "type": "string",
+            "value": "A communication error has occurred."
+        },
+        {
+            "name": "Online_Syncing",
+            "type": "string",
+            "value": "Matching now..."
+        },
+        {
+            "name": "Online_UGC_Freeword",
+            "type": "string",
+            "value": ""
+        },
+        {
+            "name": "Online_UGC_RoomName",
+            "type": "string",
+            "value": "Instant Room"
+        },
+        {
+            "name": "Online_Weapon_Limit_None",
+            "type": "string",
+            "value": "－"
+        },
+        {
+            "name": "Online_Weapon_Limit_Off",
+            "type": "string",
+            "value": "OFF"
+        },
+        {
+            "name": "Online_Weapon_Limit_On",
+            "type": "string",
+            "value": "ON"
+        },
+        {
+            "name": "OptionPlayer_A",
+            "type": "string",
+            "value": "A Button"
+        },
+        {
+            "name": "OptionPlayer_A_PS4Controller",
+            "type": "string",
+            "value": "× Button"
+        },
+        {
+            "name": "OptionPlayer_A_SwitchProController",
+            "type": "string",
+            "value": "B Button"
+        },
+        {
+            "name": "OptionPlayer_B",
+            "type": "string",
+            "value": "B Button"
+        },
+        {
+            "name": "OptionPlayer_B_PS4Controller",
+            "type": "string",
+            "value": "○ Button"
+        },
+        {
+            "name": "OptionPlayer_B_SwitchProController",
+            "type": "string",
+            "value": "A Button"
+        },
+        {
+            "name": "OptionPlayer_Back",
+            "type": "string",
+            "value": "BACK Button"
+        },
+        {
+            "name": "OptionPlayer_Back_PS4Controller",
+            "type": "string",
+            "value": "SHARE Button"
+        },
+        {
+            "name": "OptionPlayer_Back_SwitchProController",
+            "type": "string",
+            "value": "- Button"
+        },
+        {
+            "name": "OptionPlayer_Boost",
+            "type": "string",
+            "value": "Boost"
+        },
+        {
+            "name": "OptionPlayer_CallManual",
+            "type": "string",
+            "value": "Read Instruction Manual"
+        },
+        {
+            "name": "OptionPlayer_CallVehicle",
+            "type": "string",
+            "value": "Summon Vehicle"
+        },
+        {
+            "name": "OptionPlayer_CameraEffect",
+            "type": "string",
+            "value": "Camera Effects"
+        },
+        {
+            "name": "OptionPlayer_ChatCustomize",
+            "type": "string",
+            "value": "Change Chat Shortcut"
+        },
+        {
+            "name": "OptionPlayer_ConfirmDefault",
+            "type": "string",
+            "value": "Are you sure you want to return to the default settings?"
+        },
+        {
+            "name": "OptionPlayer_ControlType",
+            "type": "string",
+            "value": "Control Type"
+        },
+        {
+            "name": "OptionPlayer_Dash",
+            "type": "string",
+            "value": "Dash"
+        },
+        {
+            "name": "OptionPlayer_Default",
+            "type": "string",
+            "value": "Restore Default"
+        },
+        {
+            "name": "OptionPlayer_DemoSkip",
+            "type": "string",
+            "value": "Skip Cutscenes"
+        },
+        {
+            "name": "OptionPlayer_DisplayIdTag",
+            "type": "string",
+            "value": "Display Platform ID"
+        },
+        {
+            "name": "OptionPlayer_Dpad",
+            "type": "string",
+            "value": "Directional Pad"
+        },
+        {
+            "name": "OptionPlayer_Dpad_Keyboard",
+            "type": "string",
+            "value": "Cursor Keys"
+        },
+        {
+            "name": "OptionPlayer_Dpad_PS4Controller",
+            "type": "string",
+            "value": "Directional Keys"
+        },
+        {
+            "name": "OptionPlayer_Dpad_SwitchProController",
+            "type": "string",
+            "value": "Directional Buttons"
+        },
+        {
+            "name": "OptionPlayer_FencerAttack1_1",
+            "type": "string",
+            "value": "Attack - R. Hand"
+        },
+        {
+            "name": "OptionPlayer_FencerAttack1_2",
+            "type": "string",
+            "value": "Use - R. Hand"
+        },
+        {
+            "name": "OptionPlayer_FencerAttack2_1",
+            "type": "string",
+            "value": "Attack - L. Hand"
+        },
+        {
+            "name": "OptionPlayer_FencerAttack2_2",
+            "type": "string",
+            "value": "Use - L. Hand"
+        },
+        {
+            "name": "OptionPlayer_FencerJump",
+            "type": "string",
+            "value": "Jump"
+        },
+        {
+            "name": "OptionPlayer_FencerReload",
+            "type": "string",
+            "value": "Reload"
+        },
+        {
+            "name": "OptionPlayer_FencerRideRescue",
+            "type": "string",
+            "value": "Vehicle/Rescue"
+        },
+        {
+            "name": "OptionPlayer_FencerSpecialAction",
+            "type": "string",
+            "value": "Shield Reload"
+        },
+        {
+            "name": "OptionPlayer_FencerSpot",
+            "type": "string",
+            "value": "Location Marking"
+        },
+        {
+            "name": "OptionPlayer_FencerWeaponSelect",
+            "type": "string",
+            "value": "Switch Weapons"
+        },
+        {
+            "name": "OptionPlayer_ForceResetKey",
+            "type": "string",
+            "value": "Duplicate key settings. Duplicate key assignment has been disabled."
+        },
+        {
+            "name": "OptionPlayer_Key0",
+            "type": "string",
+            "value": "0 key"
+        },
+        {
+            "name": "OptionPlayer_Key1",
+            "type": "string",
+            "value": "1 key"
+        },
+        {
+            "name": "OptionPlayer_Key2",
+            "type": "string",
+            "value": "2 key"
+        },
+        {
+            "name": "OptionPlayer_Key3",
+            "type": "string",
+            "value": "3 key"
+        },
+        {
+            "name": "OptionPlayer_Key4",
+            "type": "string",
+            "value": "4 key"
+        },
+        {
+            "name": "OptionPlayer_Key5",
+            "type": "string",
+            "value": "5 key"
+        },
+        {
+            "name": "OptionPlayer_Key6",
+            "type": "string",
+            "value": "6 key"
+        },
+        {
+            "name": "OptionPlayer_Key7",
+            "type": "string",
+            "value": "7 key"
+        },
+        {
+            "name": "OptionPlayer_Key8",
+            "type": "string",
+            "value": "8 key"
+        },
+        {
+            "name": "OptionPlayer_Key9",
+            "type": "string",
+            "value": "9 key"
+        },
+        {
+            "name": "OptionPlayer_KeyA",
+            "type": "string",
+            "value": "A key"
+        },
+        {
+            "name": "OptionPlayer_KeyAlreadyChosen",
+            "type": "string",
+            "value": "The specified key is assigned to another operation.\nDo you want to remove the assigned key?"
+        },
+        {
+            "name": "OptionPlayer_KeyAt",
+            "type": "string",
+            "value": "@ key"
+        },
+        {
+            "name": "OptionPlayer_KeyB",
+            "type": "string",
+            "value": "B key"
+        },
+        {
+            "name": "OptionPlayer_KeyBackSpace",
+            "type": "string",
+            "value": "Back Space"
+        },
+        {
+            "name": "OptionPlayer_KeyBracketsL",
+            "type": "string",
+            "value": "[ key"
+        },
+        {
+            "name": "OptionPlayer_KeyBracketsR",
+            "type": "string",
+            "value": "] key"
+        },
+        {
+            "name": "OptionPlayer_KeyC",
+            "type": "string",
+            "value": "C key"
+        },
+        {
+            "name": "OptionPlayer_KeyCantChange",
+            "type": "string",
+            "value": "The specified key is assigned to a common operation and cannot be changed."
+        },
+        {
+            "name": "OptionPlayer_KeyCaret",
+            "type": "string",
+            "value": "^ key"
+        },
+        {
+            "name": "OptionPlayer_KeyColon",
+            "type": "string",
+            "value": ": key"
+        },
+        {
+            "name": "OptionPlayer_KeyComma",
+            "type": "string",
+            "value": ", key"
+        },
+        {
+            "name": "OptionPlayer_KeyConfig",
+            "type": "string",
+            "value": "Change Controls"
+        },
+        {
+            "name": "OptionPlayer_KeyConfigBulga",
+            "type": "string",
+            "value": "Change Barga Operation"
+        },
+        {
+            "name": "OptionPlayer_KeyConfigCombat",
+            "type": "string",
+            "value": "Change Combat Frame Operation"
+        },
+        {
+            "name": "OptionPlayer_KeyConfigCommon",
+            "type": "string",
+            "value": "Change Common Operation"
+        },
+        {
+            "name": "OptionPlayer_KeyConfigDepth",
+            "type": "string",
+            "value": "Change Depth Crawler Operation"
+        },
+        {
+            "name": "OptionPlayer_KeyConfigDesc",
+            "type": "string",
+            "value": "Press any button you'd like to assign."
+        },
+        {
+            "name": "OptionPlayer_KeyConfigDrive",
+            "type": "string",
+            "value": "Change Vehicle (B) Operation"
+        },
+        {
+            "name": "OptionPlayer_KeyConfigHeli",
+            "type": "string",
+            "value": "Change Helicopter Operation"
+        },
+        {
+            "name": "OptionPlayer_KeyConfigTanks",
+            "type": "string",
+            "value": "Change Combat Vehicle Operation"
+        },
+        {
+            "name": "OptionPlayer_KeyConfigVehicle",
+            "type": "string",
+            "value": "Change Vehicle (A) Operation"
+        },
+        {
+            "name": "OptionPlayer_KeyConfig_AirRaider",
+            "type": "string",
+            "value": "Change Air Raider Controls"
+        },
+        {
+            "name": "OptionPlayer_KeyConfig_Fencer",
+            "type": "string",
+            "value": "Change Fencer Controls"
+        },
+        {
+            "name": "OptionPlayer_KeyConfig_Ranger",
+            "type": "string",
+            "value": "Change Ranger Controls"
+        },
+        {
+            "name": "OptionPlayer_KeyConfig_WingDiver",
+            "type": "string",
+            "value": "Change Wing Diver Controls"
+        },
+        {
+            "name": "OptionPlayer_KeyControlL",
+            "type": "string",
+            "value": "Left Ctrl"
+        },
+        {
+            "name": "OptionPlayer_KeyControlR",
+            "type": "string",
+            "value": "Right Ctrl"
+        },
+        {
+            "name": "OptionPlayer_KeyD",
+            "type": "string",
+            "value": "D key"
+        },
+        {
+            "name": "OptionPlayer_KeyDelete",
+            "type": "string",
+            "value": "Delete"
+        },
+        {
+            "name": "OptionPlayer_KeyE",
+            "type": "string",
+            "value": "E key"
+        },
+        {
+            "name": "OptionPlayer_KeyEnd",
+            "type": "string",
+            "value": "End"
+        },
+        {
+            "name": "OptionPlayer_KeyF",
+            "type": "string",
+            "value": "F key"
+        },
+        {
+            "name": "OptionPlayer_KeyG",
+            "type": "string",
+            "value": "G key"
+        },
+        {
+            "name": "OptionPlayer_KeyH",
+            "type": "string",
+            "value": "H key"
+        },
+        {
+            "name": "OptionPlayer_KeyHome",
+            "type": "string",
+            "value": "Home"
+        },
+        {
+            "name": "OptionPlayer_KeyHyphen",
+            "type": "string",
+            "value": "- key"
+        },
+        {
+            "name": "OptionPlayer_KeyI",
+            "type": "string",
+            "value": "I key"
+        },
+        {
+            "name": "OptionPlayer_KeyInsert",
+            "type": "string",
+            "value": "Insert"
+        },
+        {
+            "name": "OptionPlayer_KeyJ",
+            "type": "string",
+            "value": "J key"
+        },
+        {
+            "name": "OptionPlayer_KeyK",
+            "type": "string",
+            "value": "K key"
+        },
+        {
+            "name": "OptionPlayer_KeyL",
+            "type": "string",
+            "value": "L key"
+        },
+        {
+            "name": "OptionPlayer_KeyM",
+            "type": "string",
+            "value": "M key"
+        },
+        {
+            "name": "OptionPlayer_KeyN",
+            "type": "string",
+            "value": "N key"
+        },
+        {
+            "name": "OptionPlayer_KeyNum0",
+            "type": "string",
+            "value": "Num 0 key"
+        },
+        {
+            "name": "OptionPlayer_KeyNum1",
+            "type": "string",
+            "value": "Num 1 key"
+        },
+        {
+            "name": "OptionPlayer_KeyNum2",
+            "type": "string",
+            "value": "Num 2 key"
+        },
+        {
+            "name": "OptionPlayer_KeyNum3",
+            "type": "string",
+            "value": "Num 3 key"
+        },
+        {
+            "name": "OptionPlayer_KeyNum4",
+            "type": "string",
+            "value": "Num 4 key"
+        },
+        {
+            "name": "OptionPlayer_KeyNum5",
+            "type": "string",
+            "value": "Num 5 key"
+        },
+        {
+            "name": "OptionPlayer_KeyNum6",
+            "type": "string",
+            "value": "Num 6 key"
+        },
+        {
+            "name": "OptionPlayer_KeyNum7",
+            "type": "string",
+            "value": "Num 7 key"
+        },
+        {
+            "name": "OptionPlayer_KeyNum8",
+            "type": "string",
+            "value": "Num 8 key"
+        },
+        {
+            "name": "OptionPlayer_KeyNum9",
+            "type": "string",
+            "value": "Num 9 key"
+        },
+        {
+            "name": "OptionPlayer_KeyO",
+            "type": "string",
+            "value": "O key"
+        },
+        {
+            "name": "OptionPlayer_KeyP",
+            "type": "string",
+            "value": "P key"
+        },
+        {
+            "name": "OptionPlayer_KeyPageDown",
+            "type": "string",
+            "value": "PgDn"
+        },
+        {
+            "name": "OptionPlayer_KeyPageUp",
+            "type": "string",
+            "value": "PgUp"
+        },
+        {
+            "name": "OptionPlayer_KeyPeriod",
+            "type": "string",
+            "value": ". Key"
+        },
+        {
+            "name": "OptionPlayer_KeyQ",
+            "type": "string",
+            "value": "Q key"
+        },
+        {
+            "name": "OptionPlayer_KeyR",
+            "type": "string",
+            "value": "R key"
+        },
+        {
+            "name": "OptionPlayer_KeyS",
+            "type": "string",
+            "value": "S key"
+        },
+        {
+            "name": "OptionPlayer_KeySemicolon",
+            "type": "string",
+            "value": "; key"
+        },
+        {
+            "name": "OptionPlayer_KeyShiftL",
+            "type": "string",
+            "value": "Left Shift"
+        },
+        {
+            "name": "OptionPlayer_KeyShiftR",
+            "type": "string",
+            "value": "Right Shift"
+        },
+        {
+            "name": "OptionPlayer_KeySpace",
+            "type": "string",
+            "value": "Space"
+        },
+        {
+            "name": "OptionPlayer_KeyT",
+            "type": "string",
+            "value": "T key"
+        },
+        {
+            "name": "OptionPlayer_KeyU",
+            "type": "string",
+            "value": "U key"
+        },
+        {
+            "name": "OptionPlayer_KeyV",
+            "type": "string",
+            "value": "V key"
+        },
+        {
+            "name": "OptionPlayer_KeyW",
+            "type": "string",
+            "value": "W key"
+        },
+        {
+            "name": "OptionPlayer_KeyX",
+            "type": "string",
+            "value": "X key"
+        },
+        {
+            "name": "OptionPlayer_KeyY",
+            "type": "string",
+            "value": "Y key"
+        },
+        {
+            "name": "OptionPlayer_KeyYen",
+            "type": "string",
+            "value": "\\ key"
+        },
+        {
+            "name": "OptionPlayer_KeyZ",
+            "type": "string",
+            "value": "Z key"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBaseChat",
+            "type": "string",
+            "value": "Chat Window"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBaseDown",
+            "type": "string",
+            "value": "Move - ↓"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBaseLeft",
+            "type": "string",
+            "value": "Move - ←"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBaseRideRescue",
+            "type": "string",
+            "value": "Board/Rescue"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBaseRight",
+            "type": "string",
+            "value": "Move - →"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBaseShotcut",
+            "type": "string",
+            "value": "Canned Text Shortcut"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBaseSpot",
+            "type": "string",
+            "value": "Location Marking"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBaseUp",
+            "type": "string",
+            "value": "Move - ↑"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBaseVoiceChat",
+            "type": "string",
+            "value": "Voice Chat"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBaseWeaponShotcut1",
+            "type": "string",
+            "value": "Weapon Shortcut 1"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBaseWeaponShotcut2",
+            "type": "string",
+            "value": "Weapon Shortcut 2"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBaseWeaponShotcut3",
+            "type": "string",
+            "value": "Weapon Shortcut 3"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBoost",
+            "type": "string",
+            "value": "Boost"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBulgaAttack1_1",
+            "type": "string",
+            "value": "Punch - Right Hand"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBulgaAttack1_2",
+            "type": "string",
+            "value": "Stamp - Right Foot"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBulgaAttack2_1",
+            "type": "string",
+            "value": "Punch - Left Hand"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBulgaAttack2_2",
+            "type": "string",
+            "value": "Stamp - Left Foot"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBulgaSpecialAttack",
+            "type": "string",
+            "value": "Special Attacks"
+        },
+        {
+            "name": "OptionPlayer_KeyboardBulgaSpecialPose",
+            "type": "string",
+            "value": "Special Pose"
+        },
+        {
+            "name": "OptionPlayer_KeyboardCallVehicle",
+            "type": "string",
+            "value": "Call Vehicles"
+        },
+        {
+            "name": "OptionPlayer_KeyboardCombatAttack1_1",
+            "type": "string",
+            "value": "Attack - Right Hand"
+        },
+        {
+            "name": "OptionPlayer_KeyboardCombatAttack1_2",
+            "type": "string",
+            "value": "Attack - Right Shoulder"
+        },
+        {
+            "name": "OptionPlayer_KeyboardCombatAttack2_1",
+            "type": "string",
+            "value": "Attack - Left Hand"
+        },
+        {
+            "name": "OptionPlayer_KeyboardCombatAttack2_2",
+            "type": "string",
+            "value": "Attack - Left Shoulder"
+        },
+        {
+            "name": "OptionPlayer_KeyboardCombatJump",
+            "type": "string",
+            "value": "Jump"
+        },
+        {
+            "name": "OptionPlayer_KeyboardDash",
+            "type": "string",
+            "value": "Sprint"
+        },
+        {
+            "name": "OptionPlayer_KeyboardDepthAttack1_1",
+            "type": "string",
+            "value": "Bombard - Right"
+        },
+        {
+            "name": "OptionPlayer_KeyboardDepthAttack2_1",
+            "type": "string",
+            "value": "Bombard - Left"
+        },
+        {
+            "name": "OptionPlayer_KeyboardDepthAvoid",
+            "type": "string",
+            "value": "Emergency Avoidance"
+        },
+        {
+            "name": "OptionPlayer_KeyboardDepthGatling",
+            "type": "string",
+            "value": "Gatling"
+        },
+        {
+            "name": "OptionPlayer_KeyboardDepthJump",
+            "type": "string",
+            "value": "Jump"
+        },
+        {
+            "name": "OptionPlayer_KeyboardDriveAcccel",
+            "type": "string",
+            "value": "Accelerate"
+        },
+        {
+            "name": "OptionPlayer_KeyboardDriveAttack",
+            "type": "string",
+            "value": "Attack"
+        },
+        {
+            "name": "OptionPlayer_KeyboardDriveBrake",
+            "type": "string",
+            "value": "Brake/Back"
+        },
+        {
+            "name": "OptionPlayer_KeyboardDriveHandBrake",
+            "type": "string",
+            "value": "Handbrake"
+        },
+        {
+            "name": "OptionPlayer_KeyboardDriveHorn",
+            "type": "string",
+            "value": "Horn"
+        },
+        {
+            "name": "OptionPlayer_KeyboardFencerAttack1_1",
+            "type": "string",
+            "value": "Attack - Right Hand"
+        },
+        {
+            "name": "OptionPlayer_KeyboardFencerAttack1_2",
+            "type": "string",
+            "value": "Use Equipment - Right Hand"
+        },
+        {
+            "name": "OptionPlayer_KeyboardFencerAttack2_1",
+            "type": "string",
+            "value": "Attack - Left Hand"
+        },
+        {
+            "name": "OptionPlayer_KeyboardFencerAttack2_2",
+            "type": "string",
+            "value": "Use Equipment - Left Hand"
+        },
+        {
+            "name": "OptionPlayer_KeyboardFencerJump",
+            "type": "string",
+            "value": "Jump"
+        },
+        {
+            "name": "OptionPlayer_KeyboardFencerReload",
+            "type": "string",
+            "value": "Reload"
+        },
+        {
+            "name": "OptionPlayer_KeyboardFencerSpecialAction",
+            "type": "string",
+            "value": "Reload Shield"
+        },
+        {
+            "name": "OptionPlayer_KeyboardFencerWeaponSelect",
+            "type": "string",
+            "value": "Switch Weapons"
+        },
+        {
+            "name": "OptionPlayer_KeyboardHeliAttack1",
+            "type": "string",
+            "value": "Attack 1"
+        },
+        {
+            "name": "OptionPlayer_KeyboardHeliAttack2",
+            "type": "string",
+            "value": "Attack 2"
+        },
+        {
+            "name": "OptionPlayer_KeyboardHeliFlight",
+            "type": "string",
+            "value": "Fly"
+        },
+        {
+            "name": "OptionPlayer_KeyboardNomalAttack1",
+            "type": "string",
+            "value": "Attack"
+        },
+        {
+            "name": "OptionPlayer_KeyboardNomalAttack2",
+            "type": "string",
+            "value": "Zoom/Activate"
+        },
+        {
+            "name": "OptionPlayer_KeyboardNomalAttackSky",
+            "type": "string",
+            "value": "Air Raid"
+        },
+        {
+            "name": "OptionPlayer_KeyboardNormalJump",
+            "type": "string",
+            "value": "Jump"
+        },
+        {
+            "name": "OptionPlayer_KeyboardNormalReload",
+            "type": "string",
+            "value": "Reload"
+        },
+        {
+            "name": "OptionPlayer_KeyboardNormalWeaponSelect",
+            "type": "string",
+            "value": "Switch Weapons"
+        },
+        {
+            "name": "OptionPlayer_KeyboardTanksAttack1",
+            "type": "string",
+            "value": "Attack 1"
+        },
+        {
+            "name": "OptionPlayer_KeyboardTanksAttack2",
+            "type": "string",
+            "value": "Attack 2"
+        },
+        {
+            "name": "OptionPlayer_KeyboardTanksHorn",
+            "type": "string",
+            "value": "Horn"
+        },
+        {
+            "name": "OptionPlayer_KeyboardUseSub_AirRaider",
+            "type": "string",
+            "value": "Use Backpack Tools"
+        },
+        {
+            "name": "OptionPlayer_KeyboardUseSub_Ranger",
+            "type": "string",
+            "value": "Use Backpack Tools"
+        },
+        {
+            "name": "OptionPlayer_KeyboardUseSub_WingDiver",
+            "type": "string",
+            "value": "Use Independently Operated Equipment"
+        },
+        {
+            "name": "OptionPlayer_L",
+            "type": "string",
+            "value": "LB"
+        },
+        {
+            "name": "OptionPlayer_LStick",
+            "type": "string",
+            "value": "Left Stick Button"
+        },
+        {
+            "name": "OptionPlayer_LStick_PS4Controller",
+            "type": "string",
+            "value": "L3 Button"
+        },
+        {
+            "name": "OptionPlayer_LStick_SwitchProController",
+            "type": "string",
+            "value": "press the L Stick"
+        },
+        {
+            "name": "OptionPlayer_LTrigger",
+            "type": "string",
+            "value": "Left Trigger"
+        },
+        {
+            "name": "OptionPlayer_LTrigger_PS4Controller",
+            "type": "string",
+            "value": "L2 Button"
+        },
+        {
+            "name": "OptionPlayer_LTrigger_SwitchProController",
+            "type": "string",
+            "value": "ZL Button"
+        },
+        {
+            "name": "OptionPlayer_L_PS4Controller",
+            "type": "string",
+            "value": "L1 Button"
+        },
+        {
+            "name": "OptionPlayer_L_SwitchProController",
+            "type": "string",
+            "value": "L Button"
+        },
+        {
+            "name": "OptionPlayer_LeftStick",
+            "type": "string",
+            "value": "Left stick"
+        },
+        {
+            "name": "OptionPlayer_LeftStick_PS4Controller",
+            "type": "string",
+            "value": "Left stick"
+        },
+        {
+            "name": "OptionPlayer_LeftStick_SwitchProController",
+            "type": "string",
+            "value": "Left Stick"
+        },
+        {
+            "name": "OptionPlayer_Mouse",
+            "type": "string",
+            "value": "Mouse Control"
+        },
+        {
+            "name": "OptionPlayer_MouseL",
+            "type": "string",
+            "value": "Left Mouse Button"
+        },
+        {
+            "name": "OptionPlayer_MouseM",
+            "type": "string",
+            "value": "Mouse Wheel Button"
+        },
+        {
+            "name": "OptionPlayer_MouseR",
+            "type": "string",
+            "value": "Right Mouse Button"
+        },
+        {
+            "name": "OptionPlayer_MouseSide1",
+            "type": "string",
+            "value": "Mouse Button 1"
+        },
+        {
+            "name": "OptionPlayer_MouseSide2",
+            "type": "string",
+            "value": "Mouse Button 2"
+        },
+        {
+            "name": "OptionPlayer_MouseWheel",
+            "type": "string",
+            "value": "Mouse Wheel"
+        },
+        {
+            "name": "OptionPlayer_NoAssign",
+            "type": "string",
+            "value": "Not Assigned"
+        },
+        {
+            "name": "OptionPlayer_NomalAttack1",
+            "type": "string",
+            "value": "Attack"
+        },
+        {
+            "name": "OptionPlayer_NomalAttack2",
+            "type": "string",
+            "value": "Zoom/Activate"
+        },
+        {
+            "name": "OptionPlayer_NomalAttackSky",
+            "type": "string",
+            "value": "Anti-air Attack"
+        },
+        {
+            "name": "OptionPlayer_Normal",
+            "type": "string",
+            "value": "NORMAL"
+        },
+        {
+            "name": "OptionPlayer_NormalJump",
+            "type": "string",
+            "value": "Jump"
+        },
+        {
+            "name": "OptionPlayer_NormalReload",
+            "type": "string",
+            "value": "Reload"
+        },
+        {
+            "name": "OptionPlayer_NormalWeaponSelect",
+            "type": "string",
+            "value": "Switch Weapons"
+        },
+        {
+            "name": "OptionPlayer_R",
+            "type": "string",
+            "value": "RB"
+        },
+        {
+            "name": "OptionPlayer_RStick",
+            "type": "string",
+            "value": "Right Stick Button"
+        },
+        {
+            "name": "OptionPlayer_RStick_PS4Controller",
+            "type": "string",
+            "value": "R3 Button"
+        },
+        {
+            "name": "OptionPlayer_RStick_SwitchProController",
+            "type": "string",
+            "value": "press the R Stick"
+        },
+        {
+            "name": "OptionPlayer_RTrigger",
+            "type": "string",
+            "value": "Right Trigger"
+        },
+        {
+            "name": "OptionPlayer_RTrigger_PS4Controller",
+            "type": "string",
+            "value": "R2 Button"
+        },
+        {
+            "name": "OptionPlayer_RTrigger_SwitchProController",
+            "type": "string",
+            "value": "ZR Button"
+        },
+        {
+            "name": "OptionPlayer_R_PS4Controller",
+            "type": "string",
+            "value": "R1 Button"
+        },
+        {
+            "name": "OptionPlayer_R_SwitchProController",
+            "type": "string",
+            "value": "R Button"
+        },
+        {
+            "name": "OptionPlayer_Return",
+            "type": "string",
+            "value": "Return to Game Settings"
+        },
+        {
+            "name": "OptionPlayer_Reverse",
+            "type": "string",
+            "value": "REVERSE"
+        },
+        {
+            "name": "OptionPlayer_RightStick",
+            "type": "string",
+            "value": "Right stick"
+        },
+        {
+            "name": "OptionPlayer_RightStick_PS4Controller",
+            "type": "string",
+            "value": "Right stick"
+        },
+        {
+            "name": "OptionPlayer_RightStick_SwitchProController",
+            "type": "string",
+            "value": "Right Stick"
+        },
+        {
+            "name": "OptionPlayer_RotateLerp",
+            "type": "string",
+            "value": "Rotation Lerp"
+        },
+        {
+            "name": "OptionPlayer_RotateSpeed",
+            "type": "string",
+            "value": "Rotation Speed"
+        },
+        {
+            "name": "OptionPlayer_Start",
+            "type": "string",
+            "value": "START Button"
+        },
+        {
+            "name": "OptionPlayer_Start_PS4Controller",
+            "type": "string",
+            "value": "OPTIONS Button"
+        },
+        {
+            "name": "OptionPlayer_Start_SwitchProController",
+            "type": "string",
+            "value": "+ Button"
+        },
+        {
+            "name": "OptionPlayer_StickDeadZoneL",
+            "type": "string",
+            "value": "Dead Zone Setting for Left Stick"
+        },
+        {
+            "name": "OptionPlayer_StickDeadZoneL_PS4Controller",
+            "type": "string",
+            "value": "Dead Zone Setting for Left Stick"
+        },
+        {
+            "name": "OptionPlayer_StickDeadZoneL_SwitchProController",
+            "type": "string",
+            "value": "Dead Zone Setting for Left Stick"
+        },
+        {
+            "name": "OptionPlayer_StickDeadZoneR",
+            "type": "string",
+            "value": "Dead Zone Setting for Right Stick"
+        },
+        {
+            "name": "OptionPlayer_StickDeadZoneR_PS4Controller",
+            "type": "string",
+            "value": "Dead Zone Setting for Right Stick"
+        },
+        {
+            "name": "OptionPlayer_StickDeadZoneR_SwitchProController",
+            "type": "string",
+            "value": "Dead Zone Setting for Right Stick"
+        },
+        {
+            "name": "OptionPlayer_TechAttack1",
+            "type": "string",
+            "value": "Attack"
+        },
+        {
+            "name": "OptionPlayer_TechAttack2",
+            "type": "string",
+            "value": "Zoom/Activate"
+        },
+        {
+            "name": "OptionPlayer_TechJump",
+            "type": "string",
+            "value": "Jump"
+        },
+        {
+            "name": "OptionPlayer_TechReload",
+            "type": "string",
+            "value": "Reload"
+        },
+        {
+            "name": "OptionPlayer_TechRideRescue",
+            "type": "string",
+            "value": "Vehicle/Rescue"
+        },
+        {
+            "name": "OptionPlayer_TechSpot",
+            "type": "string",
+            "value": "Location Marking"
+        },
+        {
+            "name": "OptionPlayer_TechUseSub_AirRaider",
+            "type": "string",
+            "value": "Use Backpack Tool"
+        },
+        {
+            "name": "OptionPlayer_TechUseSub_Ranger",
+            "type": "string",
+            "value": "Use Backpack Tool"
+        },
+        {
+            "name": "OptionPlayer_TechUseSub_WingDiver",
+            "type": "string",
+            "value": "Use Independently Operated Equipment"
+        },
+        {
+            "name": "OptionPlayer_TechWeaponSelect",
+            "type": "string",
+            "value": "Switch Weapons"
+        },
+        {
+            "name": "OptionPlayer_TitleBar",
+            "type": "string",
+            "value": "Player Settings"
+        },
+        {
+            "name": "OptionPlayer_TitleBarConfig",
+            "type": "string",
+            "value": "Change Controls"
+        },
+        {
+            "name": "OptionPlayer_TitleBarFencer",
+            "type": "string",
+            "value": "Change Fencer Controls"
+        },
+        {
+            "name": "OptionPlayer_TouchButton",
+            "type": "string",
+            "value": "Touch pad button"
+        },
+        {
+            "name": "OptionPlayer_Vibration",
+            "type": "string",
+            "value": "Vibration"
+        },
+        {
+            "name": "OptionPlayer_ViewLR",
+            "type": "string",
+            "value": "Look Left / Right"
+        },
+        {
+            "name": "OptionPlayer_ViewUD",
+            "type": "string",
+            "value": "Look Up / Down"
+        },
+        {
+            "name": "OptionPlayer_X",
+            "type": "string",
+            "value": "X Button"
+        },
+        {
+            "name": "OptionPlayer_X_PS4Controller",
+            "type": "string",
+            "value": "□ Button"
+        },
+        {
+            "name": "OptionPlayer_X_SwitchProController",
+            "type": "string",
+            "value": "Y Button"
+        },
+        {
+            "name": "OptionPlayer_Y",
+            "type": "string",
+            "value": "Y Button"
+        },
+        {
+            "name": "OptionPlayer_Y_PS4Controller",
+            "type": "string",
+            "value": "△ Button"
+        },
+        {
+            "name": "OptionPlayer_Y_SwitchProController",
+            "type": "string",
+            "value": "X Button"
+        },
+        {
+            "name": "OptionShowSubTitle",
+            "type": "string",
+            "value": "Subtitles ON / OFF"
+        },
+        {
+            "name": "Option_BGM",
+            "type": "string",
+            "value": "BGM Volume"
+        },
+        {
+            "name": "Option_CameraType",
+            "type": "string",
+            "value": "Camera Type"
+        },
+        {
+            "name": "Option_CameraType_Value1",
+            "type": "string",
+            "value": "Camera Type 1"
+        },
+        {
+            "name": "Option_CameraType_Value2",
+            "type": "string",
+            "value": "Camera Type 2"
+        },
+        {
+            "name": "Option_CameraType_Value3",
+            "type": "string",
+            "value": "Camera Type 3"
+        },
+        {
+            "name": "Option_CameraType_Value4",
+            "type": "string",
+            "value": "Camera Type 4"
+        },
+        {
+            "name": "Option_DamageUIType",
+            "type": "string",
+            "value": "Damage Value Display Type"
+        },
+        {
+            "name": "Option_DamageUIType_FixedPos",
+            "type": "string",
+            "value": "Fixed Position"
+        },
+        {
+            "name": "Option_DamageUIType_HitPos",
+            "type": "string",
+            "value": "Hit Position"
+        },
+        {
+            "name": "Option_DamageUIType_None",
+            "type": "string",
+            "value": "No Display"
+        },
+        {
+            "name": "Option_DamageUIType_Target",
+            "type": "string",
+            "value": "Per Target"
+        },
+        {
+            "name": "Option_Language_Message",
+            "type": "string",
+            "value": "Return to the title screen to apply changes to subtitle and/or audio language(s)."
+        },
+        {
+            "name": "Option_Language_PlayGoMessage",
+            "type": "string",
+            "value": "Audio Language cannot be changed until the download is complete."
+        },
+        {
+            "name": "Option_Language_Subtitles",
+            "type": "string",
+            "value": "Subtitle Language"
+        },
+        {
+            "name": "Option_Language_Voice",
+            "type": "string",
+            "value": "Audio Language"
+        },
+        {
+            "name": "Option_Language_cn",
+            "type": "string",
+            "value": "Chinese (Traditional)"
+        },
+        {
+            "name": "Option_Language_en",
+            "type": "string",
+            "value": "English"
+        },
+        {
+            "name": "Option_Language_ja",
+            "type": "string",
+            "value": "Japanese"
+        },
+        {
+            "name": "Option_Language_kr",
+            "type": "string",
+            "value": "Korean"
+        },
+        {
+            "name": "Option_Language_sc",
+            "type": "string",
+            "value": "Chinese (Simplified)"
+        },
+        {
+            "name": "Option_MASTER_VOLUME",
+            "type": "string",
+            "value": "Master Volume"
+        },
+        {
+            "name": "Option_OFF",
+            "type": "string",
+            "value": "OFF"
+        },
+        {
+            "name": "Option_ON",
+            "type": "string",
+            "value": "ON"
+        },
+        {
+            "name": "Option_PAN_SPEAKER_ALL",
+            "type": "string",
+            "value": "All"
+        },
+        {
+            "name": "Option_PAN_SPEAKER_CENTER_ONLY",
+            "type": "string",
+            "value": "Center"
+        },
+        {
+            "name": "Option_PAN_SPEAKER_FORWARD_LR_ONLY",
+            "type": "string",
+            "value": "Front LR"
+        },
+        {
+            "name": "Option_PAN_SPEAKER_REAR_LR_ONLY",
+            "type": "string",
+            "value": "Surround LR"
+        },
+        {
+            "name": "Option_PanSpeakerMode",
+            "type": "string",
+            "value": "Play Radio Voice on Speaker"
+        },
+        {
+            "name": "Option_ResolutionType",
+            "type": "string",
+            "value": "Resolution"
+        },
+        {
+            "name": "Option_ResolutionType_4K_Display",
+            "type": "string",
+            "value": "4K (Better Image Quality)"
+        },
+        {
+            "name": "Option_ResolutionType_4K_Speed",
+            "type": "string",
+            "value": "4K (Better Speed)"
+        },
+        {
+            "name": "Option_ResolutionType_FullHD",
+            "type": "string",
+            "value": "Full HD (Better Speed)"
+        },
+        {
+            "name": "Option_SE",
+            "type": "string",
+            "value": "SE Volume"
+        },
+        {
+            "name": "Option_ShakeScreen",
+            "type": "string",
+            "value": "Screen Vibration"
+        },
+        {
+            "name": "Option_TitleBar",
+            "type": "string",
+            "value": "Game Settings"
+        },
+        {
+            "name": "Option_UiSize",
+            "type": "string",
+            "value": "HUD Size"
+        },
+        {
+            "name": "Option_UiSizeDefault",
+            "type": "string",
+            "value": "Default"
+        },
+        {
+            "name": "Option_UiSizeMedium",
+            "type": "string",
+            "value": "Mid"
+        },
+        {
+            "name": "Option_UiSizeSmall",
+            "type": "string",
+            "value": "Sml"
+        },
+        {
+            "name": "Option_Voice",
+            "type": "string",
+            "value": "Voice Volume"
+        },
+        {
+            "name": "Option_VoiceChatInputVolume",
+            "type": "string",
+            "value": "Voice Chat Mic Input"
+        },
+        {
+            "name": "Option_VoiceChatMicType",
+            "type": "string",
+            "value": "Microphone Type"
+        },
+        {
+            "name": "Option_VoiceChatOutputVolume",
+            "type": "string",
+            "value": "Voice Chat Speaker Output"
+        },
+        {
+            "name": "Option_VoiceChatTypeOpen",
+            "type": "string",
+            "value": "Open Mic"
+        },
+        {
+            "name": "Option_VoiceChatTypePushToTalk",
+            "type": "string",
+            "value": "Push-To-Talk"
+        },
+        {
+            "name": "Option_VoiceLanguage_cn",
+            "type": "string",
+            "value": "Chinese Audio"
+        },
+        {
+            "name": "Option_VoiceLanguage_en",
+            "type": "string",
+            "value": "English Audio"
+        },
+        {
+            "name": "Option_VoiceLanguage_ja",
+            "type": "string",
+            "value": "Japanese Audio"
+        },
+        {
+            "name": "Option_VoiceLanguage_kr",
+            "type": "string",
+            "value": "Korean Audio"
+        },
+        {
+            "name": "PSN_SessionName",
+            "type": "string",
+            "value": "I'm playing [%MISSIONNAME%] on [%DIFFICULTY%]."
+        },
+        {
+            "name": "PadAssign_PushStart",
+            "type": "string",
+            "value": "Press any button."
+        },
+        {
+            "name": "Pause_ConfirmExit",
+            "type": "string",
+            "value": "You are about to retreat. \nContinue?"
+        },
+        {
+            "name": "Pause_ConfirmExitLobby",
+            "type": "string",
+            "value": "You are about to return to the lobby. \nContinue?"
+        },
+        {
+            "name": "Pause_ConfirmRetry",
+            "type": "string",
+            "value": "You are about to restart the mission. \nContinue?"
+        },
+        {
+            "name": "Pause_Exit",
+            "type": "string",
+            "value": "Retreat"
+        },
+        {
+            "name": "Pause_ExitLobby",
+            "type": "string",
+            "value": "Return to Lobby"
+        },
+        {
+            "name": "Pause_Option",
+            "type": "string",
+            "value": "Game Settings"
+        },
+        {
+            "name": "Pause_Retry",
+            "type": "string",
+            "value": "Restart Mission"
+        },
+        {
+            "name": "Pause_Return",
+            "type": "string",
+            "value": "Return to Game"
+        },
+        {
+            "name": "PlayGoDownload_Invitation",
+            "type": "string",
+            "value": "Until the download has been completed, you cannot play online mission mode. You will be returned to the title screen."
+        },
+        {
+            "name": "PlayGoDownload_MissionSelect",
+            "type": "string",
+            "value": "Until the download has been completed, you cannot select this mission."
+        },
+        {
+            "name": "PlayGoDownload_ModeSelect",
+            "type": "string",
+            "value": "Until the download has been completed, you cannot select this mode."
+        },
+        {
+            "name": "PlayerPanel_1P",
+            "type": "string",
+            "value": "Player 1"
+        },
+        {
+            "name": "PlayerPanel_2P",
+            "type": "string",
+            "value": "Player 2"
+        },
+        {
+            "name": "PlayerPanel_Armor",
+            "type": "string",
+            "value": "Armor"
+        },
+        {
+            "name": "PlayerPanel_SoldierType",
+            "type": "string",
+            "value": "Class"
+        },
+        {
+            "name": "RoomCreate_Cancel",
+            "type": "string",
+            "value": "Return to the lobby?"
+        },
+        {
+            "name": "RoomCreate_Join",
+            "type": "string",
+            "value": "Entering the room..."
+        },
+        {
+            "name": "RoomCreate_Title",
+            "type": "string",
+            "value": "Create Room"
+        },
+        {
+            "name": "RoomFilter_ContentsName",
+            "type": "string",
+            "value": "Mission Packs"
+        },
+        {
+            "name": "RoomFilter_DLC",
+            "type": "string",
+            "value": "Show All Mission Types"
+        },
+        {
+            "name": "RoomFilter_Default",
+            "type": "string",
+            "value": "Not Set (%DEFAULT%)"
+        },
+        {
+            "name": "RoomFilter_DifficultyAll",
+            "type": "string",
+            "value": "Show All Difficulty Levels"
+        },
+        {
+            "name": "RoomFilter_Hide",
+            "type": "string",
+            "value": "Hide"
+        },
+        {
+            "name": "RoomFilter_Language",
+            "type": "string",
+            "value": "Preferred Chat Language"
+        },
+        {
+            "name": "RoomFilter_Loading",
+            "type": "string",
+            "value": "Loading the data. Please wait."
+        },
+        {
+            "name": "RoomFilter_MissionAll",
+            "type": "string",
+            "value": "Show All Missions"
+        },
+        {
+            "name": "RoomFilter_Mission_Range",
+            "type": "string",
+            "value": "Includes missions within the range of %BEGIN% to %END%."
+        },
+        {
+            "name": "RoomFilter_None",
+            "type": "string",
+            "value": "Not Set"
+        },
+        {
+            "name": "RoomFilter_Show",
+            "type": "string",
+            "value": "Show"
+        },
+        {
+            "name": "RoomFilter_ShowAll",
+            "type": "string",
+            "value": "Show All"
+        },
+        {
+            "name": "RoomFilter_Title_CHAT",
+            "type": "string",
+            "value": "Rooms with chat enabled"
+        },
+        {
+            "name": "RoomFilter_Title_PassCode",
+            "type": "string",
+            "value": "Rooms with passcode"
+        },
+        {
+            "name": "RoomFilter_Title_UGC",
+            "type": "string",
+            "value": "Instant Rooms"
+        },
+        {
+            "name": "RoomFixedPhrase_Title",
+            "type": "string",
+            "value": "Select Room Set Phrase"
+        },
+        {
+            "name": "RoomInfo_PlatformHeader_EPIC",
+            "type": "string",
+            "value": "EPIC:"
+        },
+        {
+            "name": "RoomInfo_PlatformHeader_PSN",
+            "type": "string",
+            "value": "PSN:"
+        },
+        {
+            "name": "RoomInfo_PlatformHeader_STEAM",
+            "type": "string",
+            "value": "STEAM:"
+        },
+        {
+            "name": "RoomSetting_Apply",
+            "type": "string",
+            "value": "Apply Settings"
+        },
+        {
+            "name": "RoomSetting_Armor_Confirmation",
+            "type": "string",
+            "value": "Set the Armor Limit"
+        },
+        {
+            "name": "RoomSetting_Cancel",
+            "type": "string",
+            "value": "Return to the room?"
+        },
+        {
+            "name": "RoomSetting_Chat",
+            "type": "string",
+            "value": "Chat"
+        },
+        {
+            "name": "RoomSetting_ChatButton",
+            "type": "string",
+            "value": "Specify whether to enable or disable chat."
+        },
+        {
+            "name": "RoomSetting_ChatDisable",
+            "type": "string",
+            "value": "Disable"
+        },
+        {
+            "name": "RoomSetting_ChatDisableDlg",
+            "type": "string",
+            "value": "Disable"
+        },
+        {
+            "name": "RoomSetting_ChatEnable",
+            "type": "string",
+            "value": "Enable"
+        },
+        {
+            "name": "RoomSetting_ChatEnableDlg",
+            "type": "string",
+            "value": "Enable"
+        },
+        {
+            "name": "RoomSetting_ContentsName",
+            "type": "string",
+            "value": "Current Mission Pack"
+        },
+        {
+            "name": "RoomSetting_CreateRoom",
+            "type": "string",
+            "value": "Create a Room"
+        },
+        {
+            "name": "RoomSetting_Difficulty",
+            "type": "string",
+            "value": "Difficulty"
+        },
+        {
+            "name": "RoomSetting_FilterApply",
+            "type": "string",
+            "value": "Search"
+        },
+        {
+            "name": "RoomSetting_FixedPhrase1",
+            "type": "string",
+            "value": "Select Set Phrase"
+        },
+        {
+            "name": "RoomSetting_FixedPhrase2",
+            "type": "string",
+            "value": "Select Set Phrase"
+        },
+        {
+            "name": "RoomSetting_FreeWord",
+            "type": "string",
+            "value": "Open Message Input"
+        },
+        {
+            "name": "RoomSetting_Free_Descript",
+            "type": "string",
+            "value": "Enter a message."
+        },
+        {
+            "name": "RoomSetting_Free_Title",
+            "type": "string",
+            "value": "Open Message Input"
+        },
+        {
+            "name": "RoomSetting_HelthCap",
+            "type": "string",
+            "value": "Armor Limit"
+        },
+        {
+            "name": "RoomSetting_Language",
+            "type": "string",
+            "value": "Set preferred chat language (for search)"
+        },
+        {
+            "name": "RoomSetting_Mission",
+            "type": "string",
+            "value": "Mission"
+        },
+        {
+            "name": "RoomSetting_ModeChangeAttn",
+            "type": "string",
+            "value": "Change current mission pack to apply current room settings and load save data."
+        },
+        {
+            "name": "RoomSetting_Name",
+            "type": "string",
+            "value": "Enter Room Name"
+        },
+        {
+            "name": "RoomSetting_Name_Descript",
+            "type": "string",
+            "value": "Enter the name of the room."
+        },
+        {
+            "name": "RoomSetting_Name_Title",
+            "type": "string",
+            "value": "Enter Room Name"
+        },
+        {
+            "name": "RoomSetting_RoomType",
+            "type": "string",
+            "value": "Room Type"
+        },
+        {
+            "name": "RoomSetting_Title",
+            "type": "string",
+            "value": "Room Settings"
+        },
+        {
+            "name": "RoomSetting_UGC",
+            "type": "string",
+            "value": "Instant Room"
+        },
+        {
+            "name": "RoomSetting_UGCButton",
+            "type": "string",
+            "value": "Set up an Instant Room."
+        },
+        {
+            "name": "RoomSetting_UGCDisable",
+            "type": "string",
+            "value": "Don't use the Instant Room."
+        },
+        {
+            "name": "RoomSetting_UGCEnable",
+            "type": "string",
+            "value": "Use the Instant Room."
+        },
+        {
+            "name": "RoomSetting_WeaponCap",
+            "type": "string",
+            "value": "Weapon Level Limit"
+        },
+        {
+            "name": "RoomSetting_Weapon_Confirmation",
+            "type": "string",
+            "value": "Set the Weapon Level Limit"
+        },
+        {
+            "name": "RoomSetting_Weapon_No",
+            "type": "string",
+            "value": "OFF"
+        },
+        {
+            "name": "RoomSetting_Weapon_Yes",
+            "type": "string",
+            "value": "On"
+        },
+        {
+            "name": "RoomType_Everyone",
+            "type": "string",
+            "value": "Everyone"
+        },
+        {
+            "name": "RoomType_Everyone_Desc",
+            "type": "string",
+            "value": "A standard room.\nStandard rooms are displayed in the lobby for everyone to join."
+        },
+        {
+            "name": "RoomType_InviteOnly_AnyOne",
+            "type": "string",
+            "value": "Anyone can join"
+        },
+        {
+            "name": "RoomType_InviteOnly_AnyOne_Desc",
+            "type": "string",
+            "value": "Description: Any friend can join"
+        },
+        {
+            "name": "RoomType_InviteOnly_Invite",
+            "type": "string",
+            "value": "Cannot join without invitation"
+        },
+        {
+            "name": "RoomType_InviteOnly_Invite_Desc",
+            "type": "string",
+            "value": "Description: Cannot participate without invitation"
+        },
+        {
+            "name": "RoomType_InviteOnly_LeaderFriends",
+            "type": "string",
+            "value": "Leader's friends can participate"
+        },
+        {
+            "name": "RoomType_InviteOnly_LeaderFriendsOfFriends",
+            "type": "string",
+            "value": "Friends of participating members can join"
+        },
+        {
+            "name": "RoomType_InviteOnly_LeaderFriendsOfFriends_Desc",
+            "type": "string",
+            "value": "Description: Friends of participating members can join"
+        },
+        {
+            "name": "RoomType_InviteOnly_LeaderFriends_Desc",
+            "type": "string",
+            "value": "Description: Leader's friends can join"
+        },
+        {
+            "name": "RoomType_InviteOnly_SIE_Type2",
+            "type": "string",
+            "value": "%ROOM_TYPE%\n%INVITABLE_TYPE%"
+        },
+        {
+            "name": "RoomType_InviteOnly_Title",
+            "type": "string",
+            "value": "Friends only (details)"
+        },
+        {
+            "name": "RoomType_LeaderFriend",
+            "type": "string",
+            "value": "Leader's Friends/Invitation Only"
+        },
+        {
+            "name": "RoomType_LeaderFriendOfFriend",
+            "type": "string",
+            "value": "Friends of participating members/invite only"
+        },
+        {
+            "name": "RoomType_LeaderFriendOfFriend_Desc",
+            "type": "string",
+            "value": "This room is open to friends of participating members and invited players. It will not appear on the lobby screen."
+        },
+        {
+            "name": "RoomType_LeaderFriend_Desc",
+            "type": "string",
+            "value": "This room is for the leader's friends and invited players.\nIt will not appear on the lobby screen."
+        },
+        {
+            "name": "RoomType_NameOnly",
+            "type": "string",
+            "value": "Room Name Only"
+        },
+        {
+            "name": "RoomType_NameOnly_Desc",
+            "type": "string",
+            "value": "This room can only be found by searching a room name.\nCan only be listed in the lobby screen by using Search by Room Name."
+        },
+        {
+            "name": "RoomType_NoOne",
+            "type": "string",
+            "value": "Invitation Only"
+        },
+        {
+            "name": "RoomType_NoOne_Desc",
+            "type": "string",
+            "value": "Invited players can join this room.\nIt will not appear on the lobby screen."
+        },
+        {
+            "name": "RoomType_PassCodeOnly",
+            "type": "string",
+            "value": "Passcode Only"
+        },
+        {
+            "name": "RoomType_PassCodeOnly_Desc",
+            "type": "string",
+            "value": "This room only allows players who know the passcode to join. It will be listed in the lobby screen,\nbut requires a passcode to join.\nPlayers that were invited will not require a passcode."
+        },
+        {
+            "name": "Room_ArmorTitle",
+            "type": "string",
+            "value": "Armor"
+        },
+        {
+            "name": "Room_Armor_Level_Limit",
+            "type": "string",
+            "value": "Armor Limit: 　%ARMOR_LEVEL% or less (%SOLDIERTYPE%)"
+        },
+        {
+            "name": "Room_Armor_Level_NoLimit",
+            "type": "string",
+            "value": "Armor Limit: 　None"
+        },
+        {
+            "name": "Room_BeginGame",
+            "type": "string",
+            "value": "Start Mission"
+        },
+        {
+            "name": "Room_ClearRate",
+            "type": "string",
+            "value": "Completion Rate"
+        },
+        {
+            "name": "Room_ClearRate_Percent",
+            "type": "string",
+            "value": "%"
+        },
+        {
+            "name": "Room_DifficultyName",
+            "type": "string",
+            "value": "Difficulty"
+        },
+        {
+            "name": "Room_DoneCancel_NumCheck",
+            "type": "string",
+            "value": "Because the number of players has changed, the mission preparations have been canceled."
+        },
+        {
+            "name": "Room_EditChatBan",
+            "type": "string",
+            "value": "%INPUTWORD%\nwill be corrected as follows: \n%PENCILWORD%\n\nDo you want to set it up?"
+        },
+        {
+            "name": "Room_EndGame",
+            "type": "string",
+            "value": "Return"
+        },
+        {
+            "name": "Room_Equipment",
+            "type": "string",
+            "value": "Class / Equipment"
+        },
+        {
+            "name": "Room_Equipment_Error",
+            "type": "string",
+            "value": "%WEAPON_NAME% exceeds the weapon level limit.\nChange your weapon."
+        },
+        {
+            "name": "Room_Exit",
+            "type": "string",
+            "value": "Leave Room"
+        },
+        {
+            "name": "Room_Exit_Confirmation",
+            "type": "string",
+            "value": "Leave Room?"
+        },
+        {
+            "name": "Room_InputChat",
+            "type": "string",
+            "value": "Chat Input"
+        },
+        {
+            "name": "Room_InputChatBan",
+            "type": "string",
+            "value": "%INPUTWORD%\nwill be corrected as follows: \n%PENCILWORD%\n　\nDo you want to send the message?"
+        },
+        {
+            "name": "Room_InputChatDesc",
+            "type": "string",
+            "value": "Enter your chat message."
+        },
+        {
+            "name": "Room_Invitable",
+            "type": "string",
+            "value": "Invitable Players"
+        },
+        {
+            "name": "Room_Invitable_Leader",
+            "type": "string",
+            "value": "Only the leader can invite"
+        },
+        {
+            "name": "Room_Invitable_Leader_Desc",
+            "type": "string",
+            "value": "Leaders can invite friends.\nThe leader can invite friends to join the session by selecting Join Session and then Join Room or Request to Join."
+        },
+        {
+            "name": "Room_Invitable_Member",
+            "type": "string",
+            "value": "All participants can invite"
+        },
+        {
+            "name": "Room_Invitable_Member_Desc",
+            "type": "string",
+            "value": "Participating players can invite friends.\nThey can request to join the room or join via the Join Session menu."
+        },
+        {
+            "name": "Room_Invitable_NoOne",
+            "type": "string",
+            "value": "No one can be invited"
+        },
+        {
+            "name": "Room_Invitable_NoOne_Desc",
+            "type": "string",
+            "value": "Cannot invite anyone."
+        },
+        {
+            "name": "Room_KickAsk",
+            "type": "string",
+            "value": "Are you sure you want to kick this player?"
+        },
+        {
+            "name": "Room_Language",
+            "type": "string",
+            "value": "Preferred Chat Language"
+        },
+        {
+            "name": "Room_LeaderChangeFailed",
+            "type": "string",
+            "value": "Failed to change leader"
+        },
+        {
+            "name": "Room_LeaderChangedMe",
+            "type": "string",
+            "value": "I have been appointed as leader"
+        },
+        {
+            "name": "Room_LeaderChangedOther",
+            "type": "string",
+            "value": "%LEADER_NAME% has been selected as leader"
+        },
+        {
+            "name": "Room_LeaderChanging",
+            "type": "string",
+            "value": "Leader is being changed"
+        },
+        {
+            "name": "Room_MissionSelect",
+            "type": "string",
+            "value": "Select Mission"
+        },
+        {
+            "name": "Room_NeedPassCode",
+            "type": "string",
+            "value": "Enter passcode."
+        },
+        {
+            "name": "Room_NominateLeader",
+            "type": "string",
+            "value": "Select a leader"
+        },
+        {
+            "name": "Room_Option",
+            "type": "string",
+            "value": "Game Settings"
+        },
+        {
+            "name": "Room_PassCodeError",
+            "type": "string",
+            "value": "Passcode must contain at least one digit."
+        },
+        {
+            "name": "Room_PassCodeFullWidthUse",
+            "type": "string",
+            "value": "Double-byte characters are used in the passcode."
+        },
+        {
+            "name": "Room_PassCodeSample",
+            "type": "string",
+            "value": "Passcode"
+        },
+        {
+            "name": "Room_ReadyWaiting",
+            "type": "string",
+            "value": "Preparation Complete"
+        },
+        {
+            "name": "Room_ReadyWaiting_Cancel",
+            "type": "string",
+            "value": "Cancel Preparations"
+        },
+        {
+            "name": "Room_RoomName",
+            "type": "string",
+            "value": "Room Name"
+        },
+        {
+            "name": "Room_Setting",
+            "type": "string",
+            "value": "Room Settings"
+        },
+        {
+            "name": "Room_Status",
+            "type": "string",
+            "value": "View Battle History"
+        },
+        {
+            "name": "Room_Title",
+            "type": "string",
+            "value": "Room"
+        },
+        {
+            "name": "Room_UserFriendEpic",
+            "type": "string",
+            "value": "Epic Friend Request"
+        },
+        {
+            "name": "Room_UserFriendEpicAsk",
+            "type": "string",
+            "value": "Do you want to send an [Epic Friend Request] \n to [%TARGETNAME%]?"
+        },
+        {
+            "name": "Room_UserKick",
+            "type": "string",
+            "value": "Force Exit"
+        },
+        {
+            "name": "Room_UserRequestTag",
+            "type": "string",
+            "value": "Display Steam ID"
+        },
+        {
+            "name": "Room_UserVOICE_STATUS_OFF",
+            "type": "string",
+            "value": "Disable"
+        },
+        {
+            "name": "Room_UserVOICE_STATUS_ON",
+            "type": "string",
+            "value": "Enable"
+        },
+        {
+            "name": "Room_UserVoiceSwitch",
+            "type": "string",
+            "value": "Voice Settings: %VOICE_STATUS%"
+        },
+        {
+            "name": "Room_WeaponLv",
+            "type": "string",
+            "value": "Lv%LEVEL%"
+        },
+        {
+            "name": "Room_Weapon_Level_Limit",
+            "type": "string",
+            "value": "Weapon Level Limit: 　Up to Lv%WEAPON_LEVEL%"
+        },
+        {
+            "name": "Room_Weapon_Level_NoLimit",
+            "type": "string",
+            "value": "Weapon Level Limit: 　None"
+        },
+        {
+            "name": "SYSTEMSAVEDATA_DETAIL",
+            "type": "string",
+            "value": "EDF6 System File."
+        },
+        {
+            "name": "SYSTEMSAVEDATA_SUBTITLE",
+            "type": "string",
+            "value": "Earth Defense Force 6 system file"
+        },
+        {
+            "name": "SaveDataTitle",
+            "type": "string",
+            "value": "Earth Defense Force 6"
+        },
+        {
+            "name": "SearchLanguageDesc_cn",
+            "type": "string",
+            "value": "Only rooms with preferred chat language set to Chinese (Traditional) will appear in the lobby."
+        },
+        {
+            "name": "SearchLanguageDesc_en",
+            "type": "string",
+            "value": "Only rooms with preferred chat language set to English will appear in the lobby."
+        },
+        {
+            "name": "SearchLanguageDesc_ja",
+            "type": "string",
+            "value": "Only rooms with preferred chat language set to Japanese will appear in the lobby."
+        },
+        {
+            "name": "SearchLanguageDesc_kr",
+            "type": "string",
+            "value": "Only rooms with preferred chat language set to Korean will appear in the lobby."
+        },
+        {
+            "name": "SearchLanguageDesc_none",
+            "type": "string",
+            "value": "Rooms set to any language will appear in the lobby."
+        },
+        {
+            "name": "SearchLanguageDesc_sc",
+            "type": "string",
+            "value": "Only rooms with preferred chat language set to Chinese (Simplified) will appear in the lobby."
+        },
+        {
+            "name": "SoldierType_AirRaider",
+            "type": "string",
+            "value": "Air Raider"
+        },
+        {
+            "name": "SoldierType_AirRaiderEng",
+            "type": "string",
+            "value": "Air Raider"
+        },
+        {
+            "name": "SoldierType_AirRaider_Info",
+            "type": "string",
+            "value": "A tactical soldier that is equipped with a communication system. The mission of the Air Raider is to work with the air force and provide coordinates for air strikes. The Air Raider annihilates the enemy by calling in bombers and gunships and designating attack targets. An Air Raider can even request vehicle drops.\n\n*This soldier class is for intermediate players. It has the potential to deal a lot of damage, but it has to find itself in certain optimal situations to do so. Because the main purpose of this soldier class is to assist allies, it is best suited for cooperative gameplay. You should probably select this soldier class after you've gained a certain degree of familiarity with the game."
+        },
+        {
+            "name": "SoldierType_Fencer",
+            "type": "string",
+            "value": "Fencer"
+        },
+        {
+            "name": "SoldierType_FencerEng",
+            "type": "string",
+            "value": "Fencer"
+        },
+        {
+            "name": "SoldierType_Fencer_Info",
+            "type": "string",
+            "value": "A heavily armed soldier fully equipped with a powered exoskeleton. Thanks to their powered exoskeletons, this soldier class is capable of equipping enormous weapons. Also, this soldier class can carry separate weapons in both arms and wield both of them at the same time. \n\n*This soldier class is for advanced players. Its controls are different from those of other soldier classes, and playing this class well requires learning several new techniques. Mastery of this class will grant players terrifying power, but the path to mastery is very challenging."
+        },
+        {
+            "name": "SoldierType_Ranger",
+            "type": "string",
+            "value": "Ranger"
+        },
+        {
+            "name": "SoldierType_RangerEng",
+            "type": "string",
+            "value": "Ranger"
+        },
+        {
+            "name": "SoldierType_Ranger_Info",
+            "type": "string",
+            "value": "Infantry special forces. Rangers are combat experts who can handle a wide range of weapons. They are also licensed to operate military vehicles on the battlefield.\n\n*This soldier class is the easiest to use and has the highest combat strength. If you are playing the game for the first time, you should start out by choosing this soldier class."
+        },
+        {
+            "name": "SoldierType_Title",
+            "type": "string",
+            "value": "Soldier Class"
+        },
+        {
+            "name": "SoldierType_WingDiver",
+            "type": "string",
+            "value": "Wing Diver"
+        },
+        {
+            "name": "SoldierType_WingDiverEng",
+            "type": "string",
+            "value": "Wing Diver"
+        },
+        {
+            "name": "SoldierType_WingDiver_Info",
+            "type": "string",
+            "value": "An all-female special forces unit equipped with jetpacks. They carry state-of-the-art energy weapons instead of ballistic weapons to reduce weight. They deal the most damage among all classes.\n\n*This soldier class is swift and deadly. However, their low HP (Armor) and defensive strength make them particularly susceptible to attacks."
+        },
+        {
+            "name": "StatusInfo_AirRaiderArmor",
+            "type": "string",
+            "value": "Armor Value (Air Raider):"
+        },
+        {
+            "name": "StatusInfo_AirRaiderEasyClearRatio",
+            "type": "string",
+            "value": "Easy Difficulty Completion Rate (Air Raider):"
+        },
+        {
+            "name": "StatusInfo_AirRaiderHardClearRatio",
+            "type": "string",
+            "value": "Hard Difficulty Completion Rate (Air Raider):"
+        },
+        {
+            "name": "StatusInfo_AirRaiderHardestClearRatio",
+            "type": "string",
+            "value": "Hardest Difficulty Completion Rate (Air Raider):"
+        },
+        {
+            "name": "StatusInfo_AirRaiderInfernoClearRatio",
+            "type": "string",
+            "value": "Inferno Difficulty Completion Rate (Air Raider):"
+        },
+        {
+            "name": "StatusInfo_AirRaiderNormalClearRatio",
+            "type": "string",
+            "value": "Normal Difficulty Completion Rate (Air Raider):"
+        },
+        {
+            "name": "StatusInfo_AirRaiderPlayCount",
+            "type": "string",
+            "value": "Missions as Air Raider:"
+        },
+        {
+            "name": "StatusInfo_AllClearRatio",
+            "type": "string",
+            "value": "Completion Rate for All Difficulty Levels:"
+        },
+        {
+            "name": "StatusInfo_AntHillKillCount",
+            "type": "string",
+            "value": "Teleportation Devices Defeated:"
+        },
+        {
+            "name": "StatusInfo_ArmorCount",
+            "type": "string",
+            "value": "Armor Item Acquisition:"
+        },
+        {
+            "name": "StatusInfo_BerserkerAKillCount",
+            "type": "string",
+            "value": "Androids Defeated:"
+        },
+        {
+            "name": "StatusInfo_BerserkerBKillCount",
+            "type": "string",
+            "value": "Super Androids Defeated:"
+        },
+        {
+            "name": "StatusInfo_BerserkerCKillCount",
+            "type": "string",
+            "value": "High Mobility Androids Defeated:"
+        },
+        {
+            "name": "StatusInfo_BerserkerDKillCount",
+            "type": "string",
+            "value": "Grenadiers Defeated:"
+        },
+        {
+            "name": "StatusInfo_BerserkerLargeKillCount",
+            "type": "string",
+            "value": "Cyclopes Defeated:"
+        },
+        {
+            "name": "StatusInfo_BerserkerMiddleBommerKillCount",
+            "type": "string",
+            "value": "Giant Grenadiers Defeated:"
+        },
+        {
+            "name": "StatusInfo_BerserkerMiddleKillCount",
+            "type": "string",
+            "value": "Giant Androids Defeated:"
+        },
+        {
+            "name": "StatusInfo_BigGiantSpiderKillCount",
+            "type": "string",
+            "value": "Kings Defeated:"
+        },
+        {
+            "name": "StatusInfo_BigGreyBossKillCount",
+            "type": "string",
+            "value": "Silver Man Defeated:"
+        },
+        {
+            "name": "StatusInfo_Carrier1KillCount",
+            "type": "string",
+            "value": "Teleportation Ships Defeated:"
+        },
+        {
+            "name": "StatusInfo_Count",
+            "type": "string",
+            "value": "time(s)"
+        },
+        {
+            "name": "StatusInfo_DangoKillCount",
+            "type": "string",
+            "value": "Aggressive Alien Species γs Defeated:"
+        },
+        {
+            "name": "StatusInfo_DeiroiKillCount",
+            "type": "string",
+            "value": "Deroys Defeated:"
+        },
+        {
+            "name": "StatusInfo_DragonAceKillCount",
+            "type": "string",
+            "value": "Giant Tadpoles Defeated:"
+        },
+        {
+            "name": "StatusInfo_DragonKillCount",
+            "type": "string",
+            "value": "Tadpoles Defeated:"
+        },
+        {
+            "name": "StatusInfo_EasyClearRatio",
+            "type": "string",
+            "value": "Easy Difficulty Completion Rate:"
+        },
+        {
+            "name": "StatusInfo_FencerArmor",
+            "type": "string",
+            "value": "Armor Value (Fencer):"
+        },
+        {
+            "name": "StatusInfo_FencerEasyClearRatio",
+            "type": "string",
+            "value": "Easy Difficulty Completion Rate (Fencer):"
+        },
+        {
+            "name": "StatusInfo_FencerHardClearRatio",
+            "type": "string",
+            "value": "Hard Difficulty Completion Rate (Fencer):"
+        },
+        {
+            "name": "StatusInfo_FencerHardestClearRatio",
+            "type": "string",
+            "value": "Hardest Difficulty Completion Rate (Fencer):"
+        },
+        {
+            "name": "StatusInfo_FencerInfernoClearRatio",
+            "type": "string",
+            "value": "Inferno Difficulty Completion Rate (Fencer):"
+        },
+        {
+            "name": "StatusInfo_FencerNormalClearRatio",
+            "type": "string",
+            "value": "Normal Difficulty Completion Rate (Fencer):"
+        },
+        {
+            "name": "StatusInfo_FencerPlayCount",
+            "type": "string",
+            "value": "Missions as Fencer:"
+        },
+        {
+            "name": "StatusInfo_FortressKillCount",
+            "type": "string",
+            "value": "Outpost Bases Defeated:"
+        },
+        {
+            "name": "StatusInfo_FrameCount",
+            "type": "string",
+            "value": "Gameplay Time:"
+        },
+        {
+            "name": "StatusInfo_FrogKillCount",
+            "type": "string",
+            "value": "Colonists Defeated:"
+        },
+        {
+            "name": "StatusInfo_GiantAntKillCount",
+            "type": "string",
+            "value": "Aggressive Alien Species αs Defeated:"
+        },
+        {
+            "name": "StatusInfo_GiantAntQueenKillCount",
+            "type": "string",
+            "value": "Mother Monsters Defeated:"
+        },
+        {
+            "name": "StatusInfo_GiantBeeKillCount",
+            "type": "string",
+            "value": "Flying Aggressors Defeated:"
+        },
+        {
+            "name": "StatusInfo_GiantBeeQueenKillCount",
+            "type": "string",
+            "value": "Queens Defeated:"
+        },
+        {
+            "name": "StatusInfo_GiantSpiderKillCount",
+            "type": "string",
+            "value": "Aggressive Alien Species βs Defeated:"
+        },
+        {
+            "name": "StatusInfo_GoldUfoAceKillCount",
+            "type": "string",
+            "value": "Red Drones Defeated:"
+        },
+        {
+            "name": "StatusInfo_GoldUfoKillCount",
+            "type": "string",
+            "value": "Drones Defeated:"
+        },
+        {
+            "name": "StatusInfo_GreyKillCount",
+            "type": "string",
+            "value": "Cosmonauts Defeated:"
+        },
+        {
+            "name": "StatusInfo_HardClearRatio",
+            "type": "string",
+            "value": "Hard Difficulty Completion Rate:"
+        },
+        {
+            "name": "StatusInfo_HardestClearRatio",
+            "type": "string",
+            "value": "Hardest Difficulty Completion Rate:"
+        },
+        {
+            "name": "StatusInfo_HealDamage",
+            "type": "string",
+            "value": "Recovery:"
+        },
+        {
+            "name": "StatusInfo_HornetNestKillCount",
+            "type": "string",
+            "value": "Hives Defeated:"
+        },
+        {
+            "name": "StatusInfo_HornetNestSnallKillCount",
+            "type": "string",
+            "value": "Small Hives Defeated:"
+        },
+        {
+            "name": "StatusInfo_ImperialUfoAceKillCount",
+            "type": "string",
+            "value": "Imperial Drones Defeated:"
+        },
+        {
+            "name": "StatusInfo_ImperialUfoKillCount",
+            "type": "string",
+            "value": "Type 2 Drones Defeated:"
+        },
+        {
+            "name": "StatusInfo_InfernoClearRatio",
+            "type": "string",
+            "value": "Inferno Difficulty Completion Rate:"
+        },
+        {
+            "name": "StatusInfo_JormungandKillCount",
+            "type": "string",
+            "value": "Primers Defeated:"
+        },
+        {
+            "name": "StatusInfo_MartianKillCount",
+            "type": "string",
+            "value": "Kruuls Defeated:"
+        },
+        {
+            "name": "StatusInfo_MermanKillCount",
+            "type": "string",
+            "value": "Scyllas Defeated:"
+        },
+        {
+            "name": "StatusInfo_Monster501KillCount",
+            "type": "string",
+            "value": "Erginuses Defeated:"
+        },
+        {
+            "name": "StatusInfo_Monster504KillCount",
+            "type": "string",
+            "value": "Archeluses Defeated:"
+        },
+        {
+            "name": "StatusInfo_MotherShipKillCount",
+            "type": "string",
+            "value": "Motherships Defeated:"
+        },
+        {
+            "name": "StatusInfo_NephilaKillCount",
+            "type": "string",
+            "value": "Araneas Defeated:"
+        },
+        {
+            "name": "StatusInfo_NormalClearRatio",
+            "type": "string",
+            "value": "Normal Difficulty Completion Rate:"
+        },
+        {
+            "name": "StatusInfo_OfflinePlayCount",
+            "type": "string",
+            "value": "Missions Started:"
+        },
+        {
+            "name": "StatusInfo_OnlinePlayCount",
+            "type": "string",
+            "value": "Online Missions Started:"
+        },
+        {
+            "name": "StatusInfo_PlayCount",
+            "type": "string",
+            "value": "Games Started:"
+        },
+        {
+            "name": "StatusInfo_RadonKillCount",
+            "type": "string",
+            "value": "Sirens/Glaucoses Defeated:"
+        },
+        {
+            "name": "StatusInfo_RangerArmor",
+            "type": "string",
+            "value": "Armor Value (Ranger):"
+        },
+        {
+            "name": "StatusInfo_RangerEasyClearRatio",
+            "type": "string",
+            "value": "Easy Difficulty Completion Rate (Ranger):"
+        },
+        {
+            "name": "StatusInfo_RangerHardClearRatio",
+            "type": "string",
+            "value": "Hard Difficulty Completion Rate (Ranger):"
+        },
+        {
+            "name": "StatusInfo_RangerHardestClearRatio",
+            "type": "string",
+            "value": "Hardest Difficulty Completion Rate (Ranger):"
+        },
+        {
+            "name": "StatusInfo_RangerInfernoClearRatio",
+            "type": "string",
+            "value": "Inferno Difficulty Completion Rate (Ranger):"
+        },
+        {
+            "name": "StatusInfo_RangerNormalClearRatio",
+            "type": "string",
+            "value": "Normal Difficulty Completion Rate (Ranger):"
+        },
+        {
+            "name": "StatusInfo_RangerPlayCount",
+            "type": "string",
+            "value": "Missions as Ranger:"
+        },
+        {
+            "name": "StatusInfo_RescueCount",
+            "type": "string",
+            "value": "Rescues:"
+        },
+        {
+            "name": "StatusInfo_RingMotherKillCount",
+            "type": "string",
+            "value": "Rings Defeated:"
+        },
+        {
+            "name": "StatusInfo_ShellFishAceKillCount",
+            "type": "string",
+            "value": "High Grade Excavators Defeated:"
+        },
+        {
+            "name": "StatusInfo_ShellFishKillCount",
+            "type": "string",
+            "value": "Excavators Defeated:"
+        },
+        {
+            "name": "StatusInfo_ShieldBearerKillCount",
+            "type": "string",
+            "value": "Shield Bearers Defeated:"
+        },
+        {
+            "name": "StatusInfo_SpinnerUfoAceKillCount",
+            "type": "string",
+            "value": "High Grade Type 3 Drones Defeated:"
+        },
+        {
+            "name": "StatusInfo_SpinnerUfoKillCount",
+            "type": "string",
+            "value": "Type 3 Drones Defeated:"
+        },
+        {
+            "name": "StatusInfo_SquidSmallKillCount",
+            "type": "string",
+            "value": "Hazes Defeated:"
+        },
+        {
+            "name": "StatusInfo_TeleportionAnchorKillCount",
+            "type": "string",
+            "value": "Teleportation Anchors Defeated:"
+        },
+        {
+            "name": "StatusInfo_TimeShipAnchorKillCount",
+            "type": "string",
+            "value": "Tail Anchors Defeated:"
+        },
+        {
+            "name": "StatusInfo_VenusKillCount",
+            "type": "string",
+            "value": "Krakens Defeated:"
+        },
+        {
+            "name": "StatusInfo_WeaponCount",
+            "type": "string",
+            "value": "Weapons Acquired:"
+        },
+        {
+            "name": "StatusInfo_WeaponGetRatio",
+            "type": "string",
+            "value": "Weapon Acquisition Rate:"
+        },
+        {
+            "name": "StatusInfo_WingDiverArmor",
+            "type": "string",
+            "value": "Armor Value (Wing Diver):"
+        },
+        {
+            "name": "StatusInfo_WingDiverEasyClearRatio",
+            "type": "string",
+            "value": "Easy Difficulty Completion Rate (Wing Diver):"
+        },
+        {
+            "name": "StatusInfo_WingDiverHardClearRatio",
+            "type": "string",
+            "value": "Hard Difficulty Completion Rate (Wing Diver):"
+        },
+        {
+            "name": "StatusInfo_WingDiverHardestClearRatio",
+            "type": "string",
+            "value": "Hardest Difficulty Completion Rate (Wing Diver):"
+        },
+        {
+            "name": "StatusInfo_WingDiverInfernoClearRatio",
+            "type": "string",
+            "value": "Inferno Difficulty Completion Rate (Wing Diver):"
+        },
+        {
+            "name": "StatusInfo_WingDiverNormalClearRatio",
+            "type": "string",
+            "value": "Normal Difficulty Completion Rate (Wing Diver):"
+        },
+        {
+            "name": "StatusInfo_WingDiverPlayCount",
+            "type": "string",
+            "value": "Missions as Wing Diver:"
+        },
+        {
+            "name": "Status_TitleBar",
+            "type": "string",
+            "value": "View Battle History"
+        },
+        {
+            "name": "Sys_AutoSaveWarning",
+            "type": "string",
+            "value": "This game supports an autosave feature.\nPlease do not turn off the console while the saving icon is displayed on the screen."
+        },
+        {
+            "name": "Sys_ConfirmChangeScreenMode",
+            "type": "string",
+            "value": "Do you want to change the screen mode?"
+        },
+        {
+            "name": "Sys_ConfirmChangeScreenModeText",
+            "type": "string",
+            "value": "If no action is taken, the setting will be restored after %d seconds."
+        },
+        {
+            "name": "Sys_Control_Description",
+            "type": "string",
+            "value": "<A>: OK <B>: Back"
+        },
+        {
+            "name": "Sys_Control_Description_BrokenSlot",
+            "type": "string",
+            "value": "<Y>: Delete"
+        },
+        {
+            "name": "Sys_Control_Description_Color",
+            "type": "string",
+            "value": "<A>: OK <B>: Back <Y>: Custom Colors"
+        },
+        {
+            "name": "Sys_Control_Description_History",
+            "type": "string",
+            "value": "<B>: Back <RB/RT>: Scroll"
+        },
+        {
+            "name": "Sys_Control_Description_Manual",
+            "type": "string",
+            "value": "<B>: Back <RB/RT>: Scroll"
+        },
+        {
+            "name": "Sys_Control_Description_Mission",
+            "type": "string",
+            "value": "<A>: OK <B>: Back <Y>: Change Medals"
+        },
+        {
+            "name": "Sys_Control_Description_MissionView",
+            "type": "string",
+            "value": "<B>: Back <Y>: Change Medals"
+        },
+        {
+            "name": "Sys_Control_Description_Room",
+            "type": "string",
+            "value": "<A>: OK <Y>: Change Medals"
+        },
+        {
+            "name": "Sys_Control_Description_Search",
+            "type": "string",
+            "value": "<A>: OK <B>: Back <X>: Delete"
+        },
+        {
+            "name": "Sys_Control_Description_SlotSelect",
+            "type": "string",
+            "value": "<X>: Edit Name <Y>: Delete"
+        },
+        {
+            "name": "Sys_Control_Description_SoldierSelect",
+            "type": "string",
+            "value": "<A>: OK <B>: Back <Y>: Change Models"
+        },
+        {
+            "name": "Sys_Control_Description_WeaponSelect",
+            "type": "string",
+            "value": "<A>: OK <B>: Back <RB/RT>: Scroll"
+        },
+        {
+            "name": "Sys_Control_EnableOnly",
+            "type": "string",
+            "value": "<A>: OK"
+        },
+        {
+            "name": "Sys_Control_Keyboard_Description",
+            "type": "string",
+            "value": "Enter: OK Esc: Back"
+        },
+        {
+            "name": "Sys_Control_Keyboard_Description_BrokenSlot",
+            "type": "string",
+            "value": "Y: Delete"
+        },
+        {
+            "name": "Sys_Control_Keyboard_Description_Color",
+            "type": "string",
+            "value": "Enter: OK Esc: Back Y: Custom Colors"
+        },
+        {
+            "name": "Sys_Control_Keyboard_Description_History",
+            "type": "string",
+            "value": "Esc: Back PgUp/PgDn: Scroll"
+        },
+        {
+            "name": "Sys_Control_Keyboard_Description_Manual",
+            "type": "string",
+            "value": "Esc: Back PgUp/PgDn: Scroll"
+        },
+        {
+            "name": "Sys_Control_Keyboard_Description_Mission",
+            "type": "string",
+            "value": "Enter: OK Esc: Back Y: Change Medals"
+        },
+        {
+            "name": "Sys_Control_Keyboard_Description_MissionView",
+            "type": "string",
+            "value": "Esc: Back Y: Change Medals"
+        },
+        {
+            "name": "Sys_Control_Keyboard_Description_Room",
+            "type": "string",
+            "value": "Enter: OK Y: Change Medals"
+        },
+        {
+            "name": "Sys_Control_Keyboard_Description_Search",
+            "type": "string",
+            "value": "Enter: OK Esc: Back X: Delete"
+        },
+        {
+            "name": "Sys_Control_Keyboard_Description_SlotSelect",
+            "type": "string",
+            "value": "X: Edit Name Y: Delete"
+        },
+        {
+            "name": "Sys_Control_Keyboard_Description_SoldierSelect",
+            "type": "string",
+            "value": "Enter: OK Esc: Back Y: Change Models"
+        },
+        {
+            "name": "Sys_Control_Keyboard_Description_WeaponSelect",
+            "type": "string",
+            "value": "Enter: OK Esc: Back PgUp/PgDn: Scroll"
+        },
+        {
+            "name": "Sys_Control_Keyboard_EnableOnly",
+            "type": "string",
+            "value": "Enter: OK"
+        },
+        {
+            "name": "Sys_Control_Keyboard_Next",
+            "type": "string",
+            "value": "Enter: Next PgUp/PgDn: Scroll"
+        },
+        {
+            "name": "Sys_Control_Next",
+            "type": "string",
+            "value": "<A>: Next <RB/RT>: Scroll"
+        },
+        {
+            "name": "Sys_Detail",
+            "type": "string",
+            "value": "Details"
+        },
+        {
+            "name": "Sys_Exit_Confirmation",
+            "type": "string",
+            "value": "Do you want to exit the game?"
+        },
+        {
+            "name": "Sys_Exit_Game",
+            "type": "string",
+            "value": "Finishing the game."
+        },
+        {
+            "name": "Sys_InviteAccepted",
+            "type": "string",
+            "value": "Prepare to join the game."
+        },
+        {
+            "name": "Sys_InviteCancel",
+            "type": "string",
+            "value": "Because you do not have the required content, you cannot join the session at this time."
+        },
+        {
+            "name": "Sys_InviteFailed",
+            "type": "string",
+            "value": "You received an invite,\nbut an error has occurred.\nThe invite process will be canceled."
+        },
+        {
+            "name": "Sys_JoinGameAccepted",
+            "type": "string",
+            "value": "You received a session's information.\nPrepare to join the session."
+        },
+        {
+            "name": "Sys_JoinGameCancel",
+            "type": "string",
+            "value": "You received a session's information,\nbut because you do not have the required content, \nthe process will be canceled."
+        },
+        {
+            "name": "Sys_JoinGameFailed",
+            "type": "string",
+            "value": "Failed to receive the session's information. You cannot join this session at this time."
+        },
+        {
+            "name": "Sys_LoadFailed_ToSlotSelect",
+            "type": "string",
+            "value": "Failed to load the save data. You will be returned to the select slot screen."
+        },
+        {
+            "name": "Sys_LoadFailed_ToTitle",
+            "type": "string",
+            "value": "Failed to load the save data. You will be returned to the title screen."
+        },
+        {
+            "name": "Sys_No",
+            "type": "string",
+            "value": "No"
+        },
+        {
+            "name": "Sys_NormalReset",
+            "type": "string",
+            "value": "You will be returned to the title screen."
+        },
+        {
+            "name": "Sys_Ok",
+            "type": "string",
+            "value": "OK"
+        },
+        {
+            "name": "Sys_PressButton",
+            "type": "string",
+            "value": "Press the ○ button."
+        },
+        {
+            "name": "Sys_Retry",
+            "type": "string",
+            "value": "Retry"
+        },
+        {
+            "name": "Sys_SaveError_Common",
+            "type": "string",
+            "value": "Save failed. \nDo you want to retry?"
+        },
+        {
+            "name": "Sys_SaveError_DirectoryNotExist",
+            "type": "string",
+            "value": "Failed to create directory to save.\nDo you want to retry?"
+        },
+        {
+            "name": "Sys_SaveError_NotEnoughSpace",
+            "type": "string",
+            "value": "Save failed due to insufficient free space.\nDo you want to retry?"
+        },
+        {
+            "name": "Sys_Scroll_Keyboard_LB",
+            "type": "string",
+            "value": "End"
+        },
+        {
+            "name": "Sys_Scroll_Keyboard_LT",
+            "type": "string",
+            "value": "Home"
+        },
+        {
+            "name": "Sys_Scroll_Keyboard_RB",
+            "type": "string",
+            "value": "PgDn"
+        },
+        {
+            "name": "Sys_Scroll_Keyboard_RT",
+            "type": "string",
+            "value": "PgUp"
+        },
+        {
+            "name": "Sys_Scroll_LB",
+            "type": "string",
+            "value": "LT"
+        },
+        {
+            "name": "Sys_Scroll_LT",
+            "type": "string",
+            "value": "LB"
+        },
+        {
+            "name": "Sys_Scroll_PS4Controller_LB",
+            "type": "string",
+            "value": "L2"
+        },
+        {
+            "name": "Sys_Scroll_PS4Controller_LT",
+            "type": "string",
+            "value": "L1"
+        },
+        {
+            "name": "Sys_Scroll_PS4Controller_RB",
+            "type": "string",
+            "value": "R2"
+        },
+        {
+            "name": "Sys_Scroll_PS4Controller_RT",
+            "type": "string",
+            "value": "R1"
+        },
+        {
+            "name": "Sys_Scroll_RB",
+            "type": "string",
+            "value": "RT"
+        },
+        {
+            "name": "Sys_Scroll_RT",
+            "type": "string",
+            "value": "RB"
+        },
+        {
+            "name": "Sys_Scroll_SwitchProController_LB",
+            "type": "string",
+            "value": "ZL"
+        },
+        {
+            "name": "Sys_Scroll_SwitchProController_LT",
+            "type": "string",
+            "value": "L"
+        },
+        {
+            "name": "Sys_Scroll_SwitchProController_RB",
+            "type": "string",
+            "value": "ZR"
+        },
+        {
+            "name": "Sys_Scroll_SwitchProController_RT",
+            "type": "string",
+            "value": "R"
+        },
+        {
+            "name": "Sys_UnlockArmorWeaponLimit",
+            "type": "string",
+            "value": "You can now remove armor limits and weapon level limits."
+        },
+        {
+            "name": "Sys_UseGamepad",
+            "type": "string",
+            "value": "Start the game using the gamepad."
+        },
+        {
+            "name": "Sys_UseKeyboard",
+            "type": "string",
+            "value": "Start the game using the keyboard and mouse."
+        },
+        {
+            "name": "Sys_Warning_DeviceError_Caption",
+            "type": "string",
+            "value": "DeviceError"
+        },
+        {
+            "name": "Sys_Warning_DeviceError_Text",
+            "type": "string",
+            "value": "DeviceError 0x%x"
+        },
+        {
+            "name": "Sys_Yes",
+            "type": "string",
+            "value": "Yes"
+        },
+        {
+            "name": "SystemOption_AntiAlias",
+            "type": "string",
+            "value": "Anti-aliasing"
+        },
+        {
+            "name": "SystemOption_DisplayMode",
+            "type": "string",
+            "value": "Display Mode"
+        },
+        {
+            "name": "SystemOption_DisplayMode_Borderless",
+            "type": "string",
+            "value": "Borderless Window"
+        },
+        {
+            "name": "SystemOption_DisplayMode_FullScreen",
+            "type": "string",
+            "value": "Full Screen"
+        },
+        {
+            "name": "SystemOption_DisplayMode_Window",
+            "type": "string",
+            "value": "Window Mode"
+        },
+        {
+            "name": "SystemOption_DisplaySetting",
+            "type": "string",
+            "value": "Screen Settings"
+        },
+        {
+            "name": "SystemOption_LetterBox",
+            "type": "string",
+            "value": "Letter Box"
+        },
+        {
+            "name": "SystemOption_Resolution",
+            "type": "string",
+            "value": "Resolution"
+        },
+        {
+            "name": "SystemOption_Shadow",
+            "type": "string",
+            "value": "Shadow"
+        },
+        {
+            "name": "SystemOption_TextureLevel",
+            "type": "string",
+            "value": "Anisotropic Filtering"
+        },
+        {
+            "name": "SystemOption_TextureLevel1",
+            "type": "string",
+            "value": "OFF"
+        },
+        {
+            "name": "SystemOption_TextureLevel2",
+            "type": "string",
+            "value": "2x"
+        },
+        {
+            "name": "SystemOption_TextureLevel3",
+            "type": "string",
+            "value": "4x"
+        },
+        {
+            "name": "SystemOption_TextureLevel4",
+            "type": "string",
+            "value": "8x"
+        },
+        {
+            "name": "SystemOption_TextureLevel5",
+            "type": "string",
+            "value": "16x"
+        },
+        {
+            "name": "SystemOption_TitleBar",
+            "type": "string",
+            "value": "System Settings"
+        },
+        {
+            "name": "Title_Licence",
+            "type": "string",
+            "value": "©2024 SANDLOT ©2024 D3PUBLISHER"
+        },
+        {
+            "name": "Title_Licence_US_EUR",
+            "type": "string",
+            "value": "©2024 SANDLOT ©2024 D3PUBLISHER"
+        },
+        {
+            "name": "TransferSaveDataFromPS4_Comfirm",
+            "type": "string",
+            "value": "PS4 version EDF6 save data detected.\nTransfer data?"
+        },
+        {
+            "name": "TransferSaveDataFromPS4_Done",
+            "type": "string",
+            "value": "Transfer completed."
+        },
+        {
+            "name": "TransferSaveDataFromPS4_Failure",
+            "type": "string",
+            "value": "Transfer failed."
+        },
+        {
+            "name": "TransferSaveDataFromPS4_Progress",
+            "type": "string",
+            "value": "Transferring..."
+        },
+        {
+            "name": "WeaponSel_SubTitle",
+            "type": "string",
+            "value": "Equipment"
+        },
+        {
+            "name": "Weapon_AssaultRifle",
+            "type": "string",
+            "value": "Assault Rifles"
+        },
+        {
+            "name": "Weapon_Engineer_Bomb",
+            "type": "string",
+            "value": "Limpet Guns"
+        },
+        {
+            "name": "Weapon_Engineer_Call_Attacker",
+            "type": "string",
+            "value": "Request Bombers"
+        },
+        {
+            "name": "Weapon_Engineer_Call_Cannon",
+            "type": "string",
+            "value": "Request Artillery Units"
+        },
+        {
+            "name": "Weapon_Engineer_Call_Gunship",
+            "type": "string",
+            "value": "Request Gunships"
+        },
+        {
+            "name": "Weapon_Engineer_Call_Missile",
+            "type": "string",
+            "value": "Request Missiles"
+        },
+        {
+            "name": "Weapon_Engineer_Call_Satellite",
+            "type": "string",
+            "value": "Request Satellites"
+        },
+        {
+            "name": "Weapon_Engineer_Cannon",
+            "type": "string",
+            "value": "Stationary Weapons"
+        },
+        {
+            "name": "Weapon_Engineer_CounterDrone",
+            "type": "string",
+            "value": "Autonomous Aircraft"
+        },
+        {
+            "name": "Weapon_Engineer_Lockon",
+            "type": "string",
+            "value": "Guide Kits"
+        },
+        {
+            "name": "Weapon_Engineer_ShootingDrone",
+            "type": "string",
+            "value": "Shooter Drones"
+        },
+        {
+            "name": "Weapon_Engineer_Special",
+            "type": "string",
+            "value": "Special Weapons"
+        },
+        {
+            "name": "Weapon_Engineer_Support",
+            "type": "string",
+            "value": "Support Equipment"
+        },
+        {
+            "name": "Weapon_Engineer_SupportBomb",
+            "type": "string",
+            "value": "Mechanized Bombs"
+        },
+        {
+            "name": "Weapon_Engineer_SupportDrone",
+            "type": "string",
+            "value": "Guard Drones"
+        },
+        {
+            "name": "Weapon_Engineer_TraceDrone",
+            "type": "string",
+            "value": "Chaser Drones"
+        },
+        {
+            "name": "Weapon_Engineer_Vehicle1",
+            "type": "string",
+            "value": "Tanks"
+        },
+        {
+            "name": "Weapon_Engineer_Vehicle2",
+            "type": "string",
+            "value": "Ground Vehicles"
+        },
+        {
+            "name": "Weapon_Engineer_Vehicle3",
+            "type": "string",
+            "value": "Helicopters"
+        },
+        {
+            "name": "Weapon_Engineer_Vehicle4",
+            "type": "string",
+            "value": "Powered Exoskeletons"
+        },
+        {
+            "name": "Weapon_Engineer_Vehicle5",
+            "type": "string",
+            "value": "Special Weapons"
+        },
+        {
+            "name": "Weapon_Grenade",
+            "type": "string",
+            "value": "Grenades"
+        },
+        {
+            "name": "Weapon_Heavy_Cannon",
+            "type": "string",
+            "value": "Cannons"
+        },
+        {
+            "name": "Weapon_Heavy_Homing",
+            "type": "string",
+            "value": "Missile Launchers"
+        },
+        {
+            "name": "Weapon_Heavy_Middle",
+            "type": "string",
+            "value": "Autocannons"
+        },
+        {
+            "name": "Weapon_Heavy_Sheild",
+            "type": "string",
+            "value": "Shields"
+        },
+        {
+            "name": "Weapon_Heavy_ShortHammer",
+            "type": "string",
+            "value": "CC Strikers"
+        },
+        {
+            "name": "Weapon_Heavy_ShortPile",
+            "type": "string",
+            "value": "CC Piercers"
+        },
+        {
+            "name": "Weapon_Heavy_Support_Actuater",
+            "type": "string",
+            "value": "Enhanced Armors"
+        },
+        {
+            "name": "Weapon_Heavy_Support_Aiming",
+            "type": "string",
+            "value": "Enhanced Cannons"
+        },
+        {
+            "name": "Weapon_Heavy_Support_Booster",
+            "type": "string",
+            "value": "Enhanced Boosters"
+        },
+        {
+            "name": "Weapon_Heavy_Support_Shield",
+            "type": "string",
+            "value": "Enhanced Shields"
+        },
+        {
+            "name": "Weapon_MissleLauncher",
+            "type": "string",
+            "value": "Missile Launchers"
+        },
+        {
+            "name": "Weapon_Pale_EnergyCore",
+            "type": "string",
+            "value": "Plasma Cores"
+        },
+        {
+            "name": "Weapon_Pale_Explosive",
+            "type": "string",
+            "value": "Ranged Weapons"
+        },
+        {
+            "name": "Weapon_Pale_Homing",
+            "type": "string",
+            "value": "Homing Weapons"
+        },
+        {
+            "name": "Weapon_Pale_Long",
+            "type": "string",
+            "value": "Long-Range"
+        },
+        {
+            "name": "Weapon_Pale_MiddleBeam",
+            "type": "string",
+            "value": "Mid-Range Pulse Weapons"
+        },
+        {
+            "name": "Weapon_Pale_MiddleLaser",
+            "type": "string",
+            "value": "Mid-Range Kinetic Weapons"
+        },
+        {
+            "name": "Weapon_Pale_MiddleThunder",
+            "type": "string",
+            "value": "Mid-Range Energy Weapons"
+        },
+        {
+            "name": "Weapon_Pale_Short",
+            "type": "string",
+            "value": "Short-Range"
+        },
+        {
+            "name": "Weapon_Pale_SupportCannon",
+            "type": "string",
+            "value": "Cannons"
+        },
+        {
+            "name": "Weapon_Pale_SupportGrenade",
+            "type": "string",
+            "value": "Special Weapons"
+        },
+        {
+            "name": "Weapon_Pale_SupportHorming",
+            "type": "string",
+            "value": "Guided Missiles"
+        },
+        {
+            "name": "Weapon_Pale_SupportShield",
+            "type": "string",
+            "value": "Shields"
+        },
+        {
+            "name": "Weapon_Pale_SupportShort",
+            "type": "string",
+            "value": "Sabers"
+        },
+        {
+            "name": "Weapon_Pale_SupportSpecial",
+            "type": "string",
+            "value": "Super Weapons"
+        },
+        {
+            "name": "Weapon_Pale_SupportTrap",
+            "type": "string",
+            "value": "Traps"
+        },
+        {
+            "name": "Weapon_Ranger_Vehicle1",
+            "type": "string",
+            "value": "Tanks"
+        },
+        {
+            "name": "Weapon_Ranger_Vehicle2",
+            "type": "string",
+            "value": "Helicopters"
+        },
+        {
+            "name": "Weapon_Ranger_Vehicle3",
+            "type": "string",
+            "value": "Bikes"
+        },
+        {
+            "name": "Weapon_RocketLauncher",
+            "type": "string",
+            "value": "Rocket Launchers"
+        },
+        {
+            "name": "Weapon_Shotgun",
+            "type": "string",
+            "value": "Shotguns"
+        },
+        {
+            "name": "Weapon_Slot1",
+            "type": "string",
+            "value": "Weapon 1"
+        },
+        {
+            "name": "Weapon_Slot1L",
+            "type": "string",
+            "value": "Weapon 1 - L. Hand"
+        },
+        {
+            "name": "Weapon_Slot1R",
+            "type": "string",
+            "value": "Weapon 1 - R. Hand"
+        },
+        {
+            "name": "Weapon_Slot2",
+            "type": "string",
+            "value": "Weapon 2"
+        },
+        {
+            "name": "Weapon_Slot2L",
+            "type": "string",
+            "value": "Weapon 2 - L. Hand"
+        },
+        {
+            "name": "Weapon_Slot2R",
+            "type": "string",
+            "value": "Weapon 2 - R. Hand"
+        },
+        {
+            "name": "Weapon_Slot3",
+            "type": "string",
+            "value": "Weapon 3"
+        },
+        {
+            "name": "Weapon_SlotAirRaiderSupport",
+            "type": "string",
+            "value": "Backpack"
+        },
+        {
+            "name": "Weapon_SlotFencerSupport",
+            "type": "string",
+            "value": "Reinforced Parts"
+        },
+        {
+            "name": "Weapon_SlotPaleSupport1",
+            "type": "string",
+            "value": "Plasma Core"
+        },
+        {
+            "name": "Weapon_SlotPaleSupport2",
+            "type": "string",
+            "value": "Independently Operated Equip."
+        },
+        {
+            "name": "Weapon_SlotSupport1",
+            "type": "string",
+            "value": "Support Equipment"
+        },
+        {
+            "name": "Weapon_SlotSupport2",
+            "type": "string",
+            "value": "Backpack"
+        },
+        {
+            "name": "Weapon_SlotVehicle",
+            "type": "string",
+            "value": "Vehicle"
+        },
+        {
+            "name": "Weapon_SniperRifle",
+            "type": "string",
+            "value": "Sniper Rifles"
+        },
+        {
+            "name": "Weapon_Special",
+            "type": "string",
+            "value": "Special Weapons"
+        },
+        {
+            "name": "Weapon_Support1",
+            "type": "string",
+            "value": "Support Equipment"
+        },
+        {
+            "name": "Weapon_SupportGrenade",
+            "type": "string",
+            "value": "Hand Grenades"
+        },
+        {
+            "name": "Weapon_SupportGrenade2",
+            "type": "string",
+            "value": "Special Throwing Grenades"
+        },
+        {
+            "name": "Weapon_SupportPlaceBomb",
+            "type": "string",
+            "value": "Bombs and Traps"
+        },
+        {
+            "name": "Weapon_SupportPlaceGun",
+            "type": "string",
+            "value": "Automatic Gun Placements"
+        }
+    ]
+}

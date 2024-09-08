@@ -1,0 +1,3447 @@
+{
+  "format": "SGO",
+  "endian": "LE",
+  "version": 258,
+  "variables": [
+    {"name": "%CHAT_APPEAL%", "type": "string", "value": "动作展示"},
+    {"name": "%CHAT_EPIC_OVERLAY%", "type": "string", "value": "以Epic传送邀请"},
+    {"name": "%CHAT_FRIENDS%", "type": "string", "value": "以Steam传送邀请"},
+    {"name": "%CHAT_KEYBOARD%", "type": "string", "value": "键盘输入"},
+    {"name": "%CHAT_PARTY_UI%", "type": "string", "value": "确认邀请讯息"},
+    {"name": "%CHAT_PROFILES%", "type": "string", "value": "确认SteamID"},
+    {"name": "%CHAT_VOICEENABLE%", "type": "string", "value": "切换语音聊天"},
+    {"name": "401_STRIKER_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "401_STRIKER_SHEET1", "type": "string", "value": "坐席１"},
+    {"name": "401_STRIKER_SHEET2", "type": "string", "value": "坐席２"},
+    {"name": "401_STRIKER_SHEET3", "type": "string", "value": "坐席３"},
+    {"name": "401_STRIKER_SHEET4", "type": "string", "value": "坐席４"},
+    {"name": "402_ROCKET_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "403_TANK_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "403_TANK_GUNNER_L", "type": "string", "value": "机枪─左"},
+    {"name": "403_TANK_GUNNER_R", "type": "string", "value": "机枪─右"},
+    {"name": "404_TANK_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "404_TANK_GUNNER_L", "type": "string", "value": "炮塔─左"},
+    {"name": "404_TANK_GUNNER_R", "type": "string", "value": "炮塔─右"},
+    {"name": "407_BIGBEGARUTA_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "407_BIGBEGARUTA_GUNNER_C", "type": "string", "value": "中央飞弹"},
+    {"name": "407_BIGBEGARUTA_GUNNER_L", "type": "string", "value": "炮塔─左"},
+    {"name": "407_BIGBEGARUTA_GUNNER_R", "type": "string", "value": "炮塔─右"},
+    {"name": "409_HELI_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "410_HELI_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "410_HELI_GUNNER_L", "type": "string", "value": "炮座─左"},
+    {"name": "410_HELI_GUNNER_R", "type": "string", "value": "炮座─右"},
+    {"name": "502_GROUNDROBO_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "503_BIKE_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "504_BEGARUTA_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "505_TANK_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "506_HELI_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "507_RESCUE_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "507_RESCUE_SHEET1", "type": "string", "value": "坐席１"},
+    {"name": "507_RESCUE_SHEET2", "type": "string", "value": "坐席２"},
+    {"name": "507_RESCUE_SHEET3", "type": "string", "value": "坐席３"},
+    {"name": "507_RESCUE_SHEET4", "type": "string", "value": "坐席４"},
+    {"name": "510_MASER_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "512_KEITRUCK_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "512_KEITRUCK_SHEET1", "type": "string", "value": "坐席１"},
+    {"name": "512_KEITRUCK_SHEET2", "type": "string", "value": "坐席２"},
+    {"name": "512_KEITRUCK_SHEET3", "type": "string", "value": "坐席３"},
+    {"name": "512_KEITRUCK_SHEET4", "type": "string", "value": "坐席４"},
+    {"name": "513_TRAILER_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "515_RETROBALAM_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "613_BIKE_DRIVER", "type": "string", "value": "操纵席"},
+    {"name": "CHAT_DOWN", "type": "string", "value": "下"},
+    {"name": "CHAT_LEFT", "type": "string", "value": "左"},
+    {"name": "CHAT_LEFTDOWN", "type": "string", "value": "左下"},
+    {"name": "CHAT_LEFTUP", "type": "string", "value": "左上"},
+    {"name": "CHAT_RIGHT", "type": "string", "value": "右"},
+    {"name": "CHAT_RIGHTDOWN", "type": "string", "value": "右下"},
+    {"name": "CHAT_RIGHTUP", "type": "string", "value": "右上"},
+    {"name": "CHAT_UP", "type": "string", "value": "上"},
+    {"name": "CHAT_VOICE_STATUS_OFF", "type": "string", "value": "[×停用语音]"},
+    {"name": "CHAT_VOICE_STATUS_ON", "type": "string", "value": "[○启用语音]"},
+    {
+      "name": "CHAT_VOICE_TEMPLATE",
+      "type": "string",
+      "value": "%VOICE_STATUS%%NAME%"
+    },
+    {
+      "name": "CLEAR_MSG_A",
+      "type": "string",
+      "value": "星导者正干预过去，打算改变历史。他们的策略是将时光飞船的船团送往过去改变战况。"
+    },
+    {
+      "name": "CLEAR_MSG_B",
+      "type": "string",
+      "value": "现今的历史是否是过去遭到改变的结果，我们不得而知。\n而未来究竟会……"
+    },
+    {
+      "name": "CONNECT_EOS_FAILED",
+      "type": "string",
+      "value": "无法连接EpicOnlineServices。"
+    },
+    {
+      "name": "CONNECT_EPIC_ONLINE_SERVICE",
+      "type": "string",
+      "value": "正在连接EpicOnlineServices。"
+    },
+    {"name": "Chat_Type_Game", "type": "string", "value": "游戏用聊天"},
+    {"name": "Chat_Type_Menu", "type": "string", "value": "选单用聊天"},
+    {"name": "ColorChange_Change1", "type": "string", "value": "变更颜色１"},
+    {"name": "ColorChange_Change2", "type": "string", "value": "变更颜色２"},
+    {
+      "name": "ColorChange_ColorDesc",
+      "type": "string",
+      "value": "按Y按键可制作喜欢的颜色。\n按A按键决定。按B按键可保持决定的颜色返回上一个画面。"
+    },
+    {
+      "name": "ColorChange_ConfirmDefault",
+      "type": "string",
+      "value": "确定要恢复为默认设置吗？"
+    },
+    {"name": "ColorChange_Default", "type": "string", "value": "恢复为默认设置"},
+    {
+      "name": "ColorChange_DefaultDesc",
+      "type": "string",
+      "value": "所有的颜色恢复默认设置。"
+    },
+    {"name": "ColorChange_H", "type": "string", "value": "H"},
+    {
+      "name": "ColorChange_Keyboard_ColorDesc",
+      "type": "string",
+      "value": "按Y键可制作喜欢的颜色。\n按Enter键决定。按Esc键可保持决定的颜色返回上一个画面。"
+    },
+    {"name": "ColorChange_Now", "type": "string", "value": "目前颜色"},
+    {
+      "name": "ColorChange_PS4Controller_ColorDesc",
+      "type": "string",
+      "value": "按△键可制作喜欢的颜色。\n按○键决定。按×键可保持决定的颜色返回上一个画面。"
+    },
+    {"name": "ColorChange_S", "type": "string", "value": "S"},
+    {
+      "name": "ColorChange_SwitchController_ColorDesc",
+      "type": "string",
+      "value": "按X键可制作喜欢的颜色。\n按B键决定。按A键可保持决定的颜色返回上一个画面。"
+    },
+    {"name": "ColorChange_TitleBar", "type": "string", "value": "变更颜色"},
+    {"name": "ColorChange_V", "type": "string", "value": "V"},
+    {
+      "name": "ContentSelect_Warning",
+      "type": "string",
+      "value": "尚未购买%MPACKNAME%。"
+    },
+    {
+      "name": "Contents_AutoSaveRetry",
+      "type": "string",
+      "value": "自动保存失败。\n若要再次进行自动保存，\n请选择“是”。\n选择“否”则无法保存\n到下次自动保存前的内容。"
+    },
+    {
+      "name": "Contents_AutoSaveRetry_ReturnTitle",
+      "type": "string",
+      "value": "自动保存失败。\n若要再次进行自动保存，\n请选择“是”。\n选择“否”\n会舍弃目前的进度。"
+    },
+    {
+      "name": "Contents_SaveSlotDelete",
+      "type": "string",
+      "value": "确定要删除\n此栏位的保存数据吗？"
+    },
+    {
+      "name": "Contents_SaveSlotDeleteConfirm",
+      "type": "string",
+      "value": "真的确定要删除\n此栏位的保存数据吗？"
+    },
+    {
+      "name": "Contents_SaveSlotDeleteMiss",
+      "type": "string",
+      "value": "删除保存数据失败。"
+    },
+    {"name": "Contents_SaveSlotDeleted", "type": "string", "value": "已删除保存数据。"},
+    {
+      "name": "Contents_SlotBroken",
+      "type": "string",
+      "value": "地球防卫军６保存数据已损坏。\n要游玩游戏请选择其他栏位，\n或删除损坏的地球防卫军６保存数据。"
+    },
+    {
+      "name": "Contents_SlotBrokenRemakeSave",
+      "type": "string",
+      "value": "栏位档案已损坏。\n若要删除损坏的栏位档案，\n再次进行保存\n请选择“是”。\n选择“否”则不会\n进行保存。"
+    },
+    {
+      "name": "Contents_SlotRestoreAsk",
+      "type": "string",
+      "value": "确定要从备份中还原栏位保存数据吗？\n结束还原程序后，将返回标题界面。"
+    },
+    {
+      "name": "Contents_SystemBrokenRemake",
+      "type": "string",
+      "value": "系统档案已损坏。\n请删除损坏的系统档案，\n并重新建立。"
+    },
+    {
+      "name": "Contents_SystemBrokenRemakeSave",
+      "type": "string",
+      "value": "系统档案已损坏。\n若要删除损坏的系统档案，\n再次进行保存\n请选择“是”。\n选择“否”则不会\n进行保存。"
+    },
+    {
+      "name": "EDF6_M118_BarugaControl",
+      "type": "string",
+      "value": "按LS按键准备炮击　按Y键发射"
+    },
+    {
+      "name": "EDF6_M118_BarugaControl_Keyboard",
+      "type": "string",
+      "value": "按%BULGAPOSE_SP%准备炮击\n按%BULGAATTACK_SP%发射"
+    },
+    {
+      "name": "EDF6_M118_BarugaControl_PS",
+      "type": "string",
+      "value": "按L3键准备炮击　按△键发射"
+    },
+    {
+      "name": "EDF6_M118_BarugaControl_Switch",
+      "type": "string",
+      "value": "按L摇杆键准备炮击\n按Ｘ键发射"
+    },
+    {
+      "name": "EDFMenuInfo_Equipment",
+      "type": "string",
+      "value": "可选择兵种并变更装备武器。另外还可变更颜色（衣服颜色）、调整装甲值（体力）。"
+    },
+    {
+      "name": "EDFMenuInfo_Option",
+      "type": "string",
+      "value": "进行声音等设置。\n另可选择变更操作、\n改变键配置。\n也可设置快捷聊天\n或是阅览操作说明书。\n这些操作也都可在游戏中进行。"
+    },
+    {"name": "EDFMenuInfo_Return", "type": "string", "value": "保存目前进度，返回标题界面。"},
+    {"name": "EDFMenuInfo_Start", "type": "string", "value": "选择任务，开始游戏。"},
+    {"name": "EDFMenuInfo_Status", "type": "string", "value": "可确认达成度等游玩纪录。"},
+    {
+      "name": "EDFMenuInfo_SystemOption",
+      "type": "string",
+      "value": "可变更画面设置或图像质量相关的设置。"
+    },
+    {
+      "name": "EDFMenu_ConfirmReturn",
+      "type": "string",
+      "value": "进行保存，\n返回标题界面。\n确定要继续吗？"
+    },
+    {"name": "EDFMenu_Equipment", "type": "string", "value": "选择兵种武器"},
+    {"name": "EDFMenu_Equipment2P1", "type": "string", "value": "选择1P兵种武器"},
+    {"name": "EDFMenu_Equipment2P2", "type": "string", "value": "选择2P兵种武器"},
+    {"name": "EDFMenu_Option", "type": "string", "value": "游戏设置、操作说明书"},
+    {"name": "EDFMenu_Retuen", "type": "string", "value": "返回"},
+    {"name": "EDFMenu_RetuenTitle", "type": "string", "value": "返回标题"},
+    {
+      "name": "EDFMenu_ReturnNoSave",
+      "type": "string",
+      "value": "返回标题界面。\n确定要继续吗？"
+    },
+    {"name": "EDFMenu_Start", "type": "string", "value": "出击"},
+    {"name": "EDFMenu_Status", "type": "string", "value": "确认战历"},
+    {"name": "EDFMenu_SystemOption", "type": "string", "value": "系统设置"},
+    {"name": "EDFMenu_TitleBar", "type": "string", "value": "作战指令总部"},
+    {"name": "EPIC_OWNERSHIP_FAILED", "type": "string", "value": "使用权已过期。"},
+    {
+      "name": "Eos_FailedCrossplay_Caption",
+      "type": "string",
+      "value": "错误： 验证游戏文件的完整性"
+    },
+    {
+      "name": "Eos_FailedCrossplay_Text",
+      "type": "string",
+      "value": "启动 %dq%地球防卫军6 %dq%所需的数据文件丢失。请确认游戏文件的完整性。\nErrorCode: %d_%d"
+    },
+    {"name": "EquipSel_Armor", "type": "string", "value": "调整装甲值"},
+    {"name": "EquipSel_ArmorCurrent", "type": "string", "value": "目前数值："},
+    {"name": "EquipSel_ArmorEdit", "type": "string", "value": "变更装甲值"},
+    {"name": "EquipSel_ArmorLimit", "type": "string", "value": "正在调整体力"},
+    {"name": "EquipSel_ArmorMax", "type": "string", "value": "最大值："},
+    {"name": "EquipSel_ArmorMin", "type": "string", "value": "最小值："},
+    {"name": "EquipSel_ArmorNoLimit", "type": "string", "value": "恢复为最大值"},
+    {"name": "EquipSel_ArmorSetMin", "type": "string", "value": "设置为最小值"},
+    {"name": "EquipSel_Custom", "type": "string", "value": "变更颜色"},
+    {"name": "EquipSel_Title", "type": "string", "value": "选择兵种武器"},
+    {
+      "name": "EquipSel_WeaponContentWarning",
+      "type": "string",
+      "value": "欲装备此武器须购买%MPACKNAME%。"
+    },
+    {"name": "EquipSel_WeaponLevel", "type": "string", "value": "武器等级"},
+    {"name": "EquipSel_WeaponLv", "type": "string", "value": "Lv"},
+    {
+      "name": "EquipSel_WeaponMultiWarning",
+      "type": "string",
+      "value": "无法装备多把相同的武器。"
+    },
+    {"name": "FilterSetting_Category", "type": "string", "value": "类别"},
+    {"name": "FilterSetting_info", "type": "string", "value": "内容"},
+    {"name": "GameMode_Content", "type": "string", "value": "选择内容"},
+    {
+      "name": "GameMode_DescOnlineScenario",
+      "type": "string",
+      "value": "开始在线游玩。最多可由四位玩家一起挑战任务。"
+    },
+    {
+      "name": "GameMode_DescScenario",
+      "type": "string",
+      "value": "以离线游玩开始游戏。１人游玩。请收集道具、让主角成长、完成所有的任务。\n\n一开始会有操作练习任务。"
+    },
+    {
+      "name": "GameMode_DescTwoPlayers",
+      "type": "string",
+      "value": "游玩分割画面双人游玩的模式。需要有２个控制器。\n\n一开始会有操作练习任务。"
+    },
+    {
+      "name": "GameMode_Desc_Offline_MissionPack01",
+      "type": "string",
+      "value": "“ 失落时光 ”\n \n以离线方式游玩任务包１“ 失落时光 ”。在高难度中可获得新武器。"
+    },
+    {
+      "name": "GameMode_Desc_Offline_MissionPack02",
+      "type": "string",
+      "value": "“ 恶意幻象 ”\n \n以离线方式游玩任务包２。请挑战由战略情报部管理营运的训练用战斗模拟器吧。在高难度中可获得新武器。"
+    },
+    {
+      "name": "GameMode_Desc_Online_MissionPack01",
+      "type": "string",
+      "value": "“ 失落时光 ”\n \n以在线方式游玩任务包１“ 失落时光 ”。在高难度中可获得新武器。"
+    },
+    {
+      "name": "GameMode_Desc_Online_MissionPack02",
+      "type": "string",
+      "value": "“ 恶意幻象 ”\n \n以在线方式游玩任务包２。请挑战由战略情报部管理营运的训练用战斗模拟器吧。在高难度中可获得新武器。"
+    },
+    {"name": "GameMode_NoSignin", "type": "string", "value": "尚未登入。\n即将返回标题。"},
+    {
+      "name": "GameMode_Offline_MissionPack01",
+      "type": "string",
+      "value": "任务包１ 离线"
+    },
+    {
+      "name": "GameMode_Offline_MissionPack02",
+      "type": "string",
+      "value": "任务包２ 离线"
+    },
+    {
+      "name": "GameMode_OnlineFailed",
+      "type": "string",
+      "value": "无法联机。\n将返回标题。"
+    },
+    {"name": "GameMode_OnlineScenario", "type": "string", "value": "联机任务模式"},
+    {
+      "name": "GameMode_Online_MissionPack01",
+      "type": "string",
+      "value": "任务包１ 在线"
+    },
+    {
+      "name": "GameMode_Online_MissionPack02",
+      "type": "string",
+      "value": "任务包２ 在线"
+    },
+    {
+      "name": "GameMode_Player2Assign",
+      "type": "string",
+      "value": "请按下玩家2的控制器的\nSTART键。"
+    },
+    {
+      "name": "GameMode_Player2Assign_PS4Controller",
+      "type": "string",
+      "value": "请按下玩家2的控制器的\nOPTIONS键。"
+    },
+    {
+      "name": "GameMode_Player2Assign_SwitchProController",
+      "type": "string",
+      "value": "请按下玩家2的控制器的\n＋键。"
+    },
+    {"name": "GameMode_SaveSlot", "type": "string", "value": "选择栏位"},
+    {"name": "GameMode_Scenario", "type": "string", "value": "离线任务模式"},
+    {"name": "GameMode_Title", "type": "string", "value": "选择游戏模式"},
+    {"name": "GameMode_TwoPlayers", "type": "string", "value": "分割画面双人游玩"},
+    {"name": "GameMode_Versus", "type": "string", "value": "对战模式"},
+    {
+      "name": "GameMode_Warning2Player",
+      "type": "string",
+      "value": "玩家2获得的成就\n会反应至玩家1的成就。"
+    },
+    {"name": "GameOver_Exit", "type": "string", "value": "撤退"},
+    {
+      "name": "GameOver_HostWait",
+      "type": "string",
+      "value": "正在等待开房者玩家进行选择。\n也可按下START键返回大厅。"
+    },
+    {
+      "name": "GameOver_HostWait_Keyboard",
+      "type": "string",
+      "value": "正在等待开房者玩家进行选择。\n也可按下Esc键返回大厅。"
+    },
+    {
+      "name": "GameOver_HostWait_PS4Controller",
+      "type": "string",
+      "value": "正在等待开房者玩家进行选择。\n也可按下OPTIONS键返回大厅。"
+    },
+    {
+      "name": "GameOver_HostWait_SwitchProController",
+      "type": "string",
+      "value": "正在等待开房者玩家进行选择。\n也可按下＋键返回大厅。"
+    },
+    {"name": "GameOver_Retry", "type": "string", "value": "再次出击"},
+    {"name": "HUD_BOARD_RESCUE", "type": "string", "value": "按下“搭乘／救援”键救援"},
+    {
+      "name": "HUD_BOARD_VEHICLE_RIDE",
+      "type": "string",
+      "value": "按下“搭乘／救援”键搭乘"
+    },
+    {
+      "name": "INGAME_STORY_TEXT_M011",
+      "type": "string",
+      "value": "The Earth Defense Force 6\nbegins now."
+    },
+    {
+      "name": "INGAME_STORY_TEXT_M039",
+      "type": "string",
+      "value": "回到过去，\n然后再度引发意外。\n时间不会继续流逝。\n\n\nThe Earth Defense Force 7\nbegins now."
+    },
+    {
+      "name": "INGAME_STORY_TEXT_M055",
+      "type": "string",
+      "value": "破坏了移动基地，\n勉强阻止了敌方的大规模攻势。\n\n……三年后……"
+    },
+    {
+      "name": "INGAME_STORY_TEXT_M066",
+      "type": "string",
+      "value": "光线洒落下来。\n和之前一样。\n然而……\n某种东西正开始失控。\n\nThe Earth Defense Force 8\nbegins now."
+    },
+    {
+      "name": "INGAME_STORY_TEXT_M093_2",
+      "type": "string",
+      "value": "人类不断获得重大的胜利。\n然而即便如此……战争仍会持续下去。\n\n……三年后……"
+    },
+    {
+      "name": "INGAME_STORY_TEXT_M099",
+      "type": "string",
+      "value": "成功了。\n但无法保证有下一次机会。\n即使如此……\n还有希望。\n一定还有的……\n\nThe Earth Defense Force 9\nbegins now."
+    },
+    {
+      "name": "INGAME_STORY_TEXT_M116",
+      "type": "string",
+      "value": "成功击沉１１号母舰。\n即便如此……\n星导者还是继续战斗着。\n就好像不怕死一般。\n\n……三年后……"
+    },
+    {
+      "name": "INGAME_STORY_TEXT_RM081",
+      "type": "string",
+      "value": "十艘母舰发动了激烈的攻击。\n即便如此……\n人们还是持续奋战下去。\n为了保护重要的事物。\n\n……三年后……"
+    },
+    {"name": "InviteType_Desc", "type": "string", "value": "可发出邀请的成员"},
+    {"name": "InviteType_Leader_Desc", "type": "string", "value": "仅限队长可发出邀请"},
+    {"name": "InviteType_Member_Desc", "type": "string", "value": "参加成员皆可发出邀请"},
+    {"name": "InviteType_NoOne_Desc", "type": "string", "value": "无人可发出邀请"},
+    {
+      "name": "Invite_Default",
+      "type": "string",
+      "value": "各位ＥＤＦ的士兵。时候到了。我们必须战斗。准备出击吧。\n【%MODENAME%】\n【%MISSIONNAME%】\n【%DIFFICULTY%】"
+    },
+    {"name": "Invite_Status", "type": "string", "value": "正在游玩%MODENAME%。"},
+    {"name": "LevelSelect_Easy", "type": "string", "value": "ＥＡＳＹ"},
+    {
+      "name": "LevelSelect_Easy_Desc",
+      "type": "string",
+      "value": "非常简单，但武器会有点难以取得。无论如何都无法完成的任务再选择此难度吧。\n\n\n〔误击到我方时〕\n\n·造成伤害　仅１０％\n·不会因爆炸冲击倒地\n　（仅限我方玩家）"
+    },
+    {"name": "LevelSelect_Hard", "type": "string", "value": "ＨＡＲＤ"},
+    {
+      "name": "LevelSelect_Hard_Desc",
+      "type": "string",
+      "value": "有点难度。请提升装甲值（体力）并取得强大的武器后再挑战。建议在完成ＮＯＲＭＡＬ之后再选择。\n\n\n〔误击到我方时〕\n\n·造成伤害　仅５０％\n·不会因爆炸冲击倒地\n　（仅限我方玩家）"
+    },
+    {"name": "LevelSelect_Hardest", "type": "string", "value": "ＨＡＲＤＥＳＴ"},
+    {
+      "name": "LevelSelect_Hardest_Desc",
+      "type": "string",
+      "value": "比ＨＡＲＤ更困难的难度。不光要有好的武器与装甲，玩家本身也要具备优异的技巧。请有自信的玩家在完成ＨＡＲＤ后再进行挑战。\n\n\n〔误击到我方时〕\n\n·造成伤害　仅７５％"
+    },
+    {"name": "LevelSelect_Inferno", "type": "string", "value": "ＩＮＦＥＲＮＯ"},
+    {
+      "name": "LevelSelect_Inferno_Desc",
+      "type": "string",
+      "value": "上级者专用的特别难度。由于难度非常高，除了要有好的武器、装甲、技巧外，还要具备优异的战略。不需要勉强游玩。\n\n\n〔误击到我方时〕\n\n·造成伤害　１００％"
+    },
+    {"name": "LevelSelect_Normal", "type": "string", "value": "ＮＯＲＭＡＬ"},
+    {
+      "name": "LevelSelect_Normal_Desc",
+      "type": "string",
+      "value": "普通难度。起初请以完成此难度为目标。\n\n\n〔误击到我方时〕\n\n·造成伤害　仅２５％\n·不会因爆炸冲击倒地\n　（仅限我方玩家）"
+    },
+    {"name": "LoadSaveInfo_Day", "type": "string", "value": "日"},
+    {"name": "LoadSaveInfo_HH", "type": "string", "value": "点"},
+    {"name": "LoadSaveInfo_Hours", "type": "string", "value": "小时"},
+    {"name": "LoadSaveInfo_MM", "type": "string", "value": "分"},
+    {"name": "LoadSaveInfo_Month", "type": "string", "value": "月"},
+    {"name": "LoadSaveInfo_PlayTime", "type": "string", "value": "游玩时间"},
+    {"name": "LoadSaveInfo_SS", "type": "string", "value": "秒"},
+    {"name": "LoadSaveInfo_SaveTime", "type": "string", "value": "保存时间"},
+    {"name": "LoadSaveInfo_Slot", "type": "string", "value": "Slot"},
+    {"name": "LoadSaveInfo_SlotCorrupt", "type": "string", "value": "损坏数据"},
+    {
+      "name": "LoadSaveInfo_SlotCorruptDesc",
+      "type": "string",
+      "value": "此栏位的保存数据已损坏。"
+    },
+    {"name": "LoadSaveInfo_SlotDesc", "type": "string", "value": "继续游玩游戏。"},
+    {
+      "name": "LoadSaveInfo_SlotExistBackupDesc",
+      "type": "string",
+      "value": "此栏位的保存数据已损坏。按下决定键，可从备份进行复原。"
+    },
+    {"name": "LoadSaveInfo_SlotNew", "type": "string", "value": "新建数据"},
+    {"name": "LoadSaveInfo_SlotNewDesc", "type": "string", "value": "开始新游戏。"},
+    {"name": "LoadSaveInfo_Year", "type": "string", "value": "年"},
+    {"name": "LoadSave_LoadNg", "type": "string", "value": "无法载入。"},
+    {"name": "LoadSave_SaveNg", "type": "string", "value": "无法保存。"},
+    {
+      "name": "Loading_Desc_001",
+      "type": "string",
+      "value": "精锐步兵。历经无数严苛训练的战斗专家。可操作多种武器，应对各式各样的局面。另外还具备军用载具的驾驶执照，可在战场中驾驶。\n\n※最容易操作，并具有高度战斗力。初次游玩时，建议先选突击兵。"
+    },
+    {
+      "name": "Loading_Desc_002",
+      "type": "string",
+      "value": "只有身穿飞行装备的女性所组成的特殊部队。为了实现轻量化不持有实弹武器，而是装备最新型的光学兵器。具备所有兵种中最顶级的破坏力。\n\n※可高速移动，攻击力也很强。但弱点是体力（装甲值）低，防御力也不高。"
+    },
+    {
+      "name": "Loading_Desc_003",
+      "type": "string",
+      "value": "带有通讯装备的战术兵。任务是与空军合作，传达空袭坐标。可请求爆击机与炮舰机进行攻击，毁灭敌人。另外还具有请求投落军用载具的权限。\n\n※中级兵种。能发挥绝大的攻击力，但有时也会陷入无法善用能力的处境。算是适合多人游玩的兵种。请在稍微习惯游戏后再进行选择。"
+    },
+    {
+      "name": "Loading_Desc_004",
+      "type": "string",
+      "value": "穿着外骨骼式强化服“动力装甲”的重装士兵。因为有动力装甲而能装备巨大的武器。左右两臂还可各别持有不同的武器。\n\n※上级兵种。除了操作方法与其他兵种不同外，还得学习多种技巧。但熟悉后就能发挥十分强大的力量。"
+    },
+    {
+      "name": "Loading_Desc_005",
+      "type": "string",
+      "value": "遭到捕食攻击的期间还是可以移动准星。瞄准敌人，按下攻击键射击。只要打倒捕食的敌人就能脱困。"
+    },
+    {
+      "name": "Loading_Desc_006",
+      "type": "string",
+      "value": "遭到捕食攻击时还是可以“替换武器”。瞄准敌人进行攻击吧。但使用爆炸道具会很危险。自己说不定也会被炸到。"
+    },
+    {
+      "name": "Loading_Desc_007",
+      "type": "string",
+      "value": "即使被网子缠住，也还是可以移动准星。瞄准网子进行攻击吧。只要破坏网子就能脱逃。但使用爆炸道具会很危险。自己说不定也会被炸到。"
+    },
+    {
+      "name": "Loading_Desc_008",
+      "type": "string",
+      "value": "厄拉尼亚的丝线非常危险。一旦缠上就会被它用惊人的力量拉走。只有打倒厄拉尼亚才能获救。"
+    },
+    {
+      "name": "Loading_Desc_009",
+      "type": "string",
+      "value": "厄拉尼亚会用丝线拉回猎物并困在网子上。若是被黏在网子上，只要破坏网子就能脱逃。"
+    },
+    {
+      "name": "Loading_Desc_010",
+      "type": "string",
+      "value": "有些载具只有突击兵与空袭兵能够驾驶。飞翼潜行兵与剑兵由于装备较大，会连驾驶席都进不去。详细内容记载于操作说明书中，还请确认。\n\n这里仅指驾驶席。炮手席与后部坐席则是所有兵种都可搭乘。"
+    },
+    {
+      "name": "Loading_Desc_011",
+      "type": "string",
+      "value": "靠近头上显示图标的士兵进行会合吧。之后该名士兵就会听从玩家的指挥一起行动。跟小队队长会合时，整个小队都会听命主角的指挥。"
+    },
+    {
+      "name": "Loading_Desc_012",
+      "type": "string",
+      "value": "取得回复道具，就能帮自己与听命指挥（已会合部队）的所有成员进行回复。尽可能与伙伴会合吧。"
+    },
+    {
+      "name": "Loading_Desc_013",
+      "type": "string",
+      "value": "在游玩任务时，也可通过暂停菜单阅览操作说明书。尽可能看过一遍吧。\n\n各兵种都有特殊行动。请阅览操作说明书善加利用。"
+    },
+    {
+      "name": "Loading_Desc_014",
+      "type": "string",
+      "value": "突击兵在冲刺时会放下武器，解除对敌人的警戒。此时会将注意力集中在脚部，因此在冲刺时可扩增道具的取得范围。此外，装备探测器也可扩增取得范围。\n\n扩增道具取得范围时，会以圆圈表示。将自动取得在圆圈内的道具。"
+    },
+    {
+      "name": "Loading_Desc_015",
+      "type": "string",
+      "value": "有些武器会搭载激光瞄准器。使用激光瞄准器就能确认“目标是否在射程范围内”。目标在射程范围内时，准星的中央会显示“红点”。未显示此点就代表在射程范围外，就算攻击也不会命中。"
+    },
+    {
+      "name": "Loading_Desc_016",
+      "type": "string",
+      "value": "对炮舰机请求攻击时，必须使用信标来传达攻击坐标。只不过，信标若没命中“射程内”的物体就无法发挥作用。可透过激光瞄准器来判断目标是否在射程范围内。准星内若有显示红点，就代表在“射程内”。在发射信标前一定要先确认。"
+    },
+    {
+      "name": "Loading_Desc_017",
+      "type": "string",
+      "value": "其他玩家遭到捕食攻击会显示图标。只要看到此图示就马上去救援吧。打倒捕食的敌人就能解救伙伴。"
+    },
+    {
+      "name": "Loading_Desc_018",
+      "type": "string",
+      "value": "剑兵的武器能具有“第２个机能”。譬如右手持有的超震动锤不是只有按下“攻击─右手键”进行攻击，也可按下“使用装备─右手键”进行推进冲刺。"
+    },
+    {
+      "name": "Loading_Desc_019",
+      "type": "string",
+      "value": "剑兵的护盾是非常强大的装备。只不过缺点是在举起的期间，步行速度会十分缓慢，而且只能抵挡前方的攻击。（能抵挡的角度会随着护盾而不同）"
+    },
+    {
+      "name": "Loading_Desc_020",
+      "type": "string",
+      "value": "就算任务失败，在过程中取得的道具也还是能获得一定的数量。获得量会随着难度改变。\nＥＡＳＹ　　　：１００％\nＮＯＲＭＡＬ　：７５％\nＨＡＲＤ　　　：５０％\nＨＡＲＤＥＳＴ：２５％\nＩＮＦＥＲＮＯ：０％"
+    },
+    {
+      "name": "Loading_Desc_021",
+      "type": "string",
+      "value": "要请求投落载具以及进行空袭都会需要“功绩”。打倒敌人就能增加功绩。我方士兵或其他玩家打倒敌人也能列入计算。"
+    },
+    {
+      "name": "Loading_Desc_022",
+      "type": "string",
+      "value": "飞翼潜行兵可藉由“在倒地状态下的跳跃（飞行）操作”迅速起身。即使是在空中也能在倒下的状态瞬间恢复态势。只不过会耗费能量量表，还请多加留意。"
+    },
+    {
+      "name": "Loading_Desc_023",
+      "type": "string",
+      "value": "无法装备多把同样的武器。但只有剑兵例外。"
+    },
+    {
+      "name": "Loading_Desc_024",
+      "type": "string",
+      "value": "即使是同样的武器，在性能上也会有所差异。“弹数”与“伤害”会随着武器的强化值而不同。\n\n再次取得同样的武器就可强化。详细内容可参阅操作说明书。"
+    },
+    {
+      "name": "Loading_Desc_025",
+      "type": "string",
+      "value": "突击兵的背包工具可在不中断手中武器重新装填的状况下使用。可藉此弥补重新装填期间呈现无防备状态的缺点。"
+    },
+    {
+      "name": "Loading_Desc_026",
+      "type": "string",
+      "value": "机械生命体的双手装备着“有线式飞刀”。\n这种武器虽然强大，但可在命中前加以击落。\n用准星瞄准飞来的小刀，将其击落吧。"
+    },
+    {
+      "name": "Loading_Desc_027",
+      "type": "string",
+      "value": "人类得知外星人的存在后建造了三艘航空潜舰。\n从宇宙的另一头前来的侵略者想必不会携带针对潜水艇的装备。在与外星人交战时，海中想必是最安全的场所。有鉴于此，人类建造了全长超过一公里的巨大船身，并装载了大量武器弹药、食物和药品，甚至还带上了植物种子与基因信息。\n发生战事时，这些舰艇能潜入深海以供给各地物资，在战争时长期提供支持。万一人类灭亡时，也能肩负起复兴地球的重责大任。"
+    },
+    {
+      "name": "Loading_Desc_028",
+      "type": "string",
+      "value": "大型机械生命体受到厚重的装甲保护，无法轻易破坏。然而只要持续攻击，便可使其装甲表面破损。只要针对装甲剥落的部分攻击，便能使其退缩。"
+    },
+    {
+      "name": "Loading_Desc_029",
+      "type": "string",
+      "value": "库鲁鲁的护盾虽然坚固，但可使用手榴弹等部分武器造成额外伤害。请仔细确认伤害显示。\n不过，无法保证这类武器真的有效。找出属于自己的战术比较重要。"
+    },
+    {
+      "name": "Loading_Desc_030",
+      "type": "string",
+      "value": "巨大机械生命体“独眼巨人”的弱点是正面的圆形标志。那恐怕是某种相当于眼睛的传感器，该部分的装甲应较为薄弱。攻击圆形标志吧。"
+    },
+    {
+      "name": "Loading_Desc_031",
+      "type": "string",
+      "value": "地底掘削机器人“涅加”受到装甲保护。由于这种机器人没有轮胎或脚，且武装也收藏于内部，故没有弱点。\n然而它在攻击时会开启装甲并展开武装。在其发动攻击的瞬间攻击内部吧。"
+    },
+    {
+      "name": "Loading_Desc_032",
+      "type": "string",
+      "value": "鱼人（斯库拉）的攻击当中最恐怖的便是从体内喷出的毒素。\n这些毒素会以有色的雾气形式扩散至周围，对生物造成致命性伤害。\n\n毒雾越浓（离产生地点越近），造成的伤害越高。\n一旦鱼人开始喷毒，就尽快远离吧。"
+    },
+    {
+      "name": "Loading_Desc_033",
+      "type": "string",
+      "value": "海怪克拉肯是拥有多只手臂的恐怖生物。\n不仅能同时操纵两个盾牌，还能藉由伸缩手臂来防御广大的范围。\n不过，伸缩的手臂比身体脆弱。\n建议先攻击盾牌，待其变黑后便攻击手臂，封锁其装备。"
+    },
+    {"name": "Loading_Title_001", "type": "string", "value": "突击兵"},
+    {"name": "Loading_Title_002", "type": "string", "value": "飞翼潜行兵"},
+    {"name": "Loading_Title_003", "type": "string", "value": "空袭兵"},
+    {"name": "Loading_Title_004", "type": "string", "value": "剑兵"},
+    {"name": "Loading_Title_005", "type": "string", "value": "就算被捕食还是可以反击"},
+    {"name": "Loading_Title_006", "type": "string", "value": "就算被捕食还是可以选择武器"},
+    {"name": "Loading_Title_007", "type": "string", "value": "就算被网子缠住也还是可以脱逃"},
+    {"name": "Loading_Title_008", "type": "string", "value": "小心厄拉尼亚的丝线"},
+    {"name": "Loading_Title_009", "type": "string", "value": "就算被拉到网子上也别放弃"},
+    {"name": "Loading_Title_010", "type": "string", "value": "能乘坐驾驶席的兵种有限"},
+    {"name": "Loading_Title_011", "type": "string", "value": "与我方会合"},
+    {"name": "Loading_Title_012", "type": "string", "value": "可回复指挥的小队"},
+    {
+      "name": "Loading_Title_013",
+      "type": "string",
+      "value": "即使在游玩任务时也可阅览操作说明书"
+    },
+    {"name": "Loading_Title_014", "type": "string", "value": "可扩增道具取得范围"},
+    {"name": "Loading_Title_015", "type": "string", "value": "用激光瞄准器确认距离"},
+    {"name": "Loading_Title_016", "type": "string", "value": "用准星判断目标射程"},
+    {"name": "Loading_Title_017", "type": "string", "value": "拯救被捕食的伙伴"},
+    {"name": "Loading_Title_018", "type": "string", "value": "具有两种机能的武器"},
+    {"name": "Loading_Title_019", "type": "string", "value": "理解护盾的特性"},
+    {"name": "Loading_Title_020", "type": "string", "value": "即使任务失败仍可获得道具"},
+    {"name": "Loading_Title_021", "type": "string", "value": "再次空袭需要功绩"},
+    {"name": "Loading_Title_022", "type": "string", "value": "飞翼潜行兵的迅速恢复"},
+    {"name": "Loading_Title_023", "type": "string", "value": "无法装备２把同样的武器"},
+    {"name": "Loading_Title_024", "type": "string", "value": "强化武器吧"},
+    {"name": "Loading_Title_025", "type": "string", "value": "有效运用突击兵的背包工具"},
+    {"name": "Loading_Title_026", "type": "string", "value": "打落机械生命体的手臂"},
+    {"name": "Loading_Title_027", "type": "string", "value": "航空潜舰"},
+    {"name": "Loading_Title_028", "type": "string", "value": "瞄准大型机械生命体的破损部分"},
+    {"name": "Loading_Title_029", "type": "string", "value": "对库鲁鲁的护盾造成伤害"},
+    {"name": "Loading_Title_030", "type": "string", "value": "攻击巨大机械生命体的眼睛"},
+    {"name": "Loading_Title_031", "type": "string", "value": "攻击涅加的装甲内部"},
+    {"name": "Loading_Title_032", "type": "string", "value": "离鱼人远一点！"},
+    {"name": "Loading_Title_033", "type": "string", "value": "攻击海怪克拉肯的手臂"},
+    {
+      "name": "LobbyLanguageDesc_cn",
+      "type": "string",
+      "value": "将文本聊天的建议语言设置为“繁体中文”。\n（这是用于搜寻房间条件的设置）\n只有将此条件设置为“繁体中文”的房间才会显示在大厅中。"
+    },
+    {
+      "name": "LobbyLanguageDesc_en",
+      "type": "string",
+      "value": "将文本聊天的建议语言设置为“英文”。\n（这是用于搜寻房间条件的设置）\n只有将此条件设置为“英文”的房间才会显示在大厅中。"
+    },
+    {
+      "name": "LobbyLanguageDesc_ja",
+      "type": "string",
+      "value": "将文本聊天的建议语言设置为“日文”。\n（这是用于搜寻房间条件的设置）\n只有将此条件设置为“日文”的房间才会显示在大厅中。"
+    },
+    {
+      "name": "LobbyLanguageDesc_kr",
+      "type": "string",
+      "value": "将文本聊天的建议语言设置为“韩文”。\n（这是用于搜寻房间条件的设置）\n只有将此条件设置为“韩文”的房间才会显示在大厅中。"
+    },
+    {
+      "name": "LobbyLanguageDesc_none",
+      "type": "string",
+      "value": "不设置文本聊天时的建议语言。"
+    },
+    {
+      "name": "LobbyLanguageDesc_sc",
+      "type": "string",
+      "value": "将文本聊天的建议语言设置为“简体中文”。\n（这是用于搜寻房间条件的设置）\n只有将此条件设置为“简体中文”的房间才会显示在大厅中。"
+    },
+    {"name": "LobbyLanguageDisp_cn", "type": "string", "value": "繁体中文"},
+    {"name": "LobbyLanguageDisp_en", "type": "string", "value": "英文"},
+    {"name": "LobbyLanguageDisp_ja", "type": "string", "value": "日文"},
+    {"name": "LobbyLanguageDisp_kr", "type": "string", "value": "韩文"},
+    {"name": "LobbyLanguageDisp_none", "type": "string", "value": "所有语言"},
+    {"name": "LobbyLanguageDisp_sc", "type": "string", "value": "简体中文"},
+    {"name": "Lobby_ArmorCap", "type": "string", "value": "装甲值上限"},
+    {"name": "Lobby_Chat", "type": "string", "value": "聊天　%IS_ENABLE%"},
+    {"name": "Lobby_ChatEnable", "type": "string", "value": "聊天"},
+    {
+      "name": "Lobby_Chat_NotInvite",
+      "type": "string",
+      "value": "您目前的权限\n无法参加\n可进行聊天的房间。\n将返回标题。"
+    },
+    {
+      "name": "Lobby_ContentsName",
+      "type": "string",
+      "value": "MissionPack Name"
+    },
+    {"name": "Lobby_CreateRoom", "type": "string", "value": "开设房间"},
+    {"name": "Lobby_Difficulty", "type": "string", "value": "Difficulty"},
+    {"name": "Lobby_DisplayDLC", "type": "string", "value": "%MPACKNAME%"},
+    {"name": "Lobby_Equip", "type": "string", "value": "选择兵种武器"},
+    {"name": "Lobby_Exit", "type": "string", "value": "返回标题"},
+    {
+      "name": "Lobby_Exit_Confirmation",
+      "type": "string",
+      "value": "将返回标题界面。\n确定要继续吗？"
+    },
+    {"name": "Lobby_Filter", "type": "string", "value": "寻找房间"},
+    {"name": "Lobby_FixedPhrase1", "type": "string", "value": "固定句型１"},
+    {"name": "Lobby_FixedPhrase2", "type": "string", "value": "固定句型２"},
+    {"name": "Lobby_FreeWord", "type": "string", "value": "自由句型"},
+    {"name": "Lobby_HostName", "type": "string", "value": "Host Name"},
+    {
+      "name": "Lobby_Join_Impossible",
+      "type": "string",
+      "value": "要游玩HARDEST、INFERNO的难度，\n需要从EASY、NORMAL、HARD任一难度\n完成最终任务。\n\n※透过邀请或参加联机区则可进行游玩。"
+    },
+    {"name": "Lobby_MissionName", "type": "string", "value": "Mission Name"},
+    {
+      "name": "Lobby_NotHaveContents",
+      "type": "string",
+      "value": "由于未持有需要的内容，\n无法进入此房间。"
+    },
+    {"name": "Lobby_OnRoom", "type": "string", "value": "房间"},
+    {"name": "Lobby_OnTime_Elapsed", "type": "string", "value": "经过%ONTIME%"},
+    {"name": "Lobby_OnTime_Hour", "type": "string", "value": "超过1小时"},
+    {"name": "Lobby_OnTime_MinSec", "type": "string", "value": "%MIN%分%SEC%秒"},
+    {"name": "Lobby_OnTime_Sec", "type": "string", "value": "%SEC%秒"},
+    {"name": "Lobby_Option", "type": "string", "value": "游戏设置、操作说明书"},
+    {"name": "Lobby_Party", "type": "string", "value": "确认邀请讯息"},
+    {"name": "Lobby_Refresh", "type": "string", "value": "更新显示"},
+    {"name": "Lobby_Refreshing", "type": "string", "value": "正在更新……"},
+    {"name": "Lobby_RoomName", "type": "string", "value": "Room Name"},
+    {
+      "name": "Lobby_RoomName_NoInput",
+      "type": "string",
+      "value": "请输入想搜寻的房间名称。"
+    },
+    {
+      "name": "Lobby_RoomName_Search_Descript",
+      "type": "string",
+      "value": "请输入房间名称"
+    },
+    {
+      "name": "Lobby_RoomName_Search_Title",
+      "type": "string",
+      "value": "以房间名称寻找"
+    },
+    {"name": "Lobby_Seach_PassCode", "type": "string", "value": "附有通行码的房间"},
+    {"name": "Lobby_Seach_PassCode_Disable", "type": "string", "value": "不显示"},
+    {"name": "Lobby_Seach_PassCode_Enable", "type": "string", "value": "显示"},
+    {
+      "name": "Lobby_SearchHeader_CHAT",
+      "type": "string",
+      "value": "聊天：%FILTER%"
+    },
+    {
+      "name": "Lobby_SearchHeader_PassCode",
+      "type": "string",
+      "value": "通行码：%FILTER%"
+    },
+    {
+      "name": "Lobby_SearchHeader_UGC",
+      "type": "string",
+      "value": "简易房间：%FILTER%"
+    },
+    {"name": "Lobby_Search_ByFilter", "type": "string", "value": "设置条件寻找"},
+    {
+      "name": "Lobby_Search_ByFilter_Desc",
+      "type": "string",
+      "value": "设置条件，以该条件寻找。"
+    },
+    {"name": "Lobby_Search_ByName", "type": "string", "value": "以房间名称寻找"},
+    {
+      "name": "Lobby_Search_ByName_Desc",
+      "type": "string",
+      "value": "以指定的房间名称寻找。"
+    },
+    {"name": "Lobby_Search_Clear", "type": "string", "value": "清除设置条件"},
+    {
+      "name": "Lobby_Search_Clear_Desc",
+      "type": "string",
+      "value": "清除设置条件，以默认状态寻找。"
+    },
+    {"name": "Lobby_Search_Confirmation", "type": "string", "value": "寻找房间"},
+    {"name": "Lobby_Search_Next", "type": "string", "value": "显示下个房间"},
+    {"name": "Lobby_Status", "type": "string", "value": "确认战历"},
+    {"name": "Lobby_SystemOption", "type": "string", "value": "系统设置"},
+    {"name": "Lobby_Title", "type": "string", "value": "大厅"},
+    {
+      "name": "Lobby_UGC_NotInvite",
+      "type": "string",
+      "value": "您目前的权限\n无法参加\n非简易房间模式的房间。\n将返回标题。"
+    },
+    {
+      "name": "Lobby_WarnWeaponEquip",
+      "type": "string",
+      "value": "尚未购买%MPACKNAME%。虽然可游玩游戏，但即使获得新的武器亦无法装备。\n欲装备新的武器，请购买%MPACKNAME%。"
+    },
+    {"name": "Lobby_WeaponCap", "type": "string", "value": "武器等级上限"},
+    {"name": "Lobby_search_title", "type": "string", "value": "搜寻关键字"},
+    {
+      "name": "MODESAVEDATA_DETAIL",
+      "type": "string",
+      "value": "EDF6 Save Data File."
+    },
+    {
+      "name": "MODESAVEDATA_SUBTITLE",
+      "type": "string",
+      "value": "地球防卫军６　保存数据　栏位"
+    },
+    {
+      "name": "MPack2_Message_M503",
+      "type": "string",
+      "value": "禁止擅离岗位\n逃亡至地面将遭到惩罚"
+    },
+    {"name": "Manual_Title", "type": "string", "value": "说明书"},
+    {"name": "Mission000_KeyName", "type": "string", "value": "%PAD%"},
+    {
+      "name": "Mission000_KeyWarning",
+      "type": "string",
+      "value": "%BUTTON%键没有配置。\n请从变更操作中配置%BUTTON%键。"
+    },
+    {
+      "name": "Mission000_Tuto0_AirRaider01",
+      "type": "string",
+      "value": "推动左操作杆移动"
+    },
+    {
+      "name": "Mission000_Tuto0_AirRaider01_Keyboard",
+      "type": "string",
+      "value": "以%MOVE_UP%、%MOVE_DOWN%、%MOVE_LEFT%、%MOVE_RIGHT%移动"
+    },
+    {
+      "name": "Mission000_Tuto0_AirRaider01_Switch",
+      "type": "string",
+      "value": "以L摇杆移动"
+    },
+    {
+      "name": "Mission000_Tuto0_AirRaider02",
+      "type": "string",
+      "value": "推动右操作杆改变方向"
+    },
+    {
+      "name": "Mission000_Tuto0_AirRaider02_Keyboard",
+      "type": "string",
+      "value": "移动鼠标改变方向"
+    },
+    {
+      "name": "Mission000_Tuto0_AirRaider02_Switch",
+      "type": "string",
+      "value": "以R摇杆改变方向"
+    },
+    {
+      "name": "Mission000_Tuto0_AirRaider03",
+      "type": "string",
+      "value": "按下%JUMP%跳跃"
+    },
+    {
+      "name": "Mission000_Tuto0_Complete",
+      "type": "string",
+      "value": "已学会基本操作。"
+    },
+    {
+      "name": "Mission000_Tuto0_Fencer01",
+      "type": "string",
+      "value": "推动左操作杆移动"
+    },
+    {
+      "name": "Mission000_Tuto0_Fencer01_Keyboard",
+      "type": "string",
+      "value": "以%MOVE_UP%、%MOVE_DOWN%、%MOVE_LEFT%、%MOVE_RIGHT%移动"
+    },
+    {
+      "name": "Mission000_Tuto0_Fencer01_Switch",
+      "type": "string",
+      "value": "以L摇杆移动"
+    },
+    {
+      "name": "Mission000_Tuto0_Fencer02",
+      "type": "string",
+      "value": "推动右操作杆改变方向"
+    },
+    {
+      "name": "Mission000_Tuto0_Fencer02_Keyboard",
+      "type": "string",
+      "value": "移动鼠标改变方向"
+    },
+    {
+      "name": "Mission000_Tuto0_Fencer02_Switch",
+      "type": "string",
+      "value": "以R摇杆改变方向"
+    },
+    {
+      "name": "Mission000_Tuto0_Fencer03",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_JUMP%跳跃"
+    },
+    {
+      "name": "Mission000_Tuto0_Ranger01",
+      "type": "string",
+      "value": "推动左操作杆移动"
+    },
+    {
+      "name": "Mission000_Tuto0_Ranger01_Keyboard",
+      "type": "string",
+      "value": "以%MOVE_UP%、%MOVE_DOWN%、%MOVE_LEFT%、%MOVE_RIGHT%移动"
+    },
+    {
+      "name": "Mission000_Tuto0_Ranger01_Switch",
+      "type": "string",
+      "value": "以L摇杆移动"
+    },
+    {
+      "name": "Mission000_Tuto0_Ranger02",
+      "type": "string",
+      "value": "推动右操作杆改变方向"
+    },
+    {
+      "name": "Mission000_Tuto0_Ranger02_Keyboard",
+      "type": "string",
+      "value": "移动鼠标改变方向"
+    },
+    {
+      "name": "Mission000_Tuto0_Ranger02_Switch",
+      "type": "string",
+      "value": "以R摇杆改变方向"
+    },
+    {
+      "name": "Mission000_Tuto0_Ranger03",
+      "type": "string",
+      "value": "按下%JUMP%跳跃"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver01",
+      "type": "string",
+      "value": "推动左操作杆移动"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver01_Keyboard",
+      "type": "string",
+      "value": "以%MOVE_UP%、%MOVE_DOWN%、%MOVE_LEFT%、%MOVE_RIGHT%移动"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver01_Switch",
+      "type": "string",
+      "value": "以L摇杆移动"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver02",
+      "type": "string",
+      "value": "推动右操作杆改变方向"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver02_Keyboard",
+      "type": "string",
+      "value": "移动鼠标改变方向"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver02_Switch",
+      "type": "string",
+      "value": "以R摇杆改变方向"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver03",
+      "type": "string",
+      "value": "按下%JUMP%跳跃"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver04",
+      "type": "string",
+      "value": "长按%JUMP%飞行"
+    },
+    {
+      "name": "Mission000_Tuto1_AirRaider01",
+      "type": "string",
+      "value": "按下%PRIMARY_ATTACK%射出炸弹"
+    },
+    {
+      "name": "Mission000_Tuto1_AirRaider02",
+      "type": "string",
+      "value": "按下%SECONDADY_ATTACK%引爆\n重复发射（%PRIMARY_ATTACK%）跟引爆（%SECONDADY_ATTACK%）\n破坏４个标靶"
+    },
+    {
+      "name": "Mission000_Tuto1_AirRaider03",
+      "type": "string",
+      "value": "按下%RELOAD%装填\n不想引爆的炸弹也可按下%RELOAD%消灭"
+    },
+    {
+      "name": "Mission000_Tuto1_AirRaider04",
+      "type": "string",
+      "value": "按下%CYCLE_WEAPON%替换武器。\n空袭兵可装备三把武器\n并自由替换，但有些任务中\n会无法使用特定武器。"
+    },
+    {
+      "name": "Mission000_Tuto1_AirRaider05",
+      "type": "string",
+      "value": "按下%PRIMARY_ATTACK%可发射标记。\n一架多轴飞行器将会对\n标记命中地点发动攻击。\n破坏所有的标靶吧。"
+    },
+    {
+      "name": "Mission000_Tuto1_AirRaider06",
+      "type": "string",
+      "value": "左右移动的同时按下%JUMP%紧急闪避"
+    },
+    {
+      "name": "Mission000_Tuto1_AirRaider07",
+      "type": "string",
+      "value": "按下%USE_SUB%可使用背包的装备。\n启动护卫用胶囊。\n胶囊会自动攻击敌人。"
+    },
+    {
+      "name": "Mission000_Tuto1_Client",
+      "type": "string",
+      "value": "正在等待开房者操作。"
+    },
+    {
+      "name": "Mission000_Tuto1_Complete",
+      "type": "string",
+      "value": "已学会攻击操作。"
+    },
+    {
+      "name": "Mission000_Tuto1_Fencer01",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_PRIMARYATTACK1%使用右手的武器\n长按键即可发射\n破坏4个标靶"
+    },
+    {
+      "name": "Mission000_Tuto1_Fencer02",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_PRIMARYATTACK2%使用左手的武器"
+    },
+    {
+      "name": "Mission000_Tuto1_Fencer03",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_RELOAD%装填"
+    },
+    {
+      "name": "Mission000_Tuto1_Fencer04",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_CYCLEWEAPON%替换武器"
+    },
+    {
+      "name": "Mission000_Tuto1_Fencer05",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_PRIMARYATTACK1%使用右手的武器\n破坏所有的标靶"
+    },
+    {
+      "name": "Mission000_Tuto1_Fencer06",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_SECONDADYATTACK1%施展右手武器的特殊行动\n（右手武器的第２个机能）"
+    },
+    {
+      "name": "Mission000_Tuto1_Fencer07",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_SECONDADYATTACK2%施展左手武器的特殊行动\n（左手武器的第２个机能）"
+    },
+    {
+      "name": "Mission000_Tuto1_Ranger01",
+      "type": "string",
+      "value": "按下%PRIMARY_ATTACK%射击　　破坏４个标靶"
+    },
+    {
+      "name": "Mission000_Tuto1_Ranger02",
+      "type": "string",
+      "value": "按下%RELOAD%装填"
+    },
+    {
+      "name": "Mission000_Tuto1_Ranger03",
+      "type": "string",
+      "value": "按下%CYCLE_WEAPON%替换武器"
+    },
+    {
+      "name": "Mission000_Tuto1_Ranger04",
+      "type": "string",
+      "value": "预测轨道和命中位置会以红色显示。\n按下%PRIMARY_ATTACK%射击，破坏所有的标靶吧。"
+    },
+    {
+      "name": "Mission000_Tuto1_Ranger05",
+      "type": "string",
+      "value": "左右移动的同时按下%JUMP%紧急闪避"
+    },
+    {
+      "name": "Mission000_Tuto1_Ranger06",
+      "type": "string",
+      "value": "按下%SPECIAL_ACTION%冲刺。\n再按一次%SPECIAL_ACTION%即可停止。\n在冲刺时会放下武器，注意力\n集中在脚部，扩大道具回收范围。"
+    },
+    {
+      "name": "Mission000_Tuto1_Ranger07",
+      "type": "string",
+      "value": "按下%USE_SUB%以使用背包的装备。\n平时不会将手榴弹等拿在手上，而是放在背包中携带。\n这类装备在经过一段时间后便可再次使用。"
+    },
+    {
+      "name": "Mission000_Tuto1_WingDiver01",
+      "type": "string",
+      "value": "长按%PRIMARY_ATTACK%就会攻击\n破坏４个标靶"
+    },
+    {
+      "name": "Mission000_Tuto1_WingDiver02",
+      "type": "string",
+      "value": "按下%RELOAD%装填"
+    },
+    {
+      "name": "Mission000_Tuto1_WingDiver03",
+      "type": "string",
+      "value": "按下%CYCLE_WEAPON%替换武器"
+    },
+    {
+      "name": "Mission000_Tuto1_WingDiver04",
+      "type": "string",
+      "value": "长按%PRIMARY_ATTACK%会蓄积动力。\n放开会连续射击至威力耗尽为止。\n破坏所有的标靶吧。"
+    },
+    {
+      "name": "Mission000_Tuto1_WingDiver05",
+      "type": "string",
+      "value": "在空中按下%SPECIAL_ACTION%可喷射加速\n在地面也可施展，但前进距离不长\n喷射加速时的道具回收范围会变大"
+    },
+    {
+      "name": "Mission000_Tuto1_WingDiver06",
+      "type": "string",
+      "value": "按下%USE_SUB%以使用独立运作装备。\n这类装备以电池驱动，不会消耗飞行单元的能量。\n独立运作装备在经过一段时间后便可再次使用。"
+    },
+    {
+      "name": "Mission072_3_Balga_Control",
+      "type": "string",
+      "value": "左摇杆　：移动\n右摇杆　：转换方向\n　　　　　上半身前后\nLB、RB　：挥拳\nLT、RT　：踩踏\n\n挥动手臂的方式会依\n按下LB、RB的顺序有所变化"
+    },
+    {
+      "name": "Mission072_3_Balga_Control_Keyboard",
+      "type": "string",
+      "value": "%MOVE_UP%、%MOVE_DOWN%、%MOVE_LEFT%、%MOVE_RIGHT%：移动\n操作鼠标：转换方向\n　　　　　上半身前后\n%BULGAATTACK2_1%、%BULGAATTACK1_1%　：挥拳\n%BULGAATTACK2_2%、%BULGAATTACK1_2%　：踩踏\n\n挥动手臂的方式会依\n按下%BULGAATTACK2_1%、%BULGAATTACK1_1%的顺序有所变化"
+    },
+    {
+      "name": "Mission072_3_Balga_Control_PS",
+      "type": "string",
+      "value": "左操作杆：移动\n右操作杆：转换方向\n　　　　　上半身前后\nL1、R1　：挥拳\nL2、R2　：踩踏\n\n挥动手臂的方式会依\n按下L1、R1的顺序有所变化"
+    },
+    {
+      "name": "Mission072_3_Balga_Control_Switch",
+      "type": "string",
+      "value": "L摇杆：移动\nR摇杆：转换方向\n　　　　上半身前后\nL、R　　：挥拳\nZL、ZR　：踩踏\n\n挥动手臂的方式会依\n按下L、R的顺序有所变化"
+    },
+    {
+      "name": "MissionFailedResult_TitleBar",
+      "type": "string",
+      "value": "Result（败北）"
+    },
+    {"name": "MissionFailedResult_armor", "type": "string", "value": "装甲值"},
+    {"name": "MissionFailedResult_tortal", "type": "string", "value": "合计"},
+    {"name": "MissionFailedResult_weapon", "type": "string", "value": "武器"},
+    {"name": "MissionPackName1", "type": "string", "value": "任务包１ “ 失落时光 ”"},
+    {"name": "MissionPackName2", "type": "string", "value": "任务包２ “ 恶意幻象 ”"},
+    {"name": "MissionResult_ArmorNum", "type": "string", "value": "个"},
+    {
+      "name": "MissionResult_ItemArmor",
+      "type": "string",
+      "value": "ＡＲＭＯＲ（体力ＵＰ）"
+    },
+    {"name": "MissionResult_ItemWeapon", "type": "string", "value": "武器"},
+    {"name": "MissionResult_TitleBar", "type": "string", "value": "取得装备一览表"},
+    {
+      "name": "MissionSelectNotOpen",
+      "type": "string",
+      "value": "无法选择此任务。\n需要完成前面所有任务\n才能选择。"
+    },
+    {"name": "MissionSelectTitleBar", "type": "string", "value": "选择任务"},
+    {
+      "name": "MissionSelect_Format",
+      "type": "string",
+      "value": "%NUM%.%TITLE%"
+    },
+    {
+      "name": "MissionSelect_NotOpenMissionDesc",
+      "type": "string",
+      "value": "???"
+    },
+    {
+      "name": "MissionSelect_NotOpenMissionTitle",
+      "type": "string",
+      "value": "???"
+    },
+    {"name": "ModelIndexChgDlgMsg", "type": "string", "value": "变换士兵角色模组"},
+    {"name": "ModelIndexEDF5Soldier", "type": "string", "value": "士兵"},
+    {"name": "ModelIndexEDF5Trainee", "type": "string", "value": "市民"},
+    {"name": "ModelIndexMission", "type": "string", "value": "配合任务"},
+    {"name": "ModelIndexSoldier", "type": "string", "value": "新锐"},
+    {"name": "ModelIndexTrainee", "type": "string", "value": "荒废"},
+    {"name": "Nickname_BlankText", "type": "string", "value": "请输入1字以上的名称。"},
+    {"name": "Nickname_Confirm", "type": "string", "value": "确定要用这个名称吗？"},
+    {"name": "Nickname_Default", "type": "string", "value": "输入昵称"},
+    {
+      "name": "Nickname_Desc",
+      "type": "string",
+      "value": "请输入名称。\n在联机游玩时，其他玩家可看到这个名称。"
+    },
+    {"name": "Nickname_TitleEdit", "type": "string", "value": "编辑名称"},
+    {"name": "Nickname_TitleNew", "type": "string", "value": "输入名称"},
+    {
+      "name": "NotifyAllMissionClear",
+      "type": "string",
+      "value": "可在所有保存数据选择“HARDEST”与“INFERNO”的难度了。"
+    },
+    {"name": "OnlineError_RoomError", "type": "string", "value": "无法参加房间。"},
+    {
+      "name": "OnlineError_RoomFull",
+      "type": "string",
+      "value": "由于超过人数限制，\n无法参加房间。"
+    },
+    {
+      "name": "OnlineError_RoomPassFailed",
+      "type": "string",
+      "value": "通行码有误，\n要再次输入吗？"
+    },
+    {"name": "OnlineError_SearchFailed", "type": "string", "value": "更新失败。"},
+    {
+      "name": "OnlineSys_ArmorCapLock",
+      "type": "string",
+      "value": "装甲值上限已变更为%VALUE1%以下（%SOLDIERTYPE%）"
+    },
+    {"name": "OnlineSys_ArmorCapUnlock", "type": "string", "value": "已解除装甲值上限"},
+    {
+      "name": "OnlineSys_ContentChanged",
+      "type": "string",
+      "value": "游玩的任务包已变更为%CONTENTNAME%。"
+    },
+    {
+      "name": "OnlineSys_DifficultyChanged",
+      "type": "string",
+      "value": "难度已变更为%DIFFICULTY%"
+    },
+    {
+      "name": "OnlineSys_IndirectRequest",
+      "type": "string",
+      "value": "%PLAYERNAME1%请求%WEAPON_NAME%！"
+    },
+    {
+      "name": "OnlineSys_JoinRoom",
+      "type": "string",
+      "value": "%PLAYERNAME1%已进房"
+    },
+    {
+      "name": "OnlineSys_LeaveRoom",
+      "type": "string",
+      "value": "%PLAYERNAME1%已退出房间"
+    },
+    {
+      "name": "OnlineSys_MissionChanged",
+      "type": "string",
+      "value": "任务已变更为%MISSIONNAME%"
+    },
+    {
+      "name": "OnlineSys_PlayerDown",
+      "type": "string",
+      "value": "%PLAYERNAME1%倒下"
+    },
+    {
+      "name": "OnlineSys_PlayerOK",
+      "type": "string",
+      "value": "%PLAYERNAME1%已选择完成出击准备（%VALUE1%／%VALUE2%）"
+    },
+    {
+      "name": "OnlineSys_PlayerRescue",
+      "type": "string",
+      "value": "%PLAYERNAME1%成功得到%PLAYERNAME2%的救援"
+    },
+    {"name": "OnlineSys_Plurally", "type": "string", "value": "x %NUM%"},
+    {
+      "name": "OnlineSys_VehicleRequest",
+      "type": "string",
+      "value": "%PLAYERNAME1%请求%WEAPON_NAME%！"
+    },
+    {
+      "name": "OnlineSys_WeaponCapLock",
+      "type": "string",
+      "value": "武器等级上限已变更为%VALUE1%以下"
+    },
+    {
+      "name": "OnlineSys_WeaponCapUnlock",
+      "type": "string",
+      "value": "已解除武器等级上限"
+    },
+    {"name": "Online_All_Post", "type": "string", "value": "全员"},
+    {"name": "Online_Armor_Limit_None", "type": "string", "value": "─"},
+    {"name": "Online_Armor_Limit_Off", "type": "string", "value": "无效"},
+    {"name": "Online_Armor_Limit_On", "type": "string", "value": "有效"},
+    {
+      "name": "Online_DefaultFreeWord",
+      "type": "string",
+      "value": "可对参加成员输入讯息。"
+    },
+    {
+      "name": "Online_DefaultRoomName",
+      "type": "string",
+      "value": "%PLAYERNAME%小队据点"
+    },
+    {"name": "Online_Game_Disconnect", "type": "string", "value": "网络已中断。"},
+    {"name": "Online_Game_Exit", "type": "string", "value": "开房者已选择撤退。"},
+    {"name": "Online_Game_Retry", "type": "string", "value": "开房者已选择再次出击。"},
+    {"name": "Online_History", "type": "string", "value": "一起游玩了地球防卫军６。"},
+    {
+      "name": "Online_InvitationError",
+      "type": "string",
+      "value": "与邀请用的伺服器发生通讯错误。\n在状态修复前将无法进行邀情。"
+    },
+    {
+      "name": "Online_InvitationLeaderOnly",
+      "type": "string",
+      "value": "当前房间设置仅允许队长邀请。"
+    },
+    {
+      "name": "Online_InvitationNone",
+      "type": "string",
+      "value": "当前房间设置为不允许任何人被邀请。"
+    },
+    {
+      "name": "Online_InvitationSteamError",
+      "type": "string",
+      "value": "目前的游戏房间无法在Steam上发送邀请。"
+    },
+    {"name": "Online_MaskString", "type": "string", "value": "无显示权限。"},
+    {"name": "Online_NameVerify", "type": "string", "value": "正在准备联机游玩……"},
+    {
+      "name": "Online_NameVerifyError",
+      "type": "string",
+      "value": "玩家名称包含无法使用的字句。\n需更改名称才能进行联机游玩。"
+    },
+    {
+      "name": "Online_NoInput_Warning",
+      "type": "string",
+      "value": "持续处于没有操作的状态。若继续处于此状态，将会从房间移除。"
+    },
+    {"name": "Online_NotHaveContents", "type": "string", "value": "未持有此内容"},
+    {"name": "Online_PT_Already", "type": "string", "value": "觉得不需要这个讯息"},
+    {
+      "name": "Online_PT_Invitation",
+      "type": "string",
+      "value": "由于正在接受邀请，\n无法执行PlayTogether。"
+    },
+    {
+      "name": "Online_PT_InvitationFailed",
+      "type": "string",
+      "value": "与伺服器发生通讯错误。\n在状态修复前，将无法执行PlayTogether。"
+    },
+    {
+      "name": "Online_PT_RequireExitRoom",
+      "type": "string",
+      "value": "由于目前在房间中，\n无法执行PlayTogether。\n请离开房间再次执行。"
+    },
+    {"name": "Online_Phrase_None", "type": "string", "value": "无设置"},
+    {"name": "Online_PlayerTag_2P", "type": "string", "value": "Player2"},
+    {"name": "Online_StringVerify", "type": "string", "value": "正在确认输入内容……"},
+    {
+      "name": "Online_StringVerifyError",
+      "type": "string",
+      "value": "%INPUTWORD%\n输入的文字有无法使用的字句。"
+    },
+    {
+      "name": "Online_StringVerify_ServerErr",
+      "type": "string",
+      "value": "发生通讯错误。"
+    },
+    {"name": "Online_Syncing", "type": "string", "value": "正在与其他玩家同步……"},
+    {"name": "Online_UGC_Freeword", "type": "string", "value": ""},
+    {"name": "Online_UGC_RoomName", "type": "string", "value": "简易房间"},
+    {"name": "Online_Weapon_Limit_None", "type": "string", "value": "─"},
+    {"name": "Online_Weapon_Limit_Off", "type": "string", "value": "无效"},
+    {"name": "Online_Weapon_Limit_On", "type": "string", "value": "有效"},
+    {"name": "OptionPlayer_A", "type": "string", "value": "A按钮"},
+    {"name": "OptionPlayer_A_PS4Controller", "type": "string", "value": "×键"},
+    {
+      "name": "OptionPlayer_A_SwitchProController",
+      "type": "string",
+      "value": "B键"
+    },
+    {"name": "OptionPlayer_B", "type": "string", "value": "B按钮"},
+    {"name": "OptionPlayer_B_PS4Controller", "type": "string", "value": "○键"},
+    {
+      "name": "OptionPlayer_B_SwitchProController",
+      "type": "string",
+      "value": "A键"
+    },
+    {"name": "OptionPlayer_Back", "type": "string", "value": "BACK按键"},
+    {
+      "name": "OptionPlayer_Back_PS4Controller",
+      "type": "string",
+      "value": "SHARE键"
+    },
+    {
+      "name": "OptionPlayer_Back_SwitchProController",
+      "type": "string",
+      "value": "－键"
+    },
+    {"name": "OptionPlayer_Boost", "type": "string", "value": "喷射"},
+    {"name": "OptionPlayer_CallManual", "type": "string", "value": "阅览操作说明书"},
+    {"name": "OptionPlayer_CallVehicle", "type": "string", "value": "呼叫载具"},
+    {"name": "OptionPlayer_CameraEffect", "type": "string", "value": "镜头特效"},
+    {"name": "OptionPlayer_ChatCustomize", "type": "string", "value": "变更快捷聊天"},
+    {
+      "name": "OptionPlayer_ConfirmDefault",
+      "type": "string",
+      "value": "确定要恢复为默认设置吗？"
+    },
+    {"name": "OptionPlayer_ControlType", "type": "string", "value": "操作类型"},
+    {"name": "OptionPlayer_Dash", "type": "string", "value": "冲刺"},
+    {"name": "OptionPlayer_Default", "type": "string", "value": "恢复为默认设置"},
+    {"name": "OptionPlayer_DemoSkip", "type": "string", "value": "跳略介绍"},
+    {"name": "OptionPlayer_DisplayIdTag", "type": "string", "value": "显示平台ID"},
+    {"name": "OptionPlayer_Dpad", "type": "string", "value": "方向键"},
+    {"name": "OptionPlayer_Dpad_Keyboard", "type": "string", "value": "游标键"},
+    {
+      "name": "OptionPlayer_Dpad_PS4Controller",
+      "type": "string",
+      "value": "方向键"
+    },
+    {
+      "name": "OptionPlayer_Dpad_SwitchProController",
+      "type": "string",
+      "value": "十字键"
+    },
+    {
+      "name": "OptionPlayer_FencerAttack1_1",
+      "type": "string",
+      "value": "攻击─右手"
+    },
+    {
+      "name": "OptionPlayer_FencerAttack1_2",
+      "type": "string",
+      "value": "使用装备─右手"
+    },
+    {
+      "name": "OptionPlayer_FencerAttack2_1",
+      "type": "string",
+      "value": "攻击─左手"
+    },
+    {
+      "name": "OptionPlayer_FencerAttack2_2",
+      "type": "string",
+      "value": "使用装备─左手"
+    },
+    {"name": "OptionPlayer_FencerJump", "type": "string", "value": "跳跃"},
+    {"name": "OptionPlayer_FencerReload", "type": "string", "value": "装填"},
+    {
+      "name": "OptionPlayer_FencerRideRescue",
+      "type": "string",
+      "value": "搭乘／救援"
+    },
+    {
+      "name": "OptionPlayer_FencerSpecialAction",
+      "type": "string",
+      "value": "护盾充填"
+    },
+    {"name": "OptionPlayer_FencerSpot", "type": "string", "value": "指定位置标记"},
+    {
+      "name": "OptionPlayer_FencerWeaponSelect",
+      "type": "string",
+      "value": "替换武器"
+    },
+    {
+      "name": "OptionPlayer_ForceResetKey",
+      "type": "string",
+      "value": "按键设置重复。已停用重复的按键。"
+    },
+    {"name": "OptionPlayer_Key0", "type": "string", "value": "0 键"},
+    {"name": "OptionPlayer_Key1", "type": "string", "value": "1 键"},
+    {"name": "OptionPlayer_Key2", "type": "string", "value": "2 键"},
+    {"name": "OptionPlayer_Key3", "type": "string", "value": "3 键"},
+    {"name": "OptionPlayer_Key4", "type": "string", "value": "4 键"},
+    {"name": "OptionPlayer_Key5", "type": "string", "value": "5 键"},
+    {"name": "OptionPlayer_Key6", "type": "string", "value": "6 键"},
+    {"name": "OptionPlayer_Key7", "type": "string", "value": "7 键"},
+    {"name": "OptionPlayer_Key8", "type": "string", "value": "8 键"},
+    {"name": "OptionPlayer_Key9", "type": "string", "value": "9 键"},
+    {"name": "OptionPlayer_KeyA", "type": "string", "value": "A 键"},
+    {
+      "name": "OptionPlayer_KeyAlreadyChosen",
+      "type": "string",
+      "value": "指定的按键已被分配给其他操作。\n是否要移除已分配的操作？"
+    },
+    {"name": "OptionPlayer_KeyAt", "type": "string", "value": "@ 键"},
+    {"name": "OptionPlayer_KeyB", "type": "string", "value": "B 键"},
+    {
+      "name": "OptionPlayer_KeyBackSpace",
+      "type": "string",
+      "value": "Back Space"
+    },
+    {"name": "OptionPlayer_KeyBracketsL", "type": "string", "value": "[ 键"},
+    {"name": "OptionPlayer_KeyBracketsR", "type": "string", "value": "] 键"},
+    {"name": "OptionPlayer_KeyC", "type": "string", "value": "C 键"},
+    {
+      "name": "OptionPlayer_KeyCantChange",
+      "type": "string",
+      "value": "指定的按键已被分配给共通操作，无法变更。"
+    },
+    {"name": "OptionPlayer_KeyCaret", "type": "string", "value": "^ 键"},
+    {"name": "OptionPlayer_KeyColon", "type": "string", "value": ": 键"},
+    {"name": "OptionPlayer_KeyComma", "type": "string", "value": ", 键"},
+    {"name": "OptionPlayer_KeyConfig", "type": "string", "value": "变更操作"},
+    {
+      "name": "OptionPlayer_KeyConfigBulga",
+      "type": "string",
+      "value": "变更巴尔加操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigCombat",
+      "type": "string",
+      "value": "变更战斗机体操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigCommon",
+      "type": "string",
+      "value": "变更共通操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigDepth",
+      "type": "string",
+      "value": "变更深渊爬行战车操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigDesc",
+      "type": "string",
+      "value": "请按下要配置的键。"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigDrive",
+      "type": "string",
+      "value": "变更车辆操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigHeli",
+      "type": "string",
+      "value": "变更直升机操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigTanks",
+      "type": "string",
+      "value": "变更战斗车辆操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigVehicle",
+      "type": "string",
+      "value": "变更载具操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfig_AirRaider",
+      "type": "string",
+      "value": "变更空袭兵操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfig_Fencer",
+      "type": "string",
+      "value": "变更剑兵操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfig_Ranger",
+      "type": "string",
+      "value": "变更突击兵操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfig_WingDiver",
+      "type": "string",
+      "value": "变更飞翼潜行兵操作"
+    },
+    {"name": "OptionPlayer_KeyControlL", "type": "string", "value": "左Ctrl"},
+    {"name": "OptionPlayer_KeyControlR", "type": "string", "value": "右Ctrl"},
+    {"name": "OptionPlayer_KeyD", "type": "string", "value": "D 键"},
+    {"name": "OptionPlayer_KeyDelete", "type": "string", "value": "Delete"},
+    {"name": "OptionPlayer_KeyE", "type": "string", "value": "E 键"},
+    {"name": "OptionPlayer_KeyEnd", "type": "string", "value": "End"},
+    {"name": "OptionPlayer_KeyF", "type": "string", "value": "F 键"},
+    {"name": "OptionPlayer_KeyG", "type": "string", "value": "G 键"},
+    {"name": "OptionPlayer_KeyH", "type": "string", "value": "H 键"},
+    {"name": "OptionPlayer_KeyHome", "type": "string", "value": "Home"},
+    {"name": "OptionPlayer_KeyHyphen", "type": "string", "value": "- 键"},
+    {"name": "OptionPlayer_KeyI", "type": "string", "value": "I 键"},
+    {"name": "OptionPlayer_KeyInsert", "type": "string", "value": "Insert"},
+    {"name": "OptionPlayer_KeyJ", "type": "string", "value": "J 键"},
+    {"name": "OptionPlayer_KeyK", "type": "string", "value": "K 键"},
+    {"name": "OptionPlayer_KeyL", "type": "string", "value": "L 键"},
+    {"name": "OptionPlayer_KeyM", "type": "string", "value": "M 键"},
+    {"name": "OptionPlayer_KeyN", "type": "string", "value": "N 键"},
+    {"name": "OptionPlayer_KeyNum0", "type": "string", "value": "Num 0 键"},
+    {"name": "OptionPlayer_KeyNum1", "type": "string", "value": "Num 1 键"},
+    {"name": "OptionPlayer_KeyNum2", "type": "string", "value": "Num 2 键"},
+    {"name": "OptionPlayer_KeyNum3", "type": "string", "value": "Num 3 键"},
+    {"name": "OptionPlayer_KeyNum4", "type": "string", "value": "Num 4 键"},
+    {"name": "OptionPlayer_KeyNum5", "type": "string", "value": "Num 5 键"},
+    {"name": "OptionPlayer_KeyNum6", "type": "string", "value": "Num 6 键"},
+    {"name": "OptionPlayer_KeyNum7", "type": "string", "value": "Num 7 键"},
+    {"name": "OptionPlayer_KeyNum8", "type": "string", "value": "Num 8 键"},
+    {"name": "OptionPlayer_KeyNum9", "type": "string", "value": "Num 9 键"},
+    {"name": "OptionPlayer_KeyO", "type": "string", "value": "O 键"},
+    {"name": "OptionPlayer_KeyP", "type": "string", "value": "P 键"},
+    {"name": "OptionPlayer_KeyPageDown", "type": "string", "value": "PageDown"},
+    {"name": "OptionPlayer_KeyPageUp", "type": "string", "value": "PageUp"},
+    {"name": "OptionPlayer_KeyPeriod", "type": "string", "value": ". 键"},
+    {"name": "OptionPlayer_KeyQ", "type": "string", "value": "Q 键"},
+    {"name": "OptionPlayer_KeyR", "type": "string", "value": "R 键"},
+    {"name": "OptionPlayer_KeyS", "type": "string", "value": "S 键"},
+    {"name": "OptionPlayer_KeySemicolon", "type": "string", "value": "; 键"},
+    {"name": "OptionPlayer_KeyShiftL", "type": "string", "value": "左Shift"},
+    {"name": "OptionPlayer_KeyShiftR", "type": "string", "value": "右Shift"},
+    {"name": "OptionPlayer_KeySpace", "type": "string", "value": "Space"},
+    {"name": "OptionPlayer_KeyT", "type": "string", "value": "T 键"},
+    {"name": "OptionPlayer_KeyU", "type": "string", "value": "U 键"},
+    {"name": "OptionPlayer_KeyV", "type": "string", "value": "V 键"},
+    {"name": "OptionPlayer_KeyW", "type": "string", "value": "W 键"},
+    {"name": "OptionPlayer_KeyX", "type": "string", "value": "X 键"},
+    {"name": "OptionPlayer_KeyY", "type": "string", "value": "Y 键"},
+    {"name": "OptionPlayer_KeyYen", "type": "string", "value": "￥ 键"},
+    {"name": "OptionPlayer_KeyZ", "type": "string", "value": "Z 键"},
+    {
+      "name": "OptionPlayer_KeyboardBaseChat",
+      "type": "string",
+      "value": "聊天窗口"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseDown",
+      "type": "string",
+      "value": "移动 - ↓"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseLeft",
+      "type": "string",
+      "value": "移动 - ←"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseRideRescue",
+      "type": "string",
+      "value": "搭乘／救援"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseRight",
+      "type": "string",
+      "value": "移动 - →"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseShotcut",
+      "type": "string",
+      "value": "定型文快捷操作"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseSpot",
+      "type": "string",
+      "value": "指定位置标记"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseUp",
+      "type": "string",
+      "value": "移动 - ↑"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseVoiceChat",
+      "type": "string",
+      "value": "语音聊天"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseWeaponShotcut1",
+      "type": "string",
+      "value": "武器快捷操作1"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseWeaponShotcut2",
+      "type": "string",
+      "value": "武器快捷操作2"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseWeaponShotcut3",
+      "type": "string",
+      "value": "武器快捷操作3"
+    },
+    {"name": "OptionPlayer_KeyboardBoost", "type": "string", "value": "喷射"},
+    {
+      "name": "OptionPlayer_KeyboardBulgaAttack1_1",
+      "type": "string",
+      "value": "拳击─右手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBulgaAttack1_2",
+      "type": "string",
+      "value": "踩踏─右脚"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBulgaAttack2_1",
+      "type": "string",
+      "value": "拳击─左手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBulgaAttack2_2",
+      "type": "string",
+      "value": "踩踏─左脚"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBulgaSpecialAttack",
+      "type": "string",
+      "value": "特殊攻击"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBulgaSpecialPose",
+      "type": "string",
+      "value": "特殊姿势"
+    },
+    {
+      "name": "OptionPlayer_KeyboardCallVehicle",
+      "type": "string",
+      "value": "呼叫载具"
+    },
+    {
+      "name": "OptionPlayer_KeyboardCombatAttack1_1",
+      "type": "string",
+      "value": "攻击─右手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardCombatAttack1_2",
+      "type": "string",
+      "value": "攻击─右肩"
+    },
+    {
+      "name": "OptionPlayer_KeyboardCombatAttack2_1",
+      "type": "string",
+      "value": "攻击─左手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardCombatAttack2_2",
+      "type": "string",
+      "value": "攻击─左肩"
+    },
+    {
+      "name": "OptionPlayer_KeyboardCombatJump",
+      "type": "string",
+      "value": "跳跃"
+    },
+    {"name": "OptionPlayer_KeyboardDash", "type": "string", "value": "冲刺"},
+    {
+      "name": "OptionPlayer_KeyboardDepthAttack1_1",
+      "type": "string",
+      "value": "炮击─右"
+    },
+    {
+      "name": "OptionPlayer_KeyboardDepthAttack2_1",
+      "type": "string",
+      "value": "炮击─左"
+    },
+    {
+      "name": "OptionPlayer_KeyboardDepthAvoid",
+      "type": "string",
+      "value": "紧急闪避"
+    },
+    {
+      "name": "OptionPlayer_KeyboardDepthGatling",
+      "type": "string",
+      "value": "格林机炮"
+    },
+    {"name": "OptionPlayer_KeyboardDepthJump", "type": "string", "value": "跳跃"},
+    {
+      "name": "OptionPlayer_KeyboardDriveAcccel",
+      "type": "string",
+      "value": "加速"
+    },
+    {
+      "name": "OptionPlayer_KeyboardDriveAttack",
+      "type": "string",
+      "value": "攻击"
+    },
+    {
+      "name": "OptionPlayer_KeyboardDriveBrake",
+      "type": "string",
+      "value": "减速／后退"
+    },
+    {
+      "name": "OptionPlayer_KeyboardDriveHandBrake",
+      "type": "string",
+      "value": "手煞车"
+    },
+    {"name": "OptionPlayer_KeyboardDriveHorn", "type": "string", "value": "喇叭"},
+    {
+      "name": "OptionPlayer_KeyboardFencerAttack1_1",
+      "type": "string",
+      "value": "攻击─右手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardFencerAttack1_2",
+      "type": "string",
+      "value": "使用装备─右手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardFencerAttack2_1",
+      "type": "string",
+      "value": "攻击─左手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardFencerAttack2_2",
+      "type": "string",
+      "value": "使用装备─左手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardFencerJump",
+      "type": "string",
+      "value": "跳跃"
+    },
+    {
+      "name": "OptionPlayer_KeyboardFencerReload",
+      "type": "string",
+      "value": "装填"
+    },
+    {
+      "name": "OptionPlayer_KeyboardFencerSpecialAction",
+      "type": "string",
+      "value": "护盾·重新装填"
+    },
+    {
+      "name": "OptionPlayer_KeyboardFencerWeaponSelect",
+      "type": "string",
+      "value": "替换武器"
+    },
+    {
+      "name": "OptionPlayer_KeyboardHeliAttack1",
+      "type": "string",
+      "value": "攻击1"
+    },
+    {
+      "name": "OptionPlayer_KeyboardHeliAttack2",
+      "type": "string",
+      "value": "攻击2"
+    },
+    {
+      "name": "OptionPlayer_KeyboardHeliFlight",
+      "type": "string",
+      "value": "飞行"
+    },
+    {
+      "name": "OptionPlayer_KeyboardNomalAttack1",
+      "type": "string",
+      "value": "攻击"
+    },
+    {
+      "name": "OptionPlayer_KeyboardNomalAttack2",
+      "type": "string",
+      "value": "缩放／启动"
+    },
+    {
+      "name": "OptionPlayer_KeyboardNomalAttackSky",
+      "type": "string",
+      "value": "对空攻击"
+    },
+    {
+      "name": "OptionPlayer_KeyboardNormalJump",
+      "type": "string",
+      "value": "跳跃"
+    },
+    {
+      "name": "OptionPlayer_KeyboardNormalReload",
+      "type": "string",
+      "value": "装填"
+    },
+    {
+      "name": "OptionPlayer_KeyboardNormalWeaponSelect",
+      "type": "string",
+      "value": "替换武器"
+    },
+    {
+      "name": "OptionPlayer_KeyboardTanksAttack1",
+      "type": "string",
+      "value": "攻击1"
+    },
+    {
+      "name": "OptionPlayer_KeyboardTanksAttack2",
+      "type": "string",
+      "value": "攻击2"
+    },
+    {"name": "OptionPlayer_KeyboardTanksHorn", "type": "string", "value": "喇叭"},
+    {
+      "name": "OptionPlayer_KeyboardUseSub_AirRaider",
+      "type": "string",
+      "value": "使用 背包工具"
+    },
+    {
+      "name": "OptionPlayer_KeyboardUseSub_Ranger",
+      "type": "string",
+      "value": "使用 背包工具"
+    },
+    {
+      "name": "OptionPlayer_KeyboardUseSub_WingDiver",
+      "type": "string",
+      "value": "使用 独立运作装备"
+    },
+    {"name": "OptionPlayer_L", "type": "string", "value": "左缓冲键"},
+    {"name": "OptionPlayer_LStick", "type": "string", "value": "左摇杆键"},
+    {
+      "name": "OptionPlayer_LStick_PS4Controller",
+      "type": "string",
+      "value": "L3键"
+    },
+    {
+      "name": "OptionPlayer_LStick_SwitchProController",
+      "type": "string",
+      "value": "L摇杆键"
+    },
+    {"name": "OptionPlayer_LTrigger", "type": "string", "value": "左扳机键"},
+    {
+      "name": "OptionPlayer_LTrigger_PS4Controller",
+      "type": "string",
+      "value": "L2键"
+    },
+    {
+      "name": "OptionPlayer_LTrigger_SwitchProController",
+      "type": "string",
+      "value": "ZL键"
+    },
+    {"name": "OptionPlayer_L_PS4Controller", "type": "string", "value": "L1键"},
+    {
+      "name": "OptionPlayer_L_SwitchProController",
+      "type": "string",
+      "value": "L键"
+    },
+    {"name": "OptionPlayer_LeftStick", "type": "string", "value": "左摇杆"},
+    {
+      "name": "OptionPlayer_LeftStick_PS4Controller",
+      "type": "string",
+      "value": "左操作杆"
+    },
+    {
+      "name": "OptionPlayer_LeftStick_SwitchProController",
+      "type": "string",
+      "value": "L摇杆"
+    },
+    {"name": "OptionPlayer_Mouse", "type": "string", "value": "鼠标操作"},
+    {"name": "OptionPlayer_MouseL", "type": "string", "value": "鼠标左键"},
+    {"name": "OptionPlayer_MouseM", "type": "string", "value": "鼠标滚轮键"},
+    {"name": "OptionPlayer_MouseR", "type": "string", "value": "鼠标右键"},
+    {"name": "OptionPlayer_MouseSide1", "type": "string", "value": "鼠标键1"},
+    {"name": "OptionPlayer_MouseSide2", "type": "string", "value": "鼠标键2"},
+    {"name": "OptionPlayer_MouseWheel", "type": "string", "value": "鼠标滚轮"},
+    {"name": "OptionPlayer_NoAssign", "type": "string", "value": "无配置"},
+    {"name": "OptionPlayer_NomalAttack1", "type": "string", "value": "攻击"},
+    {"name": "OptionPlayer_NomalAttack2", "type": "string", "value": "缩放／启动"},
+    {"name": "OptionPlayer_NomalAttackSky", "type": "string", "value": "对空攻击"},
+    {"name": "OptionPlayer_Normal", "type": "string", "value": "标准"},
+    {"name": "OptionPlayer_NormalJump", "type": "string", "value": "跳跃"},
+    {"name": "OptionPlayer_NormalReload", "type": "string", "value": "装填"},
+    {
+      "name": "OptionPlayer_NormalWeaponSelect",
+      "type": "string",
+      "value": "替换武器"
+    },
+    {"name": "OptionPlayer_R", "type": "string", "value": "右缓冲键"},
+    {"name": "OptionPlayer_RStick", "type": "string", "value": "右摇杆键"},
+    {
+      "name": "OptionPlayer_RStick_PS4Controller",
+      "type": "string",
+      "value": "R3键"
+    },
+    {
+      "name": "OptionPlayer_RStick_SwitchProController",
+      "type": "string",
+      "value": "R摇杆键"
+    },
+    {"name": "OptionPlayer_RTrigger", "type": "string", "value": "右扳机键"},
+    {
+      "name": "OptionPlayer_RTrigger_PS4Controller",
+      "type": "string",
+      "value": "R2键"
+    },
+    {
+      "name": "OptionPlayer_RTrigger_SwitchProController",
+      "type": "string",
+      "value": "ZR键"
+    },
+    {"name": "OptionPlayer_R_PS4Controller", "type": "string", "value": "R1键"},
+    {
+      "name": "OptionPlayer_R_SwitchProController",
+      "type": "string",
+      "value": "R键"
+    },
+    {"name": "OptionPlayer_Return", "type": "string", "value": "返回游戏设置"},
+    {"name": "OptionPlayer_Reverse", "type": "string", "value": "颠倒"},
+    {"name": "OptionPlayer_RightStick", "type": "string", "value": "右摇杆"},
+    {
+      "name": "OptionPlayer_RightStick_PS4Controller",
+      "type": "string",
+      "value": "右操作杆"
+    },
+    {
+      "name": "OptionPlayer_RightStick_SwitchProController",
+      "type": "string",
+      "value": "R摇杆"
+    },
+    {"name": "OptionPlayer_RotateLerp", "type": "string", "value": "转向插值"},
+    {"name": "OptionPlayer_RotateSpeed", "type": "string", "value": "转向速度"},
+    {"name": "OptionPlayer_Start", "type": "string", "value": "START按键"},
+    {
+      "name": "OptionPlayer_Start_PS4Controller",
+      "type": "string",
+      "value": "OPTIONS键"
+    },
+    {
+      "name": "OptionPlayer_Start_SwitchProController",
+      "type": "string",
+      "value": "＋键"
+    },
+    {
+      "name": "OptionPlayer_StickDeadZoneL",
+      "type": "string",
+      "value": "左摇杆盲区设置"
+    },
+    {
+      "name": "OptionPlayer_StickDeadZoneL_PS4Controller",
+      "type": "string",
+      "value": "左操作杆盲区设置"
+    },
+    {
+      "name": "OptionPlayer_StickDeadZoneL_SwitchProController",
+      "type": "string",
+      "value": "L摇杆盲区设置"
+    },
+    {
+      "name": "OptionPlayer_StickDeadZoneR",
+      "type": "string",
+      "value": "右摇杆盲区设置"
+    },
+    {
+      "name": "OptionPlayer_StickDeadZoneR_PS4Controller",
+      "type": "string",
+      "value": "右操作杆盲区设置"
+    },
+    {
+      "name": "OptionPlayer_StickDeadZoneR_SwitchProController",
+      "type": "string",
+      "value": "R摇杆盲区设置"
+    },
+    {"name": "OptionPlayer_TechAttack1", "type": "string", "value": "攻击"},
+    {"name": "OptionPlayer_TechAttack2", "type": "string", "value": "缩放／启动"},
+    {"name": "OptionPlayer_TechJump", "type": "string", "value": "跳跃"},
+    {"name": "OptionPlayer_TechReload", "type": "string", "value": "装填"},
+    {"name": "OptionPlayer_TechRideRescue", "type": "string", "value": "搭乘／救援"},
+    {"name": "OptionPlayer_TechSpot", "type": "string", "value": "指定位置标记"},
+    {
+      "name": "OptionPlayer_TechUseSub_AirRaider",
+      "type": "string",
+      "value": "使用 背包工具"
+    },
+    {
+      "name": "OptionPlayer_TechUseSub_Ranger",
+      "type": "string",
+      "value": "使用 背包工具"
+    },
+    {
+      "name": "OptionPlayer_TechUseSub_WingDiver",
+      "type": "string",
+      "value": "使用 独立运作装备"
+    },
+    {
+      "name": "OptionPlayer_TechWeaponSelect",
+      "type": "string",
+      "value": "替换武器"
+    },
+    {"name": "OptionPlayer_TitleBar", "type": "string", "value": "玩家设置"},
+    {"name": "OptionPlayer_TitleBarConfig", "type": "string", "value": "变更操作"},
+    {
+      "name": "OptionPlayer_TitleBarFencer",
+      "type": "string",
+      "value": "变更剑兵操作"
+    },
+    {"name": "OptionPlayer_TouchButton", "type": "string", "value": "触摸板键"},
+    {"name": "OptionPlayer_Vibration", "type": "string", "value": "震动功能"},
+    {"name": "OptionPlayer_ViewLR", "type": "string", "value": "左右视点"},
+    {"name": "OptionPlayer_ViewUD", "type": "string", "value": "上下视点"},
+    {"name": "OptionPlayer_X", "type": "string", "value": "X按钮"},
+    {"name": "OptionPlayer_X_PS4Controller", "type": "string", "value": "□键"},
+    {
+      "name": "OptionPlayer_X_SwitchProController",
+      "type": "string",
+      "value": "Y键"
+    },
+    {"name": "OptionPlayer_Y", "type": "string", "value": "Y按钮"},
+    {"name": "OptionPlayer_Y_PS4Controller", "type": "string", "value": "△键"},
+    {
+      "name": "OptionPlayer_Y_SwitchProController",
+      "type": "string",
+      "value": "X键"
+    },
+    {"name": "OptionShowSubTitle", "type": "string", "value": "开启／关闭字幕显示"},
+    {"name": "Option_BGM", "type": "string", "value": "ＢＧＭ音量"},
+    {"name": "Option_CameraType", "type": "string", "value": "镜头类型"},
+    {"name": "Option_CameraType_Value1", "type": "string", "value": "镜头类型１"},
+    {"name": "Option_CameraType_Value2", "type": "string", "value": "镜头类型２"},
+    {"name": "Option_CameraType_Value3", "type": "string", "value": "镜头类型３"},
+    {"name": "Option_CameraType_Value4", "type": "string", "value": "镜头类型４"},
+    {"name": "Option_DamageUIType", "type": "string", "value": "伤害值显示类型"},
+    {"name": "Option_DamageUIType_FixedPos", "type": "string", "value": "固定位置"},
+    {"name": "Option_DamageUIType_HitPos", "type": "string", "value": "击中位置"},
+    {"name": "Option_DamageUIType_None", "type": "string", "value": "不显示"},
+    {"name": "Option_DamageUIType_Target", "type": "string", "value": "依目标"},
+    {
+      "name": "Option_Language_Message",
+      "type": "string",
+      "value": "要启用字幕语言和语音语言的更改，请返回标题界面。"
+    },
+    {
+      "name": "Option_Language_PlayGoMessage",
+      "type": "string",
+      "value": "在下载完毕前\n无法变更语音的语言。"
+    },
+    {"name": "Option_Language_Subtitles", "type": "string", "value": "字幕语言"},
+    {"name": "Option_Language_Voice", "type": "string", "value": "语音语言"},
+    {"name": "Option_Language_cn", "type": "string", "value": "繁体中文"},
+    {"name": "Option_Language_en", "type": "string", "value": "英文"},
+    {"name": "Option_Language_ja", "type": "string", "value": "日文"},
+    {"name": "Option_Language_kr", "type": "string", "value": "韩文"},
+    {"name": "Option_Language_sc", "type": "string", "value": "简体中文"},
+    {"name": "Option_MASTER_VOLUME", "type": "string", "value": "主音量"},
+    {"name": "Option_OFF", "type": "string", "value": "ＯＦＦ"},
+    {"name": "Option_ON", "type": "string", "value": "ＯＮ"},
+    {"name": "Option_PAN_SPEAKER_ALL", "type": "string", "value": "全部"},
+    {"name": "Option_PAN_SPEAKER_CENTER_ONLY", "type": "string", "value": "中央"},
+    {
+      "name": "Option_PAN_SPEAKER_FORWARD_LR_ONLY",
+      "type": "string",
+      "value": "前方ＬＲ"
+    },
+    {
+      "name": "Option_PAN_SPEAKER_REAR_LR_ONLY",
+      "type": "string",
+      "value": "环绕ＬＲ"
+    },
+    {"name": "Option_PanSpeakerMode", "type": "string", "value": "播放无线电语音的扬声器"},
+    {"name": "Option_ResolutionType", "type": "string", "value": "解析度"},
+    {
+      "name": "Option_ResolutionType_4K_Display",
+      "type": "string",
+      "value": "4K（画质优先）"
+    },
+    {
+      "name": "Option_ResolutionType_4K_Speed",
+      "type": "string",
+      "value": "4K（速度优先）"
+    },
+    {
+      "name": "Option_ResolutionType_FullHD",
+      "type": "string",
+      "value": "FULL HD（速度优先）"
+    },
+    {"name": "Option_SE", "type": "string", "value": "ＳＥ音量"},
+    {"name": "Option_ShakeScreen", "type": "string", "value": "画面震动"},
+    {"name": "Option_TitleBar", "type": "string", "value": "游戏设置"},
+    {"name": "Option_UiSize", "type": "string", "value": "HUD尺寸"},
+    {"name": "Option_UiSizeDefault", "type": "string", "value": "默认设置"},
+    {"name": "Option_UiSizeMedium", "type": "string", "value": "中"},
+    {"name": "Option_UiSizeSmall", "type": "string", "value": "小"},
+    {"name": "Option_Voice", "type": "string", "value": "语音音量"},
+    {
+      "name": "Option_VoiceChatInputVolume",
+      "type": "string",
+      "value": "语音聊天麦克风输入"
+    },
+    {"name": "Option_VoiceChatMicType", "type": "string", "value": "麦克风方式"},
+    {
+      "name": "Option_VoiceChatOutputVolume",
+      "type": "string",
+      "value": "语音聊天扬声器输出"
+    },
+    {"name": "Option_VoiceChatTypeOpen", "type": "string", "value": "常驻开启"},
+    {
+      "name": "Option_VoiceChatTypePushToTalk",
+      "type": "string",
+      "value": "按住发言"
+    },
+    {"name": "Option_VoiceLanguage_cn", "type": "string", "value": "中文语音"},
+    {"name": "Option_VoiceLanguage_en", "type": "string", "value": "英文语音"},
+    {"name": "Option_VoiceLanguage_ja", "type": "string", "value": "日文语音"},
+    {"name": "Option_VoiceLanguage_kr", "type": "string", "value": "韩文语音"},
+    {
+      "name": "PSN_SessionName",
+      "type": "string",
+      "value": "正在游玩【%DIFFICULTY%】【%MISSIONNAME%】。"
+    },
+    {"name": "PadAssign_PushStart", "type": "string", "value": "请按下键。"},
+    {"name": "Pause_ConfirmExit", "type": "string", "value": "将进行撤退。\n确定要继续吗？"},
+    {
+      "name": "Pause_ConfirmExitLobby",
+      "type": "string",
+      "value": "将返回大厅。\n确定要继续吗？"
+    },
+    {
+      "name": "Pause_ConfirmRetry",
+      "type": "string",
+      "value": "将再次出击。\n确定要继续吗？"
+    },
+    {"name": "Pause_Exit", "type": "string", "value": "撤退"},
+    {"name": "Pause_ExitLobby", "type": "string", "value": "返回大厅"},
+    {"name": "Pause_Option", "type": "string", "value": "游戏设置、操作说明书"},
+    {"name": "Pause_Retry", "type": "string", "value": "再次出击"},
+    {"name": "Pause_Return", "type": "string", "value": "返回游戏"},
+    {
+      "name": "PlayGoDownload_Invitation",
+      "type": "string",
+      "value": "在下载完成前\n无法游玩在线任务模式。\n即将返回标题。"
+    },
+    {
+      "name": "PlayGoDownload_MissionSelect",
+      "type": "string",
+      "value": "在下载完成前\n无法选择此任务。"
+    },
+    {
+      "name": "PlayGoDownload_ModeSelect",
+      "type": "string",
+      "value": "在下载完成前\n无法选择此模式。"
+    },
+    {"name": "PlayerPanel_1P", "type": "string", "value": "1Player"},
+    {"name": "PlayerPanel_2P", "type": "string", "value": "2Player"},
+    {"name": "PlayerPanel_Armor", "type": "string", "value": "Armor"},
+    {"name": "PlayerPanel_SoldierType", "type": "string", "value": "兵种"},
+    {"name": "RoomCreate_Cancel", "type": "string", "value": "确定要返回大厅吗？"},
+    {"name": "RoomCreate_Join", "type": "string", "value": "正在进入房间……"},
+    {"name": "RoomCreate_Title", "type": "string", "value": "开设房间"},
+    {"name": "RoomFilter_ContentsName", "type": "string", "value": "任务包"},
+    {"name": "RoomFilter_DLC", "type": "string", "value": "显示所有任务类型"},
+    {"name": "RoomFilter_Default", "type": "string", "value": "未设置（%DEFAULT%）"},
+    {"name": "RoomFilter_DifficultyAll", "type": "string", "value": "显示所有难度"},
+    {"name": "RoomFilter_Hide", "type": "string", "value": "不显示"},
+    {"name": "RoomFilter_Language", "type": "string", "value": "在聊天时建议的语言"},
+    {"name": "RoomFilter_Loading", "type": "string", "value": "正在载入数据，\n请稍后……"},
+    {"name": "RoomFilter_MissionAll", "type": "string", "value": "显示所有任务"},
+    {
+      "name": "RoomFilter_Mission_Range",
+      "type": "string",
+      "value": "包含任务%BEGIN%至%END%的范围"
+    },
+    {"name": "RoomFilter_None", "type": "string", "value": "未设置"},
+    {"name": "RoomFilter_Show", "type": "string", "value": "显示"},
+    {"name": "RoomFilter_ShowAll", "type": "string", "value": "皆显示"},
+    {"name": "RoomFilter_Title_CHAT", "type": "string", "value": "允许聊天的房间"},
+    {
+      "name": "RoomFilter_Title_PassCode",
+      "type": "string",
+      "value": "设有通行码的房间"
+    },
+    {"name": "RoomFilter_Title_UGC", "type": "string", "value": "简易房间"},
+    {"name": "RoomFixedPhrase_Title", "type": "string", "value": "选择房间固定句型"},
+    {
+      "name": "RoomInfo_PlatformHeader_EPIC",
+      "type": "string",
+      "value": "EPIC:"
+    },
+    {"name": "RoomInfo_PlatformHeader_PSN", "type": "string", "value": "PSN:"},
+    {
+      "name": "RoomInfo_PlatformHeader_STEAM",
+      "type": "string",
+      "value": "STEAM:"
+    },
+    {"name": "RoomSetting_Apply", "type": "string", "value": "套用设置"},
+    {
+      "name": "RoomSetting_Armor_Confirmation",
+      "type": "string",
+      "value": "设置装甲值上限"
+    },
+    {"name": "RoomSetting_Cancel", "type": "string", "value": "确定要返回房间吗？"},
+    {"name": "RoomSetting_Chat", "type": "string", "value": "聊天"},
+    {"name": "RoomSetting_ChatButton", "type": "string", "value": "设置允许／禁止聊天"},
+    {"name": "RoomSetting_ChatDisable", "type": "string", "value": "禁止"},
+    {"name": "RoomSetting_ChatDisableDlg", "type": "string", "value": "禁止"},
+    {"name": "RoomSetting_ChatEnable", "type": "string", "value": "允许"},
+    {"name": "RoomSetting_ChatEnableDlg", "type": "string", "value": "允许"},
+    {"name": "RoomSetting_ContentsName", "type": "string", "value": "游玩的任务包"},
+    {"name": "RoomSetting_CreateRoom", "type": "string", "value": "开设房间"},
+    {"name": "RoomSetting_Difficulty", "type": "string", "value": "难度"},
+    {"name": "RoomSetting_FilterApply", "type": "string", "value": "以此条件寻找"},
+    {"name": "RoomSetting_FixedPhrase1", "type": "string", "value": "选择固定句型"},
+    {"name": "RoomSetting_FixedPhrase2", "type": "string", "value": "选择固定句型"},
+    {"name": "RoomSetting_FreeWord", "type": "string", "value": "自由输入句型"},
+    {"name": "RoomSetting_Free_Descript", "type": "string", "value": "请自由输入句型"},
+    {"name": "RoomSetting_Free_Title", "type": "string", "value": "自由输入句型"},
+    {"name": "RoomSetting_HelthCap", "type": "string", "value": "装甲值上限"},
+    {
+      "name": "RoomSetting_Language",
+      "type": "string",
+      "value": "在聊天时建议的语言设置（用于搜寻）"
+    },
+    {"name": "RoomSetting_Mission", "type": "string", "value": "任务"},
+    {
+      "name": "RoomSetting_ModeChangeAttn",
+      "type": "string",
+      "value": "变更游玩的任务包后将反映至目前的房间，并载入保存数据。"
+    },
+    {"name": "RoomSetting_Name", "type": "string", "value": "输入房间名称"},
+    {"name": "RoomSetting_Name_Descript", "type": "string", "value": "请输入房间名称"},
+    {"name": "RoomSetting_Name_Title", "type": "string", "value": "输入房间名称"},
+    {"name": "RoomSetting_RoomType", "type": "string", "value": "房间种类"},
+    {"name": "RoomSetting_Title", "type": "string", "value": "房间设置"},
+    {"name": "RoomSetting_UGC", "type": "string", "value": "简易房间"},
+    {"name": "RoomSetting_UGCButton", "type": "string", "value": "设置简易房间的使用"},
+    {"name": "RoomSetting_UGCDisable", "type": "string", "value": "不使用"},
+    {"name": "RoomSetting_UGCEnable", "type": "string", "value": "使用"},
+    {"name": "RoomSetting_WeaponCap", "type": "string", "value": "武器等级上限"},
+    {
+      "name": "RoomSetting_Weapon_Confirmation",
+      "type": "string",
+      "value": "设置武器等级上限"
+    },
+    {"name": "RoomSetting_Weapon_No", "type": "string", "value": "无效"},
+    {"name": "RoomSetting_Weapon_Yes", "type": "string", "value": "有效"},
+    {"name": "RoomType_Everyone", "type": "string", "value": "任何人都可参加"},
+    {
+      "name": "RoomType_Everyone_Desc",
+      "type": "string",
+      "value": "普通的房间。\n将会显示在大厅画面，任何人都能参加。"
+    },
+    {
+      "name": "RoomType_InviteOnly_AnyOne",
+      "type": "string",
+      "value": "任何人都可参加"
+    },
+    {
+      "name": "RoomType_InviteOnly_AnyOne_Desc",
+      "type": "string",
+      "value": "说明文：任何成员的好友皆可参加"
+    },
+    {
+      "name": "RoomType_InviteOnly_Invite",
+      "type": "string",
+      "value": "必须要接到邀请才能参加"
+    },
+    {
+      "name": "RoomType_InviteOnly_Invite_Desc",
+      "type": "string",
+      "value": "说明文：必须要接到邀请才能参加"
+    },
+    {
+      "name": "RoomType_InviteOnly_LeaderFriends",
+      "type": "string",
+      "value": "仅供队长的好友参加"
+    },
+    {
+      "name": "RoomType_InviteOnly_LeaderFriendsOfFriends",
+      "type": "string",
+      "value": "可供参加成员的好友参加"
+    },
+    {
+      "name": "RoomType_InviteOnly_LeaderFriendsOfFriends_Desc",
+      "type": "string",
+      "value": "说明：参加成员的好友可参加"
+    },
+    {
+      "name": "RoomType_InviteOnly_LeaderFriends_Desc",
+      "type": "string",
+      "value": "说明文：仅供队长的好友参加"
+    },
+    {
+      "name": "RoomType_InviteOnly_SIE_Type2",
+      "type": "string",
+      "value": "%ROOM_TYPE%\n%INVITABLE_TYPE%"
+    },
+    {
+      "name": "RoomType_InviteOnly_Title",
+      "type": "string",
+      "value": "只限好友（详情）"
+    },
+    {"name": "RoomType_LeaderFriend", "type": "string", "value": "仅限队长好友／邀请"},
+    {
+      "name": "RoomType_LeaderFriendOfFriend",
+      "type": "string",
+      "value": "仅限参加成员的好友／邀请"
+    },
+    {
+      "name": "RoomType_LeaderFriendOfFriend_Desc",
+      "type": "string",
+      "value": "仅限参加成员的好友、\n邀请的玩家可参加的房间。\n不会显示在大厅界面中。"
+    },
+    {
+      "name": "RoomType_LeaderFriend_Desc",
+      "type": "string",
+      "value": "队长的好友和邀请的玩家可参加的房间。\n不会显示在大厅画面中。"
+    },
+    {"name": "RoomType_NameOnly", "type": "string", "value": "只限搜寻房间名称者"},
+    {
+      "name": "RoomType_NameOnly_Desc",
+      "type": "string",
+      "value": "只有透过“以房间名称寻找”才能找到的房间。\n唯有使用“以房间名称寻找”，才会显示在大厅画面中。"
+    },
+    {"name": "RoomType_NoOne", "type": "string", "value": "仅限邀请"},
+    {
+      "name": "RoomType_NoOne_Desc",
+      "type": "string",
+      "value": "收到邀请的玩家可参加的房间。\n不会显示在大厅画面中。"
+    },
+    {"name": "RoomType_PassCodeOnly", "type": "string", "value": "只限知道通行码者"},
+    {
+      "name": "RoomType_PassCodeOnly_Desc",
+      "type": "string",
+      "value": "只有知道通行码的人才能加入的房间。\n会在大厅画面显示，但需要通行码才可参加"
+    },
+    {"name": "Room_ArmorTitle", "type": "string", "value": "装甲值"},
+    {
+      "name": "Room_Armor_Level_Limit",
+      "type": "string",
+      "value": "装甲值上限：　%ARMOR_LEVEL%以下（%SOLDIERTYPE%）"
+    },
+    {"name": "Room_Armor_Level_NoLimit", "type": "string", "value": "装甲值上限：　无"},
+    {"name": "Room_BeginGame", "type": "string", "value": "《出击》"},
+    {"name": "Room_ClearRate", "type": "string", "value": "达成率"},
+    {"name": "Room_ClearRate_Percent", "type": "string", "value": "％"},
+    {"name": "Room_DifficultyName", "type": "string", "value": "Difficulty"},
+    {
+      "name": "Room_DoneCancel_NumCheck",
+      "type": "string",
+      "value": "由于玩家人数改变，已取消出击准备。"
+    },
+    {
+      "name": "Room_EditChatBan",
+      "type": "string",
+      "value": "%INPUTWORD%\n将调整并显示为以下内容。\n%PENCILWORD%\n　\n确定要进行设置吗？"
+    },
+    {"name": "Room_EndGame", "type": "string", "value": "《归返》"},
+    {"name": "Room_Equipment", "type": "string", "value": "选择兵种武器"},
+    {
+      "name": "Room_Equipment_Error",
+      "type": "string",
+      "value": "%WEAPON_NAME%超过武器等级上限。\n请变更武器。"
+    },
+    {"name": "Room_Exit", "type": "string", "value": "退出房间"},
+    {"name": "Room_Exit_Confirmation", "type": "string", "value": "确定要退出房间吗？"},
+    {"name": "Room_InputChat", "type": "string", "value": "输入聊天"},
+    {
+      "name": "Room_InputChatBan",
+      "type": "string",
+      "value": "%INPUTWORD%\n将调整并显示为以下内容。\n%PENCILWORD%\n　\n确定要传送吗？"
+    },
+    {"name": "Room_InputChatDesc", "type": "string", "value": "请输入聊天内容。"},
+    {"name": "Room_Invitable", "type": "string", "value": "可发出邀请的玩家"},
+    {"name": "Room_Invitable_Leader", "type": "string", "value": "仅限队长可发出邀请"},
+    {
+      "name": "Room_Invitable_Leader_Desc",
+      "type": "string",
+      "value": "队长可邀请好友。\n可在“参加联机区”选择“参加房间”或“要求参加”。"
+    },
+    {"name": "Room_Invitable_Member", "type": "string", "value": "参加成员皆可发出邀请"},
+    {
+      "name": "Room_Invitable_Member_Desc",
+      "type": "string",
+      "value": "参加的玩家可邀请好友。\n可在“参加联机区”选择“参加房间”或要求“参加”。"
+    },
+    {"name": "Room_Invitable_NoOne", "type": "string", "value": "无人可发出邀请"},
+    {"name": "Room_Invitable_NoOne_Desc", "type": "string", "value": "无法邀请。"},
+    {"name": "Room_KickAsk", "type": "string", "value": "确定要强制这名玩家退出房间吗？"},
+    {"name": "Room_Language", "type": "string", "value": "在聊天时建议的语言"},
+    {"name": "Room_LeaderChangeFailed", "type": "string", "value": "变更队长失败"},
+    {"name": "Room_LeaderChangedMe", "type": "string", "value": "被指名为队长"},
+    {
+      "name": "Room_LeaderChangedOther",
+      "type": "string",
+      "value": "%LEADER_NAME%\n被指名为队长"
+    },
+    {"name": "Room_LeaderChanging", "type": "string", "value": "正在变更队长"},
+    {"name": "Room_MissionSelect", "type": "string", "value": "选择任务"},
+    {"name": "Room_NeedPassCode", "type": "string", "value": "输入通行码"},
+    {"name": "Room_NominateLeader", "type": "string", "value": "指名队长"},
+    {"name": "Room_Option", "type": "string", "value": "游戏设置、操作说明书"},
+    {"name": "Room_PassCodeError", "type": "string", "value": "通行码至少需要一个数字。"},
+    {
+      "name": "Room_PassCodeFullWidthUse",
+      "type": "string",
+      "value": "通行码使用了全角字符。"
+    },
+    {"name": "Room_PassCodeSample", "type": "string", "value": "通行码"},
+    {"name": "Room_ReadyWaiting", "type": "string", "value": "完成出击准备"},
+    {"name": "Room_ReadyWaiting_Cancel", "type": "string", "value": "取消准备"},
+    {"name": "Room_RoomName", "type": "string", "value": "Room Name"},
+    {"name": "Room_Setting", "type": "string", "value": "房间设置"},
+    {"name": "Room_Status", "type": "string", "value": "确认战历"},
+    {"name": "Room_Title", "type": "string", "value": "房间"},
+    {"name": "Room_UserFriendEpic", "type": "string", "value": "Epic好友邀请"},
+    {
+      "name": "Room_UserFriendEpicAsk",
+      "type": "string",
+      "value": "是否要对【%TARGETNAME%】\n发送【Epic好友邀请】？"
+    },
+    {"name": "Room_UserKick", "type": "string", "value": "强制退房"},
+    {"name": "Room_UserRequestTag", "type": "string", "value": "显示SteamID"},
+    {"name": "Room_UserVOICE_STATUS_OFF", "type": "string", "value": "停用"},
+    {"name": "Room_UserVOICE_STATUS_ON", "type": "string", "value": "启用"},
+    {
+      "name": "Room_UserVoiceSwitch",
+      "type": "string",
+      "value": "语音设置：%VOICE_STATUS%"
+    },
+    {"name": "Room_WeaponLv", "type": "string", "value": "Lv%LEVEL%"},
+    {
+      "name": "Room_Weapon_Level_Limit",
+      "type": "string",
+      "value": "武器等级上限：　Lv%WEAPON_LEVEL%以下"
+    },
+    {
+      "name": "Room_Weapon_Level_NoLimit",
+      "type": "string",
+      "value": "武器等级上限：　无"
+    },
+    {
+      "name": "SYSTEMSAVEDATA_DETAIL",
+      "type": "string",
+      "value": "EDF6 System File."
+    },
+    {
+      "name": "SYSTEMSAVEDATA_SUBTITLE",
+      "type": "string",
+      "value": "地球防卫军６　系统档案"
+    },
+    {"name": "SaveDataTitle", "type": "string", "value": "地球防卫军６"},
+    {
+      "name": "SearchLanguageDesc_cn",
+      "type": "string",
+      "value": "只有在聊天时的建议语言设置为“繁体中文”的房间才会显示在大厅中。"
+    },
+    {
+      "name": "SearchLanguageDesc_en",
+      "type": "string",
+      "value": "只有在聊天时的建议语言设置为“英文”的房间才会显示在大厅中。"
+    },
+    {
+      "name": "SearchLanguageDesc_ja",
+      "type": "string",
+      "value": "只有在聊天时的建议语言设置为“日文”的房间才会显示在大厅中。"
+    },
+    {
+      "name": "SearchLanguageDesc_kr",
+      "type": "string",
+      "value": "只有在聊天时的建议语言设置为“韩文”的房间才会显示在大厅中。"
+    },
+    {
+      "name": "SearchLanguageDesc_none",
+      "type": "string",
+      "value": "无论聊天时的建议语言是哪种语言，都会显示在大厅中。"
+    },
+    {
+      "name": "SearchLanguageDesc_sc",
+      "type": "string",
+      "value": "只有在聊天时的建议语言设置为“简体中文”的房间才会显示在大厅中。"
+    },
+    {"name": "SoldierType_AirRaider", "type": "string", "value": "空袭兵"},
+    {
+      "name": "SoldierType_AirRaiderEng",
+      "type": "string",
+      "value": "Air Raider"
+    },
+    {
+      "name": "SoldierType_AirRaider_Info",
+      "type": "string",
+      "value": "带有通讯装备的战术兵。任务是与空军合作，传达空袭座标。可请求爆击机与炮舰机进行攻击，毁灭敌人。另外还具有请求投落军用载具的权限。\n\n※中级兵种。能发挥绝大的攻击力，但有时也会陷入无法善用能力的处境。算是适合多人游玩的兵种。请在稍微习惯游戏后再进行选择。"
+    },
+    {"name": "SoldierType_Fencer", "type": "string", "value": "剑兵"},
+    {"name": "SoldierType_FencerEng", "type": "string", "value": "Fencer"},
+    {
+      "name": "SoldierType_Fencer_Info",
+      "type": "string",
+      "value": "穿着外骨胳式强化服“动力装甲”的重装士兵。因为有动力装甲而能装备巨大的武器。左右两臂还可各别持有不同的武器。\n\n※上级兵种。除了操作方法与其他兵种不同外，还得学习多种技巧。但熟悉后就能发挥十分强大的力量。"
+    },
+    {"name": "SoldierType_Ranger", "type": "string", "value": "突击兵"},
+    {"name": "SoldierType_RangerEng", "type": "string", "value": "Ranger"},
+    {
+      "name": "SoldierType_Ranger_Info",
+      "type": "string",
+      "value": "精锐步兵。历经无数严苛训练的战斗专家。可操作多种武器，应对各式各样的局面。另外还具备军用载具的驾驶执照，可在战场中驾驶。\n\n※最容易操作，并具有高度战斗力。初次游玩时，建议先选突击兵。"
+    },
+    {"name": "SoldierType_Title", "type": "string", "value": "选择兵种"},
+    {"name": "SoldierType_WingDiver", "type": "string", "value": "飞翼潜行兵"},
+    {
+      "name": "SoldierType_WingDiverEng",
+      "type": "string",
+      "value": "Wing Diver"
+    },
+    {
+      "name": "SoldierType_WingDiver_Info",
+      "type": "string",
+      "value": "只有身穿飞行装备的女性所组成的特殊部队。为了实现轻量化不持有实弹武器，而是装备最新型的光学兵器。具备所有兵种中最顶级的破坏力。\n\n※可高速移动，攻击力也很强。但弱点是体力（装甲值）低，防御力也不高。"
+    },
+    {
+      "name": "StatusInfo_AirRaiderArmor",
+      "type": "string",
+      "value": "装甲值（空袭兵）"
+    },
+    {
+      "name": "StatusInfo_AirRaiderEasyClearRatio",
+      "type": "string",
+      "value": "难度ＥＡＳＹ达成率（空袭兵）"
+    },
+    {
+      "name": "StatusInfo_AirRaiderHardClearRatio",
+      "type": "string",
+      "value": "难度ＨＡＲＤ达成率（空袭兵）"
+    },
+    {
+      "name": "StatusInfo_AirRaiderHardestClearRatio",
+      "type": "string",
+      "value": "难度ＨＡＲＤＥＳＴ达成率（空袭兵）"
+    },
+    {
+      "name": "StatusInfo_AirRaiderInfernoClearRatio",
+      "type": "string",
+      "value": "难度ＩＮＦＥＲＮＯ达成率（空袭兵）"
+    },
+    {
+      "name": "StatusInfo_AirRaiderNormalClearRatio",
+      "type": "string",
+      "value": "难度ＮＯＲＭＡＬ达成率（空袭兵）"
+    },
+    {
+      "name": "StatusInfo_AirRaiderPlayCount",
+      "type": "string",
+      "value": "空袭兵出击次数"
+    },
+    {"name": "StatusInfo_AllClearRatio", "type": "string", "value": "综合达成率"},
+    {
+      "name": "StatusInfo_AntHillKillCount",
+      "type": "string",
+      "value": "传送装置击破数"
+    },
+    {"name": "StatusInfo_ArmorCount", "type": "string", "value": "装甲道具取得数"},
+    {
+      "name": "StatusInfo_BerserkerAKillCount",
+      "type": "string",
+      "value": "机械生命体击破数"
+    },
+    {
+      "name": "StatusInfo_BerserkerBKillCount",
+      "type": "string",
+      "value": "超级机械生命体击破数"
+    },
+    {
+      "name": "StatusInfo_BerserkerCKillCount",
+      "type": "string",
+      "value": "高机动型机械生命体击破数"
+    },
+    {
+      "name": "StatusInfo_BerserkerDKillCount",
+      "type": "string",
+      "value": "掷弹兵击破数"
+    },
+    {
+      "name": "StatusInfo_BerserkerLargeKillCount",
+      "type": "string",
+      "value": "独眼巨人击破数"
+    },
+    {
+      "name": "StatusInfo_BerserkerMiddleBommerKillCount",
+      "type": "string",
+      "value": "大型掷弹兵击破数"
+    },
+    {
+      "name": "StatusInfo_BerserkerMiddleKillCount",
+      "type": "string",
+      "value": "大型机械生命体击破数"
+    },
+    {
+      "name": "StatusInfo_BigGiantSpiderKillCount",
+      "type": "string",
+      "value": "国王击破数"
+    },
+    {
+      "name": "StatusInfo_BigGreyBossKillCount",
+      "type": "string",
+      "value": "银之人击破数"
+    },
+    {
+      "name": "StatusInfo_Carrier1KillCount",
+      "type": "string",
+      "value": "传送飞船击破数"
+    },
+    {"name": "StatusInfo_Count", "type": "string", "value": "次"},
+    {
+      "name": "StatusInfo_DangoKillCount",
+      "type": "string",
+      "value": "侵略生物γ击破数"
+    },
+    {"name": "StatusInfo_DeiroiKillCount", "type": "string", "value": "迪洛伊击破数"},
+    {
+      "name": "StatusInfo_DragonAceKillCount",
+      "type": "string",
+      "value": "大型蝌蚪击破数"
+    },
+    {"name": "StatusInfo_DragonKillCount", "type": "string", "value": "蝌蚪击破数"},
+    {
+      "name": "StatusInfo_EasyClearRatio",
+      "type": "string",
+      "value": "难度ＥＡＳＹ达成率"
+    },
+    {"name": "StatusInfo_FencerArmor", "type": "string", "value": "装甲值（剑兵）"},
+    {
+      "name": "StatusInfo_FencerEasyClearRatio",
+      "type": "string",
+      "value": "难度ＥＡＳＹ达成率（剑兵）"
+    },
+    {
+      "name": "StatusInfo_FencerHardClearRatio",
+      "type": "string",
+      "value": "难度ＨＡＲＤ达成率（剑兵）"
+    },
+    {
+      "name": "StatusInfo_FencerHardestClearRatio",
+      "type": "string",
+      "value": "难度ＨＡＲＤＥＳＴ达成率（剑兵）"
+    },
+    {
+      "name": "StatusInfo_FencerInfernoClearRatio",
+      "type": "string",
+      "value": "难度ＩＮＦＥＲＮＯ达成率（剑兵）"
+    },
+    {
+      "name": "StatusInfo_FencerNormalClearRatio",
+      "type": "string",
+      "value": "难度ＮＯＲＭＡＬ达成率（剑兵）"
+    },
+    {"name": "StatusInfo_FencerPlayCount", "type": "string", "value": "剑兵出击次数"},
+    {
+      "name": "StatusInfo_FortressKillCount",
+      "type": "string",
+      "value": "前哨基地击破数"
+    },
+    {"name": "StatusInfo_FrameCount", "type": "string", "value": "游玩时间"},
+    {"name": "StatusInfo_FrogKillCount", "type": "string", "value": "异星殖民者击破数"},
+    {
+      "name": "StatusInfo_GiantAntKillCount",
+      "type": "string",
+      "value": "侵略生物α击破数"
+    },
+    {
+      "name": "StatusInfo_GiantAntQueenKillCount",
+      "type": "string",
+      "value": "母体生物击破数"
+    },
+    {
+      "name": "StatusInfo_GiantBeeKillCount",
+      "type": "string",
+      "value": "飞天型侵略生物击破数"
+    },
+    {
+      "name": "StatusInfo_GiantBeeQueenKillCount",
+      "type": "string",
+      "value": "女王击破数"
+    },
+    {
+      "name": "StatusInfo_GiantSpiderKillCount",
+      "type": "string",
+      "value": "侵略生物β击破数"
+    },
+    {
+      "name": "StatusInfo_GoldUfoAceKillCount",
+      "type": "string",
+      "value": "红色无人机击破数"
+    },
+    {
+      "name": "StatusInfo_GoldUfoKillCount",
+      "type": "string",
+      "value": "无人机击破数"
+    },
+    {"name": "StatusInfo_GreyKillCount", "type": "string", "value": "异星航天员击破数"},
+    {
+      "name": "StatusInfo_HardClearRatio",
+      "type": "string",
+      "value": "难度ＨＡＲＤ达成率"
+    },
+    {
+      "name": "StatusInfo_HardestClearRatio",
+      "type": "string",
+      "value": "难度ＨＡＲＤＥＳＴ达成率"
+    },
+    {"name": "StatusInfo_HealDamage", "type": "string", "value": "回复量"},
+    {
+      "name": "StatusInfo_HornetNestKillCount",
+      "type": "string",
+      "value": "土巢击破数"
+    },
+    {
+      "name": "StatusInfo_HornetNestSnallKillCount",
+      "type": "string",
+      "value": "小型土巢击破数"
+    },
+    {
+      "name": "StatusInfo_ImperialUfoAceKillCount",
+      "type": "string",
+      "value": "帝国无人机击破数"
+    },
+    {
+      "name": "StatusInfo_ImperialUfoKillCount",
+      "type": "string",
+      "value": "第２类无人机击破数"
+    },
+    {
+      "name": "StatusInfo_InfernoClearRatio",
+      "type": "string",
+      "value": "难度ＩＮＦＥＲＮＯ达成率"
+    },
+    {
+      "name": "StatusInfo_JormungandKillCount",
+      "type": "string",
+      "value": "星导者击破数"
+    },
+    {
+      "name": "StatusInfo_MartianKillCount",
+      "type": "string",
+      "value": "库鲁鲁击破数"
+    },
+    {"name": "StatusInfo_MermanKillCount", "type": "string", "value": "斯库拉击破数"},
+    {
+      "name": "StatusInfo_Monster501KillCount",
+      "type": "string",
+      "value": "艾尔基努斯击破数"
+    },
+    {
+      "name": "StatusInfo_Monster504KillCount",
+      "type": "string",
+      "value": "亚凯鲁斯击破数"
+    },
+    {
+      "name": "StatusInfo_MotherShipKillCount",
+      "type": "string",
+      "value": "母舰击破数"
+    },
+    {
+      "name": "StatusInfo_NephilaKillCount",
+      "type": "string",
+      "value": "厄拉尼亚击破数"
+    },
+    {
+      "name": "StatusInfo_NormalClearRatio",
+      "type": "string",
+      "value": "难度ＮＯＲＭＡＬ达成率"
+    },
+    {
+      "name": "StatusInfo_OfflinePlayCount",
+      "type": "string",
+      "value": "任务出击次数"
+    },
+    {
+      "name": "StatusInfo_OnlinePlayCount",
+      "type": "string",
+      "value": "联机任务出击次数"
+    },
+    {"name": "StatusInfo_PlayCount", "type": "string", "value": "游戏开始次数"},
+    {
+      "name": "StatusInfo_RadonKillCount",
+      "type": "string",
+      "value": "赛壬／格劳科斯击破数"
+    },
+    {"name": "StatusInfo_RangerArmor", "type": "string", "value": "装甲值（突击兵）"},
+    {
+      "name": "StatusInfo_RangerEasyClearRatio",
+      "type": "string",
+      "value": "难度ＥＡＳＹ达成率（突击兵）"
+    },
+    {
+      "name": "StatusInfo_RangerHardClearRatio",
+      "type": "string",
+      "value": "难度ＨＡＲＤ达成率（突击兵）"
+    },
+    {
+      "name": "StatusInfo_RangerHardestClearRatio",
+      "type": "string",
+      "value": "难度ＨＡＲＤＥＳＴ达成率（突击兵）"
+    },
+    {
+      "name": "StatusInfo_RangerInfernoClearRatio",
+      "type": "string",
+      "value": "难度ＩＮＦＥＲＮＯ达成率（突击兵）"
+    },
+    {
+      "name": "StatusInfo_RangerNormalClearRatio",
+      "type": "string",
+      "value": "难度ＮＯＲＭＡＬ达成率（突击兵）"
+    },
+    {
+      "name": "StatusInfo_RangerPlayCount",
+      "type": "string",
+      "value": "突击兵出击次数"
+    },
+    {"name": "StatusInfo_RescueCount", "type": "string", "value": "救援次数"},
+    {
+      "name": "StatusInfo_RingMotherKillCount",
+      "type": "string",
+      "value": "圆环击破数"
+    },
+    {
+      "name": "StatusInfo_ShellFishAceKillCount",
+      "type": "string",
+      "value": "高阶涅加击破数"
+    },
+    {
+      "name": "StatusInfo_ShellFishKillCount",
+      "type": "string",
+      "value": "涅加击破数"
+    },
+    {
+      "name": "StatusInfo_ShieldBearerKillCount",
+      "type": "string",
+      "value": "防护者击破数"
+    },
+    {
+      "name": "StatusInfo_SpinnerUfoAceKillCount",
+      "type": "string",
+      "value": "高阶第３类无人机击破数"
+    },
+    {
+      "name": "StatusInfo_SpinnerUfoKillCount",
+      "type": "string",
+      "value": "第３类无人机击破数"
+    },
+    {
+      "name": "StatusInfo_SquidSmallKillCount",
+      "type": "string",
+      "value": "黑霾击破数"
+    },
+    {
+      "name": "StatusInfo_TeleportionAnchorKillCount",
+      "type": "string",
+      "value": "传送锚塔击破数"
+    },
+    {
+      "name": "StatusInfo_TimeShipAnchorKillCount",
+      "type": "string",
+      "value": "尾型锚塔击破数"
+    },
+    {
+      "name": "StatusInfo_VenusKillCount",
+      "type": "string",
+      "value": "海怪克拉肯击破数"
+    },
+    {"name": "StatusInfo_WeaponCount", "type": "string", "value": "武器取得数"},
+    {"name": "StatusInfo_WeaponGetRatio", "type": "string", "value": "武器取得率"},
+    {
+      "name": "StatusInfo_WingDiverArmor",
+      "type": "string",
+      "value": "装甲值（飞翼潜行兵）"
+    },
+    {
+      "name": "StatusInfo_WingDiverEasyClearRatio",
+      "type": "string",
+      "value": "难度ＥＡＳＹ达成率（飞翼潜行兵）"
+    },
+    {
+      "name": "StatusInfo_WingDiverHardClearRatio",
+      "type": "string",
+      "value": "难度ＨＡＲＤ达成率（飞翼潜行兵）"
+    },
+    {
+      "name": "StatusInfo_WingDiverHardestClearRatio",
+      "type": "string",
+      "value": "难度ＨＡＲＤＥＳＴ达成率（飞翼潜行兵）"
+    },
+    {
+      "name": "StatusInfo_WingDiverInfernoClearRatio",
+      "type": "string",
+      "value": "难度ＩＮＦＥＲＮＯ达成率（飞翼潜行兵）"
+    },
+    {
+      "name": "StatusInfo_WingDiverNormalClearRatio",
+      "type": "string",
+      "value": "难度ＮＯＲＭＡＬ达成率（飞翼潜行兵）"
+    },
+    {
+      "name": "StatusInfo_WingDiverPlayCount",
+      "type": "string",
+      "value": "飞翼潜行兵出击次数"
+    },
+    {"name": "Status_TitleBar", "type": "string", "value": "确认战历"},
+    {
+      "name": "Sys_AutoSaveWarning",
+      "type": "string",
+      "value": "本游戏支持自动保存。\n显示以下画面时，\n请勿关闭主机电源，\n以免造成保存数据损坏。"
+    },
+    {
+      "name": "Sys_ConfirmChangeScreenMode",
+      "type": "string",
+      "value": "是否要变更画面模式？"
+    },
+    {
+      "name": "Sys_ConfirmChangeScreenModeText",
+      "type": "string",
+      "value": "如不操作将在%d秒后恢复原本的设置。"
+    },
+    {
+      "name": "Sys_Control_Description",
+      "type": "string",
+      "value": "<A>决定 <B>返回"
+    },
+    {
+      "name": "Sys_Control_Description_BrokenSlot",
+      "type": "string",
+      "value": "<Y>删除"
+    },
+    {
+      "name": "Sys_Control_Description_Color",
+      "type": "string",
+      "value": "<A>决定 <B>返回 <Y>自定义颜色"
+    },
+    {
+      "name": "Sys_Control_Description_History",
+      "type": "string",
+      "value": "<B>返回 <RB/RT>滚动文字"
+    },
+    {
+      "name": "Sys_Control_Description_Manual",
+      "type": "string",
+      "value": "<B>返回 <RB/RT>滚动文字"
+    },
+    {
+      "name": "Sys_Control_Description_Mission",
+      "type": "string",
+      "value": "<A>决定 <B>返回 <Y>变换勋章"
+    },
+    {
+      "name": "Sys_Control_Description_MissionView",
+      "type": "string",
+      "value": "<B>返回 <Y>变换勋章"
+    },
+    {
+      "name": "Sys_Control_Description_Room",
+      "type": "string",
+      "value": "<A>决定 <Y>变换勋章"
+    },
+    {
+      "name": "Sys_Control_Description_Search",
+      "type": "string",
+      "value": "<A>决定 <B>返回 <X>删除"
+    },
+    {
+      "name": "Sys_Control_Description_SlotSelect",
+      "type": "string",
+      "value": "<X>编辑名称 <Y>删除"
+    },
+    {
+      "name": "Sys_Control_Description_SoldierSelect",
+      "type": "string",
+      "value": "<A>决定 <B>返回 <Y>变换模型"
+    },
+    {
+      "name": "Sys_Control_Description_WeaponSelect",
+      "type": "string",
+      "value": "<A>决定 <B>返回 <RB/RT>滚动文字"
+    },
+    {"name": "Sys_Control_EnableOnly", "type": "string", "value": "<A>决定"},
+    {
+      "name": "Sys_Control_Keyboard_Description",
+      "type": "string",
+      "value": "Enter:决定 Esc:返回"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_BrokenSlot",
+      "type": "string",
+      "value": "Y:删除"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_Color",
+      "type": "string",
+      "value": "Enter:决定 Esc:返回 Y:自定义颜色"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_History",
+      "type": "string",
+      "value": "Esc:返回 PgUp/PgDn:滚动文字"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_Manual",
+      "type": "string",
+      "value": "Esc:返回 PgUp/PgDn:滚动文字"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_Mission",
+      "type": "string",
+      "value": "Enter:决定 Esc:返回 Y:变换勋章"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_MissionView",
+      "type": "string",
+      "value": "Esc:返回 Y:变换勋章"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_Room",
+      "type": "string",
+      "value": "Enter:决定 Y:变换勋章"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_Search",
+      "type": "string",
+      "value": "Enter:决定 Esc:返回 X:删除"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_SlotSelect",
+      "type": "string",
+      "value": "X:编辑名称 Y:删除"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_SoldierSelect",
+      "type": "string",
+      "value": "Enter:决定 Esc:返回 Y:变换模型"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_WeaponSelect",
+      "type": "string",
+      "value": "Enter:决定 Esc:返回 PgUp/PgDn:滚动文字"
+    },
+    {
+      "name": "Sys_Control_Keyboard_EnableOnly",
+      "type": "string",
+      "value": "Enter:决定"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Next",
+      "type": "string",
+      "value": "Enter:继续 PgUp/PgDn:滚动文字"
+    },
+    {
+      "name": "Sys_Control_Next",
+      "type": "string",
+      "value": "<A>继续 <RB/RT>滚动文字"
+    },
+    {"name": "Sys_Detail", "type": "string", "value": "详细内容"},
+    {"name": "Sys_Exit_Confirmation", "type": "string", "value": "确定要结束游戏吗？"},
+    {"name": "Sys_Exit_Game", "type": "string", "value": "即将结束游戏。"},
+    {"name": "Sys_InviteAccepted", "type": "string", "value": "将参与游戏。"},
+    {
+      "name": "Sys_InviteCancel",
+      "type": "string",
+      "value": "由于未持有需要的内容，\n即将中断参加游戏。"
+    },
+    {
+      "name": "Sys_InviteFailed",
+      "type": "string",
+      "value": "虽然收到邀请，\n但无法接受邀请信息。\n即将中断邀请处理。"
+    },
+    {
+      "name": "Sys_JoinGameAccepted",
+      "type": "string",
+      "value": "已接收参加游戏的信息。\n将参与游戏。"
+    },
+    {
+      "name": "Sys_JoinGameCancel",
+      "type": "string",
+      "value": "已接收参加游戏的信息，\n但未持有需要的内容，\n即将中断。"
+    },
+    {
+      "name": "Sys_JoinGameFailed",
+      "type": "string",
+      "value": "无法接收参加游戏所需的信息。\n即将中断参加游戏。"
+    },
+    {
+      "name": "Sys_LoadFailed_ToSlotSelect",
+      "type": "string",
+      "value": "载入保存数据失败，\n将返回选择栏位。"
+    },
+    {
+      "name": "Sys_LoadFailed_ToTitle",
+      "type": "string",
+      "value": "载入保存数据失败，\n将返回标题。"
+    },
+    {"name": "Sys_No", "type": "string", "value": "否"},
+    {"name": "Sys_NormalReset", "type": "string", "value": "返回标题。"},
+    {"name": "Sys_Ok", "type": "string", "value": "OK"},
+    {"name": "Sys_PressButton", "type": "string", "value": "请按下○键。"},
+    {"name": "Sys_Retry", "type": "string", "value": "重试"},
+    {
+      "name": "Sys_SaveError_Common",
+      "type": "string",
+      "value": "存档失败。\n是否要重试？"
+    },
+    {
+      "name": "Sys_SaveError_DirectoryNotExist",
+      "type": "string",
+      "value": "建立存档用的目录失败。\n是否要重试？"
+    },
+    {
+      "name": "Sys_SaveError_NotEnoughSpace",
+      "type": "string",
+      "value": "可用容量不足，导致存档失败。\n是否要重试？"
+    },
+    {"name": "Sys_Scroll_Keyboard_LB", "type": "string", "value": "End"},
+    {"name": "Sys_Scroll_Keyboard_LT", "type": "string", "value": "Home"},
+    {"name": "Sys_Scroll_Keyboard_RB", "type": "string", "value": "PgDn"},
+    {"name": "Sys_Scroll_Keyboard_RT", "type": "string", "value": "PgUp"},
+    {"name": "Sys_Scroll_LB", "type": "string", "value": "LT"},
+    {"name": "Sys_Scroll_LT", "type": "string", "value": "LB"},
+    {"name": "Sys_Scroll_PS4Controller_LB", "type": "string", "value": "L2"},
+    {"name": "Sys_Scroll_PS4Controller_LT", "type": "string", "value": "L1"},
+    {"name": "Sys_Scroll_PS4Controller_RB", "type": "string", "value": "R2"},
+    {"name": "Sys_Scroll_PS4Controller_RT", "type": "string", "value": "R1"},
+    {"name": "Sys_Scroll_RB", "type": "string", "value": "RT"},
+    {"name": "Sys_Scroll_RT", "type": "string", "value": "RB"},
+    {
+      "name": "Sys_Scroll_SwitchProController_LB",
+      "type": "string",
+      "value": "ZL"
+    },
+    {
+      "name": "Sys_Scroll_SwitchProController_LT",
+      "type": "string",
+      "value": "L"
+    },
+    {
+      "name": "Sys_Scroll_SwitchProController_RB",
+      "type": "string",
+      "value": "ZR"
+    },
+    {
+      "name": "Sys_Scroll_SwitchProController_RT",
+      "type": "string",
+      "value": "R"
+    },
+    {
+      "name": "Sys_UnlockArmorWeaponLimit",
+      "type": "string",
+      "value": "可解除\n装甲值上限与武器等级上限的设置。"
+    },
+    {"name": "Sys_UseGamepad", "type": "string", "value": "使用游戏手柄开始游戏。"},
+    {"name": "Sys_UseKeyboard", "type": "string", "value": "使用键盘和鼠标开始游戏。"},
+    {
+      "name": "Sys_Warning_DeviceError_Caption",
+      "type": "string",
+      "value": "DeviceError"
+    },
+    {
+      "name": "Sys_Warning_DeviceError_Text",
+      "type": "string",
+      "value": "DeviceError 0x%x"
+    },
+    {"name": "Sys_Yes", "type": "string", "value": "是"},
+    {"name": "SystemOption_AntiAlias", "type": "string", "value": "反锯齿"},
+    {"name": "SystemOption_DisplayMode", "type": "string", "value": "显示模式"},
+    {
+      "name": "SystemOption_DisplayMode_Borderless",
+      "type": "string",
+      "value": "无边框窗口"
+    },
+    {
+      "name": "SystemOption_DisplayMode_FullScreen",
+      "type": "string",
+      "value": "全屏幕"
+    },
+    {
+      "name": "SystemOption_DisplayMode_Window",
+      "type": "string",
+      "value": "窗口模式"
+    },
+    {"name": "SystemOption_DisplaySetting", "type": "string", "value": "画面设置"},
+    {"name": "SystemOption_LetterBox", "type": "string", "value": "黑边"},
+    {"name": "SystemOption_Resolution", "type": "string", "value": "分辨率"},
+    {"name": "SystemOption_Shadow", "type": "string", "value": "阴影"},
+    {"name": "SystemOption_TextureLevel", "type": "string", "value": "各向异性过滤"},
+    {"name": "SystemOption_TextureLevel1", "type": "string", "value": "OFF"},
+    {"name": "SystemOption_TextureLevel2", "type": "string", "value": "2x"},
+    {"name": "SystemOption_TextureLevel3", "type": "string", "value": "4x"},
+    {"name": "SystemOption_TextureLevel4", "type": "string", "value": "8x"},
+    {"name": "SystemOption_TextureLevel5", "type": "string", "value": "16x"},
+    {"name": "SystemOption_TitleBar", "type": "string", "value": "系统设置"},
+    {
+      "name": "Title_Licence",
+      "type": "string",
+      "value": "©2024 SANDLOT ©2024 D3PUBLISHER"
+    },
+    {
+      "name": "Title_Licence_US_EUR",
+      "type": "string",
+      "value": "©2024 SANDLOT ©2024 D3PUBLISHER"
+    },
+    {
+      "name": "TransferSaveDataFromPS4_Comfirm",
+      "type": "string",
+      "value": "找到PS4版EDF6的保存数据。\n是否要继承？"
+    },
+    {"name": "TransferSaveDataFromPS4_Done", "type": "string", "value": "继承完毕"},
+    {
+      "name": "TransferSaveDataFromPS4_Failure",
+      "type": "string",
+      "value": "继承失败"
+    },
+    {
+      "name": "TransferSaveDataFromPS4_Progress",
+      "type": "string",
+      "value": "正在继承"
+    },
+    {"name": "WeaponSel_SubTitle", "type": "string", "value": "选择武器"},
+    {"name": "Weapon_AssaultRifle", "type": "string", "value": "突击步枪"},
+    {"name": "Weapon_Engineer_Bomb", "type": "string", "value": "粘弹枪"},
+    {
+      "name": "Weapon_Engineer_Call_Attacker",
+      "type": "string",
+      "value": "请求─轰炸机"
+    },
+    {
+      "name": "Weapon_Engineer_Call_Cannon",
+      "type": "string",
+      "value": "请求─炮兵队"
+    },
+    {
+      "name": "Weapon_Engineer_Call_Gunship",
+      "type": "string",
+      "value": "请求─炮舰机"
+    },
+    {
+      "name": "Weapon_Engineer_Call_Missile",
+      "type": "string",
+      "value": "请求─飞弹"
+    },
+    {
+      "name": "Weapon_Engineer_Call_Satellite",
+      "type": "string",
+      "value": "请求─卫星"
+    },
+    {"name": "Weapon_Engineer_Cannon", "type": "string", "value": "设置武器"},
+    {
+      "name": "Weapon_Engineer_CounterDrone",
+      "type": "string",
+      "value": "自律型飞行器"
+    },
+    {"name": "Weapon_Engineer_Lockon", "type": "string", "value": "导引装置"},
+    {
+      "name": "Weapon_Engineer_ShootingDrone",
+      "type": "string",
+      "value": "射击型胶囊士兵"
+    },
+    {"name": "Weapon_Engineer_Special", "type": "string", "value": "特殊"},
+    {"name": "Weapon_Engineer_Support", "type": "string", "value": "支援装置"},
+    {"name": "Weapon_Engineer_SupportBomb", "type": "string", "value": "机械化炸弹"},
+    {
+      "name": "Weapon_Engineer_SupportDrone",
+      "type": "string",
+      "value": "护卫型胶囊士兵"
+    },
+    {
+      "name": "Weapon_Engineer_TraceDrone",
+      "type": "string",
+      "value": "追随型胶囊士兵"
+    },
+    {"name": "Weapon_Engineer_Vehicle1", "type": "string", "value": "车辆"},
+    {"name": "Weapon_Engineer_Vehicle2", "type": "string", "value": "战车"},
+    {"name": "Weapon_Engineer_Vehicle3", "type": "string", "value": "直升机"},
+    {"name": "Weapon_Engineer_Vehicle4", "type": "string", "value": "战斗机体"},
+    {"name": "Weapon_Engineer_Vehicle5", "type": "string", "value": "特殊武器"},
+    {"name": "Weapon_Grenade", "type": "string", "value": "榴弹"},
+    {"name": "Weapon_Heavy_Cannon", "type": "string", "value": "大炮"},
+    {"name": "Weapon_Heavy_Homing", "type": "string", "value": "飞弹发射器"},
+    {"name": "Weapon_Heavy_Middle", "type": "string", "value": "机炮"},
+    {"name": "Weapon_Heavy_Sheild", "type": "string", "value": "盾"},
+    {"name": "Weapon_Heavy_ShortHammer", "type": "string", "value": "近身─砍"},
+    {"name": "Weapon_Heavy_ShortPile", "type": "string", "value": "近身─刺"},
+    {
+      "name": "Weapon_Heavy_Support_Actuater",
+      "type": "string",
+      "value": "强化装甲"
+    },
+    {"name": "Weapon_Heavy_Support_Aiming", "type": "string", "value": "强化炮击"},
+    {
+      "name": "Weapon_Heavy_Support_Booster",
+      "type": "string",
+      "value": "强化喷射器"
+    },
+    {"name": "Weapon_Heavy_Support_Shield", "type": "string", "value": "强化护盾"},
+    {"name": "Weapon_MissleLauncher", "type": "string", "value": "飞弹发射器"},
+    {"name": "Weapon_Pale_EnergyCore", "type": "string", "value": "电浆核心"},
+    {"name": "Weapon_Pale_Explosive", "type": "string", "value": "范围攻击武器"},
+    {"name": "Weapon_Pale_Homing", "type": "string", "value": "追踪武器"},
+    {"name": "Weapon_Pale_Long", "type": "string", "value": "远距离"},
+    {"name": "Weapon_Pale_MiddleBeam", "type": "string", "value": "中距离─脉冲武器"},
+    {"name": "Weapon_Pale_MiddleLaser", "type": "string", "value": "中距离─动力武器"},
+    {
+      "name": "Weapon_Pale_MiddleThunder",
+      "type": "string",
+      "value": "中距离─电击武器"
+    },
+    {"name": "Weapon_Pale_Short", "type": "string", "value": "近距离"},
+    {"name": "Weapon_Pale_SupportCannon", "type": "string", "value": "加农炮"},
+    {"name": "Weapon_Pale_SupportGrenade", "type": "string", "value": "威力榴弹"},
+    {"name": "Weapon_Pale_SupportHorming", "type": "string", "value": "导引兵器"},
+    {"name": "Weapon_Pale_SupportShield", "type": "string", "value": "护盾"},
+    {"name": "Weapon_Pale_SupportShort", "type": "string", "value": "光刃"},
+    {"name": "Weapon_Pale_SupportSpecial", "type": "string", "value": "超级武器"},
+    {"name": "Weapon_Pale_SupportTrap", "type": "string", "value": "陷阱"},
+    {"name": "Weapon_Ranger_Vehicle1", "type": "string", "value": "车辆"},
+    {"name": "Weapon_Ranger_Vehicle2", "type": "string", "value": "直升机"},
+    {"name": "Weapon_Ranger_Vehicle3", "type": "string", "value": "机车"},
+    {"name": "Weapon_RocketLauncher", "type": "string", "value": "火箭弹发射器"},
+    {"name": "Weapon_Shotgun", "type": "string", "value": "散弹枪"},
+    {"name": "Weapon_Slot1", "type": "string", "value": "武器１"},
+    {"name": "Weapon_Slot1L", "type": "string", "value": "武器１─左手"},
+    {"name": "Weapon_Slot1R", "type": "string", "value": "武器１─右手"},
+    {"name": "Weapon_Slot2", "type": "string", "value": "武器２"},
+    {"name": "Weapon_Slot2L", "type": "string", "value": "武器２─左手"},
+    {"name": "Weapon_Slot2R", "type": "string", "value": "武器２─右手"},
+    {"name": "Weapon_Slot3", "type": "string", "value": "武器３"},
+    {"name": "Weapon_SlotAirRaiderSupport", "type": "string", "value": "背包"},
+    {"name": "Weapon_SlotFencerSupport", "type": "string", "value": "强化零件"},
+    {"name": "Weapon_SlotPaleSupport1", "type": "string", "value": "电浆核心"},
+    {"name": "Weapon_SlotPaleSupport2", "type": "string", "value": "独立运作装备"},
+    {"name": "Weapon_SlotSupport1", "type": "string", "value": "特殊装备"},
+    {"name": "Weapon_SlotSupport2", "type": "string", "value": "背包"},
+    {"name": "Weapon_SlotVehicle", "type": "string", "value": "载具"},
+    {"name": "Weapon_SniperRifle", "type": "string", "value": "狙击步枪"},
+    {"name": "Weapon_Special", "type": "string", "value": "特殊"},
+    {"name": "Weapon_Support1", "type": "string", "value": "辅助装备"},
+    {"name": "Weapon_SupportGrenade", "type": "string", "value": "手榴弹"},
+    {"name": "Weapon_SupportGrenade2", "type": "string", "value": "特殊投掷弹"},
+    {"name": "Weapon_SupportPlaceBomb", "type": "string", "value": "炸弹·陷阱"},
+    {"name": "Weapon_SupportPlaceGun", "type": "string", "value": "自动炮台"}
+  ]
+}

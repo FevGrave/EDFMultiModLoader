@@ -1,0 +1,3447 @@
+{
+  "format": "SGO",
+  "endian": "LE",
+  "version": 258,
+  "variables": [
+    {"name": "%CHAT_APPEAL%", "type": "string", "value": "號召動作"},
+    {"name": "%CHAT_EPIC_OVERLAY%", "type": "string", "value": "以Epic傳送邀請"},
+    {"name": "%CHAT_FRIENDS%", "type": "string", "value": "以Steam傳送邀請"},
+    {"name": "%CHAT_KEYBOARD%", "type": "string", "value": "鍵盤輸入"},
+    {"name": "%CHAT_PARTY_UI%", "type": "string", "value": "確認邀請訊息"},
+    {"name": "%CHAT_PROFILES%", "type": "string", "value": "確認SteamID"},
+    {"name": "%CHAT_VOICEENABLE%", "type": "string", "value": "切換語音聊天"},
+    {"name": "401_STRIKER_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "401_STRIKER_SHEET1", "type": "string", "value": "坐席１"},
+    {"name": "401_STRIKER_SHEET2", "type": "string", "value": "坐席２"},
+    {"name": "401_STRIKER_SHEET3", "type": "string", "value": "坐席３"},
+    {"name": "401_STRIKER_SHEET4", "type": "string", "value": "坐席４"},
+    {"name": "402_ROCKET_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "403_TANK_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "403_TANK_GUNNER_L", "type": "string", "value": "機鎗─左"},
+    {"name": "403_TANK_GUNNER_R", "type": "string", "value": "機鎗─右"},
+    {"name": "404_TANK_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "404_TANK_GUNNER_L", "type": "string", "value": "砲塔─左"},
+    {"name": "404_TANK_GUNNER_R", "type": "string", "value": "砲塔─右"},
+    {"name": "407_BIGBEGARUTA_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "407_BIGBEGARUTA_GUNNER_C", "type": "string", "value": "中央飛彈"},
+    {"name": "407_BIGBEGARUTA_GUNNER_L", "type": "string", "value": "砲塔─左"},
+    {"name": "407_BIGBEGARUTA_GUNNER_R", "type": "string", "value": "砲塔─右"},
+    {"name": "409_HELI_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "410_HELI_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "410_HELI_GUNNER_L", "type": "string", "value": "砲座─左"},
+    {"name": "410_HELI_GUNNER_R", "type": "string", "value": "砲座─右"},
+    {"name": "502_GROUNDROBO_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "503_BIKE_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "504_BEGARUTA_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "505_TANK_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "506_HELI_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "507_RESCUE_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "507_RESCUE_SHEET1", "type": "string", "value": "坐席１"},
+    {"name": "507_RESCUE_SHEET2", "type": "string", "value": "坐席２"},
+    {"name": "507_RESCUE_SHEET3", "type": "string", "value": "坐席３"},
+    {"name": "507_RESCUE_SHEET4", "type": "string", "value": "坐席４"},
+    {"name": "510_MASER_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "512_KEITRUCK_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "512_KEITRUCK_SHEET1", "type": "string", "value": "坐席１"},
+    {"name": "512_KEITRUCK_SHEET2", "type": "string", "value": "坐席２"},
+    {"name": "512_KEITRUCK_SHEET3", "type": "string", "value": "坐席３"},
+    {"name": "512_KEITRUCK_SHEET4", "type": "string", "value": "坐席４"},
+    {"name": "513_TRAILER_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "515_RETROBALAM_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "613_BIKE_DRIVER", "type": "string", "value": "操縱席"},
+    {"name": "CHAT_DOWN", "type": "string", "value": "下"},
+    {"name": "CHAT_LEFT", "type": "string", "value": "左"},
+    {"name": "CHAT_LEFTDOWN", "type": "string", "value": "左下"},
+    {"name": "CHAT_LEFTUP", "type": "string", "value": "左上"},
+    {"name": "CHAT_RIGHT", "type": "string", "value": "右"},
+    {"name": "CHAT_RIGHTDOWN", "type": "string", "value": "右下"},
+    {"name": "CHAT_RIGHTUP", "type": "string", "value": "右上"},
+    {"name": "CHAT_UP", "type": "string", "value": "上"},
+    {"name": "CHAT_VOICE_STATUS_OFF", "type": "string", "value": "[×停用語音]"},
+    {"name": "CHAT_VOICE_STATUS_ON", "type": "string", "value": "[○啟用語音]"},
+    {
+      "name": "CHAT_VOICE_TEMPLATE",
+      "type": "string",
+      "value": "%VOICE_STATUS%%NAME%"
+    },
+    {
+      "name": "CLEAR_MSG_A",
+      "type": "string",
+      "value": "星導者正干預過去，打算改變歷史。他們的策略是將時光飛船的船團送往過去改變戰況。"
+    },
+    {
+      "name": "CLEAR_MSG_B",
+      "type": "string",
+      "value": "現今的歷史是否是過去遭到改變的結果，我們不得而知。\n而未來究竟會……"
+    },
+    {
+      "name": "CONNECT_EOS_FAILED",
+      "type": "string",
+      "value": "無法連接EpicOnlineServices。"
+    },
+    {
+      "name": "CONNECT_EPIC_ONLINE_SERVICE",
+      "type": "string",
+      "value": "正在連接EpicOnlineServices。"
+    },
+    {"name": "Chat_Type_Game", "type": "string", "value": "遊戲用聊天"},
+    {"name": "Chat_Type_Menu", "type": "string", "value": "選單用聊天"},
+    {"name": "ColorChange_Change1", "type": "string", "value": "變更顏色１"},
+    {"name": "ColorChange_Change2", "type": "string", "value": "變更顏色２"},
+    {
+      "name": "ColorChange_ColorDesc",
+      "type": "string",
+      "value": "按Y按鍵可製作喜歡的顏色。\n按A按鍵決定。按B按鍵可保持決定的顏色返回上一個畫面。"
+    },
+    {
+      "name": "ColorChange_ConfirmDefault",
+      "type": "string",
+      "value": "確定要恢復為初期設定嗎？"
+    },
+    {"name": "ColorChange_Default", "type": "string", "value": "恢復為初期設定"},
+    {
+      "name": "ColorChange_DefaultDesc",
+      "type": "string",
+      "value": "所有的顏色恢復初期設定。"
+    },
+    {"name": "ColorChange_H", "type": "string", "value": "H"},
+    {
+      "name": "ColorChange_Keyboard_ColorDesc",
+      "type": "string",
+      "value": "按Y鍵可製作喜歡的顏色。\n按Enter鍵決定。按Esc鍵可保持決定的顏色返回上一個畫面。"
+    },
+    {"name": "ColorChange_Now", "type": "string", "value": "目前顏色"},
+    {
+      "name": "ColorChange_PS4Controller_ColorDesc",
+      "type": "string",
+      "value": "按△按鈕可製作喜歡的顏色。\n按○按鈕決定。按×按鈕可保持決定的顏色返回上一個畫面。"
+    },
+    {"name": "ColorChange_S", "type": "string", "value": "S"},
+    {
+      "name": "ColorChange_SwitchController_ColorDesc",
+      "type": "string",
+      "value": "按X鍵可製作喜歡的顏色。\n按B鍵決定。按A鍵可保持決定的顏色返回上一個畫面。"
+    },
+    {"name": "ColorChange_TitleBar", "type": "string", "value": "變更顏色"},
+    {"name": "ColorChange_V", "type": "string", "value": "V"},
+    {
+      "name": "ContentSelect_Warning",
+      "type": "string",
+      "value": "尚未購買%MPACKNAME%。"
+    },
+    {
+      "name": "Contents_AutoSaveRetry",
+      "type": "string",
+      "value": "自動保存失敗。\n若要再次進行自動保存，\n請選擇「是」。\n選擇「否」\n將直到下次自動保存時才會執行保存。"
+    },
+    {
+      "name": "Contents_AutoSaveRetry_ReturnTitle",
+      "type": "string",
+      "value": "自動保存失敗。\n若要再次進行自動保存，\n請選擇「是」。\n選擇「否」\n會捨棄目前的進度。"
+    },
+    {
+      "name": "Contents_SaveSlotDelete",
+      "type": "string",
+      "value": "確定要刪除\n此欄位的保存資料嗎？"
+    },
+    {
+      "name": "Contents_SaveSlotDeleteConfirm",
+      "type": "string",
+      "value": "真的確定要刪除\n此欄位的保存資料嗎？"
+    },
+    {
+      "name": "Contents_SaveSlotDeleteMiss",
+      "type": "string",
+      "value": "刪除保存資料失敗。"
+    },
+    {"name": "Contents_SaveSlotDeleted", "type": "string", "value": "已刪除保存資料。"},
+    {
+      "name": "Contents_SlotBroken",
+      "type": "string",
+      "value": "地球防衛軍６保存資料已損壞。\n 要遊玩遊戲請選擇其他欄位，\n 或刪除損壞的地球防衛軍６保存資料。"
+    },
+    {
+      "name": "Contents_SlotBrokenRemakeSave",
+      "type": "string",
+      "value": "欄位檔案已損壞。\n若要刪除損壞的欄位檔案，\n再次進行保存\n請選擇「是」。\n選擇「否」則不會\n進行保存。"
+    },
+    {
+      "name": "Contents_SlotRestoreAsk",
+      "type": "string",
+      "value": "確定要從備份中還原欄位保存資料嗎？\n結束還原程序後，將返回標題畫面。"
+    },
+    {
+      "name": "Contents_SystemBrokenRemake",
+      "type": "string",
+      "value": "系統檔案已損壞。\n請刪除損壞的系統檔案，\n並重新建立。"
+    },
+    {
+      "name": "Contents_SystemBrokenRemakeSave",
+      "type": "string",
+      "value": "系統檔案已損壞。\n若要刪除損壞的系統檔案，\n再次進行保存\n請選擇「是」。\n選擇「否」則不會\n進行保存。"
+    },
+    {
+      "name": "EDF6_M118_BarugaControl",
+      "type": "string",
+      "value": "按LS鍵準備砲擊　按Y鍵發射"
+    },
+    {
+      "name": "EDF6_M118_BarugaControl_Keyboard",
+      "type": "string",
+      "value": "按%BULGAPOSE_SP%準備砲擊\n按%BULGAATTACK_SP%發射"
+    },
+    {
+      "name": "EDF6_M118_BarugaControl_PS",
+      "type": "string",
+      "value": "按L3按鈕準備砲擊　按△按鈕發射"
+    },
+    {
+      "name": "EDF6_M118_BarugaControl_Switch",
+      "type": "string",
+      "value": "按L操控搖桿鍵準備砲擊\n按Ｘ鍵發射"
+    },
+    {
+      "name": "EDFMenuInfo_Equipment",
+      "type": "string",
+      "value": "可選擇兵種並變更裝備武器。另外還可變更顏色（衣服顏色）、調整裝甲值（體力）。"
+    },
+    {
+      "name": "EDFMenuInfo_Option",
+      "type": "string",
+      "value": "進行聲音等的設定。\n另可選擇變更操作、\n改變按鈕配置。\n也可設定聊天快捷\n或是閱覽操作說明書。\n這些操作也都可在遊戲中進行。"
+    },
+    {"name": "EDFMenuInfo_Return", "type": "string", "value": "保存目前進度，返回標題畫面。"},
+    {"name": "EDFMenuInfo_Start", "type": "string", "value": "選擇任務，開始遊戲。"},
+    {"name": "EDFMenuInfo_Status", "type": "string", "value": "可確認達成度等遊玩紀錄。"},
+    {
+      "name": "EDFMenuInfo_SystemOption",
+      "type": "string",
+      "value": "可變更畫面設定或圖像品質相關的設定。"
+    },
+    {
+      "name": "EDFMenu_ConfirmReturn",
+      "type": "string",
+      "value": "進行保存，\n返回標題畫面。\n確定要繼續嗎？"
+    },
+    {"name": "EDFMenu_Equipment", "type": "string", "value": "選擇兵種武器"},
+    {"name": "EDFMenu_Equipment2P1", "type": "string", "value": "選擇1P兵種武器"},
+    {"name": "EDFMenu_Equipment2P2", "type": "string", "value": "選擇2P兵種武器"},
+    {"name": "EDFMenu_Option", "type": "string", "value": "遊戲設定、操作說明書"},
+    {"name": "EDFMenu_Retuen", "type": "string", "value": "返回"},
+    {"name": "EDFMenu_RetuenTitle", "type": "string", "value": "返回標題"},
+    {
+      "name": "EDFMenu_ReturnNoSave",
+      "type": "string",
+      "value": "返回標題畫面。\n確定要繼續嗎？"
+    },
+    {"name": "EDFMenu_Start", "type": "string", "value": "出擊"},
+    {"name": "EDFMenu_Status", "type": "string", "value": "確認戰歷"},
+    {"name": "EDFMenu_SystemOption", "type": "string", "value": "系統設定"},
+    {"name": "EDFMenu_TitleBar", "type": "string", "value": "作戰指令總部"},
+    {"name": "EPIC_OWNERSHIP_FAILED", "type": "string", "value": "使用權已過期。"},
+    {
+      "name": "Eos_FailedCrossplay_Caption",
+      "type": "string",
+      "value": "錯誤： 驗證遊戲檔案的完整性"
+    },
+    {
+      "name": "Eos_FailedCrossplay_Text",
+      "type": "string",
+      "value": "啟動 %dq%地球防衛軍6 %dq%所需的資料檔案遺失。 請確認遊戲檔案的完整性。\nErrorCode: %d_%d"
+    },
+    {"name": "EquipSel_Armor", "type": "string", "value": "調整裝甲值"},
+    {"name": "EquipSel_ArmorCurrent", "type": "string", "value": "目前數值："},
+    {"name": "EquipSel_ArmorEdit", "type": "string", "value": "變更裝甲值"},
+    {"name": "EquipSel_ArmorLimit", "type": "string", "value": "正在調整體力"},
+    {"name": "EquipSel_ArmorMax", "type": "string", "value": "最大值："},
+    {"name": "EquipSel_ArmorMin", "type": "string", "value": "最小值："},
+    {"name": "EquipSel_ArmorNoLimit", "type": "string", "value": "恢復為最大值"},
+    {"name": "EquipSel_ArmorSetMin", "type": "string", "value": "設定為最小值"},
+    {"name": "EquipSel_Custom", "type": "string", "value": "變更顏色"},
+    {"name": "EquipSel_Title", "type": "string", "value": "選擇兵種武器"},
+    {
+      "name": "EquipSel_WeaponContentWarning",
+      "type": "string",
+      "value": "欲裝備此武器須購買%MPACKNAME%。"
+    },
+    {"name": "EquipSel_WeaponLevel", "type": "string", "value": "武器等級"},
+    {"name": "EquipSel_WeaponLv", "type": "string", "value": "Lv"},
+    {
+      "name": "EquipSel_WeaponMultiWarning",
+      "type": "string",
+      "value": "無法裝備多把相同的武器。"
+    },
+    {"name": "FilterSetting_Category", "type": "string", "value": "類別"},
+    {"name": "FilterSetting_info", "type": "string", "value": "內容"},
+    {"name": "GameMode_Content", "type": "string", "value": "選擇內容"},
+    {
+      "name": "GameMode_DescOnlineScenario",
+      "type": "string",
+      "value": "開始線上遊玩。最多可由四位玩家一起挑戰任務。"
+    },
+    {
+      "name": "GameMode_DescScenario",
+      "type": "string",
+      "value": "以離線遊玩開始遊戲。１人遊玩。請培育主角以及收集道具，並完成所有的任務。\n\n一開始會有操作練習任務。"
+    },
+    {
+      "name": "GameMode_DescTwoPlayers",
+      "type": "string",
+      "value": "遊玩分割畫面雙人遊玩的模式。需要有２個控制器。\n\n一開始會有操作練習任務。"
+    },
+    {
+      "name": "GameMode_Desc_Offline_MissionPack01",
+      "type": "string",
+      "value": "「失落時光」\n\n以離線方式遊玩任務包１。請挑戰超難關任務。以高難度進行可獲得新的武器。"
+    },
+    {
+      "name": "GameMode_Desc_Offline_MissionPack02",
+      "type": "string",
+      "value": "「惡意幻象」\n\n以離線方式遊玩任務包２。請挑戰由戰略情報部進行管理的訓練用戰鬥模擬器。以高難度進行可獲得新的武器。"
+    },
+    {
+      "name": "GameMode_Desc_Online_MissionPack01",
+      "type": "string",
+      "value": "「失落時光」\n\n以連線方式遊玩任務包１。請挑戰超難關任務。以高難度進行可獲得新的武器。"
+    },
+    {
+      "name": "GameMode_Desc_Online_MissionPack02",
+      "type": "string",
+      "value": "「惡意幻象」\n\n以離線方式遊玩任務包２。請挑戰由戰略情報部進行管理的訓練用戰鬥模擬器。以高難度進行可獲得新的武器。"
+    },
+    {"name": "GameMode_NoSignin", "type": "string", "value": "尚未登入。\n即將返回標題。"},
+    {
+      "name": "GameMode_Offline_MissionPack01",
+      "type": "string",
+      "value": "任務包１ 離線"
+    },
+    {
+      "name": "GameMode_Offline_MissionPack02",
+      "type": "string",
+      "value": "任務包２ 離線"
+    },
+    {
+      "name": "GameMode_OnlineFailed",
+      "type": "string",
+      "value": "無法連線。\n將返回標題。"
+    },
+    {"name": "GameMode_OnlineScenario", "type": "string", "value": "連線任務模式"},
+    {
+      "name": "GameMode_Online_MissionPack01",
+      "type": "string",
+      "value": "任務包１ 線上"
+    },
+    {
+      "name": "GameMode_Online_MissionPack02",
+      "type": "string",
+      "value": "任務包２ 線上"
+    },
+    {
+      "name": "GameMode_Player2Assign",
+      "type": "string",
+      "value": "請按下玩家2的控制器的\nSTART鍵。"
+    },
+    {
+      "name": "GameMode_Player2Assign_PS4Controller",
+      "type": "string",
+      "value": "請按下玩家2的控制器的\nOPTIONS按鈕。"
+    },
+    {
+      "name": "GameMode_Player2Assign_SwitchProController",
+      "type": "string",
+      "value": "請按下玩家2的控制器的\n＋鍵。"
+    },
+    {"name": "GameMode_SaveSlot", "type": "string", "value": "選擇欄位"},
+    {"name": "GameMode_Scenario", "type": "string", "value": "離線任務模式"},
+    {"name": "GameMode_Title", "type": "string", "value": "選擇遊戲模式"},
+    {"name": "GameMode_TwoPlayers", "type": "string", "value": "分割畫面雙人遊玩"},
+    {"name": "GameMode_Versus", "type": "string", "value": "對戰模式"},
+    {
+      "name": "GameMode_Warning2Player",
+      "type": "string",
+      "value": "玩家2獲得的成就\n會反應至玩家1的成就。"
+    },
+    {"name": "GameOver_Exit", "type": "string", "value": "撤退"},
+    {
+      "name": "GameOver_HostWait",
+      "type": "string",
+      "value": "正在等待開房者玩家進行選擇。\n也可按下START鍵返回大廳。"
+    },
+    {
+      "name": "GameOver_HostWait_Keyboard",
+      "type": "string",
+      "value": "正在等待開房者玩家進行選擇。\n也可按下Esc鍵返回大廳。"
+    },
+    {
+      "name": "GameOver_HostWait_PS4Controller",
+      "type": "string",
+      "value": "正在等待開房者玩家進行選擇。\n也可按下OPTIONS按鈕返回大廳。"
+    },
+    {
+      "name": "GameOver_HostWait_SwitchProController",
+      "type": "string",
+      "value": "正在等待開房者玩家進行選擇。\n也可按下＋鍵返回大廳。"
+    },
+    {"name": "GameOver_Retry", "type": "string", "value": "再次出擊"},
+    {"name": "HUD_BOARD_RESCUE", "type": "string", "value": "按下「搭乘／救援」按鈕救援"},
+    {
+      "name": "HUD_BOARD_VEHICLE_RIDE",
+      "type": "string",
+      "value": "按下「搭乘／救援」按鈕搭乘"
+    },
+    {
+      "name": "INGAME_STORY_TEXT_M011",
+      "type": "string",
+      "value": "The Earth Defense Force 6\nbegins now."
+    },
+    {
+      "name": "INGAME_STORY_TEXT_M039",
+      "type": "string",
+      "value": "回到過去，\n然後再度引發意外。\n時間不會繼續流逝。\n\n\nThe Earth Defense Force 7\nbegins now."
+    },
+    {
+      "name": "INGAME_STORY_TEXT_M055",
+      "type": "string",
+      "value": "破壞了移動基地，\n勉強阻止了敵方的大規模攻勢。\n\n……三年後……"
+    },
+    {
+      "name": "INGAME_STORY_TEXT_M066",
+      "type": "string",
+      "value": "光線灑落下來。\n和之前一樣。\n然而……\n某種東西正開始失控。\n\nThe Earth Defense Force 8begins now."
+    },
+    {
+      "name": "INGAME_STORY_TEXT_M093_2",
+      "type": "string",
+      "value": "人類不斷獲得重大的勝利。\n然而即便如此……戰爭仍會持續下去。\n\n……三年後……"
+    },
+    {
+      "name": "INGAME_STORY_TEXT_M099",
+      "type": "string",
+      "value": "成功了。\n但無法保證有下一次機會。\n即使如此……\n還有希望。\n一定還有的……\n\nThe Earth Defense Force 9\nbegins now."
+    },
+    {
+      "name": "INGAME_STORY_TEXT_M116",
+      "type": "string",
+      "value": "成功擊沉１１號母艦。\n即便如此……\n星導者還是繼續戰鬥著。\n就好像不怕死一般。\n\n……三年後……"
+    },
+    {
+      "name": "INGAME_STORY_TEXT_RM081",
+      "type": "string",
+      "value": "十艘母艦發動了激烈的攻擊。\n即便如此……\n人們還是持續奮戰下去。\n為了保護重要的事物。\n\n……三年後……"
+    },
+    {"name": "InviteType_Desc", "type": "string", "value": "可發出邀請的成員"},
+    {"name": "InviteType_Leader_Desc", "type": "string", "value": "僅限隊長可發出邀請"},
+    {"name": "InviteType_Member_Desc", "type": "string", "value": "參加成員皆可發出邀請"},
+    {"name": "InviteType_NoOne_Desc", "type": "string", "value": "無人可發出邀請"},
+    {
+      "name": "Invite_Default",
+      "type": "string",
+      "value": "各位ＥＤＦ的士兵。時候到了。我們必須戰鬥。準備出擊吧。\n【%MODENAME%】\n【%MISSIONNAME%】\n【%DIFFICULTY%】"
+    },
+    {"name": "Invite_Status", "type": "string", "value": "正在遊玩%MODENAME%。"},
+    {"name": "LevelSelect_Easy", "type": "string", "value": "ＥＡＳＹ"},
+    {
+      "name": "LevelSelect_Easy_Desc",
+      "type": "string",
+      "value": "非常簡單，但武器會有點難以取得。無論如何都無法完成的任務再選擇此難度吧。\n\n\n〔誤擊到我方時〕\n\n‧造成傷害　僅１０％\n‧不會因爆炸衝擊倒地\n　（僅限我方玩家）"
+    },
+    {"name": "LevelSelect_Hard", "type": "string", "value": "ＨＡＲＤ"},
+    {
+      "name": "LevelSelect_Hard_Desc",
+      "type": "string",
+      "value": "有點難度。請提昇裝甲值（體力）並取得強大的武器後再挑戰。建議在完成ＮＯＲＭＡＬ之後再選擇。\n\n\n〔誤擊到我方時〕\n\n‧造成傷害　僅５０％\n‧不會因爆炸衝擊倒地\n　（僅限我方玩家）"
+    },
+    {"name": "LevelSelect_Hardest", "type": "string", "value": "ＨＡＲＤＥＳＴ"},
+    {
+      "name": "LevelSelect_Hardest_Desc",
+      "type": "string",
+      "value": "比ＨＡＲＤ更困難的難度。不光要有好的武器與裝甲，玩家本身也要具備優異的技巧。請有自信的玩家在完成ＨＡＲＤ後再進行挑戰。\n\n\n〔誤擊到我方時〕\n\n‧造成傷害　僅７５％"
+    },
+    {"name": "LevelSelect_Inferno", "type": "string", "value": "ＩＮＦＥＲＮＯ"},
+    {
+      "name": "LevelSelect_Inferno_Desc",
+      "type": "string",
+      "value": "上級者專用的特別難度。由於難度非常高，除了要有好的武器、裝甲、技巧外，還要具備優異的戰略。不需要勉強遊玩。\n\n\n〔誤擊到我方時〕\n\n‧造成傷害　１００％"
+    },
+    {"name": "LevelSelect_Normal", "type": "string", "value": "ＮＯＲＭＡＬ"},
+    {
+      "name": "LevelSelect_Normal_Desc",
+      "type": "string",
+      "value": "普通難度。起初請以完成此難度為目標。\n\n\n〔誤擊到我方時〕\n\n‧造成傷害　僅２５％\n‧不會因爆炸衝擊倒地\n　（僅限我方玩家）"
+    },
+    {"name": "LoadSaveInfo_Day", "type": "string", "value": "日"},
+    {"name": "LoadSaveInfo_HH", "type": "string", "value": "點"},
+    {"name": "LoadSaveInfo_Hours", "type": "string", "value": "小時"},
+    {"name": "LoadSaveInfo_MM", "type": "string", "value": "分"},
+    {"name": "LoadSaveInfo_Month", "type": "string", "value": "月"},
+    {"name": "LoadSaveInfo_PlayTime", "type": "string", "value": "遊玩時間"},
+    {"name": "LoadSaveInfo_SS", "type": "string", "value": "秒"},
+    {"name": "LoadSaveInfo_SaveTime", "type": "string", "value": "保存時間"},
+    {"name": "LoadSaveInfo_Slot", "type": "string", "value": "Slot"},
+    {"name": "LoadSaveInfo_SlotCorrupt", "type": "string", "value": "損壞資料"},
+    {
+      "name": "LoadSaveInfo_SlotCorruptDesc",
+      "type": "string",
+      "value": "此欄位的保存資料已損壞。"
+    },
+    {"name": "LoadSaveInfo_SlotDesc", "type": "string", "value": "繼續遊玩遊戲。"},
+    {
+      "name": "LoadSaveInfo_SlotExistBackupDesc",
+      "type": "string",
+      "value": "此欄位的保存資料已損壞。按下決定按鈕，可從備份進行復原。"
+    },
+    {"name": "LoadSaveInfo_SlotNew", "type": "string", "value": "新建資料"},
+    {"name": "LoadSaveInfo_SlotNewDesc", "type": "string", "value": "開始新遊戲。"},
+    {"name": "LoadSaveInfo_Year", "type": "string", "value": "年"},
+    {"name": "LoadSave_LoadNg", "type": "string", "value": "無法載入。"},
+    {"name": "LoadSave_SaveNg", "type": "string", "value": "無法保存。"},
+    {
+      "name": "Loading_Desc_001",
+      "type": "string",
+      "value": "精銳步兵。歷經無數嚴苛訓練的戰鬥專家。可操作多種武器，應對各式各樣的局面。另外還具備軍用載具的駕駛執照，可在戰場中駕駛。\n\n※最容易操作，並具有高度戰鬥力。初次遊玩時，建議先選突擊兵。"
+    },
+    {
+      "name": "Loading_Desc_002",
+      "type": "string",
+      "value": "只有身穿飛行裝備的女性所組成的特殊部隊。為了實現輕量化不持有實彈武器，而是裝備最新型的光學兵器。具備所有兵種中最頂級的破壞力。\n\n※可高速移動，攻擊力也很強。但弱點是體力（裝甲值）低，防禦力也不高。"
+    },
+    {
+      "name": "Loading_Desc_003",
+      "type": "string",
+      "value": "帶有通訊裝備的戰術兵。任務是與空軍合作，傳達空襲座標。可請求爆擊機與砲艦機進行攻擊，毀滅敵人。另外還具有請求投落軍用載具的權限。\n\n※中級兵種。能發揮絕大的攻擊力，但有時也會陷入無法善用能力的處境。算是適合多人遊玩的兵種。請在稍微習慣遊戲後再進行選擇。"
+    },
+    {
+      "name": "Loading_Desc_004",
+      "type": "string",
+      "value": "穿著外骨骼式強化服「動力裝甲」的重裝士兵。因為有動力裝甲而能裝備巨大的武器。左右兩臂還可各別持有不同的武器。\n\n※上級兵種。除了操作方法與其他兵種不同外，還得學習多種技巧。但熟悉後就能發揮十分強大的力量。"
+    },
+    {
+      "name": "Loading_Desc_005",
+      "type": "string",
+      "value": "遭到捕食攻擊的期間還是可以移動準星。瞄準敵人，按下攻擊按鈕射擊。只要打倒捕食的敵人就能脫困。"
+    },
+    {
+      "name": "Loading_Desc_006",
+      "type": "string",
+      "value": "遭到捕食攻擊時還是可以「替換武器」。瞄準敵人進行攻擊吧。但使用爆炸道具會很危險。自己說不定也會被炸到。"
+    },
+    {
+      "name": "Loading_Desc_007",
+      "type": "string",
+      "value": "即使被網子纏住，也還是可以移動準星。瞄準網子進行攻擊吧。只要破壞網子就能脫逃。但使用爆炸道具會很危險。自己說不定也會被炸到。"
+    },
+    {
+      "name": "Loading_Desc_008",
+      "type": "string",
+      "value": "厄拉尼亞的絲線非常危險。一旦纏上就會被牠用驚人的力量拉走。只有打倒厄拉尼亞才能獲救。"
+    },
+    {
+      "name": "Loading_Desc_009",
+      "type": "string",
+      "value": "厄拉尼亞會用絲線拉回獵物並困在網子上。若是被黏在網子上，只要破壞網子就能脫逃。"
+    },
+    {
+      "name": "Loading_Desc_010",
+      "type": "string",
+      "value": "有些載具只有突擊兵與空襲兵能夠駕駛。飛翼潛行兵與劍兵由於裝備較大，會連駕駛席都進不去。詳細內容記載於操作說明書中，還請確認。\n\n這裡僅指駕駛席。砲手席與後部坐席則是所有兵種都可搭乘。"
+    },
+    {
+      "name": "Loading_Desc_011",
+      "type": "string",
+      "value": "靠近頭上顯示圖示的士兵進行會合吧。之後該名士兵就會聽從玩家的指揮一起行動。跟小隊隊長會合時，整個小隊都會聽命主角的指揮。"
+    },
+    {
+      "name": "Loading_Desc_012",
+      "type": "string",
+      "value": "取得回復道具，就能幫自己與聽命指揮（已會合部隊）的所有成員進行回復。盡可能與夥伴會合吧。"
+    },
+    {
+      "name": "Loading_Desc_013",
+      "type": "string",
+      "value": "在遊玩任務時，也可透過暫停選單閱覽操作說明書。盡可能看過一遍吧。\n\n各兵種都有特殊行動。請閱覽操作說明書善加利用。"
+    },
+    {
+      "name": "Loading_Desc_014",
+      "type": "string",
+      "value": "突擊兵在衝刺時會放下武器，解除對敵人的警戒。此時會將注意力集中在腳部，因此在衝刺時可擴增道具的取得範圍。此外，裝備探測器也可擴增取得範圍。\n\n擴增道具取得範圍時，會以圓圈表示。將自動取得在圓圈內的道具。"
+    },
+    {
+      "name": "Loading_Desc_015",
+      "type": "string",
+      "value": "有些武器會搭載雷射瞄準器。使用雷射瞄準器就能確認「目標是否在射程範圍內」。目標在射程範圍內時，準星的中央會顯示「紅點」。未顯示此點就代表在射程範圍外，就算攻擊也不會命中。"
+    },
+    {
+      "name": "Loading_Desc_016",
+      "type": "string",
+      "value": "對砲艦機請求攻擊時，必須使用信標來傳達攻擊座標。只不過，信標若沒命中「射程內」的物體就無法發揮作用。可透過雷射瞄準器來判斷目標是否在射程範圍內。準星內若有顯示紅點，就代表在「射程內」。在發射信標前一定要先確認。"
+    },
+    {
+      "name": "Loading_Desc_017",
+      "type": "string",
+      "value": "其他玩家遭到捕食攻擊會顯示圖示。只要看到此圖示就馬上去救援吧。打倒捕食的敵人就能解救夥伴。"
+    },
+    {
+      "name": "Loading_Desc_018",
+      "type": "string",
+      "value": "劍兵的武器能具有「第２個機能」。譬如右手持有的超震動鎚不是只有按下「攻擊─右手按鈕」進行攻擊，也可按下「使用裝備─右手按鈕」進行推進衝刺。"
+    },
+    {
+      "name": "Loading_Desc_019",
+      "type": "string",
+      "value": "劍兵的護盾是非常強大的裝備。只不過缺點是在舉起的期間，步行速度會十分緩慢，而且只能抵擋前方的攻擊。（能抵擋的角度會隨著護盾而不同）"
+    },
+    {
+      "name": "Loading_Desc_020",
+      "type": "string",
+      "value": "就算任務失敗，在過程中取得的道具也還是能獲得一定的數量。獲得量會隨著難度改變。\nＥＡＳＹ　　　：１００％\nＮＯＲＭＡＬ　：７５％\nＨＡＲＤ　　　：５０％\nＨＡＲＤＥＳＴ：２５％\nＩＮＦＥＲＮＯ：０％"
+    },
+    {
+      "name": "Loading_Desc_021",
+      "type": "string",
+      "value": "要請求投落載具以及進行空襲都會需要「功績」。打倒敵人就能增加功績。我方士兵或其他玩家打倒敵人也能列入計算。"
+    },
+    {
+      "name": "Loading_Desc_022",
+      "type": "string",
+      "value": "飛翼潛行兵可藉由「在倒地狀態下的跳躍（飛行）操作」迅速起身。即使是在空中也能在倒下的狀態瞬間恢復態勢。只不過會耗費能量量表，還請多加留意。"
+    },
+    {
+      "name": "Loading_Desc_023",
+      "type": "string",
+      "value": "無法裝備多把同樣的武器。但只有劍兵例外。"
+    },
+    {
+      "name": "Loading_Desc_024",
+      "type": "string",
+      "value": "即使是同樣的武器，在性能上也會有所差異。「彈數」與「傷害」會隨著武器設定的強化值而不同。\n\n再次取得同樣的武器就可強化。詳細內容可參閱操作說明書。"
+    },
+    {
+      "name": "Loading_Desc_025",
+      "type": "string",
+      "value": "突擊兵的背包工具可在不中斷手中武器重新裝填的狀況下使用。可藉此彌補重新裝填期間呈現無防備狀態的缺點。"
+    },
+    {
+      "name": "Loading_Desc_026",
+      "type": "string",
+      "value": "機械生命體的雙手裝備著「有線式飛刀」。\n這種武器雖然強大，但可在命中前加以擊落。\n用準星瞄準飛來的小刀，將其擊落吧。"
+    },
+    {
+      "name": "Loading_Desc_027",
+      "type": "string",
+      "value": "人類得知外星人的存在後建造了三艘航空潛艦。\n從宇宙的另一頭前來的侵略者想必不會攜帶針對潛水艇的裝備。在與外星人交戰時，海中想必是最安全的場所。有鑑於此，人類建造了全長超過一公里的巨大船身，並裝載了大量武器彈藥、食物和藥品，甚至還帶上了植物種子與基因資訊。\n發生戰事時，這些艦艇能潛入深海以供給各地物資，在戰爭時長期提供支援。萬一人類滅亡時，也能肩負起復興地球的重責大任。"
+    },
+    {
+      "name": "Loading_Desc_028",
+      "type": "string",
+      "value": "大型機械生命體受到厚重的裝甲保護，無法輕易破壞。然而只要持續攻擊，便可使其裝甲表面破損。只要針對裝甲剝落的部分攻擊，便能使其退縮。"
+    },
+    {
+      "name": "Loading_Desc_029",
+      "type": "string",
+      "value": "庫魯魯的護盾雖然堅固，但可使用手榴彈等部分武器造成額外傷害。請仔細確認傷害顯示。\n不過，無法保證這類武器真的有效。找出屬於自己的戰術比較重要。"
+    },
+    {
+      "name": "Loading_Desc_030",
+      "type": "string",
+      "value": "巨大機械生命體「獨眼巨人」的弱點是正面的圓形標誌。那恐怕是某種相當於眼睛的感應器，該部分的裝甲應較為薄弱。攻擊圓形標誌吧。"
+    },
+    {
+      "name": "Loading_Desc_031",
+      "type": "string",
+      "value": "地底掘削機器人「涅加」受到裝甲保護。由於這種機器人沒有輪胎或腳，且武裝也收藏於內部，故沒有弱點。\n然而它在攻擊時會開啟裝甲並展開武裝。在其發動攻擊的瞬間攻擊內部吧。"
+    },
+    {
+      "name": "Loading_Desc_032",
+      "type": "string",
+      "value": "魚人（斯庫拉）的攻擊當中最恐怖的便是從體內噴出的毒素。\n這些毒素會以有色的霧氣形式擴散至周圍，對生物造成致命性傷害。\n\n毒霧越濃（離產生地點越近），造成的傷害越高。\n一旦魚人開始噴毒，就盡快遠離吧。"
+    },
+    {
+      "name": "Loading_Desc_033",
+      "type": "string",
+      "value": "海怪克拉肯是擁有多隻手臂的恐怖生物。\n不僅能同時操縱兩個盾牌，還能藉由伸縮手臂來防禦廣大的範圍。\n不過，伸縮的手臂比身體脆弱。\n建議先攻擊盾牌，待其變黑後便攻擊手臂，封鎖其裝備。"
+    },
+    {"name": "Loading_Title_001", "type": "string", "value": "突擊兵"},
+    {"name": "Loading_Title_002", "type": "string", "value": "飛翼潛行兵"},
+    {"name": "Loading_Title_003", "type": "string", "value": "空襲兵"},
+    {"name": "Loading_Title_004", "type": "string", "value": "劍兵"},
+    {"name": "Loading_Title_005", "type": "string", "value": "就算被捕食還是可以反擊"},
+    {"name": "Loading_Title_006", "type": "string", "value": "就算被捕食還是可以選擇武器"},
+    {"name": "Loading_Title_007", "type": "string", "value": "就算被網子纏住也還是可以脫逃"},
+    {"name": "Loading_Title_008", "type": "string", "value": "小心厄拉尼亞的絲線"},
+    {"name": "Loading_Title_009", "type": "string", "value": "就算被拉到網子上也別放棄"},
+    {"name": "Loading_Title_010", "type": "string", "value": "能乘坐駕駛席的兵種有限"},
+    {"name": "Loading_Title_011", "type": "string", "value": "與我方會合"},
+    {"name": "Loading_Title_012", "type": "string", "value": "可回復指揮的小隊"},
+    {
+      "name": "Loading_Title_013",
+      "type": "string",
+      "value": "即使在遊玩任務時也可閱覽操作說明書"
+    },
+    {"name": "Loading_Title_014", "type": "string", "value": "可擴增道具取得範圍"},
+    {"name": "Loading_Title_015", "type": "string", "value": "用雷射瞄準器確認距離"},
+    {"name": "Loading_Title_016", "type": "string", "value": "用準星判斷信標的射程"},
+    {"name": "Loading_Title_017", "type": "string", "value": "拯救被捕食的夥伴"},
+    {"name": "Loading_Title_018", "type": "string", "value": "具有兩種機能的武器"},
+    {"name": "Loading_Title_019", "type": "string", "value": "理解護盾的特性"},
+    {"name": "Loading_Title_020", "type": "string", "value": "即使任務失敗仍可獲得道具"},
+    {"name": "Loading_Title_021", "type": "string", "value": "再次空襲需要功績"},
+    {"name": "Loading_Title_022", "type": "string", "value": "飛翼潛行兵的迅速恢復"},
+    {"name": "Loading_Title_023", "type": "string", "value": "無法裝備２把同樣的武器"},
+    {"name": "Loading_Title_024", "type": "string", "value": "強化武器吧"},
+    {"name": "Loading_Title_025", "type": "string", "value": "有效運用突擊兵的背包工具"},
+    {"name": "Loading_Title_026", "type": "string", "value": "打落機械生命體的手臂"},
+    {"name": "Loading_Title_027", "type": "string", "value": "航空潛艦"},
+    {"name": "Loading_Title_028", "type": "string", "value": "瞄準大型機械生命體的破損部分"},
+    {"name": "Loading_Title_029", "type": "string", "value": "對庫魯魯的護盾造成傷害"},
+    {"name": "Loading_Title_030", "type": "string", "value": "攻擊巨大機械生命體的眼睛"},
+    {"name": "Loading_Title_031", "type": "string", "value": "攻擊涅加的裝甲內部"},
+    {"name": "Loading_Title_032", "type": "string", "value": "離魚人遠一點！"},
+    {"name": "Loading_Title_033", "type": "string", "value": "攻擊海怪克拉肯的手臂"},
+    {
+      "name": "LobbyLanguageDesc_cn",
+      "type": "string",
+      "value": "將文本聊天的建議語言設定為「繁體中文」。\n （這是用於搜尋房間條件的設定）\n 只有將此條件設定為「繁體中文」的房間才會顯示在大廳中。"
+    },
+    {
+      "name": "LobbyLanguageDesc_en",
+      "type": "string",
+      "value": "將文本聊天的建議語言設定為「英文」。\n （這是用於搜尋房間條件的設定）\n 只有將此條件設定為「英文」的房間才會顯示在大廳中。"
+    },
+    {
+      "name": "LobbyLanguageDesc_ja",
+      "type": "string",
+      "value": "將文本聊天的建議語言設定為「日文」。\n （這是用於搜尋房間條件的設定）\n 只有將此條件設定為「日文」的房間才會顯示在大廳中。"
+    },
+    {
+      "name": "LobbyLanguageDesc_kr",
+      "type": "string",
+      "value": "將文本聊天的建議語言設定為「韓文」。\n （這是用於搜尋房間條件的設定）\n 只有將此條件設定為「韓文」的房間才會顯示在大廳中。"
+    },
+    {
+      "name": "LobbyLanguageDesc_none",
+      "type": "string",
+      "value": "不設定文本聊天時的建議語言。"
+    },
+    {
+      "name": "LobbyLanguageDesc_sc",
+      "type": "string",
+      "value": "將文本聊天的建議語言設定為「簡體中文」。\n （這是用於搜尋房間條件的設定）\n 只有將此條件設定為「簡體中文」的房間才會顯示在大廳中。"
+    },
+    {"name": "LobbyLanguageDisp_cn", "type": "string", "value": "繁體中文"},
+    {"name": "LobbyLanguageDisp_en", "type": "string", "value": "英文"},
+    {"name": "LobbyLanguageDisp_ja", "type": "string", "value": "日文"},
+    {"name": "LobbyLanguageDisp_kr", "type": "string", "value": "韓文"},
+    {"name": "LobbyLanguageDisp_none", "type": "string", "value": "所有語言"},
+    {"name": "LobbyLanguageDisp_sc", "type": "string", "value": "簡體中文"},
+    {"name": "Lobby_ArmorCap", "type": "string", "value": "裝甲值上限"},
+    {"name": "Lobby_Chat", "type": "string", "value": "聊天　%IS_ENABLE%"},
+    {"name": "Lobby_ChatEnable", "type": "string", "value": "聊天"},
+    {
+      "name": "Lobby_Chat_NotInvite",
+      "type": "string",
+      "value": "您目前的權限\n無法參加\n可進行聊天的房間。\n將返回標題。"
+    },
+    {
+      "name": "Lobby_ContentsName",
+      "type": "string",
+      "value": "MissionPack Name"
+    },
+    {"name": "Lobby_CreateRoom", "type": "string", "value": "開設房間"},
+    {"name": "Lobby_Difficulty", "type": "string", "value": "Difficulty"},
+    {"name": "Lobby_DisplayDLC", "type": "string", "value": "%MPACKNAME%"},
+    {"name": "Lobby_Equip", "type": "string", "value": "選擇兵種武器"},
+    {"name": "Lobby_Exit", "type": "string", "value": "返回標題"},
+    {
+      "name": "Lobby_Exit_Confirmation",
+      "type": "string",
+      "value": "將返回標題畫面。\n確定要繼續嗎？"
+    },
+    {"name": "Lobby_Filter", "type": "string", "value": "尋找房間"},
+    {"name": "Lobby_FixedPhrase1", "type": "string", "value": "固定句型１"},
+    {"name": "Lobby_FixedPhrase2", "type": "string", "value": "固定句型２"},
+    {"name": "Lobby_FreeWord", "type": "string", "value": "自由句型"},
+    {"name": "Lobby_HostName", "type": "string", "value": "Host Name"},
+    {
+      "name": "Lobby_Join_Impossible",
+      "type": "string",
+      "value": "要遊玩HARDEST、INFERNO的難度，\n需要從EASY、NORMAL、HARD任一難度\n完成最終任務。\n\n※透過邀請或參加連線區則可進行遊玩。"
+    },
+    {"name": "Lobby_MissionName", "type": "string", "value": "Mission Name"},
+    {
+      "name": "Lobby_NotHaveContents",
+      "type": "string",
+      "value": "由於未持有需要的內容，\n無法進入此房間。"
+    },
+    {"name": "Lobby_OnRoom", "type": "string", "value": "房間"},
+    {"name": "Lobby_OnTime_Elapsed", "type": "string", "value": "經過%ONTIME%"},
+    {"name": "Lobby_OnTime_Hour", "type": "string", "value": "超過1小時"},
+    {"name": "Lobby_OnTime_MinSec", "type": "string", "value": "%MIN%分%SEC%秒"},
+    {"name": "Lobby_OnTime_Sec", "type": "string", "value": "%SEC%秒"},
+    {"name": "Lobby_Option", "type": "string", "value": "遊戲設定、操作說明書"},
+    {"name": "Lobby_Party", "type": "string", "value": "確認邀請訊息"},
+    {"name": "Lobby_Refresh", "type": "string", "value": "更新顯示"},
+    {"name": "Lobby_Refreshing", "type": "string", "value": "正在更新……"},
+    {"name": "Lobby_RoomName", "type": "string", "value": "Room Name"},
+    {
+      "name": "Lobby_RoomName_NoInput",
+      "type": "string",
+      "value": "請輸入想搜尋的房間名稱。"
+    },
+    {
+      "name": "Lobby_RoomName_Search_Descript",
+      "type": "string",
+      "value": "請輸入房間名稱"
+    },
+    {
+      "name": "Lobby_RoomName_Search_Title",
+      "type": "string",
+      "value": "以房間名稱尋找"
+    },
+    {"name": "Lobby_Seach_PassCode", "type": "string", "value": "附有通行碼的房間"},
+    {"name": "Lobby_Seach_PassCode_Disable", "type": "string", "value": "不顯示"},
+    {"name": "Lobby_Seach_PassCode_Enable", "type": "string", "value": "顯示"},
+    {
+      "name": "Lobby_SearchHeader_CHAT",
+      "type": "string",
+      "value": "聊天：%FILTER%"
+    },
+    {
+      "name": "Lobby_SearchHeader_PassCode",
+      "type": "string",
+      "value": "通行碼：%FILTER%"
+    },
+    {
+      "name": "Lobby_SearchHeader_UGC",
+      "type": "string",
+      "value": "簡易房間：%FILTER%"
+    },
+    {"name": "Lobby_Search_ByFilter", "type": "string", "value": "設定條件尋找"},
+    {
+      "name": "Lobby_Search_ByFilter_Desc",
+      "type": "string",
+      "value": "設定條件，以該條件尋找。"
+    },
+    {"name": "Lobby_Search_ByName", "type": "string", "value": "以房間名稱尋找"},
+    {
+      "name": "Lobby_Search_ByName_Desc",
+      "type": "string",
+      "value": "以指定的房間名稱尋找。"
+    },
+    {"name": "Lobby_Search_Clear", "type": "string", "value": "清除設定條件"},
+    {
+      "name": "Lobby_Search_Clear_Desc",
+      "type": "string",
+      "value": "清除設定條件，以初期狀態尋找。"
+    },
+    {"name": "Lobby_Search_Confirmation", "type": "string", "value": "尋找房間"},
+    {"name": "Lobby_Search_Next", "type": "string", "value": "顯示下個房間"},
+    {"name": "Lobby_Status", "type": "string", "value": "確認戰歷"},
+    {"name": "Lobby_SystemOption", "type": "string", "value": "系統設定"},
+    {"name": "Lobby_Title", "type": "string", "value": "大廳"},
+    {
+      "name": "Lobby_UGC_NotInvite",
+      "type": "string",
+      "value": "您目前的權限\n無法參加\n非簡易房間模式的房間。\n將返回標題。"
+    },
+    {
+      "name": "Lobby_WarnWeaponEquip",
+      "type": "string",
+      "value": "尚未購買%MPACKNAME%。雖然可遊玩遊戲，但即使獲得新的武器亦無法裝備。\n欲裝備新的武器，請購買%MPACKNAME%。"
+    },
+    {"name": "Lobby_WeaponCap", "type": "string", "value": "武器等級上限"},
+    {"name": "Lobby_search_title", "type": "string", "value": "搜尋關鍵字"},
+    {
+      "name": "MODESAVEDATA_DETAIL",
+      "type": "string",
+      "value": "EDF6 Save Data File."
+    },
+    {
+      "name": "MODESAVEDATA_SUBTITLE",
+      "type": "string",
+      "value": "地球防衛軍６　保存資料　欄位"
+    },
+    {
+      "name": "MPack2_Message_M503",
+      "type": "string",
+      "value": "禁止擅離崗位\n逃亡至地面將遭到懲罰"
+    },
+    {"name": "Manual_Title", "type": "string", "value": "說明書"},
+    {"name": "Mission000_KeyName", "type": "string", "value": "%PAD%"},
+    {
+      "name": "Mission000_KeyWarning",
+      "type": "string",
+      "value": "%BUTTON%按鈕沒有配置。\n請從變更操作中配置%BUTTON%按鈕。"
+    },
+    {
+      "name": "Mission000_Tuto0_AirRaider01",
+      "type": "string",
+      "value": "推動左操作桿移動"
+    },
+    {
+      "name": "Mission000_Tuto0_AirRaider01_Keyboard",
+      "type": "string",
+      "value": "以%MOVE_UP%、%MOVE_DOWN%、%MOVE_LEFT%、%MOVE_RIGHT%移動"
+    },
+    {
+      "name": "Mission000_Tuto0_AirRaider01_Switch",
+      "type": "string",
+      "value": "以L操控搖桿移動"
+    },
+    {
+      "name": "Mission000_Tuto0_AirRaider02",
+      "type": "string",
+      "value": "推動右操作桿改變方向"
+    },
+    {
+      "name": "Mission000_Tuto0_AirRaider02_Keyboard",
+      "type": "string",
+      "value": "移動滑鼠改變方向"
+    },
+    {
+      "name": "Mission000_Tuto0_AirRaider02_Switch",
+      "type": "string",
+      "value": "以R操控搖桿改變方向"
+    },
+    {
+      "name": "Mission000_Tuto0_AirRaider03",
+      "type": "string",
+      "value": "按下%JUMP%跳躍"
+    },
+    {
+      "name": "Mission000_Tuto0_Complete",
+      "type": "string",
+      "value": "已學會基本操作。"
+    },
+    {
+      "name": "Mission000_Tuto0_Fencer01",
+      "type": "string",
+      "value": "推動左操作桿移動"
+    },
+    {
+      "name": "Mission000_Tuto0_Fencer01_Keyboard",
+      "type": "string",
+      "value": "以%MOVE_UP%、%MOVE_DOWN%、%MOVE_LEFT%、%MOVE_RIGHT%移動"
+    },
+    {
+      "name": "Mission000_Tuto0_Fencer01_Switch",
+      "type": "string",
+      "value": "以L操控搖桿移動"
+    },
+    {
+      "name": "Mission000_Tuto0_Fencer02",
+      "type": "string",
+      "value": "推動右操作桿改變方向"
+    },
+    {
+      "name": "Mission000_Tuto0_Fencer02_Keyboard",
+      "type": "string",
+      "value": "移動滑鼠改變方向"
+    },
+    {
+      "name": "Mission000_Tuto0_Fencer02_Switch",
+      "type": "string",
+      "value": "以R操控搖桿改變方向"
+    },
+    {
+      "name": "Mission000_Tuto0_Fencer03",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_JUMP%跳躍"
+    },
+    {
+      "name": "Mission000_Tuto0_Ranger01",
+      "type": "string",
+      "value": "推動左操作桿移動"
+    },
+    {
+      "name": "Mission000_Tuto0_Ranger01_Keyboard",
+      "type": "string",
+      "value": "以%MOVE_UP%、%MOVE_DOWN%、%MOVE_LEFT%、%MOVE_RIGHT%移動"
+    },
+    {
+      "name": "Mission000_Tuto0_Ranger01_Switch",
+      "type": "string",
+      "value": "以L操控搖桿移動"
+    },
+    {
+      "name": "Mission000_Tuto0_Ranger02",
+      "type": "string",
+      "value": "推動右操作桿改變方向"
+    },
+    {
+      "name": "Mission000_Tuto0_Ranger02_Keyboard",
+      "type": "string",
+      "value": "移動滑鼠改變方向"
+    },
+    {
+      "name": "Mission000_Tuto0_Ranger02_Switch",
+      "type": "string",
+      "value": "以R操控搖桿改變方向"
+    },
+    {
+      "name": "Mission000_Tuto0_Ranger03",
+      "type": "string",
+      "value": "按下%JUMP%跳躍"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver01",
+      "type": "string",
+      "value": "推動左操作桿移動"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver01_Keyboard",
+      "type": "string",
+      "value": "以%MOVE_UP%、%MOVE_DOWN%、%MOVE_LEFT%、%MOVE_RIGHT%移動"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver01_Switch",
+      "type": "string",
+      "value": "以L操控搖桿移動"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver02",
+      "type": "string",
+      "value": "推動右操作桿改變方向"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver02_Keyboard",
+      "type": "string",
+      "value": "移動滑鼠改變方向"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver02_Switch",
+      "type": "string",
+      "value": "以R操控搖桿改變方向"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver03",
+      "type": "string",
+      "value": "按下%JUMP%跳躍"
+    },
+    {
+      "name": "Mission000_Tuto0_WingDiver04",
+      "type": "string",
+      "value": "長按%JUMP%飛行"
+    },
+    {
+      "name": "Mission000_Tuto1_AirRaider01",
+      "type": "string",
+      "value": "按下%PRIMARY_ATTACK%射出炸彈"
+    },
+    {
+      "name": "Mission000_Tuto1_AirRaider02",
+      "type": "string",
+      "value": "按下%SECONDADY_ATTACK%引爆\n重複發射（%PRIMARY_ATTACK%）跟引爆（%SECONDADY_ATTACK%）\n破壞４個標靶"
+    },
+    {
+      "name": "Mission000_Tuto1_AirRaider03",
+      "type": "string",
+      "value": "按下%RELOAD%裝填\n不想引爆的炸彈也可按下%RELOAD%消滅"
+    },
+    {
+      "name": "Mission000_Tuto1_AirRaider04",
+      "type": "string",
+      "value": "按下%CYCLE_WEAPON%替換武器。\n空襲兵可裝備三把武器\n並自由替換，但有些任務中\n會無法使用特定武器。"
+    },
+    {
+      "name": "Mission000_Tuto1_AirRaider05",
+      "type": "string",
+      "value": "按下%PRIMARY_ATTACK%可發射標記。\n一架多軸飛行器將會對\n標記命中地點發動攻擊。\n破壞所有的標靶吧。"
+    },
+    {
+      "name": "Mission000_Tuto1_AirRaider06",
+      "type": "string",
+      "value": "左右移動的同時按下%JUMP%緊急閃避"
+    },
+    {
+      "name": "Mission000_Tuto1_AirRaider07",
+      "type": "string",
+      "value": "按下%USE_SUB%可使用背包的裝備。\n啟動護衛用膠囊。\n膠囊會自動攻擊敵人。"
+    },
+    {
+      "name": "Mission000_Tuto1_Client",
+      "type": "string",
+      "value": "正在等待開房者操作。"
+    },
+    {
+      "name": "Mission000_Tuto1_Complete",
+      "type": "string",
+      "value": "已學會攻擊操作。"
+    },
+    {
+      "name": "Mission000_Tuto1_Fencer01",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_PRIMARYATTACK1%使用右手的武器\n長按按鈕即可發射\n破壞4個標靶"
+    },
+    {
+      "name": "Mission000_Tuto1_Fencer02",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_PRIMARYATTACK2%使用左手的武器"
+    },
+    {
+      "name": "Mission000_Tuto1_Fencer03",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_RELOAD%裝填"
+    },
+    {
+      "name": "Mission000_Tuto1_Fencer04",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_CYCLEWEAPON%替換武器"
+    },
+    {
+      "name": "Mission000_Tuto1_Fencer05",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_PRIMARYATTACK1%使用右手的武器\n破壞所有的標靶"
+    },
+    {
+      "name": "Mission000_Tuto1_Fencer06",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_SECONDADYATTACK1%施展右手武器的特殊行動\n（右手武器的第２個機能）"
+    },
+    {
+      "name": "Mission000_Tuto1_Fencer07",
+      "type": "string",
+      "value": "按下%MULTIWEAPON_SECONDADYATTACK2%施展左手武器的特殊行動\n（左手武器的第２個機能）"
+    },
+    {
+      "name": "Mission000_Tuto1_Ranger01",
+      "type": "string",
+      "value": "按下%PRIMARY_ATTACK%射擊　　破壞４個標靶"
+    },
+    {
+      "name": "Mission000_Tuto1_Ranger02",
+      "type": "string",
+      "value": "按下%RELOAD%裝填"
+    },
+    {
+      "name": "Mission000_Tuto1_Ranger03",
+      "type": "string",
+      "value": "按下%CYCLE_WEAPON%替換武器"
+    },
+    {
+      "name": "Mission000_Tuto1_Ranger04",
+      "type": "string",
+      "value": "預測軌道和命中位置會以紅色顯示。\n按下%PRIMARY_ATTACK%射擊，破壞所有的標靶吧。"
+    },
+    {
+      "name": "Mission000_Tuto1_Ranger05",
+      "type": "string",
+      "value": "左右移動的同時按下%JUMP%緊急閃避"
+    },
+    {
+      "name": "Mission000_Tuto1_Ranger06",
+      "type": "string",
+      "value": "按下%SPECIAL_ACTION%衝刺。\n再按一次%SPECIAL_ACTION%即可停止。\n在衝刺時會放下武器，注意力\n集中在腳部，擴大道具回收範圍。"
+    },
+    {
+      "name": "Mission000_Tuto1_Ranger07",
+      "type": "string",
+      "value": "按下%USE_SUB%以使用背包的裝備。\n平時不會將手榴彈等拿在手上，而是放在背包中攜帶。\n這類裝備在經過一段時間後便可再次使用。"
+    },
+    {
+      "name": "Mission000_Tuto1_WingDiver01",
+      "type": "string",
+      "value": "長按%PRIMARY_ATTACK%就會攻擊\n破壞４個標靶"
+    },
+    {
+      "name": "Mission000_Tuto1_WingDiver02",
+      "type": "string",
+      "value": "按下%RELOAD%裝填"
+    },
+    {
+      "name": "Mission000_Tuto1_WingDiver03",
+      "type": "string",
+      "value": "按下%CYCLE_WEAPON%替換武器"
+    },
+    {
+      "name": "Mission000_Tuto1_WingDiver04",
+      "type": "string",
+      "value": "長按%PRIMARY_ATTACK%會蓄積動力。\n放開會連續射擊至動力耗盡為止。\n破壞所有的標靶吧。"
+    },
+    {
+      "name": "Mission000_Tuto1_WingDiver05",
+      "type": "string",
+      "value": "在空中按下%SPECIAL_ACTION%可噴射加速\n在地面也可施展，但前進距離不長\n噴射加速時的道具回收範圍會變大"
+    },
+    {
+      "name": "Mission000_Tuto1_WingDiver06",
+      "type": "string",
+      "value": "按下%USE_SUB%以使用獨立運作裝備。\n這類裝備以電池驅動，不會消耗飛行裝備的能量。\n獨立運作裝備在經過一段時間後便可再次使用。"
+    },
+    {
+      "name": "Mission072_3_Balga_Control",
+      "type": "string",
+      "value": "左搖桿　：移動\n右搖桿　：轉換方向\n　　　　　上半身前後\nLB、RB　：揮拳\nLT、RT　：踩踏\n\n揮動手臂的方式會依\n按下LB、RB的順序有所變化"
+    },
+    {
+      "name": "Mission072_3_Balga_Control_Keyboard",
+      "type": "string",
+      "value": "%MOVE_UP%、%MOVE_DOWN%、%MOVE_LEFT%、%MOVE_RIGHT%：移動\n操作滑鼠：轉換方向\n　　　　　上半身前後\n%BULGAATTACK2_1%、%BULGAATTACK1_1%　：揮拳\n%BULGAATTACK2_2%、%BULGAATTACK1_2%　：踩踏\n\n揮動手臂的方式會依\n按下%BULGAATTACK2_1%、%BULGAATTACK1_1%的順序有所變化"
+    },
+    {
+      "name": "Mission072_3_Balga_Control_PS",
+      "type": "string",
+      "value": "左操作桿：移動\n右操作桿：轉換方向\n　　　　　上半身前後\nL1、R1　：揮拳\nL2、R2　：踩踏\n\n揮動手臂的方式會依\n按下L1、R1的順序有所變化"
+    },
+    {
+      "name": "Mission072_3_Balga_Control_Switch",
+      "type": "string",
+      "value": "L操控搖桿：移動\nR操控搖桿：轉換方向\n　　　　　　上半身前後\nL、R　　：揮拳\nZL、ZR　：踩踏\n\n揮動手臂的方式會依\n按下L、R的順序有所變化"
+    },
+    {
+      "name": "MissionFailedResult_TitleBar",
+      "type": "string",
+      "value": "Result（敗北）"
+    },
+    {"name": "MissionFailedResult_armor", "type": "string", "value": "裝甲值"},
+    {"name": "MissionFailedResult_tortal", "type": "string", "value": "合計"},
+    {"name": "MissionFailedResult_weapon", "type": "string", "value": "武器"},
+    {"name": "MissionPackName1", "type": "string", "value": "任務包１ 失落時光"},
+    {"name": "MissionPackName2", "type": "string", "value": "任務包２ 惡意幻象"},
+    {"name": "MissionResult_ArmorNum", "type": "string", "value": "個"},
+    {
+      "name": "MissionResult_ItemArmor",
+      "type": "string",
+      "value": "ＡＲＭＯＲ（體力ＵＰ）"
+    },
+    {"name": "MissionResult_ItemWeapon", "type": "string", "value": "武器"},
+    {"name": "MissionResult_TitleBar", "type": "string", "value": "取得裝備一覽表"},
+    {
+      "name": "MissionSelectNotOpen",
+      "type": "string",
+      "value": "無法選擇此任務。\n需要完成前面所有任務\n才能選擇。"
+    },
+    {"name": "MissionSelectTitleBar", "type": "string", "value": "選擇任務"},
+    {
+      "name": "MissionSelect_Format",
+      "type": "string",
+      "value": "%NUM%.%TITLE%"
+    },
+    {
+      "name": "MissionSelect_NotOpenMissionDesc",
+      "type": "string",
+      "value": "???"
+    },
+    {
+      "name": "MissionSelect_NotOpenMissionTitle",
+      "type": "string",
+      "value": "???"
+    },
+    {"name": "ModelIndexChgDlgMsg", "type": "string", "value": "變換士兵角色模組"},
+    {"name": "ModelIndexEDF5Soldier", "type": "string", "value": "士兵"},
+    {"name": "ModelIndexEDF5Trainee", "type": "string", "value": "市民"},
+    {"name": "ModelIndexMission", "type": "string", "value": "配合任務"},
+    {"name": "ModelIndexSoldier", "type": "string", "value": "新銳"},
+    {"name": "ModelIndexTrainee", "type": "string", "value": "荒廢"},
+    {"name": "Nickname_BlankText", "type": "string", "value": "請輸入1字以上的名稱。"},
+    {"name": "Nickname_Confirm", "type": "string", "value": "確定要用這個名稱嗎？"},
+    {"name": "Nickname_Default", "type": "string", "value": "輸入暱稱"},
+    {
+      "name": "Nickname_Desc",
+      "type": "string",
+      "value": "請輸入名稱。\n在連線遊玩時，其他玩家可看到這個名稱。"
+    },
+    {"name": "Nickname_TitleEdit", "type": "string", "value": "編輯名稱"},
+    {"name": "Nickname_TitleNew", "type": "string", "value": "輸入名稱"},
+    {
+      "name": "NotifyAllMissionClear",
+      "type": "string",
+      "value": "可在所有保存資料選擇「HARDEST」與「INFERNO」的難度了。"
+    },
+    {"name": "OnlineError_RoomError", "type": "string", "value": "無法參加房間。"},
+    {
+      "name": "OnlineError_RoomFull",
+      "type": "string",
+      "value": "由於超過人數限制，\n無法參加房間。"
+    },
+    {
+      "name": "OnlineError_RoomPassFailed",
+      "type": "string",
+      "value": "通行碼有誤，\n要再次輸入嗎？"
+    },
+    {"name": "OnlineError_SearchFailed", "type": "string", "value": "更新失敗。"},
+    {
+      "name": "OnlineSys_ArmorCapLock",
+      "type": "string",
+      "value": "裝甲值上限已變更為%VALUE1%以下（%SOLDIERTYPE%）"
+    },
+    {"name": "OnlineSys_ArmorCapUnlock", "type": "string", "value": "已解除裝甲值上限"},
+    {
+      "name": "OnlineSys_ContentChanged",
+      "type": "string",
+      "value": "遊玩的任務包已變更為%CONTENTNAME%。"
+    },
+    {
+      "name": "OnlineSys_DifficultyChanged",
+      "type": "string",
+      "value": "難度已變更為%DIFFICULTY%"
+    },
+    {
+      "name": "OnlineSys_IndirectRequest",
+      "type": "string",
+      "value": "%PLAYERNAME1%請求%WEAPON_NAME%！"
+    },
+    {
+      "name": "OnlineSys_JoinRoom",
+      "type": "string",
+      "value": "%PLAYERNAME1%已進房"
+    },
+    {
+      "name": "OnlineSys_LeaveRoom",
+      "type": "string",
+      "value": "%PLAYERNAME1%已退出房間"
+    },
+    {
+      "name": "OnlineSys_MissionChanged",
+      "type": "string",
+      "value": "任務已變更為%MISSIONNAME%"
+    },
+    {
+      "name": "OnlineSys_PlayerDown",
+      "type": "string",
+      "value": "%PLAYERNAME1%倒下"
+    },
+    {
+      "name": "OnlineSys_PlayerOK",
+      "type": "string",
+      "value": "%PLAYERNAME1%已選擇完成出擊準備（%VALUE1%／%VALUE2%）"
+    },
+    {
+      "name": "OnlineSys_PlayerRescue",
+      "type": "string",
+      "value": "%PLAYERNAME1%成功得到%PLAYERNAME2%的救援"
+    },
+    {"name": "OnlineSys_Plurally", "type": "string", "value": "x %NUM%"},
+    {
+      "name": "OnlineSys_VehicleRequest",
+      "type": "string",
+      "value": "%PLAYERNAME1%請求%WEAPON_NAME%！"
+    },
+    {
+      "name": "OnlineSys_WeaponCapLock",
+      "type": "string",
+      "value": "武器等級上限已變更為%VALUE1%以下"
+    },
+    {
+      "name": "OnlineSys_WeaponCapUnlock",
+      "type": "string",
+      "value": "已解除武器等級上限"
+    },
+    {"name": "Online_All_Post", "type": "string", "value": "全員"},
+    {"name": "Online_Armor_Limit_None", "type": "string", "value": "─"},
+    {"name": "Online_Armor_Limit_Off", "type": "string", "value": "無效"},
+    {"name": "Online_Armor_Limit_On", "type": "string", "value": "有效"},
+    {
+      "name": "Online_DefaultFreeWord",
+      "type": "string",
+      "value": "可對參加成員輸入訊息。"
+    },
+    {
+      "name": "Online_DefaultRoomName",
+      "type": "string",
+      "value": "%PLAYERNAME%小隊據點"
+    },
+    {"name": "Online_Game_Disconnect", "type": "string", "value": "網路已中斷。"},
+    {"name": "Online_Game_Exit", "type": "string", "value": "開房者已選擇撤退。"},
+    {"name": "Online_Game_Retry", "type": "string", "value": "開房者已選擇再次出擊。"},
+    {"name": "Online_History", "type": "string", "value": "一起遊玩了地球防衛軍６。"},
+    {
+      "name": "Online_InvitationError",
+      "type": "string",
+      "value": "與伺服器發生通訊錯誤。\n在狀態修復前將無法進行邀請。"
+    },
+    {
+      "name": "Online_InvitationLeaderOnly",
+      "type": "string",
+      "value": "當前房間設定僅允許隊長邀請。"
+    },
+    {
+      "name": "Online_InvitationNone",
+      "type": "string",
+      "value": "當前房間設定為不允許任何人被邀請。"
+    },
+    {
+      "name": "Online_InvitationSteamError",
+      "type": "string",
+      "value": "目前的遊戲房間無法在Steam上發送邀請。"
+    },
+    {"name": "Online_MaskString", "type": "string", "value": "無顯示權限。"},
+    {"name": "Online_NameVerify", "type": "string", "value": "正在準備連線遊玩……"},
+    {
+      "name": "Online_NameVerifyError",
+      "type": "string",
+      "value": "玩家名稱包含無法使用的字句。\n需更改名稱才能進行連線遊玩。"
+    },
+    {
+      "name": "Online_NoInput_Warning",
+      "type": "string",
+      "value": "持續處於沒有操作的狀態。若繼續處於此狀態，將會從房間移除。"
+    },
+    {"name": "Online_NotHaveContents", "type": "string", "value": "未持有此內容"},
+    {"name": "Online_PT_Already", "type": "string", "value": "覺得不需要這個訊息"},
+    {
+      "name": "Online_PT_Invitation",
+      "type": "string",
+      "value": "由於正在接受邀請，\n無法執行PlayTogether。"
+    },
+    {
+      "name": "Online_PT_InvitationFailed",
+      "type": "string",
+      "value": "與伺服器發生通訊錯誤。\n在狀態修復前，將無法執行PlayTogether。"
+    },
+    {
+      "name": "Online_PT_RequireExitRoom",
+      "type": "string",
+      "value": "由於目前在房間中，\n無法執行PlayTogether。\n請離開房間再次執行。"
+    },
+    {"name": "Online_Phrase_None", "type": "string", "value": "無設定"},
+    {"name": "Online_PlayerTag_2P", "type": "string", "value": "Player2"},
+    {"name": "Online_StringVerify", "type": "string", "value": "正在確認輸入內容……"},
+    {
+      "name": "Online_StringVerifyError",
+      "type": "string",
+      "value": "%INPUTWORD%\n輸入的文字有無法使用的字句。"
+    },
+    {
+      "name": "Online_StringVerify_ServerErr",
+      "type": "string",
+      "value": "發生通訊錯誤。"
+    },
+    {"name": "Online_Syncing", "type": "string", "value": "正在與其他玩家同步……"},
+    {"name": "Online_UGC_Freeword", "type": "string", "value": ""},
+    {"name": "Online_UGC_RoomName", "type": "string", "value": "簡易房間"},
+    {"name": "Online_Weapon_Limit_None", "type": "string", "value": "─"},
+    {"name": "Online_Weapon_Limit_Off", "type": "string", "value": "無效"},
+    {"name": "Online_Weapon_Limit_On", "type": "string", "value": "有效"},
+    {"name": "OptionPlayer_A", "type": "string", "value": "A按鍵"},
+    {"name": "OptionPlayer_A_PS4Controller", "type": "string", "value": "×按鈕"},
+    {
+      "name": "OptionPlayer_A_SwitchProController",
+      "type": "string",
+      "value": "B鍵"
+    },
+    {"name": "OptionPlayer_B", "type": "string", "value": "B按鍵"},
+    {"name": "OptionPlayer_B_PS4Controller", "type": "string", "value": "○按鈕"},
+    {
+      "name": "OptionPlayer_B_SwitchProController",
+      "type": "string",
+      "value": "A鍵"
+    },
+    {"name": "OptionPlayer_Back", "type": "string", "value": "BACK鍵"},
+    {
+      "name": "OptionPlayer_Back_PS4Controller",
+      "type": "string",
+      "value": "SHARE按鈕"
+    },
+    {
+      "name": "OptionPlayer_Back_SwitchProController",
+      "type": "string",
+      "value": "－鍵"
+    },
+    {"name": "OptionPlayer_Boost", "type": "string", "value": "噴射"},
+    {"name": "OptionPlayer_CallManual", "type": "string", "value": "閱覽操作說明書"},
+    {"name": "OptionPlayer_CallVehicle", "type": "string", "value": "呼叫載具"},
+    {"name": "OptionPlayer_CameraEffect", "type": "string", "value": "運鏡效果"},
+    {"name": "OptionPlayer_ChatCustomize", "type": "string", "value": "變更聊天快捷"},
+    {
+      "name": "OptionPlayer_ConfirmDefault",
+      "type": "string",
+      "value": "確定要恢復為初期設定嗎？"
+    },
+    {"name": "OptionPlayer_ControlType", "type": "string", "value": "操作類型"},
+    {"name": "OptionPlayer_Dash", "type": "string", "value": "衝刺"},
+    {"name": "OptionPlayer_Default", "type": "string", "value": "恢復為初期設定"},
+    {"name": "OptionPlayer_DemoSkip", "type": "string", "value": "跳略介紹"},
+    {"name": "OptionPlayer_DisplayIdTag", "type": "string", "value": "顯示平台ID"},
+    {"name": "OptionPlayer_Dpad", "type": "string", "value": "方向鍵"},
+    {"name": "OptionPlayer_Dpad_Keyboard", "type": "string", "value": "游標鍵"},
+    {
+      "name": "OptionPlayer_Dpad_PS4Controller",
+      "type": "string",
+      "value": "方向按鈕"
+    },
+    {
+      "name": "OptionPlayer_Dpad_SwitchProController",
+      "type": "string",
+      "value": "十字鍵"
+    },
+    {
+      "name": "OptionPlayer_FencerAttack1_1",
+      "type": "string",
+      "value": "攻擊─右手"
+    },
+    {
+      "name": "OptionPlayer_FencerAttack1_2",
+      "type": "string",
+      "value": "使用裝備─右手"
+    },
+    {
+      "name": "OptionPlayer_FencerAttack2_1",
+      "type": "string",
+      "value": "攻擊─左手"
+    },
+    {
+      "name": "OptionPlayer_FencerAttack2_2",
+      "type": "string",
+      "value": "使用裝備─左手"
+    },
+    {"name": "OptionPlayer_FencerJump", "type": "string", "value": "跳躍"},
+    {"name": "OptionPlayer_FencerReload", "type": "string", "value": "裝填"},
+    {
+      "name": "OptionPlayer_FencerRideRescue",
+      "type": "string",
+      "value": "搭乘／救援"
+    },
+    {
+      "name": "OptionPlayer_FencerSpecialAction",
+      "type": "string",
+      "value": "護盾充填"
+    },
+    {"name": "OptionPlayer_FencerSpot", "type": "string", "value": "指定位置標記"},
+    {
+      "name": "OptionPlayer_FencerWeaponSelect",
+      "type": "string",
+      "value": "替換武器"
+    },
+    {
+      "name": "OptionPlayer_ForceResetKey",
+      "type": "string",
+      "value": "按鍵設定重複。已停用重複的按鍵。"
+    },
+    {"name": "OptionPlayer_Key0", "type": "string", "value": "0 鍵"},
+    {"name": "OptionPlayer_Key1", "type": "string", "value": "1 鍵"},
+    {"name": "OptionPlayer_Key2", "type": "string", "value": "2 鍵"},
+    {"name": "OptionPlayer_Key3", "type": "string", "value": "3 鍵"},
+    {"name": "OptionPlayer_Key4", "type": "string", "value": "4 鍵"},
+    {"name": "OptionPlayer_Key5", "type": "string", "value": "5 鍵"},
+    {"name": "OptionPlayer_Key6", "type": "string", "value": "6 鍵"},
+    {"name": "OptionPlayer_Key7", "type": "string", "value": "7 鍵"},
+    {"name": "OptionPlayer_Key8", "type": "string", "value": "8 鍵"},
+    {"name": "OptionPlayer_Key9", "type": "string", "value": "9 鍵"},
+    {"name": "OptionPlayer_KeyA", "type": "string", "value": "A 鍵"},
+    {
+      "name": "OptionPlayer_KeyAlreadyChosen",
+      "type": "string",
+      "value": "指定的按鍵已被分配給其他操作。\n是否要移除已分配的操作？"
+    },
+    {"name": "OptionPlayer_KeyAt", "type": "string", "value": "@ 鍵"},
+    {"name": "OptionPlayer_KeyB", "type": "string", "value": "B 鍵"},
+    {
+      "name": "OptionPlayer_KeyBackSpace",
+      "type": "string",
+      "value": "Back Space"
+    },
+    {"name": "OptionPlayer_KeyBracketsL", "type": "string", "value": "[ 鍵"},
+    {"name": "OptionPlayer_KeyBracketsR", "type": "string", "value": "] 鍵"},
+    {"name": "OptionPlayer_KeyC", "type": "string", "value": "C 鍵"},
+    {
+      "name": "OptionPlayer_KeyCantChange",
+      "type": "string",
+      "value": "指定的按鍵已被分配給共通操作，無法變更。"
+    },
+    {"name": "OptionPlayer_KeyCaret", "type": "string", "value": "^ 鍵"},
+    {"name": "OptionPlayer_KeyColon", "type": "string", "value": ": 鍵"},
+    {"name": "OptionPlayer_KeyComma", "type": "string", "value": ", 鍵"},
+    {"name": "OptionPlayer_KeyConfig", "type": "string", "value": "變更操作"},
+    {
+      "name": "OptionPlayer_KeyConfigBulga",
+      "type": "string",
+      "value": "變更巴爾加操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigCombat",
+      "type": "string",
+      "value": "變更戰鬥機體操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigCommon",
+      "type": "string",
+      "value": "變更共通操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigDepth",
+      "type": "string",
+      "value": "變更深淵爬行戰車操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigDesc",
+      "type": "string",
+      "value": "請按下要配置的按鈕。"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigDrive",
+      "type": "string",
+      "value": "變更車輛操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigHeli",
+      "type": "string",
+      "value": "變更直升機操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigTanks",
+      "type": "string",
+      "value": "變更戰鬥車輛操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfigVehicle",
+      "type": "string",
+      "value": "變更載具操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfig_AirRaider",
+      "type": "string",
+      "value": "變更空襲兵操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfig_Fencer",
+      "type": "string",
+      "value": "變更劍兵操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfig_Ranger",
+      "type": "string",
+      "value": "變更突擊兵操作"
+    },
+    {
+      "name": "OptionPlayer_KeyConfig_WingDiver",
+      "type": "string",
+      "value": "變更飛翼潛行兵操作"
+    },
+    {"name": "OptionPlayer_KeyControlL", "type": "string", "value": "左Ctrl"},
+    {"name": "OptionPlayer_KeyControlR", "type": "string", "value": "右Ctrl"},
+    {"name": "OptionPlayer_KeyD", "type": "string", "value": "D 鍵"},
+    {"name": "OptionPlayer_KeyDelete", "type": "string", "value": "Delete"},
+    {"name": "OptionPlayer_KeyE", "type": "string", "value": "E 鍵"},
+    {"name": "OptionPlayer_KeyEnd", "type": "string", "value": "End"},
+    {"name": "OptionPlayer_KeyF", "type": "string", "value": "F 鍵"},
+    {"name": "OptionPlayer_KeyG", "type": "string", "value": "G 鍵"},
+    {"name": "OptionPlayer_KeyH", "type": "string", "value": "H 鍵"},
+    {"name": "OptionPlayer_KeyHome", "type": "string", "value": "Home"},
+    {"name": "OptionPlayer_KeyHyphen", "type": "string", "value": "- 鍵"},
+    {"name": "OptionPlayer_KeyI", "type": "string", "value": "I 鍵"},
+    {"name": "OptionPlayer_KeyInsert", "type": "string", "value": "Insert"},
+    {"name": "OptionPlayer_KeyJ", "type": "string", "value": "J 鍵"},
+    {"name": "OptionPlayer_KeyK", "type": "string", "value": "K 鍵"},
+    {"name": "OptionPlayer_KeyL", "type": "string", "value": "L 鍵"},
+    {"name": "OptionPlayer_KeyM", "type": "string", "value": "M 鍵"},
+    {"name": "OptionPlayer_KeyN", "type": "string", "value": "N 鍵"},
+    {"name": "OptionPlayer_KeyNum0", "type": "string", "value": "Num 0 鍵"},
+    {"name": "OptionPlayer_KeyNum1", "type": "string", "value": "Num 1 鍵"},
+    {"name": "OptionPlayer_KeyNum2", "type": "string", "value": "Num 2 鍵"},
+    {"name": "OptionPlayer_KeyNum3", "type": "string", "value": "Num 3 鍵"},
+    {"name": "OptionPlayer_KeyNum4", "type": "string", "value": "Num 4 鍵"},
+    {"name": "OptionPlayer_KeyNum5", "type": "string", "value": "Num 5 鍵"},
+    {"name": "OptionPlayer_KeyNum6", "type": "string", "value": "Num 6 鍵"},
+    {"name": "OptionPlayer_KeyNum7", "type": "string", "value": "Num 7 鍵"},
+    {"name": "OptionPlayer_KeyNum8", "type": "string", "value": "Num 8 鍵"},
+    {"name": "OptionPlayer_KeyNum9", "type": "string", "value": "Num 9 鍵"},
+    {"name": "OptionPlayer_KeyO", "type": "string", "value": "O 鍵"},
+    {"name": "OptionPlayer_KeyP", "type": "string", "value": "P 鍵"},
+    {"name": "OptionPlayer_KeyPageDown", "type": "string", "value": "PageDown"},
+    {"name": "OptionPlayer_KeyPageUp", "type": "string", "value": "PageUp"},
+    {"name": "OptionPlayer_KeyPeriod", "type": "string", "value": ". 鍵"},
+    {"name": "OptionPlayer_KeyQ", "type": "string", "value": "Q 鍵"},
+    {"name": "OptionPlayer_KeyR", "type": "string", "value": "R 鍵"},
+    {"name": "OptionPlayer_KeyS", "type": "string", "value": "S 鍵"},
+    {"name": "OptionPlayer_KeySemicolon", "type": "string", "value": "; 鍵"},
+    {"name": "OptionPlayer_KeyShiftL", "type": "string", "value": "左Shift"},
+    {"name": "OptionPlayer_KeyShiftR", "type": "string", "value": "右Shift"},
+    {"name": "OptionPlayer_KeySpace", "type": "string", "value": "Space"},
+    {"name": "OptionPlayer_KeyT", "type": "string", "value": "T 鍵"},
+    {"name": "OptionPlayer_KeyU", "type": "string", "value": "U 鍵"},
+    {"name": "OptionPlayer_KeyV", "type": "string", "value": "V 鍵"},
+    {"name": "OptionPlayer_KeyW", "type": "string", "value": "W 鍵"},
+    {"name": "OptionPlayer_KeyX", "type": "string", "value": "X 鍵"},
+    {"name": "OptionPlayer_KeyY", "type": "string", "value": "Y 鍵"},
+    {"name": "OptionPlayer_KeyYen", "type": "string", "value": "￥ 鍵"},
+    {"name": "OptionPlayer_KeyZ", "type": "string", "value": "Z 鍵"},
+    {
+      "name": "OptionPlayer_KeyboardBaseChat",
+      "type": "string",
+      "value": "聊天視窗"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseDown",
+      "type": "string",
+      "value": "移動 - ↓"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseLeft",
+      "type": "string",
+      "value": "移動 - ←"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseRideRescue",
+      "type": "string",
+      "value": "搭乘／救援"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseRight",
+      "type": "string",
+      "value": "移動 - →"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseShotcut",
+      "type": "string",
+      "value": "定型文快捷操作"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseSpot",
+      "type": "string",
+      "value": "指定位置標記"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseUp",
+      "type": "string",
+      "value": "移動 - ↑"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseVoiceChat",
+      "type": "string",
+      "value": "語音聊天"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseWeaponShotcut1",
+      "type": "string",
+      "value": "武器快捷操作1"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseWeaponShotcut2",
+      "type": "string",
+      "value": "武器快捷操作2"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBaseWeaponShotcut3",
+      "type": "string",
+      "value": "武器快捷操作3"
+    },
+    {"name": "OptionPlayer_KeyboardBoost", "type": "string", "value": "噴射"},
+    {
+      "name": "OptionPlayer_KeyboardBulgaAttack1_1",
+      "type": "string",
+      "value": "拳擊─右手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBulgaAttack1_2",
+      "type": "string",
+      "value": "踩踏─右腳"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBulgaAttack2_1",
+      "type": "string",
+      "value": "拳擊─左手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBulgaAttack2_2",
+      "type": "string",
+      "value": "踩踏─左腳"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBulgaSpecialAttack",
+      "type": "string",
+      "value": "特殊攻擊"
+    },
+    {
+      "name": "OptionPlayer_KeyboardBulgaSpecialPose",
+      "type": "string",
+      "value": "特殊姿勢"
+    },
+    {
+      "name": "OptionPlayer_KeyboardCallVehicle",
+      "type": "string",
+      "value": "呼叫載具"
+    },
+    {
+      "name": "OptionPlayer_KeyboardCombatAttack1_1",
+      "type": "string",
+      "value": "攻擊─右手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardCombatAttack1_2",
+      "type": "string",
+      "value": "攻擊─右肩"
+    },
+    {
+      "name": "OptionPlayer_KeyboardCombatAttack2_1",
+      "type": "string",
+      "value": "攻擊─左手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardCombatAttack2_2",
+      "type": "string",
+      "value": "攻擊─左肩"
+    },
+    {
+      "name": "OptionPlayer_KeyboardCombatJump",
+      "type": "string",
+      "value": "跳躍"
+    },
+    {"name": "OptionPlayer_KeyboardDash", "type": "string", "value": "衝刺"},
+    {
+      "name": "OptionPlayer_KeyboardDepthAttack1_1",
+      "type": "string",
+      "value": "砲擊─右"
+    },
+    {
+      "name": "OptionPlayer_KeyboardDepthAttack2_1",
+      "type": "string",
+      "value": "砲擊─左"
+    },
+    {
+      "name": "OptionPlayer_KeyboardDepthAvoid",
+      "type": "string",
+      "value": "緊急閃避"
+    },
+    {
+      "name": "OptionPlayer_KeyboardDepthGatling",
+      "type": "string",
+      "value": "格林機砲"
+    },
+    {"name": "OptionPlayer_KeyboardDepthJump", "type": "string", "value": "跳躍"},
+    {
+      "name": "OptionPlayer_KeyboardDriveAcccel",
+      "type": "string",
+      "value": "加速"
+    },
+    {
+      "name": "OptionPlayer_KeyboardDriveAttack",
+      "type": "string",
+      "value": "攻擊"
+    },
+    {
+      "name": "OptionPlayer_KeyboardDriveBrake",
+      "type": "string",
+      "value": "減速／後退"
+    },
+    {
+      "name": "OptionPlayer_KeyboardDriveHandBrake",
+      "type": "string",
+      "value": "手煞車"
+    },
+    {"name": "OptionPlayer_KeyboardDriveHorn", "type": "string", "value": "喇叭"},
+    {
+      "name": "OptionPlayer_KeyboardFencerAttack1_1",
+      "type": "string",
+      "value": "攻擊─右手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardFencerAttack1_2",
+      "type": "string",
+      "value": "使用裝備─右手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardFencerAttack2_1",
+      "type": "string",
+      "value": "攻擊─左手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardFencerAttack2_2",
+      "type": "string",
+      "value": "使用裝備─左手"
+    },
+    {
+      "name": "OptionPlayer_KeyboardFencerJump",
+      "type": "string",
+      "value": "跳躍"
+    },
+    {
+      "name": "OptionPlayer_KeyboardFencerReload",
+      "type": "string",
+      "value": "裝填"
+    },
+    {
+      "name": "OptionPlayer_KeyboardFencerSpecialAction",
+      "type": "string",
+      "value": "護盾‧重新裝填"
+    },
+    {
+      "name": "OptionPlayer_KeyboardFencerWeaponSelect",
+      "type": "string",
+      "value": "替換武器"
+    },
+    {
+      "name": "OptionPlayer_KeyboardHeliAttack1",
+      "type": "string",
+      "value": "攻擊1"
+    },
+    {
+      "name": "OptionPlayer_KeyboardHeliAttack2",
+      "type": "string",
+      "value": "攻擊2"
+    },
+    {
+      "name": "OptionPlayer_KeyboardHeliFlight",
+      "type": "string",
+      "value": "飛行"
+    },
+    {
+      "name": "OptionPlayer_KeyboardNomalAttack1",
+      "type": "string",
+      "value": "攻擊"
+    },
+    {
+      "name": "OptionPlayer_KeyboardNomalAttack2",
+      "type": "string",
+      "value": "縮放／啟動"
+    },
+    {
+      "name": "OptionPlayer_KeyboardNomalAttackSky",
+      "type": "string",
+      "value": "對空攻擊"
+    },
+    {
+      "name": "OptionPlayer_KeyboardNormalJump",
+      "type": "string",
+      "value": "跳躍"
+    },
+    {
+      "name": "OptionPlayer_KeyboardNormalReload",
+      "type": "string",
+      "value": "裝填"
+    },
+    {
+      "name": "OptionPlayer_KeyboardNormalWeaponSelect",
+      "type": "string",
+      "value": "替換武器"
+    },
+    {
+      "name": "OptionPlayer_KeyboardTanksAttack1",
+      "type": "string",
+      "value": "攻擊1"
+    },
+    {
+      "name": "OptionPlayer_KeyboardTanksAttack2",
+      "type": "string",
+      "value": "攻擊2"
+    },
+    {"name": "OptionPlayer_KeyboardTanksHorn", "type": "string", "value": "喇叭"},
+    {
+      "name": "OptionPlayer_KeyboardUseSub_AirRaider",
+      "type": "string",
+      "value": "使用 背包工具"
+    },
+    {
+      "name": "OptionPlayer_KeyboardUseSub_Ranger",
+      "type": "string",
+      "value": "使用 背包工具"
+    },
+    {
+      "name": "OptionPlayer_KeyboardUseSub_WingDiver",
+      "type": "string",
+      "value": "使用 獨立運作裝備"
+    },
+    {"name": "OptionPlayer_L", "type": "string", "value": "LB鍵"},
+    {"name": "OptionPlayer_LStick", "type": "string", "value": "左搖桿鍵"},
+    {
+      "name": "OptionPlayer_LStick_PS4Controller",
+      "type": "string",
+      "value": "L3按鈕"
+    },
+    {
+      "name": "OptionPlayer_LStick_SwitchProController",
+      "type": "string",
+      "value": "L操控搖桿鍵"
+    },
+    {"name": "OptionPlayer_LTrigger", "type": "string", "value": "LT鍵"},
+    {
+      "name": "OptionPlayer_LTrigger_PS4Controller",
+      "type": "string",
+      "value": "L2按鈕"
+    },
+    {
+      "name": "OptionPlayer_LTrigger_SwitchProController",
+      "type": "string",
+      "value": "ZL鍵"
+    },
+    {"name": "OptionPlayer_L_PS4Controller", "type": "string", "value": "L1按鈕"},
+    {
+      "name": "OptionPlayer_L_SwitchProController",
+      "type": "string",
+      "value": "L鍵"
+    },
+    {"name": "OptionPlayer_LeftStick", "type": "string", "value": "左搖桿"},
+    {
+      "name": "OptionPlayer_LeftStick_PS4Controller",
+      "type": "string",
+      "value": "左操作桿"
+    },
+    {
+      "name": "OptionPlayer_LeftStick_SwitchProController",
+      "type": "string",
+      "value": "L操控搖桿"
+    },
+    {"name": "OptionPlayer_Mouse", "type": "string", "value": "滑鼠操作"},
+    {"name": "OptionPlayer_MouseL", "type": "string", "value": "滑鼠左鍵"},
+    {"name": "OptionPlayer_MouseM", "type": "string", "value": "滑鼠滾輪鍵"},
+    {"name": "OptionPlayer_MouseR", "type": "string", "value": "滑鼠右鍵"},
+    {"name": "OptionPlayer_MouseSide1", "type": "string", "value": "滑鼠鍵1"},
+    {"name": "OptionPlayer_MouseSide2", "type": "string", "value": "滑鼠鍵2"},
+    {"name": "OptionPlayer_MouseWheel", "type": "string", "value": "滑鼠滾輪"},
+    {"name": "OptionPlayer_NoAssign", "type": "string", "value": "無配置"},
+    {"name": "OptionPlayer_NomalAttack1", "type": "string", "value": "攻擊"},
+    {"name": "OptionPlayer_NomalAttack2", "type": "string", "value": "縮放／啟動"},
+    {"name": "OptionPlayer_NomalAttackSky", "type": "string", "value": "對空攻擊"},
+    {"name": "OptionPlayer_Normal", "type": "string", "value": "標準"},
+    {"name": "OptionPlayer_NormalJump", "type": "string", "value": "跳躍"},
+    {"name": "OptionPlayer_NormalReload", "type": "string", "value": "裝填"},
+    {
+      "name": "OptionPlayer_NormalWeaponSelect",
+      "type": "string",
+      "value": "替換武器"
+    },
+    {"name": "OptionPlayer_R", "type": "string", "value": "RB鍵"},
+    {"name": "OptionPlayer_RStick", "type": "string", "value": "右搖桿鍵"},
+    {
+      "name": "OptionPlayer_RStick_PS4Controller",
+      "type": "string",
+      "value": "R3按鈕"
+    },
+    {
+      "name": "OptionPlayer_RStick_SwitchProController",
+      "type": "string",
+      "value": "R操控搖桿鍵"
+    },
+    {"name": "OptionPlayer_RTrigger", "type": "string", "value": "RT鍵"},
+    {
+      "name": "OptionPlayer_RTrigger_PS4Controller",
+      "type": "string",
+      "value": "R2按鈕"
+    },
+    {
+      "name": "OptionPlayer_RTrigger_SwitchProController",
+      "type": "string",
+      "value": "ZR鍵"
+    },
+    {"name": "OptionPlayer_R_PS4Controller", "type": "string", "value": "R1按鈕"},
+    {
+      "name": "OptionPlayer_R_SwitchProController",
+      "type": "string",
+      "value": "R鍵"
+    },
+    {"name": "OptionPlayer_Return", "type": "string", "value": "返回遊戲設定"},
+    {"name": "OptionPlayer_Reverse", "type": "string", "value": "顛倒"},
+    {"name": "OptionPlayer_RightStick", "type": "string", "value": "右搖桿"},
+    {
+      "name": "OptionPlayer_RightStick_PS4Controller",
+      "type": "string",
+      "value": "右操作桿"
+    },
+    {
+      "name": "OptionPlayer_RightStick_SwitchProController",
+      "type": "string",
+      "value": "R操控搖桿"
+    },
+    {"name": "OptionPlayer_RotateLerp", "type": "string", "value": "旋轉插值"},
+    {"name": "OptionPlayer_RotateSpeed", "type": "string", "value": "旋轉速度"},
+    {"name": "OptionPlayer_Start", "type": "string", "value": "START鍵"},
+    {
+      "name": "OptionPlayer_Start_PS4Controller",
+      "type": "string",
+      "value": "OPTIONS按鈕"
+    },
+    {
+      "name": "OptionPlayer_Start_SwitchProController",
+      "type": "string",
+      "value": "＋鍵"
+    },
+    {
+      "name": "OptionPlayer_StickDeadZoneL",
+      "type": "string",
+      "value": "左搖桿盲區設定"
+    },
+    {
+      "name": "OptionPlayer_StickDeadZoneL_PS4Controller",
+      "type": "string",
+      "value": "左操作桿盲區設定"
+    },
+    {
+      "name": "OptionPlayer_StickDeadZoneL_SwitchProController",
+      "type": "string",
+      "value": "L操控搖桿盲區設定"
+    },
+    {
+      "name": "OptionPlayer_StickDeadZoneR",
+      "type": "string",
+      "value": "右搖桿盲區設定"
+    },
+    {
+      "name": "OptionPlayer_StickDeadZoneR_PS4Controller",
+      "type": "string",
+      "value": "右操作桿盲區設定"
+    },
+    {
+      "name": "OptionPlayer_StickDeadZoneR_SwitchProController",
+      "type": "string",
+      "value": "R操控搖桿盲區設定"
+    },
+    {"name": "OptionPlayer_TechAttack1", "type": "string", "value": "攻擊"},
+    {"name": "OptionPlayer_TechAttack2", "type": "string", "value": "縮放／啟動"},
+    {"name": "OptionPlayer_TechJump", "type": "string", "value": "跳躍"},
+    {"name": "OptionPlayer_TechReload", "type": "string", "value": "裝填"},
+    {"name": "OptionPlayer_TechRideRescue", "type": "string", "value": "搭乘／救援"},
+    {"name": "OptionPlayer_TechSpot", "type": "string", "value": "指定位置標記"},
+    {
+      "name": "OptionPlayer_TechUseSub_AirRaider",
+      "type": "string",
+      "value": "使用 背包工具"
+    },
+    {
+      "name": "OptionPlayer_TechUseSub_Ranger",
+      "type": "string",
+      "value": "使用 背包工具"
+    },
+    {
+      "name": "OptionPlayer_TechUseSub_WingDiver",
+      "type": "string",
+      "value": "使用 獨立運作裝備"
+    },
+    {
+      "name": "OptionPlayer_TechWeaponSelect",
+      "type": "string",
+      "value": "替換武器"
+    },
+    {"name": "OptionPlayer_TitleBar", "type": "string", "value": "玩家設定"},
+    {"name": "OptionPlayer_TitleBarConfig", "type": "string", "value": "變更操作"},
+    {
+      "name": "OptionPlayer_TitleBarFencer",
+      "type": "string",
+      "value": "變更劍兵操作"
+    },
+    {"name": "OptionPlayer_TouchButton", "type": "string", "value": "觸碰板按鈕"},
+    {"name": "OptionPlayer_Vibration", "type": "string", "value": "震動功能"},
+    {"name": "OptionPlayer_ViewLR", "type": "string", "value": "左右視角"},
+    {"name": "OptionPlayer_ViewUD", "type": "string", "value": "上下視角"},
+    {"name": "OptionPlayer_X", "type": "string", "value": "X按鍵"},
+    {"name": "OptionPlayer_X_PS4Controller", "type": "string", "value": "□按鈕"},
+    {
+      "name": "OptionPlayer_X_SwitchProController",
+      "type": "string",
+      "value": "Y鍵"
+    },
+    {"name": "OptionPlayer_Y", "type": "string", "value": "Y按鍵"},
+    {"name": "OptionPlayer_Y_PS4Controller", "type": "string", "value": "△按鈕"},
+    {
+      "name": "OptionPlayer_Y_SwitchProController",
+      "type": "string",
+      "value": "X鍵"
+    },
+    {"name": "OptionShowSubTitle", "type": "string", "value": "開啟／關閉字幕顯示"},
+    {"name": "Option_BGM", "type": "string", "value": "ＢＧＭ音量"},
+    {"name": "Option_CameraType", "type": "string", "value": "鏡頭類型"},
+    {"name": "Option_CameraType_Value1", "type": "string", "value": "鏡頭類型１"},
+    {"name": "Option_CameraType_Value2", "type": "string", "value": "鏡頭類型２"},
+    {"name": "Option_CameraType_Value3", "type": "string", "value": "鏡頭類型３"},
+    {"name": "Option_CameraType_Value4", "type": "string", "value": "鏡頭類型４"},
+    {"name": "Option_DamageUIType", "type": "string", "value": "傷害值顯示類型"},
+    {"name": "Option_DamageUIType_FixedPos", "type": "string", "value": "固定位置"},
+    {"name": "Option_DamageUIType_HitPos", "type": "string", "value": "擊中位置"},
+    {"name": "Option_DamageUIType_None", "type": "string", "value": "不顯示"},
+    {"name": "Option_DamageUIType_Target", "type": "string", "value": "依目標"},
+    {
+      "name": "Option_Language_Message",
+      "type": "string",
+      "value": "要啟用字幕語言和語音語言的更改，請返回標題畫面。"
+    },
+    {
+      "name": "Option_Language_PlayGoMessage",
+      "type": "string",
+      "value": "在下載完畢前\n無法變更語音的語言。"
+    },
+    {"name": "Option_Language_Subtitles", "type": "string", "value": "字幕語言"},
+    {"name": "Option_Language_Voice", "type": "string", "value": "語音語言"},
+    {"name": "Option_Language_cn", "type": "string", "value": "繁體中文"},
+    {"name": "Option_Language_en", "type": "string", "value": "英文"},
+    {"name": "Option_Language_ja", "type": "string", "value": "日文"},
+    {"name": "Option_Language_kr", "type": "string", "value": "韓文"},
+    {"name": "Option_Language_sc", "type": "string", "value": "簡體中文"},
+    {"name": "Option_MASTER_VOLUME", "type": "string", "value": "主音量"},
+    {"name": "Option_OFF", "type": "string", "value": "ＯＦＦ"},
+    {"name": "Option_ON", "type": "string", "value": "ＯＮ"},
+    {"name": "Option_PAN_SPEAKER_ALL", "type": "string", "value": "全部"},
+    {"name": "Option_PAN_SPEAKER_CENTER_ONLY", "type": "string", "value": "中央"},
+    {
+      "name": "Option_PAN_SPEAKER_FORWARD_LR_ONLY",
+      "type": "string",
+      "value": "前方ＬＲ"
+    },
+    {
+      "name": "Option_PAN_SPEAKER_REAR_LR_ONLY",
+      "type": "string",
+      "value": "環繞ＬＲ"
+    },
+    {"name": "Option_PanSpeakerMode", "type": "string", "value": "播放無線電語音的揚聲器"},
+    {"name": "Option_ResolutionType", "type": "string", "value": "解析度"},
+    {
+      "name": "Option_ResolutionType_4K_Display",
+      "type": "string",
+      "value": "4K（畫質優先）"
+    },
+    {
+      "name": "Option_ResolutionType_4K_Speed",
+      "type": "string",
+      "value": "4K（速度優先）"
+    },
+    {
+      "name": "Option_ResolutionType_FullHD",
+      "type": "string",
+      "value": "FULL HD（速度優先）"
+    },
+    {"name": "Option_SE", "type": "string", "value": "ＳＥ音量"},
+    {"name": "Option_ShakeScreen", "type": "string", "value": "畫面震動"},
+    {"name": "Option_TitleBar", "type": "string", "value": "遊戲設定"},
+    {"name": "Option_UiSize", "type": "string", "value": "HUD尺寸"},
+    {"name": "Option_UiSizeDefault", "type": "string", "value": "初始設定"},
+    {"name": "Option_UiSizeMedium", "type": "string", "value": "中"},
+    {"name": "Option_UiSizeSmall", "type": "string", "value": "小"},
+    {"name": "Option_Voice", "type": "string", "value": "語音音量"},
+    {
+      "name": "Option_VoiceChatInputVolume",
+      "type": "string",
+      "value": "語音聊天麥克風輸入"
+    },
+    {"name": "Option_VoiceChatMicType", "type": "string", "value": "麥克風方式"},
+    {
+      "name": "Option_VoiceChatOutputVolume",
+      "type": "string",
+      "value": "語音聊天揚聲器輸出"
+    },
+    {"name": "Option_VoiceChatTypeOpen", "type": "string", "value": "常駐開啟"},
+    {
+      "name": "Option_VoiceChatTypePushToTalk",
+      "type": "string",
+      "value": "按住發言"
+    },
+    {"name": "Option_VoiceLanguage_cn", "type": "string", "value": "中文語音"},
+    {"name": "Option_VoiceLanguage_en", "type": "string", "value": "英文語音"},
+    {"name": "Option_VoiceLanguage_ja", "type": "string", "value": "日文語音"},
+    {"name": "Option_VoiceLanguage_kr", "type": "string", "value": "韓文語音"},
+    {
+      "name": "PSN_SessionName",
+      "type": "string",
+      "value": "正在遊玩【%DIFFICULTY%】【%MISSIONNAME%】。"
+    },
+    {"name": "PadAssign_PushStart", "type": "string", "value": "請按下按鈕。"},
+    {"name": "Pause_ConfirmExit", "type": "string", "value": "將進行撤退。\n確定要繼續嗎？"},
+    {
+      "name": "Pause_ConfirmExitLobby",
+      "type": "string",
+      "value": "將返回大廳。\n確定要繼續嗎？"
+    },
+    {
+      "name": "Pause_ConfirmRetry",
+      "type": "string",
+      "value": "將再次出擊。\n確定要繼續嗎？"
+    },
+    {"name": "Pause_Exit", "type": "string", "value": "撤退"},
+    {"name": "Pause_ExitLobby", "type": "string", "value": "返回大廳"},
+    {"name": "Pause_Option", "type": "string", "value": "遊戲設定、操作說明書"},
+    {"name": "Pause_Retry", "type": "string", "value": "再次出擊"},
+    {"name": "Pause_Return", "type": "string", "value": "返回遊戲"},
+    {
+      "name": "PlayGoDownload_Invitation",
+      "type": "string",
+      "value": "在下載完成前\n無法遊玩線上任務模式。\n即將返回標題。"
+    },
+    {
+      "name": "PlayGoDownload_MissionSelect",
+      "type": "string",
+      "value": "在下載完成前\n無法選擇此任務。"
+    },
+    {
+      "name": "PlayGoDownload_ModeSelect",
+      "type": "string",
+      "value": "在下載完成前\n無法選擇此模式。"
+    },
+    {"name": "PlayerPanel_1P", "type": "string", "value": "1Player"},
+    {"name": "PlayerPanel_2P", "type": "string", "value": "2Player"},
+    {"name": "PlayerPanel_Armor", "type": "string", "value": "Armor"},
+    {"name": "PlayerPanel_SoldierType", "type": "string", "value": "兵種"},
+    {"name": "RoomCreate_Cancel", "type": "string", "value": "確定要返回大廳嗎？"},
+    {"name": "RoomCreate_Join", "type": "string", "value": "正在進入房間……"},
+    {"name": "RoomCreate_Title", "type": "string", "value": "開設房間"},
+    {"name": "RoomFilter_ContentsName", "type": "string", "value": "任務包"},
+    {"name": "RoomFilter_DLC", "type": "string", "value": "顯示所有任務類型"},
+    {"name": "RoomFilter_Default", "type": "string", "value": "未設定（%DEFAULT%）"},
+    {"name": "RoomFilter_DifficultyAll", "type": "string", "value": "顯示所有難度"},
+    {"name": "RoomFilter_Hide", "type": "string", "value": "不顯示"},
+    {"name": "RoomFilter_Language", "type": "string", "value": "在聊天時建議的語言"},
+    {"name": "RoomFilter_Loading", "type": "string", "value": "正在載入資料，\n請稍後……"},
+    {"name": "RoomFilter_MissionAll", "type": "string", "value": "顯示所有任務"},
+    {
+      "name": "RoomFilter_Mission_Range",
+      "type": "string",
+      "value": "包含任務%BEGIN%至%END%的範圍"
+    },
+    {"name": "RoomFilter_None", "type": "string", "value": "未設定"},
+    {"name": "RoomFilter_Show", "type": "string", "value": "顯示"},
+    {"name": "RoomFilter_ShowAll", "type": "string", "value": "皆顯示"},
+    {"name": "RoomFilter_Title_CHAT", "type": "string", "value": "允許聊天的房間"},
+    {
+      "name": "RoomFilter_Title_PassCode",
+      "type": "string",
+      "value": "設有通行碼的房間"
+    },
+    {"name": "RoomFilter_Title_UGC", "type": "string", "value": "簡易房間"},
+    {"name": "RoomFixedPhrase_Title", "type": "string", "value": "選擇房間固定句型"},
+    {
+      "name": "RoomInfo_PlatformHeader_EPIC",
+      "type": "string",
+      "value": "EPIC:"
+    },
+    {"name": "RoomInfo_PlatformHeader_PSN", "type": "string", "value": "PSN:"},
+    {
+      "name": "RoomInfo_PlatformHeader_STEAM",
+      "type": "string",
+      "value": "STEAM:"
+    },
+    {"name": "RoomSetting_Apply", "type": "string", "value": "套用設定"},
+    {
+      "name": "RoomSetting_Armor_Confirmation",
+      "type": "string",
+      "value": "設定裝甲值上限"
+    },
+    {"name": "RoomSetting_Cancel", "type": "string", "value": "確定要返回房間嗎？"},
+    {"name": "RoomSetting_Chat", "type": "string", "value": "聊天"},
+    {"name": "RoomSetting_ChatButton", "type": "string", "value": "設定允許／禁止聊天"},
+    {"name": "RoomSetting_ChatDisable", "type": "string", "value": "禁止"},
+    {"name": "RoomSetting_ChatDisableDlg", "type": "string", "value": "禁止"},
+    {"name": "RoomSetting_ChatEnable", "type": "string", "value": "允許"},
+    {"name": "RoomSetting_ChatEnableDlg", "type": "string", "value": "允許"},
+    {"name": "RoomSetting_ContentsName", "type": "string", "value": "遊玩的任務包"},
+    {"name": "RoomSetting_CreateRoom", "type": "string", "value": "開設房間"},
+    {"name": "RoomSetting_Difficulty", "type": "string", "value": "難度"},
+    {"name": "RoomSetting_FilterApply", "type": "string", "value": "以此條件尋找"},
+    {"name": "RoomSetting_FixedPhrase1", "type": "string", "value": "選擇固定句型"},
+    {"name": "RoomSetting_FixedPhrase2", "type": "string", "value": "選擇固定句型"},
+    {"name": "RoomSetting_FreeWord", "type": "string", "value": "自由輸入句型"},
+    {"name": "RoomSetting_Free_Descript", "type": "string", "value": "請自由輸入句型"},
+    {"name": "RoomSetting_Free_Title", "type": "string", "value": "自由輸入句型"},
+    {"name": "RoomSetting_HelthCap", "type": "string", "value": "裝甲值上限"},
+    {
+      "name": "RoomSetting_Language",
+      "type": "string",
+      "value": "在聊天時建議的語言設定（用於搜尋）"
+    },
+    {"name": "RoomSetting_Mission", "type": "string", "value": "任務"},
+    {
+      "name": "RoomSetting_ModeChangeAttn",
+      "type": "string",
+      "value": "變更遊玩的任務包後將反映至目前的房間，並載入保存資料。"
+    },
+    {"name": "RoomSetting_Name", "type": "string", "value": "輸入房間名稱"},
+    {"name": "RoomSetting_Name_Descript", "type": "string", "value": "請輸入房間名稱"},
+    {"name": "RoomSetting_Name_Title", "type": "string", "value": "輸入房間名稱"},
+    {"name": "RoomSetting_RoomType", "type": "string", "value": "房間種類"},
+    {"name": "RoomSetting_Title", "type": "string", "value": "房間設定"},
+    {"name": "RoomSetting_UGC", "type": "string", "value": "簡易房間"},
+    {"name": "RoomSetting_UGCButton", "type": "string", "value": "設定簡易房間的使用"},
+    {"name": "RoomSetting_UGCDisable", "type": "string", "value": "不使用"},
+    {"name": "RoomSetting_UGCEnable", "type": "string", "value": "使用"},
+    {"name": "RoomSetting_WeaponCap", "type": "string", "value": "武器等級上限"},
+    {
+      "name": "RoomSetting_Weapon_Confirmation",
+      "type": "string",
+      "value": "設定武器等級上限"
+    },
+    {"name": "RoomSetting_Weapon_No", "type": "string", "value": "無效"},
+    {"name": "RoomSetting_Weapon_Yes", "type": "string", "value": "有效"},
+    {"name": "RoomType_Everyone", "type": "string", "value": "任何人都可參加"},
+    {
+      "name": "RoomType_Everyone_Desc",
+      "type": "string",
+      "value": "普通的房間。\n將會顯示在大廳畫面，任何人都能參加。"
+    },
+    {
+      "name": "RoomType_InviteOnly_AnyOne",
+      "type": "string",
+      "value": "任何人都可參加"
+    },
+    {
+      "name": "RoomType_InviteOnly_AnyOne_Desc",
+      "type": "string",
+      "value": "說明文：任何成員的好友皆可參加"
+    },
+    {
+      "name": "RoomType_InviteOnly_Invite",
+      "type": "string",
+      "value": "必須要接到邀請才能參加"
+    },
+    {
+      "name": "RoomType_InviteOnly_Invite_Desc",
+      "type": "string",
+      "value": "說明文：必須要接到邀請才能參加"
+    },
+    {
+      "name": "RoomType_InviteOnly_LeaderFriends",
+      "type": "string",
+      "value": "僅供隊長的好友參加"
+    },
+    {
+      "name": "RoomType_InviteOnly_LeaderFriendsOfFriends",
+      "type": "string",
+      "value": "可供參加成員的好友參加"
+    },
+    {
+      "name": "RoomType_InviteOnly_LeaderFriendsOfFriends_Desc",
+      "type": "string",
+      "value": "說明：參加成員的好友可參加"
+    },
+    {
+      "name": "RoomType_InviteOnly_LeaderFriends_Desc",
+      "type": "string",
+      "value": "說明文：僅供隊長的好友參加"
+    },
+    {
+      "name": "RoomType_InviteOnly_SIE_Type2",
+      "type": "string",
+      "value": "%ROOM_TYPE%\n%INVITABLE_TYPE%"
+    },
+    {
+      "name": "RoomType_InviteOnly_Title",
+      "type": "string",
+      "value": "只限好友（詳情）"
+    },
+    {"name": "RoomType_LeaderFriend", "type": "string", "value": "僅限隊長好友／邀請"},
+    {
+      "name": "RoomType_LeaderFriendOfFriend",
+      "type": "string",
+      "value": "僅限參加成員的好友／邀請"
+    },
+    {
+      "name": "RoomType_LeaderFriendOfFriend_Desc",
+      "type": "string",
+      "value": "僅限參加成員的好友、\n邀請的玩家可參加的房間。\n不會顯示在大廳畫面中。"
+    },
+    {
+      "name": "RoomType_LeaderFriend_Desc",
+      "type": "string",
+      "value": "隊長的好友和邀請的玩家可參加的房間。\n不會顯示在大廳畫面中。"
+    },
+    {"name": "RoomType_NameOnly", "type": "string", "value": "只限搜尋房間名稱者"},
+    {
+      "name": "RoomType_NameOnly_Desc",
+      "type": "string",
+      "value": "只有透過「以房間名稱尋找」才能找到的房間。\n唯有使用「以房間名稱尋找」，才會顯示在大廳畫面中。"
+    },
+    {"name": "RoomType_NoOne", "type": "string", "value": "僅限邀請"},
+    {
+      "name": "RoomType_NoOne_Desc",
+      "type": "string",
+      "value": "收到邀請的玩家可參加的房間。\n不會顯示在大廳畫面中。"
+    },
+    {"name": "RoomType_PassCodeOnly", "type": "string", "value": "只限知道通行碼者"},
+    {
+      "name": "RoomType_PassCodeOnly_Desc",
+      "type": "string",
+      "value": "只有知道通行碼的人才能加入的房間。\n會顯示在大廳畫面，但需要通行碼才可參加。"
+    },
+    {"name": "Room_ArmorTitle", "type": "string", "value": "裝甲值"},
+    {
+      "name": "Room_Armor_Level_Limit",
+      "type": "string",
+      "value": "裝甲值上限：　%ARMOR_LEVEL%以下（%SOLDIERTYPE%）"
+    },
+    {"name": "Room_Armor_Level_NoLimit", "type": "string", "value": "裝甲值上限：　無"},
+    {"name": "Room_BeginGame", "type": "string", "value": "《出擊》"},
+    {"name": "Room_ClearRate", "type": "string", "value": "達成率"},
+    {"name": "Room_ClearRate_Percent", "type": "string", "value": "％"},
+    {"name": "Room_DifficultyName", "type": "string", "value": "Difficulty"},
+    {
+      "name": "Room_DoneCancel_NumCheck",
+      "type": "string",
+      "value": "由於玩家人數改變，已取消出擊準備。"
+    },
+    {
+      "name": "Room_EditChatBan",
+      "type": "string",
+      "value": "%INPUTWORD%\n將調整並顯示為以下內容。\n%PENCILWORD%\n　\n確定要進行設定嗎？"
+    },
+    {"name": "Room_EndGame", "type": "string", "value": "《歸返》"},
+    {"name": "Room_Equipment", "type": "string", "value": "選擇兵種武器"},
+    {
+      "name": "Room_Equipment_Error",
+      "type": "string",
+      "value": "%WEAPON_NAME%超過武器等級上限。\n請變更武器。"
+    },
+    {"name": "Room_Exit", "type": "string", "value": "退出房間"},
+    {"name": "Room_Exit_Confirmation", "type": "string", "value": "確定要退出房間嗎？"},
+    {"name": "Room_InputChat", "type": "string", "value": "輸入聊天"},
+    {
+      "name": "Room_InputChatBan",
+      "type": "string",
+      "value": "%INPUTWORD%\n將調整並顯示為以下內容。\n%PENCILWORD%\n　\n確定要傳送嗎？"
+    },
+    {"name": "Room_InputChatDesc", "type": "string", "value": "請輸入聊天內容。"},
+    {"name": "Room_Invitable", "type": "string", "value": "可發出邀請的玩家"},
+    {"name": "Room_Invitable_Leader", "type": "string", "value": "僅限隊長可發出邀請"},
+    {
+      "name": "Room_Invitable_Leader_Desc",
+      "type": "string",
+      "value": "隊長可邀請好友。\n可在「參加連線區」選擇「參加房間」或「要求參加」。"
+    },
+    {"name": "Room_Invitable_Member", "type": "string", "value": "參加成員皆可發出邀請"},
+    {
+      "name": "Room_Invitable_Member_Desc",
+      "type": "string",
+      "value": "參加的玩家可邀請好友。\n可在「參加連線區」選擇「參加房間」或要求「參加」。"
+    },
+    {"name": "Room_Invitable_NoOne", "type": "string", "value": "無人可發出邀請"},
+    {"name": "Room_Invitable_NoOne_Desc", "type": "string", "value": "無法邀請。"},
+    {"name": "Room_KickAsk", "type": "string", "value": "確定要強制這名玩家退出房間嗎？"},
+    {"name": "Room_Language", "type": "string", "value": "在聊天時建議的語言"},
+    {"name": "Room_LeaderChangeFailed", "type": "string", "value": "變更隊長失敗"},
+    {"name": "Room_LeaderChangedMe", "type": "string", "value": "被指名為隊長"},
+    {
+      "name": "Room_LeaderChangedOther",
+      "type": "string",
+      "value": "%LEADER_NAME%\n被指名為隊長"
+    },
+    {"name": "Room_LeaderChanging", "type": "string", "value": "正在變更隊長"},
+    {"name": "Room_MissionSelect", "type": "string", "value": "選擇任務"},
+    {"name": "Room_NeedPassCode", "type": "string", "value": "輸入通行碼"},
+    {"name": "Room_NominateLeader", "type": "string", "value": "指名隊長"},
+    {"name": "Room_Option", "type": "string", "value": "遊戲設定、操作說明書"},
+    {"name": "Room_PassCodeError", "type": "string", "value": "通行碼至少需要一個數字。"},
+    {
+      "name": "Room_PassCodeFullWidthUse",
+      "type": "string",
+      "value": "通行碼使用了全形文字。"
+    },
+    {"name": "Room_PassCodeSample", "type": "string", "value": "通行碼"},
+    {"name": "Room_ReadyWaiting", "type": "string", "value": "完成出擊準備"},
+    {"name": "Room_ReadyWaiting_Cancel", "type": "string", "value": "取消準備"},
+    {"name": "Room_RoomName", "type": "string", "value": "Room Name"},
+    {"name": "Room_Setting", "type": "string", "value": "房間設定"},
+    {"name": "Room_Status", "type": "string", "value": "確認戰歷"},
+    {"name": "Room_Title", "type": "string", "value": "房間"},
+    {"name": "Room_UserFriendEpic", "type": "string", "value": "Epic好友邀請"},
+    {
+      "name": "Room_UserFriendEpicAsk",
+      "type": "string",
+      "value": "是否要對【%TARGETNAME%】\n發送【Epic好友邀請】？"
+    },
+    {"name": "Room_UserKick", "type": "string", "value": "強制退房"},
+    {"name": "Room_UserRequestTag", "type": "string", "value": "顯示SteamID"},
+    {"name": "Room_UserVOICE_STATUS_OFF", "type": "string", "value": "停用"},
+    {"name": "Room_UserVOICE_STATUS_ON", "type": "string", "value": "啟用"},
+    {
+      "name": "Room_UserVoiceSwitch",
+      "type": "string",
+      "value": "語音設定：%VOICE_STATUS%"
+    },
+    {"name": "Room_WeaponLv", "type": "string", "value": "Lv%LEVEL%"},
+    {
+      "name": "Room_Weapon_Level_Limit",
+      "type": "string",
+      "value": "武器等級上限：　Lv%WEAPON_LEVEL%以下"
+    },
+    {
+      "name": "Room_Weapon_Level_NoLimit",
+      "type": "string",
+      "value": "武器等級上限：　無"
+    },
+    {
+      "name": "SYSTEMSAVEDATA_DETAIL",
+      "type": "string",
+      "value": "EDF6 System File."
+    },
+    {
+      "name": "SYSTEMSAVEDATA_SUBTITLE",
+      "type": "string",
+      "value": "地球防衛軍６　系統檔案"
+    },
+    {"name": "SaveDataTitle", "type": "string", "value": "地球防衛軍６"},
+    {
+      "name": "SearchLanguageDesc_cn",
+      "type": "string",
+      "value": "只有在聊天時的建議語言設定為「繁體中文」的房間才會顯示在大廳中。"
+    },
+    {
+      "name": "SearchLanguageDesc_en",
+      "type": "string",
+      "value": "只有在聊天時的建議語言設定為「英文」的房間才會顯示在大廳中。"
+    },
+    {
+      "name": "SearchLanguageDesc_ja",
+      "type": "string",
+      "value": "只有在聊天時的建議語言設定為「日文」的房間才會顯示在大廳中。"
+    },
+    {
+      "name": "SearchLanguageDesc_kr",
+      "type": "string",
+      "value": "只有在聊天時的建議語言設定為「韓文」的房間才會顯示在大廳中。"
+    },
+    {
+      "name": "SearchLanguageDesc_none",
+      "type": "string",
+      "value": "無論聊天時的建議語言是哪種語言，都會顯示在大廳中。"
+    },
+    {
+      "name": "SearchLanguageDesc_sc",
+      "type": "string",
+      "value": "只有在聊天時的建議語言設定為「簡體中文」的房間才會顯示在大廳中。"
+    },
+    {"name": "SoldierType_AirRaider", "type": "string", "value": "空襲兵"},
+    {
+      "name": "SoldierType_AirRaiderEng",
+      "type": "string",
+      "value": "Air Raider"
+    },
+    {
+      "name": "SoldierType_AirRaider_Info",
+      "type": "string",
+      "value": "帶有通訊裝備的戰術兵。任務是與空軍合作，傳達空襲座標。可請求爆擊機與砲艦機進行攻擊，毀滅敵人。另外還具有請求投落軍用載具的權限。\n\n※中級兵種。能發揮絕大的攻擊力，但有時也會陷入無法善用能力的處境。算是適合多人遊玩的兵種。請在稍微習慣遊戲後再進行選擇。"
+    },
+    {"name": "SoldierType_Fencer", "type": "string", "value": "劍兵"},
+    {"name": "SoldierType_FencerEng", "type": "string", "value": "Fencer"},
+    {
+      "name": "SoldierType_Fencer_Info",
+      "type": "string",
+      "value": "穿著外骨骼式強化服「動力裝甲」的重裝士兵。因為有動力裝甲而能裝備巨大的武器。左右兩臂還可各別持有不同的武器。\n\n※上級兵種。除了操作方法與其他兵種不同外，還得學習多種技巧。但熟悉後就能發揮十分強大的力量。"
+    },
+    {"name": "SoldierType_Ranger", "type": "string", "value": "突擊兵"},
+    {"name": "SoldierType_RangerEng", "type": "string", "value": "Ranger"},
+    {
+      "name": "SoldierType_Ranger_Info",
+      "type": "string",
+      "value": "精銳步兵。歷經無數嚴苛訓練的戰鬥專家。可操作多種武器，應對各式各樣的局面。另外還具備軍用載具的駕駛執照，可在戰場中駕駛。\n\n※最容易操作，並具有高度戰鬥力。初次遊玩時，建議先選突擊兵。"
+    },
+    {"name": "SoldierType_Title", "type": "string", "value": "選擇兵種"},
+    {"name": "SoldierType_WingDiver", "type": "string", "value": "飛翼潛行兵"},
+    {
+      "name": "SoldierType_WingDiverEng",
+      "type": "string",
+      "value": "Wing Diver"
+    },
+    {
+      "name": "SoldierType_WingDiver_Info",
+      "type": "string",
+      "value": "只有身穿飛行裝備的女性所組成的特殊部隊。為了實現輕量化不持有實彈武器，而是裝備最新型的光學兵器。具備所有兵種中最頂級的破壞力。\n\n※可高速移動，攻擊力也很強。但弱點是體力（裝甲值）低，防禦力也不高。"
+    },
+    {
+      "name": "StatusInfo_AirRaiderArmor",
+      "type": "string",
+      "value": "裝甲值（空襲兵）"
+    },
+    {
+      "name": "StatusInfo_AirRaiderEasyClearRatio",
+      "type": "string",
+      "value": "難度ＥＡＳＹ達成率（空襲兵）"
+    },
+    {
+      "name": "StatusInfo_AirRaiderHardClearRatio",
+      "type": "string",
+      "value": "難度ＨＡＲＤ達成率（空襲兵）"
+    },
+    {
+      "name": "StatusInfo_AirRaiderHardestClearRatio",
+      "type": "string",
+      "value": "難度ＨＡＲＤＥＳＴ達成率（空襲兵）"
+    },
+    {
+      "name": "StatusInfo_AirRaiderInfernoClearRatio",
+      "type": "string",
+      "value": "難度ＩＮＦＥＲＮＯ達成率（空襲兵）"
+    },
+    {
+      "name": "StatusInfo_AirRaiderNormalClearRatio",
+      "type": "string",
+      "value": "難度ＮＯＲＭＡＬ達成率（空襲兵）"
+    },
+    {
+      "name": "StatusInfo_AirRaiderPlayCount",
+      "type": "string",
+      "value": "空襲兵出擊次數"
+    },
+    {"name": "StatusInfo_AllClearRatio", "type": "string", "value": "綜合達成率"},
+    {
+      "name": "StatusInfo_AntHillKillCount",
+      "type": "string",
+      "value": "傳送裝置擊破數"
+    },
+    {"name": "StatusInfo_ArmorCount", "type": "string", "value": "裝甲道具取得數"},
+    {
+      "name": "StatusInfo_BerserkerAKillCount",
+      "type": "string",
+      "value": "機械生命體擊破數"
+    },
+    {
+      "name": "StatusInfo_BerserkerBKillCount",
+      "type": "string",
+      "value": "超級機械生命體擊破數"
+    },
+    {
+      "name": "StatusInfo_BerserkerCKillCount",
+      "type": "string",
+      "value": "高機動型機械生命體擊破數"
+    },
+    {
+      "name": "StatusInfo_BerserkerDKillCount",
+      "type": "string",
+      "value": "擲彈兵擊破數"
+    },
+    {
+      "name": "StatusInfo_BerserkerLargeKillCount",
+      "type": "string",
+      "value": "獨眼巨人擊破數"
+    },
+    {
+      "name": "StatusInfo_BerserkerMiddleBommerKillCount",
+      "type": "string",
+      "value": "大型擲彈兵擊破數"
+    },
+    {
+      "name": "StatusInfo_BerserkerMiddleKillCount",
+      "type": "string",
+      "value": "大型機械生命體擊破數"
+    },
+    {
+      "name": "StatusInfo_BigGiantSpiderKillCount",
+      "type": "string",
+      "value": "王擊破數"
+    },
+    {
+      "name": "StatusInfo_BigGreyBossKillCount",
+      "type": "string",
+      "value": "銀之人擊破數"
+    },
+    {
+      "name": "StatusInfo_Carrier1KillCount",
+      "type": "string",
+      "value": "傳送飛船擊破數"
+    },
+    {"name": "StatusInfo_Count", "type": "string", "value": "次"},
+    {
+      "name": "StatusInfo_DangoKillCount",
+      "type": "string",
+      "value": "侵略生物γ擊破數"
+    },
+    {"name": "StatusInfo_DeiroiKillCount", "type": "string", "value": "迪洛伊擊破數"},
+    {
+      "name": "StatusInfo_DragonAceKillCount",
+      "type": "string",
+      "value": "大型蝌蚪擊破數"
+    },
+    {"name": "StatusInfo_DragonKillCount", "type": "string", "value": "蝌蚪擊破數"},
+    {
+      "name": "StatusInfo_EasyClearRatio",
+      "type": "string",
+      "value": "難度ＥＡＳＹ達成率"
+    },
+    {"name": "StatusInfo_FencerArmor", "type": "string", "value": "裝甲值（劍兵）"},
+    {
+      "name": "StatusInfo_FencerEasyClearRatio",
+      "type": "string",
+      "value": "難度ＥＡＳＹ達成率（劍兵）"
+    },
+    {
+      "name": "StatusInfo_FencerHardClearRatio",
+      "type": "string",
+      "value": "難度ＨＡＲＤ達成率（劍兵）"
+    },
+    {
+      "name": "StatusInfo_FencerHardestClearRatio",
+      "type": "string",
+      "value": "難度ＨＡＲＤＥＳＴ達成率（劍兵）"
+    },
+    {
+      "name": "StatusInfo_FencerInfernoClearRatio",
+      "type": "string",
+      "value": "難度ＩＮＦＥＲＮＯ達成率（劍兵）"
+    },
+    {
+      "name": "StatusInfo_FencerNormalClearRatio",
+      "type": "string",
+      "value": "難度ＮＯＲＭＡＬ達成率（劍兵）"
+    },
+    {"name": "StatusInfo_FencerPlayCount", "type": "string", "value": "劍兵出擊次數"},
+    {
+      "name": "StatusInfo_FortressKillCount",
+      "type": "string",
+      "value": "前哨基地擊破數"
+    },
+    {"name": "StatusInfo_FrameCount", "type": "string", "value": "遊玩時間"},
+    {"name": "StatusInfo_FrogKillCount", "type": "string", "value": "異星殖民者擊破數"},
+    {
+      "name": "StatusInfo_GiantAntKillCount",
+      "type": "string",
+      "value": "侵略生物α擊破數"
+    },
+    {
+      "name": "StatusInfo_GiantAntQueenKillCount",
+      "type": "string",
+      "value": "母體怪物擊破數"
+    },
+    {
+      "name": "StatusInfo_GiantBeeKillCount",
+      "type": "string",
+      "value": "飛天型侵略生物擊破數"
+    },
+    {
+      "name": "StatusInfo_GiantBeeQueenKillCount",
+      "type": "string",
+      "value": "女王擊破數"
+    },
+    {
+      "name": "StatusInfo_GiantSpiderKillCount",
+      "type": "string",
+      "value": "侵略生物β擊破數"
+    },
+    {
+      "name": "StatusInfo_GoldUfoAceKillCount",
+      "type": "string",
+      "value": "紅色無人機擊破數"
+    },
+    {
+      "name": "StatusInfo_GoldUfoKillCount",
+      "type": "string",
+      "value": "無人機擊破數"
+    },
+    {"name": "StatusInfo_GreyKillCount", "type": "string", "value": "異星太空人擊破數"},
+    {
+      "name": "StatusInfo_HardClearRatio",
+      "type": "string",
+      "value": "難度ＨＡＲＤ達成率"
+    },
+    {
+      "name": "StatusInfo_HardestClearRatio",
+      "type": "string",
+      "value": "難度ＨＡＲＤＥＳＴ達成率"
+    },
+    {"name": "StatusInfo_HealDamage", "type": "string", "value": "回復量"},
+    {
+      "name": "StatusInfo_HornetNestKillCount",
+      "type": "string",
+      "value": "土巢擊破數"
+    },
+    {
+      "name": "StatusInfo_HornetNestSnallKillCount",
+      "type": "string",
+      "value": "小型土巢擊破數"
+    },
+    {
+      "name": "StatusInfo_ImperialUfoAceKillCount",
+      "type": "string",
+      "value": "高階無人機擊破數"
+    },
+    {
+      "name": "StatusInfo_ImperialUfoKillCount",
+      "type": "string",
+      "value": "第二類無人機擊破數"
+    },
+    {
+      "name": "StatusInfo_InfernoClearRatio",
+      "type": "string",
+      "value": "難度ＩＮＦＥＲＮＯ達成率"
+    },
+    {
+      "name": "StatusInfo_JormungandKillCount",
+      "type": "string",
+      "value": "星導者擊破數"
+    },
+    {
+      "name": "StatusInfo_MartianKillCount",
+      "type": "string",
+      "value": "庫魯魯擊破數"
+    },
+    {"name": "StatusInfo_MermanKillCount", "type": "string", "value": "斯庫拉擊破數"},
+    {
+      "name": "StatusInfo_Monster501KillCount",
+      "type": "string",
+      "value": "艾爾基努斯擊破數"
+    },
+    {
+      "name": "StatusInfo_Monster504KillCount",
+      "type": "string",
+      "value": "亞凱魯斯擊破數"
+    },
+    {
+      "name": "StatusInfo_MotherShipKillCount",
+      "type": "string",
+      "value": "母艦擊破數"
+    },
+    {
+      "name": "StatusInfo_NephilaKillCount",
+      "type": "string",
+      "value": "厄拉尼亞擊破數"
+    },
+    {
+      "name": "StatusInfo_NormalClearRatio",
+      "type": "string",
+      "value": "難度ＮＯＲＭＡＬ達成率"
+    },
+    {
+      "name": "StatusInfo_OfflinePlayCount",
+      "type": "string",
+      "value": "任務出擊次數"
+    },
+    {
+      "name": "StatusInfo_OnlinePlayCount",
+      "type": "string",
+      "value": "連線任務出擊次數"
+    },
+    {"name": "StatusInfo_PlayCount", "type": "string", "value": "遊戲開始次數"},
+    {
+      "name": "StatusInfo_RadonKillCount",
+      "type": "string",
+      "value": "賽壬／格勞科斯擊破數"
+    },
+    {"name": "StatusInfo_RangerArmor", "type": "string", "value": "裝甲值（突擊兵）"},
+    {
+      "name": "StatusInfo_RangerEasyClearRatio",
+      "type": "string",
+      "value": "難度ＥＡＳＹ達成率（突擊兵）"
+    },
+    {
+      "name": "StatusInfo_RangerHardClearRatio",
+      "type": "string",
+      "value": "難度ＨＡＲＤ達成率（突擊兵）"
+    },
+    {
+      "name": "StatusInfo_RangerHardestClearRatio",
+      "type": "string",
+      "value": "難度ＨＡＲＤＥＳＴ達成率（突擊兵）"
+    },
+    {
+      "name": "StatusInfo_RangerInfernoClearRatio",
+      "type": "string",
+      "value": "難度ＩＮＦＥＲＮＯ達成率（突擊兵）"
+    },
+    {
+      "name": "StatusInfo_RangerNormalClearRatio",
+      "type": "string",
+      "value": "難度ＮＯＲＭＡＬ達成率（突擊兵）"
+    },
+    {
+      "name": "StatusInfo_RangerPlayCount",
+      "type": "string",
+      "value": "突擊兵出擊次數"
+    },
+    {"name": "StatusInfo_RescueCount", "type": "string", "value": "救援次數"},
+    {
+      "name": "StatusInfo_RingMotherKillCount",
+      "type": "string",
+      "value": "圓環擊破數"
+    },
+    {
+      "name": "StatusInfo_ShellFishAceKillCount",
+      "type": "string",
+      "value": "高階涅加擊破數"
+    },
+    {
+      "name": "StatusInfo_ShellFishKillCount",
+      "type": "string",
+      "value": "涅加擊破數"
+    },
+    {
+      "name": "StatusInfo_ShieldBearerKillCount",
+      "type": "string",
+      "value": "防護者擊破數"
+    },
+    {
+      "name": "StatusInfo_SpinnerUfoAceKillCount",
+      "type": "string",
+      "value": "高級第三類無人機擊破數"
+    },
+    {
+      "name": "StatusInfo_SpinnerUfoKillCount",
+      "type": "string",
+      "value": "第三類無人機擊破數"
+    },
+    {
+      "name": "StatusInfo_SquidSmallKillCount",
+      "type": "string",
+      "value": "黑霾擊破數"
+    },
+    {
+      "name": "StatusInfo_TeleportionAnchorKillCount",
+      "type": "string",
+      "value": "傳送錨塔擊破數"
+    },
+    {
+      "name": "StatusInfo_TimeShipAnchorKillCount",
+      "type": "string",
+      "value": "尾型錨塔擊破數"
+    },
+    {
+      "name": "StatusInfo_VenusKillCount",
+      "type": "string",
+      "value": "海怪克拉肯擊破數"
+    },
+    {"name": "StatusInfo_WeaponCount", "type": "string", "value": "武器取得數"},
+    {"name": "StatusInfo_WeaponGetRatio", "type": "string", "value": "武器取得率"},
+    {
+      "name": "StatusInfo_WingDiverArmor",
+      "type": "string",
+      "value": "裝甲值（飛翼潛行兵）"
+    },
+    {
+      "name": "StatusInfo_WingDiverEasyClearRatio",
+      "type": "string",
+      "value": "難度ＥＡＳＹ達成率（飛翼潛行兵）"
+    },
+    {
+      "name": "StatusInfo_WingDiverHardClearRatio",
+      "type": "string",
+      "value": "難度ＨＡＲＤ達成率（飛翼潛行兵）"
+    },
+    {
+      "name": "StatusInfo_WingDiverHardestClearRatio",
+      "type": "string",
+      "value": "難度ＨＡＲＤＥＳＴ達成率（飛翼潛行兵）"
+    },
+    {
+      "name": "StatusInfo_WingDiverInfernoClearRatio",
+      "type": "string",
+      "value": "難度ＩＮＦＥＲＮＯ達成率（飛翼潛行兵）"
+    },
+    {
+      "name": "StatusInfo_WingDiverNormalClearRatio",
+      "type": "string",
+      "value": "難度ＮＯＲＭＡＬ達成率（飛翼潛行兵）"
+    },
+    {
+      "name": "StatusInfo_WingDiverPlayCount",
+      "type": "string",
+      "value": "飛翼潛行兵出擊次數"
+    },
+    {"name": "Status_TitleBar", "type": "string", "value": "確認戰歷"},
+    {
+      "name": "Sys_AutoSaveWarning",
+      "type": "string",
+      "value": "本遊戲支援自動保存。\n顯示以下畫面時，\n請勿關閉主機電源，\n以免造成保存資料損壞。"
+    },
+    {
+      "name": "Sys_ConfirmChangeScreenMode",
+      "type": "string",
+      "value": "是否要變更畫面模式？"
+    },
+    {
+      "name": "Sys_ConfirmChangeScreenModeText",
+      "type": "string",
+      "value": "如不操作將在%d秒後恢復原本的設定。"
+    },
+    {
+      "name": "Sys_Control_Description",
+      "type": "string",
+      "value": "<A>決定 <B>返回"
+    },
+    {
+      "name": "Sys_Control_Description_BrokenSlot",
+      "type": "string",
+      "value": "<Y>刪除"
+    },
+    {
+      "name": "Sys_Control_Description_Color",
+      "type": "string",
+      "value": "<A>決定 <B>返回 <Y>自訂顏色"
+    },
+    {
+      "name": "Sys_Control_Description_History",
+      "type": "string",
+      "value": "<B>返回 <RB/RT>捲動文字"
+    },
+    {
+      "name": "Sys_Control_Description_Manual",
+      "type": "string",
+      "value": "<B>返回 <RB/RT>捲動文字"
+    },
+    {
+      "name": "Sys_Control_Description_Mission",
+      "type": "string",
+      "value": "<A>決定 <B>返回 <Y>變換勳章"
+    },
+    {
+      "name": "Sys_Control_Description_MissionView",
+      "type": "string",
+      "value": "<B>返回 <Y>變換勳章"
+    },
+    {
+      "name": "Sys_Control_Description_Room",
+      "type": "string",
+      "value": "<A>決定 <Y>變換勳章"
+    },
+    {
+      "name": "Sys_Control_Description_Search",
+      "type": "string",
+      "value": "<A>決定 <B>返回 <X>刪除"
+    },
+    {
+      "name": "Sys_Control_Description_SlotSelect",
+      "type": "string",
+      "value": "<X>編輯名稱 <Y>刪除"
+    },
+    {
+      "name": "Sys_Control_Description_SoldierSelect",
+      "type": "string",
+      "value": "<A>決定 <B>返回 <Y>變換模型"
+    },
+    {
+      "name": "Sys_Control_Description_WeaponSelect",
+      "type": "string",
+      "value": "<A>決定 <B>返回 <RB/RT>捲動文字"
+    },
+    {"name": "Sys_Control_EnableOnly", "type": "string", "value": "<A>決定"},
+    {
+      "name": "Sys_Control_Keyboard_Description",
+      "type": "string",
+      "value": "Enter:決定 Esc:返回"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_BrokenSlot",
+      "type": "string",
+      "value": "Y:刪除"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_Color",
+      "type": "string",
+      "value": "Enter:決定 Esc:返回 Y:自訂顏色"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_History",
+      "type": "string",
+      "value": "Esc:返回 PgUp/PgDn:捲動文字"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_Manual",
+      "type": "string",
+      "value": "Esc:返回 PgUp/PgDn:捲動文字"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_Mission",
+      "type": "string",
+      "value": "Enter:決定 Esc:返回 Y:變換勳章"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_MissionView",
+      "type": "string",
+      "value": "Esc:返回 Y:變換勳章"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_Room",
+      "type": "string",
+      "value": "Enter:決定 Y:變換勳章"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_Search",
+      "type": "string",
+      "value": "Enter:決定 Esc:返回 X:刪除"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_SlotSelect",
+      "type": "string",
+      "value": "X:編輯名稱 Y:刪除"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_SoldierSelect",
+      "type": "string",
+      "value": "Enter:決定 Esc:返回 Y:變換模型"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Description_WeaponSelect",
+      "type": "string",
+      "value": "Enter:決定 Esc:返回 PgUp/PgDn:捲動文字"
+    },
+    {
+      "name": "Sys_Control_Keyboard_EnableOnly",
+      "type": "string",
+      "value": "Enter:決定"
+    },
+    {
+      "name": "Sys_Control_Keyboard_Next",
+      "type": "string",
+      "value": "Enter:繼續 PgUp/PgDn:捲動文字"
+    },
+    {
+      "name": "Sys_Control_Next",
+      "type": "string",
+      "value": "<A>繼續 <RB/RT>捲動文字"
+    },
+    {"name": "Sys_Detail", "type": "string", "value": "詳細內容"},
+    {"name": "Sys_Exit_Confirmation", "type": "string", "value": "確定要結束遊戲嗎？"},
+    {"name": "Sys_Exit_Game", "type": "string", "value": "即將結束遊戲。"},
+    {"name": "Sys_InviteAccepted", "type": "string", "value": "將參與遊戲。"},
+    {
+      "name": "Sys_InviteCancel",
+      "type": "string",
+      "value": "由於未持有需要的內容，\n即將中斷參加遊戲。"
+    },
+    {
+      "name": "Sys_InviteFailed",
+      "type": "string",
+      "value": "雖然收到邀請，\n但無法接收邀請資訊。\n即將中斷邀請處理。"
+    },
+    {
+      "name": "Sys_JoinGameAccepted",
+      "type": "string",
+      "value": "已接收參加遊戲的資訊。\n將參與遊戲。"
+    },
+    {
+      "name": "Sys_JoinGameCancel",
+      "type": "string",
+      "value": "已接收參加遊戲的資訊，\n但未持有需要的內容，\n即將中斷。"
+    },
+    {
+      "name": "Sys_JoinGameFailed",
+      "type": "string",
+      "value": "無法接收參加遊戲所需的資訊。\n即將中斷參加遊戲。"
+    },
+    {
+      "name": "Sys_LoadFailed_ToSlotSelect",
+      "type": "string",
+      "value": "載入保存資料失敗，\n將返回選擇欄位。"
+    },
+    {
+      "name": "Sys_LoadFailed_ToTitle",
+      "type": "string",
+      "value": "載入保存資料失敗，\n將返回標題。"
+    },
+    {"name": "Sys_No", "type": "string", "value": "否"},
+    {"name": "Sys_NormalReset", "type": "string", "value": "返回標題。"},
+    {"name": "Sys_Ok", "type": "string", "value": "OK"},
+    {"name": "Sys_PressButton", "type": "string", "value": "請按下○按鈕。"},
+    {"name": "Sys_Retry", "type": "string", "value": "重試"},
+    {
+      "name": "Sys_SaveError_Common",
+      "type": "string",
+      "value": "存檔失敗。\n是否要重試？"
+    },
+    {
+      "name": "Sys_SaveError_DirectoryNotExist",
+      "type": "string",
+      "value": "建立存檔用的目錄失敗。\n是否要重試？"
+    },
+    {
+      "name": "Sys_SaveError_NotEnoughSpace",
+      "type": "string",
+      "value": "可用容量不足，導致存檔失敗。\n是否要重試？"
+    },
+    {"name": "Sys_Scroll_Keyboard_LB", "type": "string", "value": "End"},
+    {"name": "Sys_Scroll_Keyboard_LT", "type": "string", "value": "Home"},
+    {"name": "Sys_Scroll_Keyboard_RB", "type": "string", "value": "PgDn"},
+    {"name": "Sys_Scroll_Keyboard_RT", "type": "string", "value": "PgUp"},
+    {"name": "Sys_Scroll_LB", "type": "string", "value": "LT"},
+    {"name": "Sys_Scroll_LT", "type": "string", "value": "LB"},
+    {"name": "Sys_Scroll_PS4Controller_LB", "type": "string", "value": "L2"},
+    {"name": "Sys_Scroll_PS4Controller_LT", "type": "string", "value": "L1"},
+    {"name": "Sys_Scroll_PS4Controller_RB", "type": "string", "value": "R2"},
+    {"name": "Sys_Scroll_PS4Controller_RT", "type": "string", "value": "R1"},
+    {"name": "Sys_Scroll_RB", "type": "string", "value": "RT"},
+    {"name": "Sys_Scroll_RT", "type": "string", "value": "RB"},
+    {
+      "name": "Sys_Scroll_SwitchProController_LB",
+      "type": "string",
+      "value": "ZL"
+    },
+    {
+      "name": "Sys_Scroll_SwitchProController_LT",
+      "type": "string",
+      "value": "L"
+    },
+    {
+      "name": "Sys_Scroll_SwitchProController_RB",
+      "type": "string",
+      "value": "ZR"
+    },
+    {
+      "name": "Sys_Scroll_SwitchProController_RT",
+      "type": "string",
+      "value": "R"
+    },
+    {
+      "name": "Sys_UnlockArmorWeaponLimit",
+      "type": "string",
+      "value": "可解除\n裝甲值上限與武器等級上限的設定。"
+    },
+    {"name": "Sys_UseGamepad", "type": "string", "value": "使用遊戲手把開始遊戲。"},
+    {"name": "Sys_UseKeyboard", "type": "string", "value": "使用鍵盤和滑鼠開始遊戲。"},
+    {
+      "name": "Sys_Warning_DeviceError_Caption",
+      "type": "string",
+      "value": "DeviceError"
+    },
+    {
+      "name": "Sys_Warning_DeviceError_Text",
+      "type": "string",
+      "value": "DeviceError 0x%x"
+    },
+    {"name": "Sys_Yes", "type": "string", "value": "是"},
+    {"name": "SystemOption_AntiAlias", "type": "string", "value": "反鋸齒"},
+    {"name": "SystemOption_DisplayMode", "type": "string", "value": "顯示模式"},
+    {
+      "name": "SystemOption_DisplayMode_Borderless",
+      "type": "string",
+      "value": "無邊框視窗"
+    },
+    {
+      "name": "SystemOption_DisplayMode_FullScreen",
+      "type": "string",
+      "value": "全螢幕"
+    },
+    {
+      "name": "SystemOption_DisplayMode_Window",
+      "type": "string",
+      "value": "視窗模式"
+    },
+    {"name": "SystemOption_DisplaySetting", "type": "string", "value": "畫面設定"},
+    {"name": "SystemOption_LetterBox", "type": "string", "value": "黑邊"},
+    {"name": "SystemOption_Resolution", "type": "string", "value": "解析度"},
+    {"name": "SystemOption_Shadow", "type": "string", "value": "陰影"},
+    {"name": "SystemOption_TextureLevel", "type": "string", "value": "各向異性過濾"},
+    {"name": "SystemOption_TextureLevel1", "type": "string", "value": "OFF"},
+    {"name": "SystemOption_TextureLevel2", "type": "string", "value": "2x"},
+    {"name": "SystemOption_TextureLevel3", "type": "string", "value": "4x"},
+    {"name": "SystemOption_TextureLevel4", "type": "string", "value": "8x"},
+    {"name": "SystemOption_TextureLevel5", "type": "string", "value": "16x"},
+    {"name": "SystemOption_TitleBar", "type": "string", "value": "系統設定"},
+    {
+      "name": "Title_Licence",
+      "type": "string",
+      "value": "©2024 SANDLOT ©2024 D3PUBLISHER"
+    },
+    {
+      "name": "Title_Licence_US_EUR",
+      "type": "string",
+      "value": "©2024 SANDLOT ©2024 D3PUBLISHER"
+    },
+    {
+      "name": "TransferSaveDataFromPS4_Comfirm",
+      "type": "string",
+      "value": "找到PS4版EDF6的保存資料。\n是否要繼承？"
+    },
+    {"name": "TransferSaveDataFromPS4_Done", "type": "string", "value": "繼承完畢"},
+    {
+      "name": "TransferSaveDataFromPS4_Failure",
+      "type": "string",
+      "value": "繼承失敗"
+    },
+    {
+      "name": "TransferSaveDataFromPS4_Progress",
+      "type": "string",
+      "value": "正在繼承"
+    },
+    {"name": "WeaponSel_SubTitle", "type": "string", "value": "選擇武器"},
+    {"name": "Weapon_AssaultRifle", "type": "string", "value": "突擊步鎗"},
+    {"name": "Weapon_Engineer_Bomb", "type": "string", "value": "黏彈鎗"},
+    {
+      "name": "Weapon_Engineer_Call_Attacker",
+      "type": "string",
+      "value": "請求─爆擊機"
+    },
+    {
+      "name": "Weapon_Engineer_Call_Cannon",
+      "type": "string",
+      "value": "請求─砲兵隊"
+    },
+    {
+      "name": "Weapon_Engineer_Call_Gunship",
+      "type": "string",
+      "value": "請求─砲艦機"
+    },
+    {
+      "name": "Weapon_Engineer_Call_Missile",
+      "type": "string",
+      "value": "請求─飛彈"
+    },
+    {
+      "name": "Weapon_Engineer_Call_Satellite",
+      "type": "string",
+      "value": "請求─衛星"
+    },
+    {"name": "Weapon_Engineer_Cannon", "type": "string", "value": "設置武器"},
+    {
+      "name": "Weapon_Engineer_CounterDrone",
+      "type": "string",
+      "value": "自律型飛行器"
+    },
+    {"name": "Weapon_Engineer_Lockon", "type": "string", "value": "導引裝置"},
+    {
+      "name": "Weapon_Engineer_ShootingDrone",
+      "type": "string",
+      "value": "射擊型膠囊士兵"
+    },
+    {"name": "Weapon_Engineer_Special", "type": "string", "value": "特殊"},
+    {"name": "Weapon_Engineer_Support", "type": "string", "value": "支援裝置"},
+    {"name": "Weapon_Engineer_SupportBomb", "type": "string", "value": "機械化炸彈"},
+    {
+      "name": "Weapon_Engineer_SupportDrone",
+      "type": "string",
+      "value": "護衛型膠囊士兵"
+    },
+    {
+      "name": "Weapon_Engineer_TraceDrone",
+      "type": "string",
+      "value": "追隨型膠囊士兵"
+    },
+    {"name": "Weapon_Engineer_Vehicle1", "type": "string", "value": "車輛"},
+    {"name": "Weapon_Engineer_Vehicle2", "type": "string", "value": "戰車"},
+    {"name": "Weapon_Engineer_Vehicle3", "type": "string", "value": "直升機"},
+    {"name": "Weapon_Engineer_Vehicle4", "type": "string", "value": "戰鬥機體"},
+    {"name": "Weapon_Engineer_Vehicle5", "type": "string", "value": "特殊武器"},
+    {"name": "Weapon_Grenade", "type": "string", "value": "榴彈"},
+    {"name": "Weapon_Heavy_Cannon", "type": "string", "value": "大砲"},
+    {"name": "Weapon_Heavy_Homing", "type": "string", "value": "飛彈發射器"},
+    {"name": "Weapon_Heavy_Middle", "type": "string", "value": "機砲"},
+    {"name": "Weapon_Heavy_Sheild", "type": "string", "value": "盾"},
+    {"name": "Weapon_Heavy_ShortHammer", "type": "string", "value": "近身─砍"},
+    {"name": "Weapon_Heavy_ShortPile", "type": "string", "value": "近身─刺"},
+    {
+      "name": "Weapon_Heavy_Support_Actuater",
+      "type": "string",
+      "value": "強化裝甲"
+    },
+    {"name": "Weapon_Heavy_Support_Aiming", "type": "string", "value": "強化砲擊"},
+    {
+      "name": "Weapon_Heavy_Support_Booster",
+      "type": "string",
+      "value": "強化噴射器"
+    },
+    {"name": "Weapon_Heavy_Support_Shield", "type": "string", "value": "強化護盾"},
+    {"name": "Weapon_MissleLauncher", "type": "string", "value": "飛彈發射器"},
+    {"name": "Weapon_Pale_EnergyCore", "type": "string", "value": "電漿核心"},
+    {"name": "Weapon_Pale_Explosive", "type": "string", "value": "範圍攻擊武器"},
+    {"name": "Weapon_Pale_Homing", "type": "string", "value": "追蹤武器"},
+    {"name": "Weapon_Pale_Long", "type": "string", "value": "遠距離"},
+    {"name": "Weapon_Pale_MiddleBeam", "type": "string", "value": "中距離─脈衝武器"},
+    {"name": "Weapon_Pale_MiddleLaser", "type": "string", "value": "中距離─動力武器"},
+    {
+      "name": "Weapon_Pale_MiddleThunder",
+      "type": "string",
+      "value": "中距離─電擊武器"
+    },
+    {"name": "Weapon_Pale_Short", "type": "string", "value": "近距離"},
+    {"name": "Weapon_Pale_SupportCannon", "type": "string", "value": "加農砲"},
+    {"name": "Weapon_Pale_SupportGrenade", "type": "string", "value": "威力榴彈"},
+    {"name": "Weapon_Pale_SupportHorming", "type": "string", "value": "導引兵器"},
+    {"name": "Weapon_Pale_SupportShield", "type": "string", "value": "護盾"},
+    {"name": "Weapon_Pale_SupportShort", "type": "string", "value": "光刃"},
+    {"name": "Weapon_Pale_SupportSpecial", "type": "string", "value": "超級武器"},
+    {"name": "Weapon_Pale_SupportTrap", "type": "string", "value": "陷阱"},
+    {"name": "Weapon_Ranger_Vehicle1", "type": "string", "value": "車輛"},
+    {"name": "Weapon_Ranger_Vehicle2", "type": "string", "value": "直升機"},
+    {"name": "Weapon_Ranger_Vehicle3", "type": "string", "value": "機車"},
+    {"name": "Weapon_RocketLauncher", "type": "string", "value": "火箭彈發射器"},
+    {"name": "Weapon_Shotgun", "type": "string", "value": "散彈鎗"},
+    {"name": "Weapon_Slot1", "type": "string", "value": "武器１"},
+    {"name": "Weapon_Slot1L", "type": "string", "value": "武器１─左手"},
+    {"name": "Weapon_Slot1R", "type": "string", "value": "武器１─右手"},
+    {"name": "Weapon_Slot2", "type": "string", "value": "武器２"},
+    {"name": "Weapon_Slot2L", "type": "string", "value": "武器２─左手"},
+    {"name": "Weapon_Slot2R", "type": "string", "value": "武器２─右手"},
+    {"name": "Weapon_Slot3", "type": "string", "value": "武器３"},
+    {"name": "Weapon_SlotAirRaiderSupport", "type": "string", "value": "背包"},
+    {"name": "Weapon_SlotFencerSupport", "type": "string", "value": "強化零件"},
+    {"name": "Weapon_SlotPaleSupport1", "type": "string", "value": "電漿核心"},
+    {"name": "Weapon_SlotPaleSupport2", "type": "string", "value": "獨立運作裝備"},
+    {"name": "Weapon_SlotSupport1", "type": "string", "value": "特殊裝備"},
+    {"name": "Weapon_SlotSupport2", "type": "string", "value": "背包"},
+    {"name": "Weapon_SlotVehicle", "type": "string", "value": "載具"},
+    {"name": "Weapon_SniperRifle", "type": "string", "value": "狙擊步鎗"},
+    {"name": "Weapon_Special", "type": "string", "value": "特殊"},
+    {"name": "Weapon_Support1", "type": "string", "value": "輔助裝備"},
+    {"name": "Weapon_SupportGrenade", "type": "string", "value": "手榴彈"},
+    {"name": "Weapon_SupportGrenade2", "type": "string", "value": "特殊投擲彈"},
+    {"name": "Weapon_SupportPlaceBomb", "type": "string", "value": "炸彈‧陷阱"},
+    {"name": "Weapon_SupportPlaceGun", "type": "string", "value": "自動砲台"}
+  ]
+}
