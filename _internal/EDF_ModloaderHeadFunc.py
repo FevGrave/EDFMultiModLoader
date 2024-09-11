@@ -10,6 +10,23 @@ from tkinter import messagebox
 import webbrowser
 import zipfile
 
+settings_file = "settings.json"
+
+def load_settings():
+    """Load settings from a JSON file."""
+    if os.path.exists(settings_file):
+        with open(settings_file, 'r') as file:
+            return json.load(file)
+    # Default settings if the file doesn't exist
+    return {"edf6_platform": "steam"}  # Default to Steam
+
+def save_settings(settings):
+    """Save settings to a JSON file."""
+    with open(settings_file, 'w') as file:
+        json.dump(settings, file, indent=4)
+
+settings = load_settings()
+
 # Set the global variable for the script directory
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__ if '__file__' in globals() else sys.executable))
 
@@ -85,14 +102,24 @@ def open_save_folder(error_msg, game_key=None):
     except Exception as e:
         error_msg(f"Failed to open save folder: {str(e)}")
 
-def launch_game(app_id, error_msg):
+def launch_game(app_ids, error_msg):
     try:
-        # Logic to launch the selected EDF game via Steam
-        steam_command = f"steam://run/{app_id}"
-        subprocess.run(["start", steam_command], shell=True)
-        error_msg(f"Launching EDF game with App ID: {app_id}")
+        # Reload settings to ensure the latest platform choice is used
+        current_settings = load_settings()  # Reload settings from the file
+        current_platform = current_settings.get("edf6_platform", "steam")  # Get the current platform choice
+        
+        if current_platform == "steam" and app_ids[0].isdigit():  # Launch via Steam
+            steam_command = f"steam://run/{app_ids[0]}"
+            subprocess.run(["start", steam_command], shell=True)
+            error_msg(f"Launching EDF game with Steam App ID: {app_ids[0]}")
+        elif current_platform == "epic" and len(app_ids) > 1:  # Launch via Epic Games Store
+            epic_command = f"com.epicgames.launcher://apps/{app_ids[1]}?action=launch&silent=true"
+            subprocess.run(["start", epic_command], shell=True)
+            error_msg(f"Launching EDF game with Epic Games Store App ID: {app_ids[1]}")
+        else:
+            error_msg("Failed to determine the platform or App ID.")
     except Exception as e:
-        error_msg(f"Failed to launch EDF game with App ID {app_id}: {str(e)}")
+        error_msg(f"Failed to launch EDF game with App IDs {app_ids}: {str(e)}")
 
 def toggle_modloader_status(error_msg):
     try:
@@ -107,11 +134,16 @@ def toggle_modloader_status(error_msg):
         error_msg(f"Failed to toggle modloader status: {str(e)}")
 
 def get_modloader_status():
-    # Logic to get the current modloader status
-    if os.path.exists(modloader_status_file):
+    modloader_path = modloader_status_file  # Path to the modloader file (adjust path if necessary)
+    disabled_modloader_path = modloader_path + ".disabled"  # Path to the disabled modloader file
+
+    # Check for the presence of the modloader or its disabled counterpart
+    if os.path.exists(modloader_path):
         return "Enabled"
-    else:
+    elif os.path.exists(disabled_modloader_path):
         return "Disabled"
+    else:
+        return "Missing"  # Modloader file is not found
 
 def show_error(error_msg):
     # Logic to display an error message
@@ -163,7 +195,7 @@ def show_help(error_msg):
         # Logic to show help documentation by launching a web link
         help_url = "https://github.com/KCreator/Earth-Defence-Force-Documentation/wiki"
         webbrowser.open(help_url)
-        error_msg(f"Launching help documentation: {help_url}")
+        error_msg(f"Launching mod documentation: {help_url}")
     except Exception as e:
         error_msg(f"Failed to launch help documentation: {str(e)}")
 
@@ -196,21 +228,23 @@ def download_and_extract_zip(zip_url, zip_name, extract_to, error_msg):
     except Exception as e:
         error_msg(f"An unexpected error occurred while processing {zip_name}: {str(e)}")
 
-def check_for_specific_exe_files(directory, error_msg):
+def check_for_specific_exe_files(directory, error_msg, found_executables=set()):
     """Check for specific .exe files in the specified directory and its subdirectories."""
-    specific_exes = ["EDF41.exe", "EDF5.exe", "EDF6.exe"]
-    found_exes = []
+    specific_exes = {"EDF41.exe", "EDF5.exe", "EDF6.exe"}  # Using a set for faster lookups
+    new_found_exes = []
 
     for root, dirs, files in os.walk(directory):
         for file in files:
-            if file in specific_exes:
-                found_exes.append(os.path.join(root, file))
+            if file in specific_exes and file not in found_executables:
+                exe_path = os.path.join(root, file)
+                new_found_exes.append(file)  # Append only the filename
+                found_executables.add(file)  # Mark this executable as found
     
-    if found_exes:
-        for exe_file in found_exes:
-            error_msg(f"Found executable: {exe_file}")
-    else:
-        error_msg("No specific executables (EDF41.exe, EDF5.exe, EDF6.exe) found in the extracted contents.")
+    if new_found_exes:
+        for exe_file in new_found_exes:
+            error_msg(f"Found executable: {exe_file}")  # Print only the filename
+    elif not found_executables:
+        error_msg("No specific executables (EDF41.exe, EDF5.exe, EDF6.exe) found in the current directory.")
 
 #====================================================================================================
 # MODS

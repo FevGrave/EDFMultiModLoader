@@ -9,7 +9,7 @@ a = Analysis(
         ('EDF_ModloaderHeadFunc.py', '.'), 
         ('ConfigManifestUninstaller.py', '.'), 
         ('ImageResources.py', '.'), 
-        ('page_bg_raw.jpg', '.'), 
+        ('images/*', 'images'),
         ('Icon_256.ico', '.')
     ],
     hiddenimports=[],
@@ -38,7 +38,6 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['Icon_256.ico'],
 )
 coll = COLLECT(
     exe,

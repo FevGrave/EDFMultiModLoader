@@ -2,16 +2,25 @@ import os
 import shutil
 import json
 import glob
+# List of folders that should never be removed
+protected_folders = [
+    "ADDONSTEAM", "BAT", "DEBUG", "DEFAULTPACKAGE", "DisabledPatches", "EDF 6 MOD SETTINGS MAKER", 
+    "EFFECT", "ETC", "HUD", "MAP", "MENUOBJECT", "MISSION", "NETWORK", "OBJECT", 
+    "Patches", "PC", "Plugins", "SHADER", "SOUND", "TOOLS", "UI", "WEAPON"
+]
 
 def remove_files_and_folders(manifest, base_path):
     for key, value in manifest.items():
         full_path = os.path.normpath(os.path.join(base_path, key))
-
         if isinstance(value, dict):
-            # Handle the case where there are separate "Folders" and "Files" entries
+            # Handle folders
             if 'Folders' in value:
                 for folder in value['Folders']:
                     folder_path = os.path.normpath(os.path.join(full_path, folder))
+                    # Skip protected folders
+                    if folder in protected_folders:
+                        continue
+                    # Attempt to remove non-protected folders
                     if os.path.isdir(folder_path):
                         try:
                             shutil.rmtree(folder_path)
@@ -21,6 +30,7 @@ def remove_files_and_folders(manifest, base_path):
                     else:
                         print(f"Folder does not exist: {folder_path}")
 
+            # Handle files
             if 'Files' in value:
                 for file in value['Files']:
                     file_path = os.path.normpath(os.path.join(full_path, file))
@@ -33,7 +43,7 @@ def remove_files_and_folders(manifest, base_path):
                     else:
                         print(f"File does not exist: {file_path}")
 
-            # Recursively handle subfolders or sub-items in the manifest
+            # Recursively handle subfolders or sub-items
             for sub_key, sub_value in value.items():
                 if sub_key not in ['Folders', 'Files']:
                     sub_full_path = os.path.normpath(os.path.join(full_path, sub_key))

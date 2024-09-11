@@ -1,50 +1,109 @@
 import os, sys, webbrowser, requests, shutil, tkinter as tk, EDF_ModloaderHeadFunc as funcs, ConfigManifestUninstaller as uninstaller
 import tkinter.filedialog as filedialog
-from ImageResources import set_taskbar_image, set_titlebar_image
 from PIL import Image, ImageTk
+from ImageResources import set_icons, bg_image_path
+from EDF_ModloaderHeadFunc import load_settings, save_settings, settings  # Import the updated functions
+
 '''Python 3.10.1 Build
-pyinstaller.exe .\EDF_ModloaderHead_B\EarthDefenseForceModloaderHead.py
+pyinstaller.exe --noconfirm .\EDF_ModloaderHead_B\EarthDefenseForceModloaderHead.py
 '''
 
 def get_version():
-    return " --- V 0.0.3RC"
+    return "0.0.4-RC"
 
-# Define functions to return window width and height
+# Define functions to return window width, height, font, and simplify the style formats into DEFs
 def width():
     return 675
 
 def height():
     return 920
 
+# Load settings once at the start to get the current colors
+settings = load_settings()  # Make sure this loads your settings including colors
+
 def ColorBG():
-    return "#000000"
+    return settings.get("colors", {}).get("ColorBG", "#000000")  # Default to black if not found
 
 def CColorBG():
-    return "#010e70"
+    return settings.get("colors", {}).get("CColorBG", "#010e70")  # Default to dark blue
 
 def TextColor():
-    return "#B3FF00"
+    return settings.get("colors", {}).get("TextColor", "#B3FF00")  # Default to Lime green
 
 def aTextColor():
-    return "#ffffff"
+    return settings.get("colors", {}).get("aTextColor", "#ffffff")  # Default to white
 
 def bgY():
     return"#EDFEDF"
 
+global_font = ("AR UDJingXiHeiB5", 10)
+global_fill_color = TextColor()
+
+def get_button_style(command=None):
+    """Returns common style options for buttons with an optional command."""
+    style = {
+        'font': global_font,
+        'bg': ColorBG(),
+        'fg': TextColor(),
+        'activebackground': CColorBG(),
+        'activeforeground': aTextColor()
+    }
+    if command:
+        style['command'] = command
+    return style
+
+def get_label_style():
+    """Returns common style options for labels."""
+    return {
+        'font': global_font,
+        'bg': ColorBG(),
+        'fg': TextColor(),
+        'activebackground': CColorBG(),
+        'activeforeground': aTextColor()
+    }
+
+def get_fill_color_style():
+    """Returns common style options including global_fill_color."""
+    return {
+        'fill': global_fill_color,
+        'font': global_font
+    }
+
+def draw_centered_text_with_bg(canvas, x, y, text, fill_color, bg_color, **style):
+    # Create the text with centered alignment
+    text_id = canvas.create_text(x, y, text=text, fill=fill_color, justify="center", **style)
+
+    # Get bounding box coordinates of the created text (x1, y1, x2, y2)
+    bbox = canvas.bbox(text_id)
+
+    # Create a rectangle using the text's bounding box with added padding
+    padding = 10
+    rect_id = canvas.create_rectangle(
+        bbox[0] - padding, bbox[1] - padding, bbox[2] + padding, bbox[3] + padding,
+        fill=bg_color, outline=""
+    )
+
+    # Lower the rectangle to ensure it is behind the text
+    canvas.tag_lower(rect_id, text_id)
+
+labels_and_buttons = []
+
 current_dir = os.path.dirname(os.path.abspath(__file__ if '__file__' in globals() else sys.executable))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# Determine the game based on the directory
+
+# Determine the game based on the directory and Steam launch
 GAME_FOLDERS = {
-    "EARTH DEFENSE FORCE 4.1": "410320",
-    "EARTH DEFENSE FORCE 5": "1007040",
-    "EARTH DEFENSE FORCE 6": "2291060"
+    "EARTH DEFENSE FORCE 4.1": ["410320"],
+    "EARTH DEFENSE FORCE 5": ["1007040"],
+    "EARTH DEFENSE FORCE 6": ["2291060", "129839"] # [Steam ID, Epic ID]
 }
 # Grouped social media links
 social_media_groups = {
     "FevGrave's socials": [
         ("X", "https://x.com/FevGrave"),
         ("Reddit", "https://www.reddit.com/user/FevGrave/"),
-        ("Some how this opens the current host DIR? BUT IS A FEATURE", "")
+        ("Source Code", "https://github.com/FevGrave/EDFMultiModLoader"),
+        ("This opens the current directory—it's intentional.", "")
     ],
     "Official EDF Channel's socials": [
         ("Official EDF EN on X", "https://x.com/EDF_OFFICIAL_EN"),
@@ -62,30 +121,21 @@ for folder in GAME_FOLDERS.keys():
 
 # Initialize the main window
 root = tk.Tk()
-root.title("Earth Defense Force: Multi-Mod-Loader" + get_version())
+root.title("Earth Defense Force: Multi-Mod-Loader --- V " + get_version())
 root.geometry(f"{width()}x{height()}")  # Set the size of the window
 root.resizable(False, False) # LOCKED WINDOW SIZE
 
 # Set the taskbar and title bar images
-icon_path = os.path.join(BASE_DIR, 'Icon_256.ico')
-if os.path.exists(icon_path):
-    set_taskbar_image(root, icon_path)
-    set_titlebar_image(root, icon_path)
-else:
-    print(f"Icon file not found: {icon_path}")
-
-# Define the global font and fill color
-global_font = ("AR UDJingXiHeiB5", 10)
-global_fill_color = TextColor()
+set_icons(root, BASE_DIR)
 
 # Load the background image
-bg_image_path = os.path.join(BASE_DIR, 'page_bg_raw.jpg') # 'DebugBG.jpg' 'page_bg_raw.jpg'
 if os.path.exists(bg_image_path):
     bg_image = Image.open(bg_image_path)
     bg_photo = ImageTk.PhotoImage(bg_image)
 else:
     print(f"Background image not found: {bg_image_path}")
     bg_photo = None
+
 
 # Create a canvas and set the background image
 canvas = tk.Canvas(root, width=width(), height=height())
@@ -99,13 +149,13 @@ def open_link(url):
 
 # Define functions to be passed to EDF_ModloaderHeadFunc.py
 def check_for_update():
-    clear_error() 
+    clear_error()
     try:
         # GitHub API URL to fetch the latest release information
-        release_api_url = 'https://api.github.com/repos/BlueAmulet/EDFModLoader/releases/latest'
+        ml_release_api_url = 'https://api.github.com/repos/BlueAmulet/EDFModLoader/releases/latest'
         
         # Send request to GitHub API
-        response = requests.get(release_api_url)
+        response = requests.get(ml_release_api_url)
         response.raise_for_status()  # Raise an HTTPError for bad responses
         data = response.json()
         
@@ -152,6 +202,9 @@ def check_for_update():
         else:
             show_error("No valid game selected or recognized.")
 
+        # Final message confirming the update
+        show_error(f"Updated to version {latest_version} completed.")
+
         # Rename "Mods\ExtraPatches" to "DisabledPatches" if it exists
         extra_patches_dir = os.path.join(extract_to, "Mods", "ExtraPatches")
         disabled_patches_dir = os.path.join(extract_to, "Mods", "DisabledPatches")
@@ -160,12 +213,26 @@ def check_for_update():
             if os.path.exists(disabled_patches_dir):
                 shutil.rmtree(disabled_patches_dir)
             os.rename(extra_patches_dir, disabled_patches_dir)
-            show_error('Renamed "ExtraPatches" to "DisabledPatches".')
+            show_error('Renamed Folder within "Mods\ExtraPatches" to "DisabledPatches".')
         else:
             show_error('"ExtraPatches" folder not found.')
 
-        # Final message confirming the update
-        show_error(f"Update to version {latest_version} completed.")
+        # Check current version against GitHub's latest
+        current_version = get_version().strip()
+        gui_release_api_url = 'https://api.github.com/repos/FevGrave/EDFMultiModLoader/releases/latest'
+        
+        response = requests.get(gui_release_api_url)
+        response.raise_for_status()
+        data = response.json()
+        latest_version = data.get('tag_name', '0.0.0').strip()
+
+        # Version check
+        if latest_version != current_version:
+            show_error(f"Update available: {latest_version} (current: {current_version})")
+        else:
+            show_error("You are using the latest version.")
+        
+
     except requests.exceptions.RequestException as e:
         show_error(f"Failed to check for updates: {str(e)}")
     except Exception as e:
@@ -231,13 +298,6 @@ def show_help():
     except Exception as e:
         show_error(str(e))
 
-def launch_game(option):
-    clear_error() 
-    try:
-        funcs.launch_game(option, show_error)
-    except Exception as e:
-        show_error(str(e))
-
 def toggle_modloader_status():
     clear_error() 
     try:
@@ -271,49 +331,76 @@ def update_modloader_status():
     except Exception as e:
         show_error(str(e))
 
+def launch_game(option):
+    clear_error() 
+    try:
+        funcs.launch_game(option, show_error)
+    except Exception as e:
+        show_error(str(e))
+
+# Initialize settings and load the current platform choice
+settings = load_settings()
+platform_choice = settings.get("edf6_platform", "steam")
+
+def toggle_platform():
+    """Toggle between Steam and Epic for EDF6 and save the choice."""
+    global platform_choice  # Ensure global scope to modify the variable
+    platform_choice = "epic" if platform_choice == "steam" else "steam"
+    settings["edf6_platform"] = platform_choice
+    save_settings(settings)  # Save the updated settings to the file
+    toggle_button.config(text=f"Current Platform: {platform_choice.capitalize()}")
+
+# Function to create the toggle button and add it to the list
+def create_toggle_button(canvas, y_pos):
+    global toggle_button  # Declare global to reference it inside other functions if needed
+    toggle_button = tk.Button(root, text=f"Current Platform: {platform_choice.capitalize()}", 
+                              command=toggle_platform, **get_button_style())
+    labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=toggle_button))
+    y_pos + 30
+
 # Create UI elements for grouped social media links horizontally
 def create_social_media_links_horizontal(canvas, y_position):
     y_pos = y_position
 
     # Loop through each group and create a horizontal frame for each
     for group_name, links in social_media_groups.items():
-        # Add a label for the group
-        group_label = tk.Label(root, text=group_name, font=global_font, bg=ColorBG(), fg=TextColor())
+        # Add a label for the group using the label style
+        group_label = tk.Label(root, text=group_name, **get_label_style())
         canvas.create_window(width() // 2, y_pos, window=group_label)
-        y_pos += 30  # Adjust spacing as necessary
+        y_pos += 26  # Adjust spacing as necessary
 
         # Create a frame to hold the buttons horizontally with specific padding
         frame = tk.Frame(root, bg=bgY())
 
         for i, (label, url) in enumerate(links):
+            # Create the button using the button style, adding the command separately
+            button = tk.Button(frame, text=label, **get_button_style(lambda u=url: open_link(u)))
+            
             # Adjust padding for the first and last buttons
             if i == 0:
-                button = tk.Button(frame, text=label, font=global_font, command=lambda u=url: open_link(u), bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
                 button.pack(side="left", padx=(0, 5))  # No left padding, only right padding
             elif i == len(links) - 1:
-                button = tk.Button(frame, text=label, font=global_font, command=lambda u=url: open_link(u), bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
                 button.pack(side="left", padx=(5, 0))  # Only left padding, no right padding
             else:
-                button = tk.Button(frame, text=label, font=global_font, command=lambda u=url: open_link(u), bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
                 button.pack(side="left", padx=5)  # Both left and right padding
 
         # Align the frame in the center without extra space at the ends
         canvas.create_window(width() // 2, y_pos, window=frame, anchor="center")
-        y_pos += 40  # Adjust spacing for the next group
+        y_pos += 30  # Adjust spacing for the next group
 
 # Create UI elements
 def create_ui(canvas):
-    labels_and_buttons = []
 
     # Creating a frame to hold the six buttons side by side, with a background color
     button_frame = tk.Frame(root, bg=bgY())
-    
-    check_update_button = tk.Button(button_frame, text="Check for Update", font=global_font, command=check_for_update, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
-    update_mods_button = tk.Button(button_frame, text="Update Mods", font=global_font, command=update_mods, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
-    build_tables_button = tk.Button(button_frame, text="Build Tables", font=global_font, command=build_tables, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
-    repair_tables_button = tk.Button(button_frame, text="Repair Tables", font=global_font, command=repair_tables, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
-    uninstall_a_mod_button = tk.Button(button_frame, text="Uninstall a Mod", font=global_font, command=uninstall_a_mod, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
-    get_into_modding_button = tk.Button(button_frame, text="Get Into Modding", font=global_font, command=show_help, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
+
+    # Creating buttons using the get_button_style function
+    check_update_button = tk.Button(button_frame, text="Check for Update", **get_button_style(check_for_update))
+    update_mods_button = tk.Button(button_frame, text="Update Mods", **get_button_style(update_mods))
+    build_tables_button = tk.Button(button_frame, text="Build Tables", **get_button_style(build_tables))
+    repair_tables_button = tk.Button(button_frame, text="Repair Tables", **get_button_style(repair_tables))
+    uninstall_a_mod_button = tk.Button(button_frame, text="Uninstall a Mod", **get_button_style(uninstall_a_mod))
+    get_into_modding_button = tk.Button(button_frame, text="Get Into Modding", **get_button_style(show_help))
 
     # Pack the buttons side by side
     check_update_button.pack(side="left", padx=(0, 5))
@@ -323,30 +410,33 @@ def create_ui(canvas):
     uninstall_a_mod_button.pack(side="left", padx=5)
     get_into_modding_button.pack(side="left", padx=(5, 0))
 
-
     y_pos = 30
     labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=button_frame))
-    y_pos += 30
+    y_pos += 35
 
-    labels_and_buttons.append(canvas.create_text(width() // 2, y_pos, text="EDF! Game to Launch", fill=global_fill_color, font=global_font))
+    # Creating a text element using get_fill_color_style
+    draw_centered_text_with_bg(canvas, width() // 2, y_pos, "EDF! Game to Launch", global_fill_color, ColorBG(), font=global_font)
 
     buttons = []
-    y_pos += 30
+    y_pos += 35
     for game, app_id in GAME_FOLDERS.items():
-        button = tk.Button(root, text=game, font=global_font, command=lambda opt=app_id: launch_game(opt), bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
+        button = tk.Button(root, text=game, **get_button_style(lambda opt=app_id: launch_game(opt)))
         canvas.create_window(width() // 2, y_pos, window=button)
         buttons.append(button)
         y_pos += 30
 
+    y_pos = create_toggle_button(canvas, y_pos)
+    y_pos = 30 
+
     # Add the overhead text and buttons for opening save folders
-    y_pos += 5
-    labels_and_buttons.append(canvas.create_text(width() // 2, y_pos, text="Open Save Folders", fill=global_fill_color, font=global_font))
+    y_pos += 195
+    draw_centered_text_with_bg(canvas, width() // 2, y_pos, "Open Save Folders", global_fill_color, ColorBG(), font=global_font)
     y_pos += 30
 
     save_folder_frame = tk.Frame(root, bg=bgY())
-    save_folder_41_button = tk.Button(save_folder_frame, text="4.1", font=global_font, command=lambda: funcs.open_save_folder(show_error, "EARTH DEFENSE FORCE 4.1"), bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
-    save_folder_5_button = tk.Button(save_folder_frame, text="5", font=global_font, command=lambda: funcs.open_save_folder(show_error, "EARTH DEFENSE FORCE 5"), bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
-    save_folder_6_button = tk.Button(save_folder_frame, text="6", font=global_font, command=lambda: funcs.open_save_folder(show_error, "EARTH DEFENSE FORCE 6"), bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
+    save_folder_41_button = tk.Button(save_folder_frame, text="4.1", **get_button_style(lambda: funcs.open_save_folder(show_error, "EARTH DEFENSE FORCE 4.1")))
+    save_folder_5_button = tk.Button(save_folder_frame, text="5", **get_button_style(lambda: funcs.open_save_folder(show_error, "EARTH DEFENSE FORCE 5")))
+    save_folder_6_button = tk.Button(save_folder_frame, text="6", **get_button_style(lambda: funcs.open_save_folder(show_error, "EARTH DEFENSE FORCE 6")))
 
     save_folder_41_button.pack(side="left", padx=(0, 5))
     y_pos += 2
@@ -355,7 +445,7 @@ def create_ui(canvas):
     save_folder_6_button.pack(side="left", padx=(5, 0))
 
     labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=save_folder_frame))
-    y_pos += 30
+    y_pos += 35
 
     global total_mods, total_patches, total_plugins, error_block, modloader_status
     total_mods = tk.StringVar(value="0")
@@ -363,29 +453,30 @@ def create_ui(canvas):
     total_plugins = tk.StringVar(value="0")
 
     modloader_status = tk.StringVar(value="Disabled")
-    labels_and_buttons.append(canvas.create_text(width() // 2, y_pos, text="Modloader Status:", fill=global_fill_color, font=global_font))
+    draw_centered_text_with_bg(canvas, width() // 2, y_pos, "Modloader Status:", global_fill_color, ColorBG(), font=global_font)
     y_pos += 30
-    labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=tk.Label(root, textvariable=modloader_status, font=global_font, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())))
-    y_pos += 30
-    labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=tk.Button(root, text="Toggle Modloader Status", font=global_font, command=toggle_modloader_status, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())))
-    y_pos += 30
+    labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=tk.Label(root, textvariable=modloader_status, **get_label_style())))
+    y_pos += 25
+    labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=tk.Button(root, text="Toggle Modloader Status", **get_button_style(toggle_modloader_status))))
+    y_pos += 35
 
-    labels_and_buttons.append(canvas.create_text(width() // 2, y_pos, text="Error Block", fill=global_fill_color, font=global_font))
-    y_pos += 90
+    draw_centered_text_with_bg(canvas, width() // 2, y_pos, "Error Block", global_fill_color, ColorBG(), font=global_font)
+
+    y_pos += 95
     error_block = tk.Text(root, height=9, font=global_font, state=tk.DISABLED, bg=ColorBG(), fg=TextColor())
     canvas.create_window(width() // 2, y_pos, window=error_block)
-    y_pos += 100
-    labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=tk.Button(root, text="Clear Error Block", font=global_font, command=clear_error, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())))
+    y_pos += 90
+    labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=tk.Button(root, text="Clear Error Block", **get_button_style(clear_error))))
     y_pos += 30
 
     # Create a frame for "Total Mods, Patches, and Plugins"
     mods_frame = tk.Frame(root, bg=bgY())
-    mods_label = tk.Label(mods_frame, text="Mods:", font=global_font, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
-    total_mods_label = tk.Label(mods_frame, textvariable=total_mods, font=global_font, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
-    patches_label = tk.Label(mods_frame, text="Patches:", font=global_font, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
-    total_patches_label = tk.Label(mods_frame, textvariable=total_patches, font=global_font, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
-    plugins_label = tk.Label(mods_frame, text="Plugins:", font=global_font, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
-    total_plugins_label = tk.Label(mods_frame, textvariable=total_plugins, font=global_font, bg=ColorBG(), fg=TextColor(), activebackground=CColorBG(), activeforeground=aTextColor())
+    mods_label = tk.Label(mods_frame, text="Mods:", **get_label_style())
+    total_mods_label = tk.Label(mods_frame, textvariable=total_mods, **get_label_style())
+    patches_label = tk.Label(mods_frame, text="Patches:", **get_label_style())
+    total_patches_label = tk.Label(mods_frame, textvariable=total_patches, **get_label_style())
+    plugins_label = tk.Label(mods_frame, text="Plugins:", **get_label_style())
+    total_plugins_label = tk.Label(mods_frame, textvariable=total_plugins, **get_label_style())
 
     mods_label.pack(side="left", padx=0)
     total_mods_label.pack(side="left", padx=0)
@@ -395,10 +486,9 @@ def create_ui(canvas):
     total_plugins_label.pack(side="left", padx=0)
 
     labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=mods_frame))
-    y_pos += 100
+    y_pos += 105
 
-    notes_text = """
-EDF! EDF! EDF! EDF! EDF! EDF!
+    notes_text = """EDF! EDF! EDF! EDF! EDF! EDF! EDF!
 Created By:
 BlueAmulet
 (Modloader)
@@ -407,11 +497,11 @@ FevGrave
 {VVV STILL A WIP VVV}
 MoistGoat
 (Advanced MissionPack Settings)
-EDF! EDF! EDF! EDF! EDF! EDF!
-"""
-    labels_and_buttons.append(canvas.create_text(width() // 2, y_pos, text=notes_text, fill=global_fill_color, font=global_font, width=600))
-    y_pos += 100
+EDF! EDF! EDF! EDF! EDF! EDF! EDF!"""
+    # Draw the notes_text with centered alignment and a matching background
+    draw_centered_text_with_bg(canvas, width() // 2, y_pos, notes_text, global_fill_color, ColorBG(), font=global_font, width=600)
 
+    y_pos += 103
     # Update mod counts and modloader status on startup
     update_mod_counts()
     update_modloader_status()
