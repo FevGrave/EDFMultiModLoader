@@ -7,6 +7,8 @@ from PIL import Image, ImageTk
 bg_images = [
     'page_bg_raw.jpg',
     'page_bg_raw01.jpg',
+    'page_bg_raw02.jpg',
+    'page_bg_raw03.jpg',
     'DebugBG.jpg',  # Add more images as needed
 ]
 

@@ -1,16 +1,10 @@
 # EDF_ModloaderHeadFunc.py
 
-import os
-import sys
-import shutil
-import requests
-import subprocess
-import json
+import os, sys, shutil, requests, subprocess, json, webbrowser, zipfile, tkinter as tk, ConfigManifestUninstaller as uninstaller
 from tkinter import messagebox
-import webbrowser
-import zipfile
+import tkinter.filedialog as filedialog
 
-settings_file = "settings.json"
+settings_file = "MMLsettings.json"
 
 def load_settings():
     """Load settings from a JSON file."""
@@ -18,7 +12,19 @@ def load_settings():
         with open(settings_file, 'r') as file:
             return json.load(file)
     # Default settings if the file doesn't exist
-    return {"edf6_platform": "steam"}  # Default to Steam
+    default_settings = {
+        "edf6_platform": "steam",
+        "colors": {
+            "ButtonBackGround": "#000000",
+            "ButtonPressedBackGround": "#010e70",
+            "TextColor": "#B3FF00",
+            "PressedTextColor": "#ffffff"
+        },
+        "modloader_status": "Enabled"
+    }
+    # Save default settings to file
+    save_settings(default_settings)
+    return default_settings
 
 def save_settings(settings):
     """Save settings to a JSON file."""
@@ -382,3 +388,298 @@ def download_and_save_mod(mod_url, mod_file_path, version_file_path, mod_version
         error_msg(f"Failed to unpack {os.path.basename(mod_file_path)}: Not a valid ZIP file.")
     except Exception as e:
         error_msg(f"Failed to save mod {os.path.basename(mod_file_path)}: {str(e)}")
+
+
+#====================================================================================================
+
+def ButtonBackGround():
+    return settings.get("colors", {}).get("ButtonBackGround", "#000000")  # Default to black if not found
+
+def ButtonPressedBackGround():
+    return settings.get("colors", {}).get("ButtonPressedBackGround", "#010e70")  # Default to dark blue
+
+def TextColor():
+    return settings.get("colors", {}).get("TextColor", "#B3FF00")  # Default to Lime green
+
+def PressedTextColor():
+    return settings.get("colors", {}).get("PressedTextColor", "#ffffff")  # Default to white
+
+# Track operation status to avoid multiple simultaneous actions
+operation_in_progress = False
+
+def toggle_mods_panels(error_msg):
+    # Define the directory where Mod_config_data.json files are located
+    mod_config_dir = os.path.join(parent_dir, "Mods", "EDF 6 MOD SETTINGS MAKER", "MOD CONFIG DATA PLACED HERE")
+    dark_gray_bg = "#2E2E2E"  # Set the dark gray background color
+    profile_path = os.path.join(mod_config_dir, 'MML_Profiles.txt')
+
+    # Function to refresh the file list and display current states
+    def update_files():
+        # Clear the current frame contents
+        for widget in scrollable_frame.winfo_children():
+            widget.destroy()
+
+        # Re-fetch the list of files from the directory
+        current_files = [f for f in os.listdir(mod_config_dir) if f.endswith('.json') or f.endswith('.disabled')]
+
+        # Display each file with enable and disable buttons
+        for file in current_files:
+            # Label to display the file name
+            file_label = tk.Label(scrollable_frame, text=file, bg=dark_gray_bg, fg=TextColor(), font=("AR UDJingXiHeiB5", 10))
+            file_label.pack(anchor="w", pady=2)
+
+            # Frame for the buttons
+            button_frame = tk.Frame(scrollable_frame, bg=dark_gray_bg)
+            button_frame.pack(anchor="w")
+
+            # Buttons to enable and disable the file
+            enable_btn = tk.Button(button_frame, text="Enable", bg=ButtonBackGround(), fg=TextColor(),
+                                   activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(),
+                                   command=lambda f=file: enable_file(f))
+            disable_btn = tk.Button(button_frame, text="Disable", bg=ButtonBackGround(), fg=TextColor(),
+                                    activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(),
+                                    command=lambda f=file: disable_file(f))
+            # Add the uninstall button with the correct command
+            uninstall_btn = tk.Button(button_frame, text="Uninstall", bg=ButtonBackGround(),             fg=TextColor(),
+                                      activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(),
+                                      command=lambda f=file: uninstall_a_mod(f))
+            
+            
+            enable_btn.pack(side="left", padx=5)
+            disable_btn.pack(side="left", padx=5)
+            uninstall_btn.pack(side="left", padx=5)
+
+    # Function to enable the selected mod configuration file
+    def enable_file(file):
+        global operation_in_progress
+        if operation_in_progress:
+            error_msg("Operation already in progress. Please wait.")
+            return
+        
+        file_path = os.path.join(mod_config_dir, file)
+        new_path = file_path.replace('.disabled', '.json')
+        try:
+            # Start the operation and disable further actions
+            operation_in_progress = True
+
+            # Check if the file exists before renaming
+            if not os.path.exists(file_path):
+                error_msg(f"File not found: {file_path}")
+                operation_in_progress = False
+                return
+
+            os.rename(file_path, new_path)
+            error_msg(f"Enabled: {file}")
+
+            # Refresh the file list to update the UI
+            update_files()
+        except Exception as e:
+            error_msg(f"Failed to enable {file}: {e}")
+        finally:
+            # Reset the operation status to allow further actions
+            operation_in_progress = False
+
+    # Function to disable the selected mod configuration file
+    def disable_file(file):
+        global operation_in_progress
+        if operation_in_progress:
+            error_msg("Operation already in progress. Please wait.")
+            return
+
+        file_path = os.path.join(mod_config_dir, file)
+        new_path = file_path.replace('.json', '.disabled')
+        try:
+            # Start the operation and disable further actions
+            operation_in_progress = True
+
+            # Check if the file exists before renaming
+            if not os.path.exists(file_path):
+                error_msg(f"File not found: {file_path}")
+                operation_in_progress = False
+                return
+
+            os.rename(file_path, new_path)
+            # Refresh the file list to update the UI
+            update_files()
+            error_msg(f"Disabled: {file}")
+
+        except Exception as e:
+            error_msg(f"Failed to disable {file}: {e}")
+        finally:
+            # Reset the operation status to allow further actions
+            operation_in_progress = False
+
+    def uninstall_a_mod(file):
+        try:
+            # Construct the full path of the selected file to uninstall
+            file_path = os.path.join(mod_config_dir, file)
+
+            if os.path.exists(file_path):
+                # Set the base path to the directory containing the Mods folder
+                base_dir = os.path.abspath(os.path.join(os.path.dirname(file_path), "..", ".."))
+
+                # Use the uninstaller to handle the mod logic while targeting the specific file
+                uninstaller.load_manifest_and_uninstall(file_path, base_dir)
+                error_msg("Mod uninstalled successfully.")
+
+                # Remove the manifest file after processing
+                try:
+                    os.remove(file_path)
+                    error_msg(f"Manifest file removed: {file_path}")
+
+                    # Refresh the displayed list of files after removal
+                    update_files()
+                except Exception as e:
+                    error_msg(f"Failed to remove manifest file: {file_path}. Error:    {e}")
+            else:
+                error_msg(f"File not found: {file_path}")
+        except Exception as e:
+            error_msg(str(e))
+
+    # Function to save a new profile to profiles.txt
+    def save_profile():
+        profile_name = profile_entry.get().strip()
+        if profile_name:
+            try:
+                # Collect the state of all files to save with the profile
+                current_files = [f for f in os.listdir(mod_config_dir) if f.endswith('.json') or f.endswith('.disabled')]
+                profile_data = [f"({file}, {'E' if file.endswith('.json') else 'D'})" for file in current_files]
+                profile_line = f"{profile_name}: {{{', '.join(profile_data)}}}"
+
+                # Ensure profiles.txt exists or create it
+                with open(profile_path, 'a') as profile_file:
+                    profile_file.write(profile_line + '\n')
+
+                profile_listbox.insert(tk.END, f"{profile_name}, {len(current_files)} mods")
+                error_msg(f"Profile '{profile_name}' saved.")
+                profile_entry.delete(0, tk.END)
+            except Exception as e:
+                error_msg(f"Failed to save profile: {e}")
+        else:
+            error_msg("Profile name cannot be empty.")
+
+    # Function to remove a selected profile from the list and file
+    def remove_profile():
+        try:
+            selected_index = profile_listbox.curselection()
+            if selected_index:
+                selected_profile = profile_listbox.get(selected_index).split(',')[0]  # Extract profile name
+                profile_listbox.delete(selected_index)
+
+                # Update profiles.txt to remove the selected profile
+                with open(profile_path, 'r') as profile_file:
+                    profiles = profile_file.readlines()
+
+                with open(profile_path, 'w') as profile_file:
+                    for profile in profiles:
+                        if not profile.startswith(selected_profile + ":"):
+                            profile_file.write(profile)
+
+                error_msg(f"Profile '{selected_profile}' removed.")
+            else:
+                error_msg("No profile selected.")
+        except Exception as e:
+            error_msg(f"Failed to remove profile: {e}")
+
+    # Function to load the selected profile and enable/disable mods accordingly
+    def load_profile():
+        try:
+            selected_index = profile_listbox.curselection()
+            if selected_index:
+                selected_profile = profile_listbox.get(selected_index).split(',')[0]  # Extract profile name
+                with open(profile_path, 'r') as profile_file:
+                    profiles = profile_file.readlines()
+
+                # Find the selected profile's mods
+                for profile in profiles:
+                    if profile.startswith(selected_profile + ":"):
+                        mod_entries = profile.split(":")[1].strip().strip("{}").split(", ")
+                        mod_files = [entry.split(',')[0][1:] for entry in mod_entries]  # Extract file names
+                        enable_disable_mods(mod_files)
+                        error_msg(f"Profile '{selected_profile}' loaded.")
+                        return
+                error_msg(f"Profile '{selected_profile}' not found.")
+            else:
+                error_msg("No profile selected.")
+        except Exception as e:
+            error_msg(f"Failed to load profile: {e}")
+
+    # Function to enable or disable mods based on the loaded profile
+    def enable_disable_mods(mod_files):
+        current_files = [f for f in os.listdir(mod_config_dir) if f.endswith('.json') or f.endswith('.disabled')]
+        for file in current_files:
+            if file in mod_files:
+                enable_file(file)
+            else:
+                disable_file(file)
+
+    # Create a new window
+    window = tk.Toplevel()
+    window.title("Mods Panel")
+    window.geometry("675x500")
+
+    # Create frames for file toggling and profiles
+    left_frame = tk.Frame(window, padx=10, pady=10, bg=dark_gray_bg)
+    right_frame = tk.Frame(window, padx=10, pady=10, bg=dark_gray_bg)
+
+    left_frame.pack(side="left", fill="both", expand=True)
+    right_frame.pack(side="right", fill="both", expand=True)
+
+    # Create a canvas and scrollbar for the left frame to handle many files
+    canvas = tk.Canvas(left_frame, bg=dark_gray_bg)
+    scrollbar = tk.Scrollbar(left_frame, orient="vertical", command=canvas.yview)
+    scrollable_frame = tk.Frame(canvas, bg=dark_gray_bg)
+
+    scrollable_frame.bind(
+        "<Configure>",
+        lambda e: canvas.configure(
+            scrollregion=canvas.bbox("all")
+        )
+    )
+
+    canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+    canvas.configure(yscrollcommand=scrollbar.set)
+
+    canvas.pack(side="left", fill="both", expand=True)
+    scrollbar.pack(side="right", fill="y")
+
+    # Create a listbox to show mod profiles on the right panel
+    profile_listbox = tk.Listbox(right_frame, width=50, bg=dark_gray_bg, fg=TextColor())
+    profile_listbox.pack(fill="both", expand=True)
+
+    # Load profiles from a .txt file and display them in the listbox
+    if os.path.exists(profile_path):
+        with open(profile_path, 'r') as profile_file:
+            profiles = profile_file.readlines()
+            for profile in profiles:
+                profile_name = profile.split(":")[0]
+                mods_count = profile.count(',') + 1  # Counting mods by the number of commas + 1
+                profile_listbox.insert(tk.END, f"{profile_name}, {mods_count} mods")
+    else:
+        profile_listbox.insert(tk.END, "No profiles available.")
+        error_msg("No MML_Profiles.txt found. The file will be created automatically when profiles are saved.")
+
+    # Text entry for adding new profiles
+    profile_entry = tk.Entry(right_frame, bg=dark_gray_bg, fg=TextColor())
+    profile_entry.pack(pady=5)
+
+    # Button to save the new profile
+    save_profile_btn = tk.Button(right_frame, text="Save Profile", bg=ButtonBackGround(), fg=TextColor(),
+                                 activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(),
+                                 command=save_profile)
+    save_profile_btn.pack(pady=5)
+
+    # Button to remove the selected profile
+    remove_profile_btn = tk.Button(right_frame, text="Remove Profile", bg=ButtonBackGround(), fg=TextColor(),
+                                   activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(),
+                                   command=remove_profile)
+    remove_profile_btn.pack(pady=5)
+
+    # Button to load the selected profile
+    load_profile_btn = tk.Button(right_frame, text="Load Profile", bg=ButtonBackGround(), fg=TextColor(),
+                                 activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(),
+                                 command=load_profile)
+    load_profile_btn.pack(pady=5)
+
+    # Initialize the display
+    update_files()
