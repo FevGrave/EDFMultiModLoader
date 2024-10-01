@@ -31,7 +31,7 @@ Welcome to Earth Defense Force 6 modding! This guide will help you get started w
 
 ## Overview on Mod_config_data.json
     {
-        "GITHUB_INFO": [], // Contains metadata about the mod, including author, name, download link, version, and notes. GITHUB DOWNLOAD
+        "GITHUB_INFO": [], // GITHUB LINK DOWNLOAD, CAN BE "NEXUS_INFO", Contains metadata about the mod, including author, name, download link, version, and notes. 
         "DataReplacementTable": [], // Used for finding and replacing specific strings in JSON files, typically for localization changes.
         OR patch existing content.
         "NewToAddTextTableEntries": {}, // Adds new text entries across all supported language files.
@@ -98,12 +98,12 @@ Plugins: as .dll advanced external funtions
 # Credits Section:
 ## Credits to the Developers: Acknowledges the creators behind the mod loader, GUI, special game patching.
 ### - BlueAmulet (Modloader)
-### - FevGrave (GUI + Table Generator)
+### - FevGrave (GUI + Table Generator, Background images)
 ### - MoistGoat(Advanced MissionPack Settings)
 ## Miscellaneous:
 Toggle Disabled Games Mode: Toggles a mode that likely disables certain game features.
 FevGrave, X, Reddit: Direct links to specific user profiles or communities (X refers to the social media platform previously known as Twitter).
-and one ELONGATED button to open games dir if you shortcut the EXE to your desktop
+and one button to open the github source code
 Official EDF Channels:
 EDF Official EN on X
 EDF Official JP on X
@@ -111,7 +111,7 @@ EDF on Reddit
 EDF Discord
 These buttons provide easy access to official Earth Defense Force channels on social media and community platforms.
 
-
+# What's in the Mod_config_data.json
 
 ## GITHUB_INFO Block
 
@@ -160,6 +160,8 @@ Modders should focus on editing the following files:
 - `ImportTextTable-KR.json`
 
 - `ImportTextTable-SC.json`
+
+- `ImportWeaponTable.json`
 
 - `ImportWeaponTextTable-CN.json`
 
@@ -261,8 +263,6 @@ The entries in this block are added into the following five files:
   - **`NewToAddModeList`:** The first two strings in both nodes are directly linked to the entries in [NewToAddTextTableEntries](#newtoaddtexttableentries-block).
   - **[NewToAddSoldierWeaponCategory Block](#newtoaddsolderweaponcategory-block):** The `String` value in this block is tied to the `name` values defined here.
 
-  Certainly! I'll reformat the list to use the Markdown link style you requested. Here's the list with the note names formatted as links:
-
 
 
 ### Important Considerations:
@@ -289,8 +289,6 @@ Below is an example of adding multiple new text entries:
         "type": "string",
         "value": "New Wingdiver Support Slot"
     }
-
-  
 
 ## NewToAddModeList Block
 
@@ -327,9 +325,9 @@ These blocks define the settings for an offline and online mission pack.
             {
                 "type": "ptr",
                 "value": [
-                    {"type": "string", "value": "app:/Mission/DLC2_MissionList.offline.list.sgo"},
-                    {"type": "string", "value": "app:/Mission/DLC2_MissionList.offline.txt.%LOCALE%.sgo"},
-                    {"type": "string", "value": "app:/Mission/DLC2_MissionList.offline.image.rab"}
+                    {"type": "string", "value": "app:/Mission/YOUR_MissionList.offline.list.sgo"},
+                    {"type": "string", "value": "app:/Mission/YOUR_MissionList.offline.txt.%LOCALE%.sgo"},
+                    {"type": "string", "value": "app:/Mission/YOUR_MissionList.offline.image.rab"}
                 ]
             },
             {
@@ -891,4 +889,4 @@ Below is an example of how a complete entry might look after adding 2 or more ne
 
 ## DirManifestToFilesUninstaller
 
-Included in the ~~~Mods~~~ folder is a ManifestMAKER.exe will write out the dir tree and can write to the *YourModName*Mod_config_data.json
+Included in the ~~~mymodfolder\Mods~~~ folder is a ManifestMAKER.exe will write out the dir tree and can write to the *YourModName*Mod_config_data.json

@@ -1,0 +1,1025 @@
+{
+  "GITHUB_INFO": [
+    {
+      "AUTHOR": "Neoprimal",
+      "MOD NAME": "EDF_6-1",
+      "LINK": "",
+      "VERSION": "0.1a-110-0-1a-1726832602",
+      "NOTES": ""
+    }
+  ],
+  "DataReplacementTable": [
+    {
+      "File": "ImportWeaponTextTable-EN.json",
+      "Find": {
+        "value": [
+          {"value": "Blacker No. 6", "type": "str"},
+          {
+            "value": "<font color=%dq%#80ff80%dq%>Pilot Seat:</font> Driver\nDispersal Howitzer <font color=%dq%#00ffff%dq%>(Shots:15 Damage:63.0×20 Blast Range:Radius 6.0m)</font>\n\n1 person.\nA combat vehicle with a special paint job. It is said that this reduces its risk of being hit by bullets... but in reality, there is no such effect. Soldiers who risk their lives on the battlefield paint their vehicles for good luck only.\n\nIn order to re-request this, you need to achieve a certain number of credits during the mission by defeating enemies. Your allies' kills will also help you earn credits.",
+            "type": "str"
+          },
+          {
+            "value": [
+              {
+                "value": [
+                  {"value": "Re-request", "type": "str"},
+                  {"value": "5400pt(Default 50 %)", "type": "str"}
+                ],
+                "type": "ptr"
+              },
+              {
+                "value": [
+                  {"value": "Durability", "type": "str"},
+                  {"value": "500", "type": "str"}
+                ],
+                "type": "ptr"
+              }
+            ],
+            "type": "ptr"
+          }
+        ],
+        "type": "ptr"
+      },
+      "Replace": {
+        "value": [
+          {"value": "Blacker No. 6-9", "type": "str"},
+          {
+            "value": "<font color=%dq%#80ff80%dq%>Pilot Seat:</font> Driver\nHoming Dispersal Howitzer <font color=%dq%#00ffff%dq%>(Shots:112 Damage:500.0×100 Blast Range:Radius 6.0m)</font>\n\n1 person.\nA combat vehicle with a special paint job. It is said that this reduces its risk of being hit by bullets... but in reality, there is no such effect. Soldiers who risk their lives on the battlefield paint their vehicles for good luck only.\n\nThis model's armament has been strengthened, With a new highly experimental projectile that fires a high yield cluster of homing rockets.",
+            "type": "str"
+          },
+          {
+            "value": [
+              {
+                "value": [
+                  {"value": "Re-request", "type": "str"},
+                  {"value": "Free.", "type": "str"}
+                ],
+                "type": "ptr"
+              },
+              {
+                "value": [
+                  {"value": "Durability", "type": "str"},
+                  {"value": "500", "type": "str"}
+                ],
+                "type": "ptr"
+              },
+              {
+                "value": [
+                  {"value": "Lock-on time", "type": "str"},
+                  {"value": "0.5 Seconds.", "type": "str"}
+                ],
+                "type": "ptr"
+              }
+            ],
+            "type": "ptr"
+          }
+        ],
+        "type": "ptr"
+      }
+    }
+  ],
+  "NewToAddTextTableEntries": {
+    "CN": [],
+    "EN": [],
+    "JA": [],
+    "KR": [],
+    "SC": []
+  },
+  "NewToAddModeList": [],
+  "NewToAddSoldierWeaponCategory": [],
+  "NewToAddWeaponCatalog-Ranger": [],
+  "NewToAddWeaponCatalog-WingDiver": [],
+  "NewToAddWeaponCatalog-AirRaider": [],
+  "NewToAddWeaponCatalog-Fencer": [],
+  "NewToAddWeaponTables": {
+    "RANGER": {
+      "Assault Rifles": [
+        {
+          "name": "X500-Orchid",
+          "Data": {
+            "value": [
+              {"value": "X500-Orchid_NPWPack", "type": "str"},
+              {"value": "app:/weapon/X500-Orchid_NPWPack.sgo", "type": "str"},
+              {"value": 0, "type": "double"},
+              {"value": 1, "type": "double"},
+              {"value": 2.869999885559082, "type": "double"},
+              {"value": 0, "type": "double"},
+              {
+                "value": [
+                  {"value": 7, "type": "double"},
+                  {"value": 8, "type": "double"},
+                  {"value": 6, "type": "double"},
+                  {"value": 8, "type": "double"},
+                  {"value": 8, "type": "double"},
+                  {"value": 4, "type": "double"}
+                ],
+                "type": "ptr"
+              },
+              {"value": 1, "type": "double"},
+              {"value": 0, "type": "double"}
+            ],
+            "type": "ptr"
+          },
+          "Text": {
+            "value": [
+              {"value": "X500-Orchid", "type": "str"},
+              {
+                "value": "The powered-up X400-Orchid with improved accuracy and destructive power. Equipped with a scope.\nAlthough its power decreases due to air resistance, it can still deliver powerful damage at mid-range.\n\nFires special bullets with excellent penetrating power. It can penetrate targets up to 1/4 of its range.\nHolding the trigger (pressing and holding the attack button) will continually fire shots.\nFired bullets are susceptible to air resistance and decrease in power depending on distance.",
+                "type": "str"
+              },
+              {
+                "value": [
+                  {
+                    "value": [
+                      {"value": "Capacity", "type": "str"},
+                      {"value": "$0", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 150, "type": "double"},
+                          {"value": 0, "type": "double"},
+                          {"value": 0, "type": "double"},
+                          {"value": 7, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "ROF", "type": "str"},
+                      {"value": "$0/sec", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 7, "type": "double"},
+                          {"value": 25, "type": "double"},
+                          {"value": 5, "type": "double"},
+                          {"value": 4, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Damage", "type": "str"},
+                      {"value": "[PT]$0～$1", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 350, "type": "double"},
+                          {"value": 8, "type": "double"},
+                          {"value": 1, "type": "double"},
+                          {"value": 8, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 1, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      },
+                      {
+                        "value": [
+                          {"value": 35, "type": "double"},
+                          {"value": 8, "type": "double"},
+                          {"value": 1, "type": "double"},
+                          {"value": 8, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 1, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Reload Time", "type": "str"},
+                      {"value": "$0 sec", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 3, "type": "double"},
+                          {"value": 21, "type": "double"},
+                          {"value": 4, "type": "double"},
+                          {"value": 8, "type": "double"},
+                          {"value": 1, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 1, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Range", "type": "str"},
+                      {"value": "$0m", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 400, "type": "double"},
+                          {"value": 16, "type": "double"},
+                          {"value": 3, "type": "double"},
+                          {"value": 8, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 1, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Shot Speed", "type": "str"},
+                      {"value": "$0m/s", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 480, "type": "double"},
+                          {"value": 16, "type": "double"},
+                          {"value": 3, "type": "double"},
+                          {"value": 8, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 1, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Accuracy", "type": "str"},
+                      {"value": "$0", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 0.009999999776482582, "type": "double"},
+                          {"value": 13, "type": "double"},
+                          {"value": 2, "type": "double"},
+                          {"value": 6, "type": "double"},
+                          {"value": 2, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 1, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Zoom", "type": "str"},
+                      {"value": "4.0x", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Laser Sight", "type": "str"},
+                      {"value": "----", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  }
+                ],
+                "type": "ptr"
+              }
+            ],
+            "type": "ptr"
+          }
+        }
+      ],
+      "Shotguns": [],
+      "Snipers": [],
+      "Rocket Launchers": [],
+      "Missile Launchers": [],
+      "Grenades": [],
+      "Special": [],
+      "Support Equipment": [],
+      "Bikes": [
+        {
+          "name": "Freed Type-Z",
+          "Data": {
+            "value": [
+              {"value": "Freed_Type-Z_NPWPack", "type": "str"},
+              {"value": "app:/weapon/Freed_Type-Z_NPWPack.sgo", "type": "str"},
+              {"value": 10, "type": "double"},
+              {"value": 1, "type": "double"},
+              {"value": 3.049999952316284, "type": "double"},
+              {"value": 0, "type": "double"},
+              {"value": [{"value": 8, "type": "double"}], "type": "ptr"},
+              {"value": 1, "type": "double"},
+              {"value": 0, "type": "double"}
+            ],
+            "type": "ptr"
+          },
+          "Text": {
+            "value": [
+              {"value": "Freed Type-Z", "type": "str"},
+              {
+                "value": "<font color=%dq%#80ff80%dq%>Bike:</font> Driver\nLight Machine Gun (Left) <font color=%dq%#00ffff%dq%>(Shots:1200 Damage:330.0 Range:160.0m)</font>\nLight Machine Gun (Right) <font color=%dq%#00ffff%dq%>(Shots:1200 Damage:330.0 Range:160.0m)</font>\n\nThe final model of the military motorcycle Freed.\nEquipped with a high power turbo engine, its speed and acceleration are successfully pushed to the limit. Due to its overly-high power, this bike is hard to control; a sudden acceleration can bring the front tire float. Nevertheless, the basic performance is high, so it would be the fastest bike if one can properly control it.\n\nAble to request underground.\n\nIn order to re-request this, you need to achieve a certain number of credits during the mission by defeating enemies. Your allies' kills will also help you earn credits.",
+                "type": "str"
+              },
+              {
+                "value": [
+                  {
+                    "value": [
+                      {"value": "Re-request", "type": "str"},
+                      {"value": "$0pt(Default 100 %)", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 3500, "type": "double"},
+                          {"value": 21, "type": "double"},
+                          {"value": 0, "type": "double"},
+                          {"value": 8, "type": "double"},
+                          {"value": 1, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Durability", "type": "str"},
+                      {"value": "6600", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Fuel", "type": "str"},
+                      {"value": "20000.0", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Fuel Cost", "type": "str"},
+                      {"value": "0.8", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  }
+                ],
+                "type": "ptr"
+              }
+            ],
+            "type": "ptr"
+          }
+        }
+      ],
+      "Tanks": [],
+      "Helicopters": []
+    },
+    "WINGDIVER": {
+      "Short-Range": [],
+      "Mid-Range Kinetic Weapons": [],
+      "Mid-Range Pulse Weapons": [],
+      "Mid-Range Energy Weapons": [],
+      "Long-Range": [],
+      "Ranged Weapons": [],
+      "Homing Weapons": [],
+      "Special": [],
+      "Plasma Cores": []
+    },
+    "FENCER": {
+      "CC Strikers": [],
+      "CC Piercers": [],
+      "Shields": [],
+      "Autocannons": [
+        {
+          "name": "'Sasha'",
+          "Data": {
+            "value": [
+              {"value": "Sasha_NPWPack", "type": "str"},
+              {"value": "app:/weapon/Sasha_NPWPack.sgo", "type": "str"},
+              {"value": 203, "type": "double"},
+              {"value": 1, "type": "double"},
+              {"value": 2.0999999046325684, "type": "double"},
+              {"value": 0, "type": "double"},
+              {
+                "value": [
+                  {"value": 8, "type": "double"},
+                  {"value": 8, "type": "double"},
+                  {"value": 10, "type": "double"},
+                  {"value": 5, "type": "double"},
+                  {"value": 5, "type": "double"},
+                  {"value": 2, "type": "double"},
+                  {"value": 10, "type": "double"}
+                ],
+                "type": "ptr"
+              },
+              {"value": 1, "type": "double"},
+              {"value": 0, "type": "double"}
+            ],
+            "type": "ptr"
+          },
+          "Text": {
+            "value": [
+              {"value": "'Sasha'", "type": "str"},
+              {
+                "value": "A converted antique, Manufactured at some point in the late 1960s. Previously owned by a Russian man, This weapon has been converted for use by the Fencer Platform, To middling degrees of success.\nThe weapon was once rumored to fire completely custom tooled cartridges at a cost of $200 each, With a fire rate of 10,000 rounds per minute, Though modifications made to the firearm to accomodate Fencers have reduced this rate of fire considerably.",
+                "type": "str"
+              },
+              {
+                "value": [
+                  {
+                    "value": [
+                      {"value": "Capacity", "type": "str"},
+                      {"value": "200", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Delay", "type": "str"},
+                      {"value": "$0 sec", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 4, "type": "double"},
+                          {"value": 80, "type": "double"},
+                          {"value": 6, "type": "double"},
+                          {"value": 10, "type": "double"},
+                          {"value": -0.5, "type": "double"},
+                          {"value": 1, "type": "double"},
+                          {"value": 1, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "ROF", "type": "str"},
+                      {"value": "$0/sec", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 2, "type": "double"},
+                          {"value": 25, "type": "double"},
+                          {"value": 5, "type": "double"},
+                          {"value": 2, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Damage", "type": "str"},
+                      {"value": "13.5", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Reload Time", "type": "str"},
+                      {"value": "4 sec", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Range", "type": "str"},
+                      {"value": "$0m", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 300, "type": "double"},
+                          {"value": 16, "type": "double"},
+                          {"value": 3, "type": "double"},
+                          {"value": 5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 1, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Shot Speed", "type": "str"},
+                      {"value": "$0m/s", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 900, "type": "double"},
+                          {"value": 16, "type": "double"},
+                          {"value": 3, "type": "double"},
+                          {"value": 5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 1, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Accuracy", "type": "str"},
+                      {"value": "$0", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 0.03999999910593033, "type": "double"},
+                          {"value": 13, "type": "double"},
+                          {"value": 2, "type": "double"},
+                          {"value": 10, "type": "double"},
+                          {"value": 2, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 1, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  }
+                ],
+                "type": "ptr"
+              }
+            ],
+            "type": "ptr"
+          }
+        }
+      ],
+      "Cannons": [
+        {
+          "name": "Powerdyne SP",
+          "Data": {
+            "value": [
+              {"value": "Powerdyne_SP_NPWPack", "type": "str"},
+              {"value": "app:/weapon/Powerdyne_SP_NPWPack.sgo", "type": "str"},
+              {"value": 204, "type": "double"},
+              {"value": 1, "type": "double"},
+              {"value": 0.10000000149011612, "type": "double"},
+              {"value": 0, "type": "double"},
+              {
+                "value": [
+                  {"value": 5, "type": "double"},
+                  {"value": 10, "type": "double"},
+                  {"value": 8, "type": "double"},
+                  {"value": 5, "type": "double"}
+                ],
+                "type": "ptr"
+              },
+              {"value": 1, "type": "double"},
+              {"value": 0, "type": "double"}
+            ],
+            "type": "ptr"
+          },
+          "Text": {
+            "value": [
+              {"value": "Powerdyne SP", "type": "str"},
+              {
+                "value": "A high-output beam cannon that's directly mounted onto a powered exoskeleton.\nDischarges a high-output beam that penetrates the enemy.\nThis improved model has a self contained Plasma Generator, And thus can be recharged on the field.\n\nEquipped with a scope. Press the Use button to zoom.",
+                "type": "str"
+              },
+              {
+                "value": [
+                  {
+                    "value": [
+                      {"value": "Capacity", "type": "str"},
+                      {"value": "9", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "ROF", "type": "str"},
+                      {"value": "$0/sec", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 80, "type": "double"},
+                          {"value": 25, "type": "double"},
+                          {"value": 3, "type": "double"},
+                          {"value": 5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Damage", "type": "str"},
+                      {"value": "[PT]$0", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 700, "type": "double"},
+                          {"value": 8, "type": "double"},
+                          {"value": 1, "type": "double"},
+                          {"value": 10, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 1, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Reload Time", "type": "str"},
+                      {"value": "10 Seconds", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Range", "type": "str"},
+                      {"value": "$0m", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 900, "type": "double"},
+                          {"value": 16, "type": "double"},
+                          {"value": 2, "type": "double"},
+                          {"value": 8, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 1, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Shot Speed", "type": "str"},
+                      {"value": "$0m/s", "type": "str"},
+                      {
+                        "value": [
+                          {"value": 1800, "type": "double"},
+                          {"value": 16, "type": "double"},
+                          {"value": 2, "type": "double"},
+                          {"value": 8, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 0.5, "type": "double"},
+                          {"value": 1, "type": "double"}
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Accuracy", "type": "str"},
+                      {"value": "S++", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Zoom", "type": "str"},
+                      {"value": "4.0x", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  }
+                ],
+                "type": "ptr"
+              }
+            ],
+            "type": "ptr"
+          }
+        }
+      ],
+      "Missile Launchers": [
+        {
+          "name": "'Valkyrie' 296-B Shoulder Mounted Nuclear Bomb",
+          "Data": {
+            "value": [
+              {
+                "value": "Valkyrie_296-B_Shoulder_Mounted_Nuclear_Bomb_NPWPack",
+                "type": "str"
+              },
+              {
+                "value": "app:/weapon/Valkyrie_296-B_Shoulder_Mounted_Nuclear_Bomb_NPWPack.sgo",
+                "type": "str"
+              },
+              {"value": 205, "type": "double"},
+              {"value": 1, "type": "double"},
+              {"value": 1.5399999618530273, "type": "double"},
+              {"value": 0, "type": "double"},
+              {
+                "value": [
+                  {"value": 8, "type": "double"},
+                  {"value": 8, "type": "double"},
+                  {"value": 10, "type": "double"},
+                  {"value": 7, "type": "double"},
+                  {"value": 8, "type": "double"},
+                  {"value": 10, "type": "double"},
+                  {"value": 8, "type": "double"}
+                ],
+                "type": "ptr"
+              },
+              {"value": 1, "type": "double"},
+              {"value": 0, "type": "double"}
+            ],
+            "type": "ptr"
+          },
+          "Text": {
+            "value": [
+              {
+                "value": "'Valkyrie' 296-B Shoulder Mounted Nuclear Bomb",
+                "type": "str"
+              },
+              {
+                "value": "An updated model over the outgoing VAL-296 SMNB, The 296-B improves upon the original's overwhelming firepower by allowing the user to fire an additional warhead, At the cost of a significantly reduced blast radius.\n\nThis weapon does not possess the ability to reload, Use your supplied ammunition wisely.",
+                "type": "str"
+              },
+              {
+                "value": [
+                  {
+                    "value": [
+                      {"value": "Capacity", "type": "str"},
+                      {"value": "2 Warheads", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "ROF", "type": "str"},
+                      {"value": "----", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Homing Capability", "type": "str"},
+                      {"value": "A+", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Lock-on", "type": "str"},
+                      {"value": "1000m 2 targets", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Lock-on Time", "type": "str"},
+                      {"value": "Instant", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Damage", "type": "str"},
+                      {"value": "1,000,000", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Reload Time", "type": "str"},
+                      {"value": "----", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Blast Area", "type": "str"},
+                      {"value": "Radius 385m", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  }
+                ],
+                "type": "ptr"
+              }
+            ],
+            "type": "ptr"
+          }
+        },
+        {
+          "name": "The Cerberus",
+          "Data": {
+            "value": [
+              {"value": "The_Cerberus_NPWPack", "type": "str"},
+              {"value": "app:/weapon/The_Cerberus_NPWPack.sgo", "type": "str"},
+              {"value": 205, "type": "double"},
+              {"value": 1, "type": "double"},
+              {"value": 3.2300000190734863, "type": "double"},
+              {"value": 0, "type": "double"},
+              {
+                "value": [
+                  {"value": 8, "type": "double"},
+                  {"value": 3, "type": "double"},
+                  {"value": 10, "type": "double"},
+                  {"value": 7, "type": "double"},
+                  {"value": 8, "type": "double"},
+                  {"value": 10, "type": "double"},
+                  {"value": 10, "type": "double"}
+                ],
+                "type": "ptr"
+              },
+              {"value": 1, "type": "double"},
+              {"value": 0, "type": "double"}
+            ],
+            "type": "ptr"
+          },
+          "Text": {
+            "value": [
+              {"value": "The Cerberus", "type": "str"},
+              {
+                "value": "An experiment to determine how far is too far. The Cerberus is the only one of it's kind in the EDF, And fires an extremely destructive cluster of micro-missiles that each split off into 30 smaller missiles.\n\nDeadly to anything in range.",
+                "type": "str"
+              },
+              {
+                "value": [
+                  {
+                    "value": [
+                      {"value": "Capacity", "type": "str"},
+                      {"value": "800", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Homing Capability", "type": "str"},
+                      {"value": "S++", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Lock-on", "type": "str"},
+                      {"value": "1300m 800 targets", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Lock-on Time", "type": "str"},
+                      {"value": "Instant", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Damage", "type": "str"},
+                      {"value": "7000", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Reload Time", "type": "str"},
+                      {"value": "8 sec", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Blast Area", "type": "str"},
+                      {"value": "Radius 12m", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  }
+                ],
+                "type": "ptr"
+              }
+            ],
+            "type": "ptr"
+          }
+        }
+      ],
+      "Enhanced Boosters": [],
+      "Enhanced Shields": [],
+      "Enhanced Cannons": [],
+      "Enhanced Exoskeletons": []
+    },
+    "AIRRAIDER": {
+      "Request Artillery Units": [],
+      "Request Gunships": [],
+      "Request Bombers": [],
+      "Request Missiles": [],
+      "Request Satellites": [
+        {
+          "name": "Rule of God",
+          "Data": {
+            "value": [
+              {"value": "Rule_of_God_NPWPack", "type": "str"},
+              {"value": "app:/weapon/Rule_of_God_NPWPack.sgo", "type": "str"},
+              {"value": 314, "type": "double"},
+              {"value": 1, "type": "double"},
+              {"value": 3.049999952316284, "type": "double"},
+              {"value": 0, "type": "double"},
+              {
+                "value": [
+                  {"value": 10, "type": "double"},
+                  {"value": 10, "type": "double"},
+                  {"value": 10, "type": "double"}
+                ],
+                "type": "ptr"
+              },
+              {"value": 0, "type": "double"},
+              {"value": 0, "type": "double"}
+            ],
+            "type": "ptr"
+          },
+          "Text": {
+            "value": [
+              {"value": "Rule of God", "type": "str"},
+              {
+                "value": "A female scientist once claimed that it's possible to seize control of the mothership through an electronic attack. Of course, no one believed her, and the weapon was never 'officially' made.\n\nBut here it is anyway.",
+                "type": "str"
+              },
+              {
+                "value": [
+                  {
+                    "value": [
+                      {"value": "Damage", "type": "str"},
+                      {"value": "10000", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Attack Range", "type": "str"},
+                      {"value": "----", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Reload", "type": "str"},
+                      {"value": "2000pt", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Laser Range", "type": "str"},
+                      {"value": "1000m", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Shots", "type": "str"},
+                      {"value": "30", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {"value": "Zoom", "type": "str"},
+                      {"value": "4.0x", "type": "str"}
+                    ],
+                    "type": "ptr"
+                  }
+                ],
+                "type": "ptr"
+              }
+            ],
+            "type": "ptr"
+          }
+        }
+      ],
+      "Limpet Guns": [],
+      "Stationary Weapons": [],
+      "Support Equipment": [],
+      "Special": [],
+      "Powered Exoskeletons": [],
+      "Special Weapons": [],
+      "Helicopters": [],
+      "Ground Vehicles": [],
+      "Tanks": []
+    }
+  },
+  "DirManifestToFilesUninstaller": {
+    "WEAPON": [
+      "X500-Orchid_NPWPack.SGO",
+      "Freed_Type-Z_NPWPack.SGO",
+      "DLC_VEHICLE_V505_TANK_EDF6BENEFITS.SGO",
+      "Rule_of_God_NPWPack.SGO",
+      "Sasha_NPWPack.SGO",
+      "Powerdyne_SP_NPWPack.SGO",
+      "Valkyrie_296-B_Shoulder_Mounted_Nuclear_Bomb_NPWPack.SGO",
+      "The_Cerberus_NPWPack.SGO",
+      "V_505TANK_DLC_EDF4_1_CANNON.SGO"
+    ]
+  },
+  "CHANGELOG": ["0.1a-110-0-1a-1726832602", ""]
+}

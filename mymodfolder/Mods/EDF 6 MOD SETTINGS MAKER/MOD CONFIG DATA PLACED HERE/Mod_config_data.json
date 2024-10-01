@@ -1,0 +1,2535 @@
+{
+  "GITHUB_INFO": [
+    {
+      "AUTHOR": "FevGrave",
+      "MOD NAME": "EDF_6-1",
+      "LINK": "https://github.com/FevGrave/EDF_6-1/archive/refs/heads/main.zip",
+      "VERSION": "0.0.1",
+      "NOTES": ""
+    }
+  ],
+  "DataReplacementTable": [
+    {
+      "File": "ImportTextTable-EN.json",
+      "Find": {
+        "name": "RoomType_Everyone_Desc",
+        "type": "string",
+        "value": "A standard room.\nStandard rooms are displayed in the lobby for everyone to join."
+      },
+      "Replace": {
+        "name": "RoomType_Everyone_Desc",
+        "type": "string",
+        "value": "Modded hosting in public lobbies is not recommended due to the potential for instability and unexpected behavior that can disrupt gameplay for all participants. Modifications may introduce bugs or conflicts that were not present in the original game, leading to crashes, unfair advantages, or a poor experience for players. Furthermore, joining a modded lobby without understanding the changes can lead to confusion and frustration, ultimately harming the community's enjoyment and trust. It's best to keep modded content in private sessions where all participants are aware of and agree to the modifications."
+      }
+    },
+    {
+      "File": "ImportTextTable-EN.json",
+      "Find": {
+        "name": "RoomType_PassCodeOnly_Desc",
+        "type": "string",
+        "value": "This room only allows players who know the passcode to join. It will be listed in the lobby screen,\nbut requires a passcode to join.\nPlayers that were invited will not require a passcode."
+      },
+      "Replace": {
+        "name": "RoomType_PassCodeOnly_Desc",
+        "type": "string",
+        "value": "Modded hosting in public lobbies is not recommended due to the potential for instability and unexpected behavior that can disrupt gameplay for all participants. Modifications may introduce bugs or conflicts that were not present in the original game, leading to crashes, unfair advantages, or a poor experience for players. Furthermore, joining a modded lobby without understanding the changes can lead to confusion and frustration, ultimately harming the community's enjoyment and trust. It's best to keep modded content in private sessions where all participants are aware of and agree to the modifications."
+      }
+    },
+    {
+      "File": "ImportTextTable-EN.json",
+      "Find": {
+        "name": "RoomType_PassCodeOnly",
+        "type": "string",
+        "value": "Passcode Only"
+      },
+      "Replace": {
+        "name": "RoomType_PassCodeOnly",
+        "type": "string",
+        "value": "Change Me"
+      }
+    },
+    {
+      "File": "ImportTextTable-EN.json",
+      "Find": {
+        "name": "RoomType_Everyone",
+        "type": "string",
+        "value": "Everyone"
+      },
+      "Replace": {
+        "name": "RoomType_Everyone",
+        "type": "string",
+        "value": "Change Me"
+      }
+    }
+  ],
+  "NewToAddTextTableEntries": {
+    "CN": [
+      {
+        "name": "Test_Scenario_F",
+        "type": "string",
+        "value": "离线改装任务模式"
+      },
+      {
+        "name": "Test_Scenario_Desc_F",
+        "type": "string",
+        "value": "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      {
+        "name": "Test_Scenario_O",
+        "type": "string",
+        "value": "在线改装任务模式"
+      },
+      {
+        "name": "Test_Scenario_Desc_O",
+        "type": "string",
+        "value": "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      {
+        "name": "Ranger_Weapon_Slot",
+        "type": "string",
+        "value": "新游侠武器槽"
+      },
+      {
+        "name": "Ranger_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "新游侠支援槽"
+      },
+      {
+        "name": "WingDiver_Weapon_Slot",
+        "type": "string",
+        "value": "新空翼者武器槽"
+      },
+      {
+        "name": "WingDiver_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "新空翼者支援槽"
+      },
+      {
+        "name": "AirRaider_Weapon_Slot",
+        "type": "string",
+        "value": "新空袭者武器槽"
+      },
+      {
+        "name": "AirRaider_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "新空袭者支援槽"
+      },
+      {
+        "name": "Fencer_Weapon_Slot",
+        "type": "string",
+        "value": "新剑士武器槽"
+      },
+      {
+        "name": "Fencer_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "新剑士支援槽"
+      }
+    ],
+    "EN": [
+      {
+        "name": "Test_Scenario_F",
+        "type": "string",
+        "value": "Offline MODDED Mission Mode"
+      },
+      {
+        "name": "Test_Scenario_Desc_F",
+        "type": "string",
+        "value": "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      {
+        "name": "Test_Scenario_O",
+        "type": "string",
+        "value": "Online MODDED Mission Mode"
+      },
+      {
+        "name": "Test_Scenario_Desc_O",
+        "type": "string",
+        "value": "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      {
+        "name": "Ranger_Weapon_Slot",
+        "type": "string",
+        "value": "New Ranger Weapon Slot"
+      },
+      {
+        "name": "Ranger_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "New Ranger Support Slot"
+      },
+      {
+        "name": "WingDiver_Weapon_Slot",
+        "type": "string",
+        "value": "New Wingdiver Weapon Slot"
+      },
+      {
+        "name": "WingDiver_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "New Wingdiver Support Slot"
+      },
+      {
+        "name": "AirRaider_Weapon_Slot",
+        "type": "string",
+        "value": "New AirRaider Weapon Slot"
+      },
+      {
+        "name": "AirRaider_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "New AirRaider Support Slot"
+      },
+      {
+        "name": "Fencer_Weapon_Slot",
+        "type": "string",
+        "value": "New Fencer Weapon Slot"
+      },
+      {
+        "name": "Fencer_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "New Fencer Support Slot"
+      }
+    ],
+    "JA": [
+      {
+        "name": "Test_Scenario_F",
+        "type": "string",
+        "value": "オフライン改造ミッションモード"
+      },
+      {
+        "name": "Test_Scenario_Desc_F",
+        "type": "string",
+        "value": "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      {
+        "name": "Test_Scenario_O",
+        "type": "string",
+        "value": "オンライン改造ミッションモード"
+      },
+      {
+        "name": "Test_Scenario_Desc_O",
+        "type": "string",
+        "value": "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      {
+        "name": "Ranger_Weapon_Slot",
+        "type": "string",
+        "value": "新レンジャー武器スロット"
+      },
+      {
+        "name": "Ranger_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "新レンジャーサポートスロット"
+      },
+      {
+        "name": "WingDiver_Weapon_Slot",
+        "type": "string",
+        "value": "新ウィングダイバースロット"
+      },
+      {
+        "name": "WingDiver_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "新ウィングダイバーサポートスロット"
+      },
+      {
+        "name": "AirRaider_Weapon_Slot",
+        "type": "string",
+        "value": "新空襲者武器スロット"
+      },
+      {
+        "name": "AirRaider_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "新空襲者サポートスロット"
+      },
+      {
+        "name": "Fencer_Weapon_Slot",
+        "type": "string",
+        "value": "新フェンサースロット"
+      },
+      {
+        "name": "Fencer_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "新フェンサーサポートスロット"
+      }
+    ],
+    "KR": [
+      {
+        "name": "Test_Scenario_F",
+        "type": "string",
+        "value": "오프라인 모드 미션 모드"
+      },
+      {
+        "name": "Test_Scenario_Desc_F",
+        "type": "string",
+        "value": "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      {
+        "name": "Test_Scenario_O",
+        "type": "string",
+        "value": "온라인 모드 미션 모드"
+      },
+      {
+        "name": "Test_Scenario_Desc_O",
+        "type": "string",
+        "value": "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      {
+        "name": "Ranger_Weapon_Slot",
+        "type": "string",
+        "value": "새로운 레인저 무기 슬롯"
+      },
+      {
+        "name": "Ranger_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "새로운 레인저 지원 슬롯"
+      },
+      {
+        "name": "WingDiver_Weapon_Slot",
+        "type": "string",
+        "value": "새로운 윙다이버 무기 슬롯"
+      },
+      {
+        "name": "WingDiver_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "새로운 윙다이버 지원 슬롯"
+      },
+      {
+        "name": "AirRaider_Weapon_Slot",
+        "type": "string",
+        "value": "새로운 공습자 무기 슬롯"
+      },
+      {
+        "name": "AirRaider_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "새로운 공습자 지원 슬롯"
+      },
+      {
+        "name": "Fencer_Weapon_Slot",
+        "type": "string",
+        "value": "새로운 펜서 무기 슬롯"
+      },
+      {
+        "name": "Fencer_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "새로운 펜서 지원 슬롯"
+      }
+    ],
+    "SC": [
+      {
+        "name": "Test_Scenario_F",
+        "type": "string",
+        "value": "离线改装任务模式"
+      },
+      {
+        "name": "Test_Scenario_Desc_F",
+        "type": "string",
+        "value": "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      {
+        "name": "Test_Scenario_O",
+        "type": "string",
+        "value": "在线改装任务模式"
+      },
+      {
+        "name": "Test_Scenario_Desc_O",
+        "type": "string",
+        "value": "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      {
+        "name": "Ranger_Weapon_Slot",
+        "type": "string",
+        "value": "新游侠武器槽"
+      },
+      {
+        "name": "Ranger_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "新游侠支援槽"
+      },
+      {
+        "name": "WingDiver_Weapon_Slot",
+        "type": "string",
+        "value": "新空翼者武器槽"
+      },
+      {
+        "name": "WingDiver_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "新空翼者支援槽"
+      },
+      {
+        "name": "AirRaider_Weapon_Slot",
+        "type": "string",
+        "value": "新空袭者武器槽"
+      },
+      {
+        "name": "AirRaider_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "新空袭者支援槽"
+      },
+      {
+        "name": "Fencer_Weapon_Slot",
+        "type": "string",
+        "value": "新剑士武器槽"
+      },
+      {
+        "name": "Fencer_Weapon_Slot_Support_Slot",
+        "type": "string",
+        "value": "新剑士支援槽"
+      }
+    ]
+  },
+  "NewToAddModeList": [
+    {
+      "type": "ptr",
+      "value": [
+        {
+          "type": "string",
+          "value": "Test_Scenario_F"
+        },
+        {
+          "type": "string",
+          "value": "Test_Scenario_Desc_F"
+        },
+        {
+          "type": "string",
+          "value": "off_scenario.%LOCALE%.dds"
+        },
+        {
+          "type": "string",
+          "value": "BGM_E5S02_EDFHonbu"
+        },
+        {
+          "type": "string",
+          "value": "MAIN.GST"
+        },
+        {
+          "type": "string",
+          "value": "MODTEST.MST"
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {
+              "type": "string",
+              "value": "app:/Mission/DLC2_MissionList.offline.list.sgo"
+            },
+            {
+              "type": "string",
+              "value": "app:/Mission/DLC2_MissionList.offline.txt.%LOCALE%.sgo"
+            },
+            {
+              "type": "string",
+              "value": "app:/Mission/DLC2_MissionList.offline.image.rab"
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 15
+                    },
+                    {
+                      "type": "float",
+                      "value": 20
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.20000000298023224
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.75
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 24
+                    },
+                    {
+                      "type": "float",
+                      "value": 40
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.20000000298023224
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 60
+                    },
+                    {
+                      "type": "float",
+                      "value": 110
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.774999976158142
+                    },
+                    {
+                      "type": "float",
+                      "value": 2.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.25
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 0.75
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 150
+                    },
+                    {
+                      "type": "float",
+                      "value": 220
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 3
+                    },
+                    {
+                      "type": "float",
+                      "value": 3.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.30000001192092896
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 250
+                    },
+                    {
+                      "type": "float",
+                      "value": 330
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 4.25
+                    },
+                    {
+                      "type": "float",
+                      "value": 4.75
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.25
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "int",
+          "value": 0
+        },
+        {
+          "type": "int",
+          "value": 0
+        },
+        {
+          "type": "int",
+          "value": 0
+        },
+        {
+          "type": "int",
+          "value": 0
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {
+              "type": "int",
+              "value": 1
+            },
+            {
+              "type": "int",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {
+          "type": "string",
+          "value": "Test_Scenario_O"
+        },
+        {
+          "type": "string",
+          "value": "Test_Scenario_Desc_O"
+        },
+        {
+          "type": "string",
+          "value": "on_scenario.%LOCALE%.dds"
+        },
+        {
+          "type": "string",
+          "value": "BGM_E5S02_EDFHonbu"
+        },
+        {
+          "type": "string",
+          "value": "MAIN.GST"
+        },
+        {
+          "type": "string",
+          "value": "MODTEST.MST"
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {
+              "type": "string",
+              "value": "app:/Mission/DLC2_MissionList.online.list.sgo"
+            },
+            {
+              "type": "string",
+              "value": "app:/Mission/DLC2_MissionList.online.txt.%LOCALE%.sgo"
+            },
+            {
+              "type": "string",
+              "value": "app:/Mission/DLC2_MissionList.online.image.rab"
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 15
+                    },
+                    {
+                      "type": "float",
+                      "value": 20
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.800000011920929
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.20000000298023224
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.7999999523162842
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.75
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.7999999523162842
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.7999999523162842
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.100000023841858
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.600000023841858
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "int",
+                      "value": 2000
+                    },
+                    {
+                      "type": "int",
+                      "value": 3500
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 24
+                    },
+                    {
+                      "type": "float",
+                      "value": 40
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.800000011920929
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.20000000298023224
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2.4000000953674316
+                    },
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.100000023841858
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.600000023841858
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "int",
+                      "value": 2000
+                    },
+                    {
+                      "type": "int",
+                      "value": 3500
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 60
+                    },
+                    {
+                      "type": "float",
+                      "value": 110
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.8999999761581421
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.0499999523162842
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.774999976158142
+                    },
+                    {
+                      "type": "float",
+                      "value": 2.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.25
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2.299999952316284
+                    },
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.25
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.875
+                    },
+                    {
+                      "type": "float",
+                      "value": 2.5999999046325684
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "int",
+                      "value": 4500
+                    },
+                    {
+                      "type": "int",
+                      "value": 7000
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 150
+                    },
+                    {
+                      "type": "float",
+                      "value": 220
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.100000023841858
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 3
+                    },
+                    {
+                      "type": "float",
+                      "value": 3.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.30000001192092896
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2.0999999046325684
+                    },
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.75
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 3.0999999046325684
+                    },
+                    {
+                      "type": "float",
+                      "value": 3.5999999046325684
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "int",
+                      "value": 8000
+                    },
+                    {
+                      "type": "int",
+                      "value": 14000
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 250
+                    },
+                    {
+                      "type": "float",
+                      "value": 330
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.100000023841858
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.149999976158142
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 4.25
+                    },
+                    {
+                      "type": "float",
+                      "value": 4.75
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": -1
+                    },
+                    {
+                      "type": "float",
+                      "value": -1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "int",
+                      "value": 20000
+                    },
+                    {
+                      "type": "int",
+                      "value": 25000
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "int",
+          "value": 1
+        },
+        {
+          "type": "int",
+          "value": 0
+        },
+        {
+          "type": "int",
+          "value": 1
+        },
+        {
+          "type": "int",
+          "value": 0
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {
+              "type": "int",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "NewToAddSoldierWeaponCategory": [
+    {
+      "type": "ptr",
+      "value": [
+        {
+          "type": "int",
+          "value": 10000
+        },
+        {
+          "type": "string",
+          "value": "Ranger_Weapon_Slot"
+        }
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {
+          "type": "int",
+          "value": 10001
+        },
+        {
+          "type": "string",
+          "value": "Ranger_Weapon_Slot_Support_Slot"
+        }
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {
+          "type": "int",
+          "value": 20000
+        },
+        {
+          "type": "string",
+          "value": "WingDiver_Weapon_Slot"
+        }
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {
+          "type": "int",
+          "value": 20001
+        },
+        {
+          "type": "string",
+          "value": "WingDiver_Weapon_Slot_Support_Slot"
+        }
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {
+          "type": "int",
+          "value": 30000
+        },
+        {
+          "type": "string",
+          "value": "AirRaider_Weapon_Slot"
+        }
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {
+          "type": "int",
+          "value": 30001
+        },
+        {
+          "type": "string",
+          "value": "AirRaider_Weapon_Slot_Support_Slot"
+        }
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {
+          "type": "int",
+          "value": 40000
+        },
+        {
+          "type": "string",
+          "value": "Fencer_Weapon_Slot"
+        }
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {
+          "type": "int",
+          "value": 40001
+        },
+        {
+          "type": "string",
+          "value": "Fencer_Weapon_Slot_Support_Slot"
+        }
+      ]
+    }
+  ],
+  "NewToAddWeaponCatalog-Ranger": [
+    {
+      "Weapon_Slot1": {
+        "value": [
+          {
+            "type": "int",
+            "value": 10000
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_Slot2": {
+        "value": [
+          {
+            "type": "int",
+            "value": 10000
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_SlotSupport2": {
+        "value": [
+          {
+            "type": "int",
+            "value": 10001
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_SlotSupport1": {
+        "value": [
+          {
+            "type": "int",
+            "value": 10001
+          }
+        ]
+      }
+    }
+  ],
+  "NewToAddWeaponCatalog-WingDiver": [
+    {
+      "Weapon_Slot1": {
+        "value": [
+          {
+            "type": "int",
+            "value": 20000
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_Slot2": {
+        "value": [
+          {
+            "type": "int",
+            "value": 20000
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_SlotPaleSupport2": {
+        "value": [
+          {
+            "type": "int",
+            "value": 20001
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_SlotPaleSupport1": {
+        "value": [
+          {
+            "type": "int",
+            "value": 20001
+          }
+        ]
+      }
+    }
+  ],
+  "NewToAddWeaponCatalog-AirRaider": [
+    {
+      "Weapon_Slot1": {
+        "value": [
+          {
+            "type": "int",
+            "value": 30000
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_Slot2": {
+        "value": [
+          {
+            "type": "int",
+            "value": 30000
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_Slot3": {
+        "value": [
+          {
+            "type": "int",
+            "value": 30000
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_SlotAirRaiderSupport": {
+        "value": [
+          {
+            "type": "int",
+            "value": 30001
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_SlotVehicle": {
+        "value": [
+          {
+            "type": "int",
+            "value": 30001
+          }
+        ]
+      }
+    }
+  ],
+  "NewToAddWeaponCatalog-Fencer": [
+    {
+      "Weapon_Slot1L": {
+        "value": [
+          {
+            "type": "int",
+            "value": 40000
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_Slot1R": {
+        "value": [
+          {
+            "type": "int",
+            "value": 40000
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_Slot2L": {
+        "value": [
+          {
+            "type": "int",
+            "value": 40000
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_Slot2R": {
+        "value": [
+          {
+            "type": "int",
+            "value": 40000
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_SlotFencerSupport": {
+        "value": [
+          {
+            "type": "int",
+            "value": 40001
+          }
+        ]
+      }
+    },
+    {
+      "Weapon_SlotFencerSupport": {
+        "value": [
+          {
+            "type": "int",
+            "value": 40001
+          }
+        ]
+      }
+    }
+  ],
+  "NewToAddWeaponTables": {
+    "RANGER": {
+      "Assault Rifles": [
+        {
+          "name": "Broken PA-11",
+          "Data": {
+            "value": [
+              {
+                "value": "AssultRifle01",
+                "type": "str"
+              },
+              {
+                "value": "app:/weapon/AssultRifle01.sgo",
+                "type": "str"
+              },
+              {
+                "value": 10000,
+                "type": "double"
+              },
+              {
+                "value": 1,
+                "type": "double"
+              },
+              {
+                "value": 0,
+                "type": "double"
+              },
+              {
+                "value": 1,
+                "type": "double"
+              },
+              {
+                "value": [
+                  {
+                    "value": 7,
+                    "type": "double"
+                  },
+                  {
+                    "value": 8,
+                    "type": "double"
+                  },
+                  {
+                    "value": 6,
+                    "type": "double"
+                  },
+                  {
+                    "value": 8,
+                    "type": "double"
+                  },
+                  {
+                    "value": 8,
+                    "type": "double"
+                  },
+                  {
+                    "value": 4,
+                    "type": "double"
+                  }
+                ],
+                "type": "ptr"
+              },
+              {
+                "value": 1,
+                "type": "double"
+              },
+              {
+                "value": 0,
+                "type": "double"
+              }
+            ],
+            "type": "ptr"
+          },
+          "Text": {
+            "value": [
+              {
+                "value": "Broken PA-11",
+                "type": "str"
+              },
+              {
+                "value": "A broken high-performance assault rifle.\nPerformance of the rifle is greatly reduced due to it having been repaired with spare parts.\n\nHolding the trigger (pressing and holding the attack button) will continually fire shots.\nFired bullets are susceptible to air resistance and decrease in power depending on distance.\n\nAt the moment being fire, the bullet's power is the maximum of the spec (Damage value shown on the right). \nIts power will gradually decrease and become the minimum of the spec (Damage value shown on the right) when reaching its limit of the range.",
+                "type": "str"
+              },
+              {
+                "value": [
+                  {
+                    "value": [
+                      {
+                        "value": "Capacity",
+                        "type": "str"
+                      },
+                      {
+                        "value": "$0",
+                        "type": "str"
+                      },
+                      {
+                        "value": [
+                          {
+                            "value": 120,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0,
+                            "type": "double"
+                          },
+                          {
+                            "value": 7,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0,
+                            "type": "double"
+                          }
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {
+                        "value": "ROF",
+                        "type": "str"
+                      },
+                      {
+                        "value": "$0/sec",
+                        "type": "str"
+                      },
+                      {
+                        "value": [
+                          {
+                            "value": 5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 25,
+                            "type": "double"
+                          },
+                          {
+                            "value": 5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 4,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0,
+                            "type": "double"
+                          }
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {
+                        "value": "Damage",
+                        "type": "str"
+                      },
+                      {
+                        "value": "$0～$1",
+                        "type": "str"
+                      },
+                      {
+                        "value": [
+                          {
+                            "value": 11,
+                            "type": "double"
+                          },
+                          {
+                            "value": 8,
+                            "type": "double"
+                          },
+                          {
+                            "value": 1,
+                            "type": "double"
+                          },
+                          {
+                            "value": 8,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 1,
+                            "type": "double"
+                          }
+                        ],
+                        "type": "ptr"
+                      },
+                      {
+                        "value": [
+                          {
+                            "value": 5.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 8,
+                            "type": "double"
+                          },
+                          {
+                            "value": 1,
+                            "type": "double"
+                          },
+                          {
+                            "value": 8,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 1,
+                            "type": "double"
+                          }
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {
+                        "value": "Reload Time",
+                        "type": "str"
+                      },
+                      {
+                        "value": "$0 sec",
+                        "type": "str"
+                      },
+                      {
+                        "value": [
+                          {
+                            "value": 1.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 21,
+                            "type": "double"
+                          },
+                          {
+                            "value": 4,
+                            "type": "double"
+                          },
+                          {
+                            "value": 8,
+                            "type": "double"
+                          },
+                          {
+                            "value": 1,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 1,
+                            "type": "double"
+                          }
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {
+                        "value": "Range",
+                        "type": "str"
+                      },
+                      {
+                        "value": "$0m",
+                        "type": "str"
+                      },
+                      {
+                        "value": [
+                          {
+                            "value": 208,
+                            "type": "double"
+                          },
+                          {
+                            "value": 16,
+                            "type": "double"
+                          },
+                          {
+                            "value": 3,
+                            "type": "double"
+                          },
+                          {
+                            "value": 8,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 1,
+                            "type": "double"
+                          }
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {
+                        "value": "Shot Speed",
+                        "type": "str"
+                      },
+                      {
+                        "value": "$0m/s",
+                        "type": "str"
+                      },
+                      {
+                        "value": [
+                          {
+                            "value": 240,
+                            "type": "double"
+                          },
+                          {
+                            "value": 16,
+                            "type": "double"
+                          },
+                          {
+                            "value": 3,
+                            "type": "double"
+                          },
+                          {
+                            "value": 8,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 1,
+                            "type": "double"
+                          }
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {
+                        "value": "Accuracy",
+                        "type": "str"
+                      },
+                      {
+                        "value": "$0",
+                        "type": "str"
+                      },
+                      {
+                        "value": [
+                          {
+                            "value": 0.05000000074505806,
+                            "type": "double"
+                          },
+                          {
+                            "value": 13,
+                            "type": "double"
+                          },
+                          {
+                            "value": 2,
+                            "type": "double"
+                          },
+                          {
+                            "value": 6,
+                            "type": "double"
+                          },
+                          {
+                            "value": 2,
+                            "type": "double"
+                          },
+                          {
+                            "value": 0.5,
+                            "type": "double"
+                          },
+                          {
+                            "value": 1,
+                            "type": "double"
+                          }
+                        ],
+                        "type": "ptr"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {
+                        "value": "Zoom",
+                        "type": "str"
+                      },
+                      {
+                        "value": "----",
+                        "type": "str"
+                      }
+                    ],
+                    "type": "ptr"
+                  },
+                  {
+                    "value": [
+                      {
+                        "value": "Laser Sight",
+                        "type": "str"
+                      },
+                      {
+                        "value": "----",
+                        "type": "str"
+                      }
+                    ],
+                    "type": "ptr"
+                  }
+                ],
+                "type": "ptr"
+              }
+            ],
+            "type": "ptr"
+          }
+        }
+      ],
+      "Shotguns": [],
+      "Snipers": [],
+      "Rocket Launchers": [],
+      "Missile Launchers": [],
+      "Grenades": [],
+      "Special": [],
+      "Support Equipment": [],
+      "Bikes": [],
+      "Tanks": [],
+      "Helicopters": [],
+      "New Ranger Category": [],
+      "New Ranger Support Slot": []
+    },
+    "WINGDIVER": {
+      "Short-Range": [],
+      "Mid-Range Kinetic Weapons": [],
+      "Mid-Range Pulse Weapons": [],
+      "Mid-Range Energy Weapons": [],
+      "Long-Range": [],
+      "Ranged Weapons": [],
+      "Homing Weapons": [],
+      "Special": [],
+      "Plasma Cores": [],
+      "New Wingdiver Weapon Slot": [],
+      "New Wingdiver Support Slot": []
+    },
+    "FENCER": {
+      "CC Strikers": [],
+      "CC Piercers": [],
+      "Shields": [],
+      "Autocannons": [],
+      "Cannons": [],
+      "Missile Launchers": [],
+      "Enhanced Boosters": [],
+      "Enhanced Shields": [],
+      "Enhanced Cannons": [],
+      "Enhanced Exoskeletons": [],
+      "New Fencer Weapon Slot": [],
+      "New Fencer Support Slot": []
+    },
+    "AIRRAIDER": {
+      "Request Artillery Units": [],
+      "Request Gunships": [],
+      "Request Bombers": [],
+      "Request Missiles": [],
+      "Request Satellites": [],
+      "Limpet Guns": [],
+      "Stationary Weapons": [],
+      "Support Equipment": [],
+      "Special": [],
+      "Powered Exoskeletons": [],
+      "Special Weapons": [],
+      "Helicopters": [],
+      "Ground Vehicles": [],
+      "Tanks": [],
+      "New AirRaider Weapon Slot": [],
+      "New AirRaider Support Slot": []
+    }
+  },
+  "DirManifestToFilesUninstaller": {},
+  "CHANGELOG": [
+    "0.0.1",
+    ""
+  ]
+}

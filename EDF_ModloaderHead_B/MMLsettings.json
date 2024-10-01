@@ -1,0 +1,10 @@
+{
+    "edf6_platform": "steam",
+    "colors": {
+        "ButtonBackGround": "#000000",
+        "ButtonPressedBackGround": "#010e70",
+        "TextColor": "#B3FF00",
+        "PressedTextColor": "#ffffff"
+    },
+    "modloader_status": "Enabled"
+}

@@ -72,5 +72,7 @@ if "%USE_INTERNAL_BUILD%" equ "1" (
 )
 
 echo All installations completed successfully.
+echo Testing python window
+python testpython.py
 pause
 exit /b 0

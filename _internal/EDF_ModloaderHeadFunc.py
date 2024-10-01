@@ -7,29 +7,47 @@ import tkinter.filedialog as filedialog
 settings_file = "MMLsettings.json"
 
 def load_settings():
-    """Load settings from a JSON file."""
-    if os.path.exists(settings_file):
-        with open(settings_file, 'r') as file:
-            return json.load(file)
-    # Default settings if the file doesn't exist
+    """Load settings from a JSON file, with default fallback and validation."""
+    # Define the default settings at the start to ensure it is available for any reference
     default_settings = {
         "edf6_platform": "steam",
+        "platform_can_be": "steam|epic",
         "colors": {
+            "JustBackGround": "#484848",
             "ButtonBackGround": "#000000",
             "ButtonPressedBackGround": "#010e70",
             "TextColor": "#B3FF00",
-            "PressedTextColor": "#ffffff"
+            "PressedTextColor": "#ffffff",
+            "Helpful Color Blind Site": "https://davidmathlogic.com/colorblind/#%23484848-%23000000-%23010E70-%23B3FF00-%23FFFFFF"
         },
-        "modloader_status": "Enabled"
+        "modloader_status": "Enabled",
+        "modloader_status_can_be": "Enabled|Disabled, DONT EDIT AS THIS IS VISUAL TEXT",
     }
-    # Save default settings to file
+
+    if os.path.exists(settings_file):
+        with open(settings_file, 'r') as file:
+            try:
+                settings = json.load(file)
+                # Validate and fill missing keys with defaults if necessary
+                for key, value in default_settings.items():
+                    if key not in settings:
+                        settings[key] = value
+                return settings
+            except json.JSONDecodeError:
+                # Handle error if settings file is corrupted
+                print("Error loading settings, reverting to defaults.")
+
+    # Save default settings to file if the initial load fails
     save_settings(default_settings)
     return default_settings
 
 def save_settings(settings):
     """Save settings to a JSON file."""
-    with open(settings_file, 'w') as file:
-        json.dump(settings, file, indent=4)
+    try:
+        with open(settings_file, 'w') as file:
+            json.dump(settings, file, indent=4)
+    except Exception as e:
+        print(f"Error saving settings: {e}")
 
 settings = load_settings()
 
@@ -129,7 +147,7 @@ def launch_game(app_ids, error_msg):
 
 def toggle_modloader_status(error_msg):
     try:
-        # Logic to toggle the modloader status (e.g., renaming a file)
+        # Logic to toggle the modloader status (Renaming winmm.dll)
         if os.path.exists(modloader_status_file):
             os.rename(modloader_status_file, modloader_status_file + ".disabled")
             error_msg("Modloader disabled")
@@ -149,7 +167,7 @@ def get_modloader_status():
     elif os.path.exists(disabled_modloader_path):
         return "Disabled"
     else:
-        return "Missing"  # Modloader file is not found
+        return "Lost.Unknown.MIA"  # Modloader file is not found
 
 def show_error(error_msg):
     # Logic to display an error message
@@ -205,11 +223,30 @@ def show_help(error_msg):
     except Exception as e:
         error_msg(f"Failed to launch help documentation: {str(e)}")
 
+def validate_zip(file_path, error_msg):
+    """Check if the downloaded zip file is valid."""
+    if not os.path.exists(file_path):
+        error_msg(f"File {file_path} does not exist.")
+        return False
+
+    try:
+        with zipfile.ZipFile(file_path, 'r') as zip_ref:
+            # Test the integrity of the zip file
+            bad_file = zip_ref.testzip()
+            if bad_file:
+                error_msg(f"Corrupted file found in the archive: {bad_file}")
+                return False
+    except zipfile.BadZipFile:
+        error_msg(f"The zip file {file_path} is invalid or corrupted.")
+        return False
+
+    return True
+
 #====================================================================================================
 #MODLOADER
 
 def download_and_extract_zip(zip_url, zip_name, extract_to, error_msg):
-    """Download a ZIP file from the given URL and extract it, then check for specific .exe files."""
+    """Download a ZIP file from the given URL, validate it, and extract it. Then check for specific .exe files."""
     try:
         # Download the ZIP file
         response = requests.get(zip_url)
@@ -218,15 +255,20 @@ def download_and_extract_zip(zip_url, zip_name, extract_to, error_msg):
         with open(zip_path, 'wb') as file:
             file.write(response.content)
 
+        # Validate the downloaded zip file
+        if not validate_zip(zip_path, error_msg):
+            error_msg(f"Validation failed for {zip_name}. File is not valid or is corrupted.")
+            return
+
         # Extract the ZIP file
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
             zip_ref.extractall(extract_to)
 
         error_msg(f"Downloaded and extracted {zip_name}")
-        
+
         # Check for specific .exe files in the extracted contents
         check_for_specific_exe_files(extract_to, error_msg)
-        
+
     except requests.exceptions.RequestException as e:
         error_msg(f"Failed to download {zip_name}: {str(e)}")
     except zipfile.BadZipFile as e:
@@ -266,7 +308,7 @@ def update_mods(error_msg):
             if mod_data:
                 process_mods(mod_data, mods_dir, error_msg)
                 
-        error_msg("Mods updated successfully")
+        error_msg("ALL Mods Update Check Done.")
     except Exception as e:
         error_msg(f"Failed to update mods: {str(e)}")
 
@@ -281,69 +323,121 @@ def load_mod_data(mod_info_path, mod_file, error_msg):
 
 def process_mods(mod_data, mods_dir, error_msg):
     """Process each mod in the mod data."""
+
+    # Handle GitHub mods
     for mod in mod_data.get("GITHUB_INFO", []):
         mod_name = mod.get("MOD NAME")
         mod_url = mod.get("LINK")
         mod_version = mod.get("VERSION")
 
         if not mod_name or not mod_url or not mod_version:
-            error_msg(f"Mod data is incomplete for one of the mods. Skipping...")
+            error_msg(f"Mod data is incomplete for one of the GitHub mods. Skipping...")
             continue
 
         mod_file_path = os.path.join(mods_dir, f"{mod_name}.zip")
         version_file_path = os.path.join(mods_dir, f"{mod_name}_version.txt")
 
         if mod_needs_update(mod_file_path, version_file_path, mod_version, error_msg):
-            download_and_save_mod(mod_url, mod_file_path, version_file_path, mod_version, error_msg)
+            download_and_save_mod(mod_url, mod_file_path, version_file_path, mod_version, error_msg, source="GitHub")
+            error_msg(f"Downloaded and saved {mod_file_path} from GitHub.")
+            install_mod(mod_file_path, mods_dir, error_msg)
 
-            # Create a temporary folder for extracted mod contents
-            extract_dir = os.path.splitext(mod_file_path)[0]
-            install_dir = os.path.join(os.path.dirname(mods_dir), "Mods")
-            if not os.path.exists(install_dir):
-                os.makedirs(install_dir)
+    # Handle Nexus Mods
+    for mod in mod_data.get("NEXUS_INFO", []):
+        mod_name = mod.get("MOD NAME")
+        mod_url = mod.get("LINK")
+        mod_version = mod.get("VERSION")
 
-            if os.path.exists(extract_dir):
-                # Check for nested unnecessary directories
-                extracted_items = os.listdir(extract_dir)
-                while len(extracted_items) == 1 and os.path.isdir(os.path.join(extract_dir, extracted_items[0])):
-                    # Navigate deeper into the single folder to reach actual content
-                    extract_dir = os.path.join(extract_dir, extracted_items[0])
-                    extracted_items = os.listdir(extract_dir)
+        if not mod_name or not mod_url or not mod_version:
+            error_msg(f"Mod data is incomplete for one of the Nexus mods. Skipping...")
+            continue
 
-                # If a "Mods" folder is found, pull everything out of it
-                mods_subfolder_path = os.path.join(extract_dir, "Mods")
-                if os.path.exists(mods_subfolder_path) and os.path.isdir(mods_subfolder_path):
-                    extracted_items = os.listdir(mods_subfolder_path)
-                    extract_dir = mods_subfolder_path
+        mod_file_path = os.path.join(mods_dir, f"{mod_name}.zip")
+        version_file_path = os.path.join(mods_dir, f"{mod_name}_version.txt")
 
-                # Move files from the correct extraction layer, excluding .md files
-                for item in extracted_items:
-                    source = os.path.join(extract_dir, item)
-                    destination = os.path.join(install_dir, item)
-                    
-                    # Skip .md files
-                    if item.lower().endswith('.md'):
-                        error_msg(f"Skipping Markdown files are excluded.")
-                        continue
+        if mod_needs_update(mod_file_path, version_file_path, mod_version, error_msg):
+            download_nexus_mod(mod_name, mod_url, mod_file_path, version_file_path, mod_version, error_msg)
+            error_msg(f"Downloaded and saved {mod_name} from Nexus Mods as {mod_file_path}.")
+            install_mod(mod_file_path, mods_dir, error_msg)
 
-                    try:
-                        if os.path.isdir(source):
-                            shutil.move(source, destination)
-                        else:
-                            shutil.move(source, install_dir)
-                        error_msg(f"Temporarily installed {item} to {install_dir}")
-                    except Exception as e:
-                        error_msg(f"Failed to temporarily install {item}: {str(e)}")
+    # Final success message
+    error_msg("Mod updated successfully")
 
-            # Clean up the extracted directory and remove the ModName folder in Ziped_Mods
-            shutil.rmtree(extract_dir, ignore_errors=True)
-            if os.path.exists(extract_dir):
-                shutil.rmtree(extract_dir, ignore_errors=True)
+def install_mod(mod_file_path, mods_dir, error_msg):
+    """Extract and install the mod from the downloaded file."""
+    extract_dir = os.path.splitext(mod_file_path)[0]
+    install_dir = os.path.join(os.path.dirname(mods_dir), "Mods")
 
-            # Clean up the ModName folder in Ziped_Mods
-            mod_folder_path = os.path.join(mods_dir, mod_name)
-            if os.path.exists(mod_folder_path):
-                shutil.rmtree(mod_folder_path, ignore_errors=True)
+    if not os.path.exists(install_dir):
+        os.makedirs(install_dir)
+
+    if os.path.exists(extract_dir):
+        # Check for nested unnecessary directories
+        extracted_items = os.listdir(extract_dir)
+        while len(extracted_items) == 1 and os.path.isdir(os.path.join(extract_dir, extracted_items[0])):
+            # Navigate deeper into the single folder to reach actual content
+            extract_dir = os.path.join(extract_dir, extracted_items[0])
+            extracted_items = os.listdir(extract_dir)
+
+        # If a "Mods" folder is found, pull everything out of it
+        mods_subfolder_path = os.path.join(extract_dir, "Mods")
+        if os.path.exists(mods_subfolder_path) and os.path.isdir(mods_subfolder_path):
+            extracted_items = os.listdir(mods_subfolder_path)
+            extract_dir = mods_subfolder_path
+
+        # Move files from the correct extraction layer, excluding .md files
+        for item in extracted_items:
+            source = os.path.join(extract_dir, item)
+            destination = os.path.join(install_dir, item)
+
+            # Skip .md files
+            if item.lower().endswith('.md'):
+                error_msg(f"Skipping Markdown files are excluded.")
+                continue
+
+            try:
+                if os.path.isdir(source):
+                    shutil.move(source, destination)
+                else:
+                    shutil.move(source, install_dir)
+                error_msg(f"Temporarily installed {item} to {install_dir}")
+            except Exception as e:
+                error_msg(f"Failed to temporarily install {item}: {str(e)}")
+
+    # Clean up the extracted directory and remove the ModName folder in Ziped_Mods
+    shutil.rmtree(extract_dir, ignore_errors=True)
+    if os.path.exists(extract_dir):
+        shutil.rmtree(extract_dir, ignore_errors=True)
+
+    # Clean up the ModName folder in Ziped_Mods
+    mod_name = os.path.basename(mod_file_path).replace('.zip', '')
+    mod_folder_path = os.path.join(mods_dir, mod_name)
+    if os.path.exists(mod_folder_path):
+        shutil.rmtree(mod_folder_path, ignore_errors=True)
+
+def download_nexus_mod(mod_name, url, mod_file_path, version_file_path, mod_version, error_msg):
+    """Download a mod from Nexus Mods."""
+    try:
+        api_key = 'cKc9fBoPSz6hy0SKzuXQ/6nGzApqqLFuaFlEPcQ0qAOI0w==--ifjs30NvY1cduRns--dLgZDtE+L7zcaeSjNm4Eug=='
+        api_headers = {
+            'Authorization': api_key, # Nexus Mods API key
+        }
+        download_url = url
+        # Make the request to the Nexus Mods API
+        response = requests.get(download_url, headers=api_headers)
+        response.raise_for_status()
+
+        # Save the downloaded content
+        with open(mod_file_path, 'wb') as file:
+            file.write(response.content)
+
+        # Save the version information
+        with open(version_file_path, 'w') as version_file:
+            version_file.write(mod_version)
+
+        error_msg(f"Downloaded and saved {mod_name} from Nexus Mods.")
+    except requests.exceptions.RequestException as e:
+        error_msg(f"Failed to download {mod_name} from Nexus Mods: {str(e)}")
 
 def mod_needs_update(mod_file_path, version_file_path, mod_version, error_msg):
     """Check if the mod needs to be updated."""
@@ -359,38 +453,31 @@ def mod_needs_update(mod_file_path, version_file_path, mod_version, error_msg):
         error_msg(f"Failed to check mod version: {str(e)}")
         return False
 
-def download_and_save_mod(mod_url, mod_file_path, version_file_path, mod_version, error_msg):
-    """Download the mod, save it, and unpack it along with its version."""
+def download_and_save_mod(url, mod_file_path, version_file_path, mod_version, error_msg, source="GitHub"):
+    """Download and save a mod from the specified source (GitHub or others), then validate the zip file."""
     try:
-        # Download the mod file
-        response = requests.get(mod_url)
-        response.raise_for_status()  # Raise an HTTPError for bad responses
+        response = requests.get(url)
+        response.raise_for_status()
+
         with open(mod_file_path, 'wb') as file:
             file.write(response.content)
-        
-        # Save the version information
+
+        # Validate the downloaded zip file
+        if not validate_zip(mod_file_path, error_msg):
+            error_msg(f"Validation failed for {mod_file_path}. File is not valid or is corrupted.")
+            return
+
         with open(version_file_path, 'w') as version_file:
             version_file.write(mod_version)
-        
-        # Unpack the mod file if it is a ZIP archive
-        if zipfile.is_zipfile(mod_file_path):
-            with zipfile.ZipFile(mod_file_path, 'r') as zip_ref:
-                extract_dir = os.path.splitext(mod_file_path)[0]  # Extract to a directory with the same name as the mod file
-                os.makedirs(extract_dir, exist_ok=True)  # Create the extract directory if it doesn't exist
-                zip_ref.extractall(extract_dir)
-            error_msg(f"Downloaded, unpacked, and updated {os.path.basename(mod_file_path)} to version {mod_version}.")
-        else:
-            error_msg(f"Downloaded {os.path.basename(mod_file_path)} (not a ZIP file) to version {mod_version}.")
-    
-    except requests.exceptions.RequestException as e:
-        error_msg(f"Failed to download {os.path.basename(mod_file_path)}: {str(e)}")
-    except zipfile.BadZipFile:
-        error_msg(f"Failed to unpack {os.path.basename(mod_file_path)}: Not a valid ZIP file.")
-    except Exception as e:
-        error_msg(f"Failed to save mod {os.path.basename(mod_file_path)}: {str(e)}")
 
+        error_msg(f"Downloaded and saved {mod_file_path} from {source}.")
+    except requests.exceptions.RequestException as e:
+        error_msg(f"Failed to download {mod_file_path} from {source}: {str(e)}")
 
 #====================================================================================================
+
+def JustBackGround():
+    return settings.get("colors", {}).get("JustBackGround", "#484848")  # Default to gray if not found
 
 def ButtonBackGround():
     return settings.get("colors", {}).get("ButtonBackGround", "#000000")  # Default to black if not found
@@ -410,7 +497,7 @@ operation_in_progress = False
 def toggle_mods_panels(error_msg):
     # Define the directory where Mod_config_data.json files are located
     mod_config_dir = os.path.join(parent_dir, "Mods", "EDF 6 MOD SETTINGS MAKER", "MOD CONFIG DATA PLACED HERE")
-    dark_gray_bg = "#2E2E2E"  # Set the dark gray background color
+    dark_bg = "#000000"  # Set the dark background color
     profile_path = os.path.join(mod_config_dir, 'MML_Profiles.txt')
 
     # Function to refresh the file list and display current states
@@ -422,32 +509,26 @@ def toggle_mods_panels(error_msg):
         # Re-fetch the list of files from the directory
         current_files = [f for f in os.listdir(mod_config_dir) if f.endswith('.json') or f.endswith('.disabled')]
 
-        # Display each file with enable and disable buttons
+        # Display each file with enable, disable, uninstall, and info buttons
         for file in current_files:
             # Label to display the file name
-            file_label = tk.Label(scrollable_frame, text=file, bg=dark_gray_bg, fg=TextColor(), font=("AR UDJingXiHeiB5", 10))
+            file_label = tk.Label(scrollable_frame, text=file, bg=dark_bg, fg=TextColor(), font=("AR UDJingXiHeiB5", 10))
             file_label.pack(anchor="w", pady=2)
 
             # Frame for the buttons
-            button_frame = tk.Frame(scrollable_frame, bg=dark_gray_bg)
+            button_frame = tk.Frame(scrollable_frame, bg=dark_bg)
             button_frame.pack(anchor="w")
 
             # Buttons to enable and disable the file
-            enable_btn = tk.Button(button_frame, text="Enable", bg=ButtonBackGround(), fg=TextColor(),
-                                   activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(),
-                                   command=lambda f=file: enable_file(f))
-            disable_btn = tk.Button(button_frame, text="Disable", bg=ButtonBackGround(), fg=TextColor(),
-                                    activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(),
-                                    command=lambda f=file: disable_file(f))
-            # Add the uninstall button with the correct command
-            uninstall_btn = tk.Button(button_frame, text="Uninstall", bg=ButtonBackGround(),             fg=TextColor(),
-                                      activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(),
-                                      command=lambda f=file: uninstall_a_mod(f))
-            
-            
+            enable_btn = tk.Button(button_frame, text="Enable", bg=JustBackGround(), fg=TextColor(), activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(), command=lambda f=file: enable_file(f))
+            disable_btn = tk.Button(button_frame, text="Disable", bg=JustBackGround(), fg=TextColor(), activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(), command=lambda f=file: disable_file(f))
+            uninstall_btn = tk.Button(button_frame, text="Uninstall", bg=JustBackGround(), fg=TextColor(), activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(), command=lambda f=file: uninstall_a_mod(f))
+            info_btn = tk.Button(button_frame, text="INFO", bg=JustBackGround(), fg=TextColor(), activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(), command=lambda f=file: info_file(f))
+
             enable_btn.pack(side="left", padx=5)
             disable_btn.pack(side="left", padx=5)
             uninstall_btn.pack(side="left", padx=5)
+            info_btn.pack(side="left", padx=5)
 
     # Function to enable the selected mod configuration file
     def enable_file(file):
@@ -543,14 +624,29 @@ def toggle_mods_panels(error_msg):
             try:
                 # Collect the state of all files to save with the profile
                 current_files = [f for f in os.listdir(mod_config_dir) if f.endswith('.json') or f.endswith('.disabled')]
-                profile_data = [f"({file}, {'E' if file.endswith('.json') else 'D'})" for file in current_files]
+                unique_files = list(set(current_files))  # Ensure uniqueness
+                profile_data = [f"({file}, {'1' if file.endswith('.json') else '0'})" for file in unique_files]
                 profile_line = f"{profile_name}: {{{', '.join(profile_data)}}}"
-
-                # Ensure profiles.txt exists or create it
-                with open(profile_path, 'a') as profile_file:
+                # Save the profile while ensuring no duplicates
+                profiles = []
+                if os.path.exists(profile_path):
+                    with open(profile_path, 'r') as profile_file:
+                        profiles = profile_file.readlines()
+                # Update the profiles.txt without duplicates
+                with open(profile_path, 'w') as profile_file:
+                    for line in profiles:
+                        if not line.startswith(profile_name + ":"):
+                            profile_file.write(line)
                     profile_file.write(profile_line + '\n')
-
-                profile_listbox.insert(tk.END, f"{profile_name}, {len(current_files)} mods")
+                # Clear the profile listbox to avoid reappending old data
+                profile_listbox.delete(0, tk.END)
+                # Reload profiles accurately
+                for line in profiles:
+                    profile_name, mod_data = line.split(":")
+                    mod_count = mod_data.count('1') + mod_data.count('0')  # Count actual mod entries
+                    profile_listbox.insert(tk.END, f"{profile_name.strip()}, {mod_count} mods")
+                # Insert the newly saved profile
+                profile_listbox.insert(tk.END, f"{profile_name}, {len(unique_files)} mods")
                 error_msg(f"Profile '{profile_name}' saved.")
                 profile_entry.delete(0, tk.END)
             except Exception as e:
@@ -584,23 +680,19 @@ def toggle_mods_panels(error_msg):
     # Function to load the selected profile and enable/disable mods accordingly
     def load_profile():
         try:
-            selected_index = profile_listbox.curselection()
-            if selected_index:
-                selected_profile = profile_listbox.get(selected_index).split(',')[0]  # Extract profile name
+            # Clear existing profile entries in the listbox
+            profile_listbox.delete(0, tk.END)
+            # Read the profiles from the file
+            if os.path.exists(profile_path):
                 with open(profile_path, 'r') as profile_file:
                     profiles = profile_file.readlines()
-
-                # Find the selected profile's mods
-                for profile in profiles:
-                    if profile.startswith(selected_profile + ":"):
-                        mod_entries = profile.split(":")[1].strip().strip("{}").split(", ")
-                        mod_files = [entry.split(',')[0][1:] for entry in mod_entries]  # Extract file names
-                        enable_disable_mods(mod_files)
-                        error_msg(f"Profile '{selected_profile}' loaded.")
-                        return
-                error_msg(f"Profile '{selected_profile}' not found.")
-            else:
-                error_msg("No profile selected.")
+            # Reload the profiles and count mods accurately
+            for profile in profiles:
+                profile_name = profile.split(":")[0]
+                mod_entries = profile.split(":")[1].strip().strip("{}").split(", ")
+                unique_mod_files = list(set([entry.split(',')[0][1:] for entry in mod_entries]))  # Ensure uniqueness
+                profile_listbox.insert(tk.END, f"{profile_name}, {len(unique_mod_files)} mods")  # Display the correct count
+            error_msg("Profile loaded successfully.")
         except Exception as e:
             error_msg(f"Failed to load profile: {e}")
 
@@ -613,22 +705,67 @@ def toggle_mods_panels(error_msg):
             else:
                 disable_file(file)
 
+    # Function to handle file actions (enable, disable, uninstall) and read variables
+    def handle_file_action(file, action):
+        # Determine file path
+        file_path = os.path.join(mod_config_dir, file)
+
+        # Perform the specified action
+        if action == 'enable':
+            enable_file(file)
+        elif action == 'disable':
+            disable_file(file)
+        elif action == 'uninstall':
+            uninstall_a_mod(file)
+
+    # Function to display information (CHANGELOG and AUTHOR) from the file in the UI
+    def info_file(file):
+        file_path = os.path.join(mod_config_dir, file)
+        try:
+            # Open the file and load its contents
+            with open(file_path, 'r', encoding='utf-8') as config_file:
+                config_data = json.load(config_file)
+
+            # Extract CHANGELOG
+            changelog = config_data.get('CHANGELOG', ['CHANGELOG not found'])
+
+            # Extract AUTHOR from either NEXUS_INFO or GITHUB_INFO
+            author = 'AUTHOR not found'
+            for key in ['NEXUS_INFO', 'GITHUB_INFO']:
+                if key in config_data:
+                    info_list = config_data[key]
+                    if isinstance(info_list, list) and len(info_list) > 0:
+                        author = info_list[0].get('AUTHOR', 'AUTHOR not found')
+                        break
+
+            # Update the CHANGELOG text widget
+            changelog_text.config(state=tk.NORMAL)  # Enable editing to update content
+            changelog_text.delete(1.0, tk.END)  # Clear existing content
+            changelog_text.insert(tk.END, "\n".join(changelog))  # Insert new content
+            changelog_text.config(state=tk.DISABLED)  # Disable editing to prevent user modifications
+
+            # Update the AUTHOR label
+            author_label.config(text=f"Made by {author}")
+
+        except Exception as e:
+            error_msg(f"Failed to read config variables from {file_path}: {e}")
+
     # Create a new window
     window = tk.Toplevel()
     window.title("Mods Panel")
-    window.geometry("675x500")
+    window.geometry("1500x500")
 
     # Create frames for file toggling and profiles
-    left_frame = tk.Frame(window, padx=10, pady=10, bg=dark_gray_bg)
-    right_frame = tk.Frame(window, padx=10, pady=10, bg=dark_gray_bg)
+    left_frame = tk.Frame(window, padx=10, pady=10, bg=dark_bg)
+    right_frame = tk.Frame(window, padx=10, pady=10, bg=dark_bg)
 
     left_frame.pack(side="left", fill="both", expand=True)
     right_frame.pack(side="right", fill="both", expand=True)
 
     # Create a canvas and scrollbar for the left frame to handle many files
-    canvas = tk.Canvas(left_frame, bg=dark_gray_bg)
+    canvas = tk.Canvas(left_frame, bg=dark_bg)
     scrollbar = tk.Scrollbar(left_frame, orient="vertical", command=canvas.yview)
-    scrollable_frame = tk.Frame(canvas, bg=dark_gray_bg)
+    scrollable_frame = tk.Frame(canvas, bg=dark_bg)
 
     scrollable_frame.bind(
         "<Configure>",
@@ -641,10 +778,17 @@ def toggle_mods_panels(error_msg):
     canvas.configure(yscrollcommand=scrollbar.set)
 
     canvas.pack(side="left", fill="both", expand=True)
-    scrollbar.pack(side="right", fill="y")
+    scrollbar.pack(side="left", fill="y")
+    # Create the CHANGELOG section below the scrollable file list
+    changelog_label = tk.Label(left_frame, text="CHANGELOG", bg=dark_bg, fg=TextColor())
+    changelog_label.pack(anchor="nw", padx=5, pady=(10, 2))
+
+    # Create the Text widget for the changelog display
+    changelog_text = tk.Text(left_frame, wrap="word", bg=dark_bg, fg=TextColor(), height=30, state=tk.DISABLED)
+    changelog_text.pack(fill="y", padx=5, pady=(0, 10))
 
     # Create a listbox to show mod profiles on the right panel
-    profile_listbox = tk.Listbox(right_frame, width=50, bg=dark_gray_bg, fg=TextColor())
+    profile_listbox = tk.Listbox(right_frame, width=50, bg=dark_bg, fg=TextColor())
     profile_listbox.pack(fill="both", expand=True)
 
     # Load profiles from a .txt file and display them in the listbox
@@ -660,26 +804,29 @@ def toggle_mods_panels(error_msg):
         error_msg("No MML_Profiles.txt found. The file will be created automatically when profiles are saved.")
 
     # Text entry for adding new profiles
-    profile_entry = tk.Entry(right_frame, bg=dark_gray_bg, fg=TextColor())
+    profile_entry = tk.Entry(
+        right_frame,
+        bg=JustBackGround(),  # Example color: Dark Slate Gray, you can adjust to any color you prefer
+        fg=TextColor(),
+        width=40,  # Adjust the width to make the input field longer
+    )
     profile_entry.pack(pady=5)
 
     # Button to save the new profile
-    save_profile_btn = tk.Button(right_frame, text="Save Profile", bg=ButtonBackGround(), fg=TextColor(),
-                                 activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(),
-                                 command=save_profile)
+    save_profile_btn = tk.Button(right_frame, text="Save Profile", bg=JustBackGround(), fg=TextColor(), activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(), command=save_profile)
     save_profile_btn.pack(pady=5)
 
     # Button to remove the selected profile
-    remove_profile_btn = tk.Button(right_frame, text="Remove Profile", bg=ButtonBackGround(), fg=TextColor(),
-                                   activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(),
-                                   command=remove_profile)
+    remove_profile_btn = tk.Button(right_frame, text="Remove Profile", bg=JustBackGround(), fg=TextColor(), activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(), command=remove_profile)
     remove_profile_btn.pack(pady=5)
 
     # Button to load the selected profile
-    load_profile_btn = tk.Button(right_frame, text="Load Profile", bg=ButtonBackGround(), fg=TextColor(),
-                                 activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(),
-                                 command=load_profile)
+    load_profile_btn = tk.Button(right_frame, text="Load Profile", bg=JustBackGround(), fg=TextColor(), activebackground=ButtonPressedBackGround(), activeforeground=PressedTextColor(), command=load_profile)
     load_profile_btn.pack(pady=5)
+
+    # Add AUTHOR display on the right side under the profile buttons
+    author_label = tk.Label(right_frame, text="Made by MOD AUTHOR HERE (INFO)", bg=dark_bg, fg=TextColor())
+    author_label.pack(anchor="nw", pady=(10, 2))
 
     # Initialize the display
     update_files()

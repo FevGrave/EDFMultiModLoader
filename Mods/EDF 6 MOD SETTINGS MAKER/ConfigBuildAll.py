@@ -100,17 +100,21 @@ with open(log_file_path, "w") as log_file:
         else:
             # Loop through each JSON file in the output directory
             for filename in os.listdir(output_directory):
-                if filename.lower().endswith(".json"):
+                # Exclude 'MMLsettings.json' from processing
+                if filename.lower().endswith(".json") and filename != "MMLsettings.json":
                     filepath = os.path.join(output_directory, filename)
                     log_message(f"Processing file: {filename}")
                     result = subprocess.run([sgottPath, filepath], capture_output=True, text=True)
                     if result.returncode != 0:
-                        log_message(f"Error processing {filename}. Error level: {result.   returncode}")
+                        log_message(f"Error processing {filename}. Error level: {result.returncode}")
                         log_message(result.stderr)
                     else:
                         log_message(f"Conversion successful for {filename}")
                         os.remove(filepath)
                         log_message(f"{filename} deleted successfully.")
+                elif filename == "MMLsettings.json":
+                    log_message(f"Skipping {filename} as it is excluded from processing.")
+
 
         # Post Processing Names Of Menu Text Files
         log_message("\nPost Processing Names Of Menu Text Files")

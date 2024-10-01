@@ -1,15 +1,18 @@
-import os, sys, webbrowser, requests, shutil, tkinter as tk, EDF_ModloaderHeadFunc as funcs, ConfigManifestUninstaller as uninstaller
-import tkinter.filedialog as filedialog
-from PIL import Image, ImageTk
+import os, sys, threading, webbrowser, requests, shutil
+import tkinter as tk, tkinter.filedialog as filedialog, tkinter.messagebox as messagebox
+import ConfigManifestUninstaller as uninstaller, tkinter.font as tkFont
+import EDF_ModloaderHeadFunc as funcs 
+from PIL import Image, ImageTk, ImageFont
 from ImageResources import set_icons, bg_image_path
 from EDF_ModloaderHeadFunc import load_settings, save_settings, settings, toggle_mods_panels, parent_dir  # Import the updated functions
 
-'''Python 3.10.1 Build
-pyinstaller.exe --noconfirm .\EDF_ModloaderHead_B\EarthDefenseForceModloaderHead.py
+'''Python 3.10.1 Building a exe
+cd .\EDF_ModloaderHead_B
+pyinstaller.exe --noconfirm ".\EDF MML.spec"
 '''
 
 def get_version():
-    return "0.0.4.1-RC"
+    return "0.0.7-RC"
 
 # Define functions to return window width, height, font, and simplify the style formats into DEFs
 def width():
@@ -18,8 +21,17 @@ def width():
 def height():
     return 920
 
+# Initialize the main window
+root = tk.Tk()
+root.title("Earth Defense Force: Multi-Mod-Loader --- V " + get_version())
+root.geometry(f"{width()}x{height()}")  # Set the size of the window
+root.resizable(False, False) # LOCKED WINDOW SIZE
+
 # Load settings once at the start to get the current colors
 settings = load_settings()  # Make sure this loads your settings including colors
+
+def JustBackGround():
+    return settings.get("colors", {}).get("JustBackGround", "#484848")  # Default to gray if not found
 
 def ButtonBackGround():
     return settings.get("colors", {}).get("ButtonBackGround", "#000000")  # Default to black if not found
@@ -28,7 +40,7 @@ def ButtonPressedBackGround():
     return settings.get("colors", {}).get("ButtonPressedBackGround", "#010e70")  # Default to dark blue
 
 def TextColor():
-    return settings.get("colors", {}).get("TextColor", "#B3FF00")  # Default to Lime green
+    return settings.get("colors", {}).get("TextColor", "#B3FF00")  # Default to lime green
 
 def PressedTextColor():
     return settings.get("colors", {}).get("PressedTextColor", "#ffffff")  # Default to white
@@ -36,7 +48,32 @@ def PressedTextColor():
 def bgY():
     return"#EDFEDF"
 
-global_font = ("AR UDJingXiHeiB5", 10)
+def get_font_path():
+    # If running as a bundled executable, use the executable's directory
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, "fonts", "ARUDJINGXIHEIG30_BD.TTF")
+    # Otherwise, use the standard relative path
+    else:
+        return os.path.join(os.path.dirname(__file__), "fonts", "ARUDJINGXIHEIG30_BD.TTF")
+
+# Load the custom font with the specified size
+def load_custom_font(size=10):
+    font_path = get_font_path()
+    if os.path.exists(font_path):
+        try:
+            # Load the font using PIL's ImageFont
+            pil_font = ImageFont.truetype(font_path, size)
+            # Register the font with Tkinter
+            tkFont.nametofont("TkDefaultFont").configure(size=size, family=pil_font.getname()[0])
+            return tkFont.nametofont("TkDefaultFont")
+        except Exception as e:
+            print(f"Error loading custom font: {e}. Using default font.")
+            return tkFont.Font(size=size)  # Fallback to default font if loading fails
+    else:
+        print(f"Font file not found at {font_path}. Using default font.")
+        return tkFont.Font(size=size)  # Fallback to default font if not found
+
+global_font = load_custom_font(10)
 global_fill_color = TextColor()
 
 def get_button_style(command=None):
@@ -86,6 +123,11 @@ def draw_centered_text_with_bg(canvas, x, y, text, fill_color, bg_color, **style
     # Lower the rectangle to ensure it is behind the text
     canvas.tag_lower(rect_id, text_id)
 
+def start_update_check():
+    update_thread = threading.Thread(target=check_for_update)
+    update_thread.daemon = True  # Daemon thread will automatically close when the main program exits
+    update_thread.start()
+
 # Initialize settings and load the current platform choice
 platform_choice = settings.get("edf6_platform", "steam")
 labels_and_buttons = []
@@ -119,12 +161,6 @@ for folder in GAME_FOLDERS.keys():
         current_game = folder
         break
 
-# Initialize the main window
-root = tk.Tk()
-root.title("Earth Defense Force: Multi-Mod-Loader --- V " + get_version())
-root.geometry(f"{width()}x{height()}")  # Set the size of the window
-root.resizable(False, False) # LOCKED WINDOW SIZE
-
 # Set the taskbar and title bar images
 set_icons(root, BASE_DIR)
 
@@ -147,8 +183,93 @@ if bg_photo:
 def open_link(url):
     webbrowser.open(url)
 
-# Define functions to be passed to EDF_ModloaderHeadFunc.py
+import tkinter.messagebox as messagebox
+
 def check_for_update():
+    clear_error()
+    try:
+        # GitHub API URL to fetch all releases (including pre-releases)
+        gui_release_api_url = 'https://api.github.com/repos/FevGrave/EDFMultiModLoader/releases'
+
+        headers = {
+            'Accept': 'application/vnd.github.v3+json',
+        }
+
+        # Send request to GitHub API
+        response = requests.get(gui_release_api_url, headers=headers)
+        response.raise_for_status()
+        releases = response.json()
+
+        # Find the latest pre-release
+        latest_prerelease = next((release for release in releases if release.get('prerelease', False)), None)
+
+        if not latest_prerelease:
+            show_error("No pre-release found.")
+            return
+
+        # Extract the latest version and release assets
+        latest_version = latest_prerelease.get('tag_name', '0.0.0').strip()
+        assets = latest_prerelease.get('assets', [])
+
+        # Check the current version against the latest version
+        current_version = get_version().strip()
+        if current_version == latest_version:
+            show_error("You are using the latest EDF Multi Mod Loader version.")
+        elif current_version < latest_version:
+            # Prompt the user to update
+            update_prompt = messagebox.askyesno(
+                "EDF MML Update Available",
+                f"Version {latest_version} is available! You are currently using {current_version}. Do you want to update now?"
+            )
+            if update_prompt:
+                # Find the executable download link from the assets
+                executable_name = "EDF MML.exe"
+                download_url = next((asset['browser_download_url'] for asset in assets if asset['name'] == executable_name), None)
+
+                if download_url:
+                    download_and_replace_executable(download_url, executable_name)
+                else:
+                    show_error(f"Update failed: Could not find {executable_name} in the latest release assets.")
+        else:
+            show_error(f"Version {current_version} is not in our records! You are currently superseding our latest version {latest_version}. ARE YOU A SPY, OR A TIME TRAVELER?")
+
+    except requests.exceptions.RequestException as e:
+        show_error(f"EDF MML failed to check for updates: {str(e)}")
+    except Exception as e:
+        show_error(f"An unexpected error occurred: {str(e)}")
+
+def download_and_replace_executable(download_url, executable_name):
+    try:
+        # Download the new version of the executable
+        response = requests.get(download_url, stream=True)
+        response.raise_for_status()
+        new_executable_path = os.path.join(os.path.dirname(sys.executable), "new_version.exe")
+
+        # Save the downloaded executable to a temporary location
+        with open(new_executable_path, "wb") as file:
+            shutil.copyfileobj(response.raw, file)
+        show_error("Downloaded the latest version.")
+
+        # Ask the user to close the application before replacing the executable
+        messagebox.showinfo(
+            "Update Complete",
+            "The update has been downloaded. Please close the application to complete the update."
+        )
+
+        # Replace the old executable with the new one
+        os.replace(new_executable_path, os.path.join(os.path.dirname(sys.executable), executable_name))
+        show_error("Application updated successfully. Please restart the application.")
+
+        # Optionally, you can auto-restart the app after updating if desired
+        # os.execv(sys.executable, ['python'] + sys.argv)
+
+    except requests.exceptions.RequestException as e:
+        show_error(f"Failed to download the update: {str(e)}")
+    except Exception as e:
+        show_error(f"An error occurred during the update process: {str(e)}")
+
+# Define functions to updating blueamulet's modloader
+def check_for_ba_update():
     clear_error()
     try:
         # GitHub API URL to fetch the latest release information
@@ -213,25 +334,9 @@ def check_for_update():
             if os.path.exists(disabled_patches_dir):
                 shutil.rmtree(disabled_patches_dir)
             os.rename(extra_patches_dir, disabled_patches_dir)
-            show_error('Renamed Folder within "Mods\ExtraPatches" to "DisabledPatches".')
+            show_error('Renamed Folder within the "Mods" folder "ExtraPatches" to "DisabledPatches".')
         else:
             show_error('"ExtraPatches" folder not found.')
-
-        # Check current version against GitHub's latest
-        current_version = get_version().strip()
-        gui_release_api_url = 'https://api.github.com/repos/FevGrave/EDFMultiModLoader/releases/latest'
-        
-        response = requests.get(gui_release_api_url)
-        response.raise_for_status()
-        data = response.json()
-        latest_version = data.get('tag_name', '0.0.0').strip()
-
-        # Version check
-        if latest_version != current_version:
-            show_error(f"Update available: {latest_version} (current: {current_version})")
-        else:
-            show_error("You are using the latest version.")
-        
 
     except requests.exceptions.RequestException as e:
         show_error(f"Failed to check for updates: {str(e)}")
@@ -327,7 +432,8 @@ def update_mod_counts():
 
 def update_modloader_status():
     try:
-        modloader_status.set(funcs.get_modloader_status())
+        current_status = funcs.get_modloader_status()  # Get the current status
+        modloader_status.set(f"Toggle Modloader Status: {current_status}")  # Update with prefixed text
     except Exception as e:
         show_error(str(e))
 
@@ -361,7 +467,13 @@ def create_social_media_links_horizontal(canvas, y_position):
     # Loop through each group and create a horizontal frame for each
     for group_name, links in social_media_groups.items():
         # Add a label for the group using the label style
-        group_label = tk.Label(root, text=group_name, **get_label_style())
+        group_label = tk.Label(
+            root, 
+            text=group_name,
+            font=global_font,  # Replaces 'font' from get_label_style
+            bg=JustBackGround(),  # Replaces 'bg' from get_label_style
+            fg=TextColor(),  # Replaces 'fg' from get_label_style
+        )
         canvas.create_window(width() // 2, y_pos, window=group_label)
         y_pos += 26  # Adjust spacing as necessary
 
@@ -390,7 +502,7 @@ def create_ui(canvas):
     button_frame = tk.Frame(root, bg=bgY())
 
     # Creating buttons using the get_button_style function
-    check_update_button = tk.Button(button_frame, text="Check for Update", **get_button_style(check_for_update))
+    check_update_button = tk.Button(button_frame, text="Check for B.A.ML Update", **get_button_style(check_for_ba_update))
     update_mods_button = tk.Button(button_frame, text="Update Mods", **get_button_style(update_mods))
     build_tables_button = tk.Button(button_frame, text="Build Tables", **get_button_style(build_tables))
     repair_tables_button = tk.Button(button_frame, text="Repair Tables", **get_button_style(repair_tables))
@@ -410,7 +522,7 @@ def create_ui(canvas):
     y_pos += 35
 
     # Creating a text element using get_fill_color_style
-    draw_centered_text_with_bg(canvas, width() // 2, y_pos, "EDF! Game to Launch", global_fill_color, ButtonBackGround(), font=global_font)
+    draw_centered_text_with_bg(canvas, width() // 2, y_pos, "EDF! Game to Launch", global_fill_color, JustBackGround(), font=global_font)
 
     buttons = []
     y_pos += 35
@@ -425,7 +537,7 @@ def create_ui(canvas):
 
     # Add the overhead text and buttons for opening save folders
     y_pos += 195
-    draw_centered_text_with_bg(canvas, width() // 2, y_pos, "Open Save Folders", global_fill_color, ButtonBackGround(), font=global_font)
+    draw_centered_text_with_bg(canvas, width() // 2, y_pos, "Open Save Folders", global_fill_color, JustBackGround(), font=global_font)
     y_pos += 30
 
     save_folder_frame = tk.Frame(root, bg=bgY())
@@ -446,14 +558,20 @@ def create_ui(canvas):
     total_mods = tk.StringVar(value="0")
     total_patches = tk.StringVar(value="0")
     total_plugins = tk.StringVar(value="0")
-
-    modloader_status = tk.StringVar(value="Disabled")
+    
     # Create a frame to hold both buttons side by side
     toggle_buttons_frame = tk.Frame(root, bg=bgY())
 
-    # Create the "Toggle Modloader Status" button
-    toggle_modloader_button = tk.Button(toggle_buttons_frame, text="Toggle Modloader Status:", **get_button_style(toggle_modloader_status))
-    toggle_modloader_button.pack(side="left", padx=(0, 5))  # Padding to the right
+    # Ensure modloader_status is initialized as a StringVar with a default value
+    modloader_status = tk.StringVar(value=f"Toggle Modloader Status: {funcs.get_modloader_status()}")
+
+    # Create the "Toggle Modloader Status" button with textvariable to reflect changes
+    toggle_modloader_button = tk.Button(
+        toggle_buttons_frame, 
+        textvariable=modloader_status,  # Use textvariable to dynamically show the full status with prefix
+        **get_button_style(toggle_modloader_status)  # Apply button styling and functionality
+    )
+    toggle_modloader_button.pack(side="left", padx=(0, 5))
 
     open_current_dir_button = tk.Button(toggle_buttons_frame, text="Open Current Dir", **get_button_style(lambda: os.startfile(parent_dir)))
     open_current_dir_button.pack(side="left", padx=(5, 0))
@@ -461,11 +579,9 @@ def create_ui(canvas):
     # Add the frame with both buttons to the canvas
     labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=toggle_buttons_frame))
 
-    y_pos += 30
-    labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=tk.Label(root, textvariable=modloader_status, **get_label_style())))
     y_pos += 35
 
-    draw_centered_text_with_bg(canvas, width() // 2, y_pos, "Error Block", global_fill_color, ButtonBackGround(), font=global_font)
+    draw_centered_text_with_bg(canvas, width() // 2, y_pos, "Error Block", global_fill_color, JustBackGround(), font=global_font)
 
     y_pos += 95
     error_block = tk.Text(root, height=9, font=global_font, state=tk.DISABLED, bg=ButtonBackGround(), fg=TextColor())
@@ -504,7 +620,7 @@ MoistGoat
 (Advanced MissionPack Settings)
 EDF! EDF! EDF! EDF! EDF! EDF! EDF!"""
     # Draw the notes_text with centered alignment and a matching background
-    draw_centered_text_with_bg(canvas, width() // 2, y_pos, notes_text, global_fill_color, ButtonBackGround(), font=global_font, width=600)
+    draw_centered_text_with_bg(canvas, width() // 2, y_pos, notes_text, global_fill_color, JustBackGround(), font=global_font, width=600)
 
     y_pos += 103
     # Update mod counts and modloader status on startup
@@ -516,6 +632,9 @@ EDF! EDF! EDF! EDF! EDF! EDF! EDF!"""
 
 # Use canvas to create the UI elements
 create_ui(canvas)
+
+# Call the check_for_update function at the end to check for updates when the application starts
+start_update_check()
 
 # Start the Tkinter event loop
 root.mainloop()

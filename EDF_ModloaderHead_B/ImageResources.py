@@ -9,6 +9,7 @@ bg_images = [
     'page_bg_raw01.jpg',
     'page_bg_raw02.jpg',
     'page_bg_raw03.jpg',
+    'page_bg_raw04.jpg',
     'DebugBG.jpg',  # Add more images as needed
 ]
 

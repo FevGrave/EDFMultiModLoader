@@ -7,7 +7,7 @@ def show_popup():
     root.withdraw()  # Hide the root window
 
     # Show a message box
-    messagebox.showinfo("Test Popup", "This is a test popup message!")
+    messagebox.showinfo("Test Popup", "This is a python test popup message!")
 
     # Close the root window after showing the popup
     root.destroy()
