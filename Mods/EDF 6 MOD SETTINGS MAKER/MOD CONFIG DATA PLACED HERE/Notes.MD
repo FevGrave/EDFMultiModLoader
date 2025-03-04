@@ -1,894 +1,796 @@
-# Hi Welcome To The EDF MML
+# 📌 EDF MML Documentation: Introduction for Mod_config_data.json
+## 🌟 Welcome to Earth Defense Force 6 Modding!
+This documentation serves as a comprehensive guide to using EDF MML (Multi-Mod Loader) HAKKEN Core and the Mod_config_data.json (MCD) system for modding Earth Defense Force 6. Whether you are creating new missions, weapons, or localizations, this guide will help you understand the modding pipeline from setup to execution. Your Already [Ready to Get Started With Your MCD](#-ready-to-get-started-with-your-mcd)? WOW
 
-[Quick Start Guide for EDF 6 Modding](#quick-start-guide-for-edf-6-modding)
-[Overview on Mod_config_data.json](#overview-on-mod_config_data.json)
-[Glossary](#glossary)
-[Top Row Buttons](#top-row-buttons)
-[Main Section](#main-section)
-[Credits Section](#credits-section)
-[Miscellaneous](#miscellaneous)
-[GITHUB_INFO Block](#github_info-block)
-[DataReplacementTable Block](#datareplacementtable-block)
-[NewToAddTextTableEntries Block](#newtoaddtexttableentries-block)
-[NewToAddModeList Block](#newtoaddmodelist-block)
-[NewToAddSoldierWeaponCategory Block](#newtoaddsolderweaponcategory-block)
-[NewToAddWeaponCatalog-(classes) Block](#newtoaddweaponcatalog-classes-block)
-[NewToAddWeaponTables Block](#newtoaddweapontables-block)
-[DirManifestToFilesUninstaller](#dirmanifesttofilesuninstaller)
+### ❌Disclaimer 
+#### 🔹 Important Modding Requirements
+- This tool requires knowledge of EDF asset modding.
+- EDF MML merges multiple mods into a structured list, ensuring correct file placement.
+- It uses SGOTT (Always Latest) to convert SGO ↔ JSON.
+#### 🔹 Not used by This Tools:
+- EDFTools (SGO ↔ XML) Allows MAB data to be read
+- DSGO (SGO ↔ JSON) Slight Different Format
+#### 🔹 Need Help? Access the Modding Wiki & Guides!
+- Click "Get Into Modding" in the EDF MML UI to access useful resources:
 
-## Quick Start Guide for EDF 6 Modding
+#### 🔹 Documentation/Wiki (Advanced & Comprehensive)
 
-Welcome to Earth Defense Force 6 modding! This guide will help you get started with creating your first mod configuration file.
+- Covers detailed EDF modding knowledge, including asset modifications, advanced techniques, and full integration methods.
 
-1. **Set up your development environment**:
-   - Install the latest version of the B.A Mod loader.
-   - Familiarize yourself with JSON formatting.
+#### 🔹 Maybe Birb’s Guide to Mod EDF Assets (Beginner-Friendly)
 
-2. **modifying your mod configuration file**:
-   - Navigate to the mods folder: `EARTH DEFENSE FORCE 6\Mods\EDF 6 MOD SETTINGS MAKER\MOD CONFIG DATA PLACED HERE`
-   - Use the file named `Mod_config_data.json` and rename it `<YourModName>Mod_config_data.json`
-   - Start with editing the basic structure within:
+- A starter-oriented guide for learning how to modify EDF assets, perfect for newcomers.
+- This ensures both beginners and advanced users have access to the right tools and information for modding EDF 4.1, 5, 6.
 
-## Overview on Mod_config_data.json
+### 📂 What’s in This Guide?
+- 🔹 Setup & Basics for content generation for EDF HAKKEN
+- ✅ How to Understand and configure the Mod_config_data.json (MCD)
+
+### 🔹 Core Modding Sections
+- 🛠 Patching Content → That Is Deemed Incorrect And Must Be Fixed
+- 🛠 Text Modifications → Modify in-game UI text & descriptions
+- 🛠 Mission Pack Creation → Add custom mission sets
+- 🛠 Weapon & Soldier Expansion → Define new weapons & categories
+- 🛠 Mod Cleanup & Uninstallation → Ensure a clean Uninstallation mod process
+
+### 📢 Important Notes for Modders
+- ⚠ Repair Tables Before Modding! Always test changes before deploying.
+- ⚠ Check JSON Formatting! Use a JSON validator to avoid syntax errors.
+- ⚠ Use Unique Identifiers! Prevent text or weapon conflicts in game.
+
+## 📌 EDF HAKKEN Core Executables (EDF HAKKEN.exe & EDF HAKKEN NI.exe)
+### Double Meaning: Modding and Hardstyle/Gabber Dance (Hakken/Hakka) HUH?
+#### Modding Aspect: 
+- HAKKEN’s primary role as a highly adaptive, core modding tool for EDF 6 is clear, processing `Mod_config_data.json` to build and integrate modded content seamlessly across the MML ecosystem (e.g., patching content, creating mission packs, expanding weapons, as outlined in your updated sections).
+#### Hardstyle/Gabber Dance Aspect: 
+- The acronym of this HAKKEN tool ties into the Hakken/Hakka dance styles, known for their energetic, stomping, and rhythmic movements synced to the fast, pounding beats of Hardstyle and Gabber music genres (typically 140–150 BPM or WAYYY higher). "Highly Adaptive" mirrors a dancer’s ability to adapt to rapid tempo changes and intense rhythms, while "Kernel Kit" suggests the foundational beat and moves of the dance. "EDF Network" implies a network of ravers or EDF soldiers moving in unison, defending Earth with the same intensity as a Hardstyle/Gabber dance floor, adding a high-energy, cultural twist that resonates with EDF’s action-packed universe and modding’s dynamic creativity.
+
+### WHAT IS HAKKEN: Highly Adaptive Kernel Kit for the EDF Network
+- **Highly**: This word highlights HAKKEN’s exceptional capability and flexibility, emphasizing its ability to adapt to diverse modding needs in EDF 6—such as processing `Mod_config_data.json` for missions, weapons, and text (e.g., `NewToAddModeList`, `NewToAddWeaponTables`). In the Hardstyle/Gabber context, it mirrors the intense, high-energy beats that drive the Hakken/Hakka dance, suggesting a modding tool that moves with the same vigor and adaptability as a dancer stomping to rapid tempos.
+- **Adaptive**: Reinforces HAKKEN’s versatility, adjusting seamlessly to mod configurations, game updates, and user inputs (e.g., switching between EDF HAKKEN.exe and EDF HAKKEN NI.exe modes). It also evokes the fluid, responsive movements of Hakken/Hakka dancing, syncing with the modding "rhythm" of creativity and precision, much like a dancer adapting to the pounding beats of Hardstyle or Gabber.
+- **Kernel**: Positions HAKKEN as the core engine or processing unit, central to building modded tables and generating files like `CONFIG.json` and `WEAPONTEXT.json`. In the Hardstyle/Gabber context, it represents the steady, driving beat or core rhythm that fuels the Hakken/Hakka performance on the dance floor.
+- **Kit**: Suggests HAKKEN as a comprehensive toolkit for modders, aligning with its executable nature and the "Build Tables" functionality in the MML UI. In the Hardstyle/Gabber context, it evokes a collection of dance moves or techniques (e.g., stomping, kicking) that modders use to choreograph their "performance" in the EDF universe.
+- **for EDF**: Maintains the direct link to Earth Defense Force, ensuring specificity to EDF 6 modding and its military/sci-fi theme, with a nod to the disciplined, aggressive energy of military maneuvers (akin to the fierce, stomping energy of Hakken/Hakka dancing).
+- **Network**: Evokes a broader, interconnected system within EDF 6 modding, connecting modders, players, game data, and online/offline progress (e.g., via the Online Progress Tracker and Mods Panel). In the Hardstyle/Gabber context, it suggests a network of ravers or dancers at a festival, moving in sync to the music, reflecting the collaborative, synchronized nature of modding the EDF universe.
+
+#### 🛠 What Are These Files?
+- The HAKKEN Core executables are responsible for building and processing modded tables in EDF MML. They handle mod integration in two different ways:
+
+#### Executable Mode Purpose?
+- EDF HAKKEN.exe Installer Mode	Fully integrates mod data into game files for public release.
+- EDF HAKKEN NI.exe	No Installer Mode	Used for testing mods without modifying core game files, reducing crash risks.
+
+### 🛠 How They Work in MML
+- 1️⃣ User Clicks "Build Tables" in the EDF MML UI.
+- 2️⃣ Triggers EDF HAKKEN.exe or EDF HAKKEN NI.exe based on the mode.
+- 3️⃣ Processes Mod_config_data.json and builds the necessary game tables.
+- 4️⃣ Finalizes mod integration or prepares for testing.
+
+### 🚀 When to Use Each Mode?
+#### ✅ Use EDF HAKKEN NI.exe (No Installer Mode) For Testing And Verification Of Edits.
+
+- Does not install the modified game data. and drop the data where the games exe is at.
+- Useful for debugging modded content before release.
+- Prevents game crashes due to faulty JSON configurations.
+
+#### ✅ Use EDF HAKKEN.exe (Installer Mode) for Final Builds
+
+- Applies changes and installs the modified data into the game’s structure.
+- Required for public mod releases.
+- Ensures all modded content is properly installed.
+
+#### 🔹 HAKKEN Core (Generating Game Data Files)
+- ##### 🔹 Limitations & Tips
+    - ⚠ Ensure Mod_config_data.json is properly formatted before running HAKKEN.
+    - ⚠ Use NI mode first to test how this add data to the files before using full install mode.
+    - ⚠ Some generated files require manual review for accuracy.
+    - ⚠ Make backups before running HAKKEN in install mode.
+- ##### 🔹 Generated Files
+        /==================================|=====================================|=====================================\
+        |                                  |                                     |                                     |
+        | SOURCE STARTING JSON FILE        | FINISHED PRODUCT WITH MODIFICATIONS | WHAT ARE THEY ?                     |
+        |                                  |                                     |                                     |
+        |==================================|=====================================|=====================================|
+        | ImportDefaultData.json           | CONFIG.json                         |📂 Mission Pack Data                ::
+        |==================================|=====================================|=====================================|
+        | ImportSubtitleVoiceTable.CN.json | EDF6_VOICETABLE.CN.json             |📂 Subtitle Table Data              ::
+        | ImportSubtitleVoiceTable.EN.json | EDF6_VOICETABLE.EN.json             |  Holds All Text In The Missions     |
+        | ImportSubtitleVoiceTable.JA.json | EDF6_VOICETABLE.JA.json             |                                     |
+        | ImportSubtitleVoiceTable.KR.json | EDF6_VOICETABLE.KR.json             |                                     |
+        | ImportSubtitleVoiceTable.SC.json | EDF6_VOICETABLE.SC.json             |                                     |
+        |==================================|=====================================|=====================================|
+        | ImportTextTable-CN.json          | TEXTTABLE_STEAM.CN.TXT.json         |📂 GUI Text Tables (Localization)   ::
+        | ImportTextTable-EN.json          | TEXTTABLE_STEAM.EN.TXT.json         |  Holds All Text In The Games UI     |
+        | ImportTextTable-JA.json          | TEXTTABLE_STEAM.JA.TXT.json         |  Translators Of Other Languages     |
+        | ImportTextTable-KR.json          | TEXTTABLE_STEAM.KR.TXT.json         |  Use This File For Your Translation |
+        | ImportTextTable-SC.json          | TEXTTABLE_STEAM.SC.TXT.json         |                                     |
+        |==================================|=====================================|=====================================|
+        | ImportWeaponTextTable.json       | WEAPONTEXT.json                     |📂 Weapon Level, Config Data        ::
+        |==================================|=====================================|=====================================|
+        | ImportWeaponTextTable-CN.json    | WEAPONTEXT.CN.json                  |📂 Weapon Text Stats (Localization) ::
+        | ImportWeaponTextTable-EN.json    | WEAPONTEXT.EN.json                  |  Visual Text To Display The Items   |
+        | ImportWeaponTextTable-KR.json    | WEAPONTEXT.KR.json                  |  Stats.                             |
+        | ImportWeaponTextTable-SC.json    | WEAPONTEXT.SC.json                  |                                     |
+        |==================================|=====================================|=====================================|
+        | P501_PROTO_RANGER.json           | P501_PROTO_RANGER.json              | 📂 EDF 5 Civ Skin                  ::
+        | P502_PROTO_WINGDIVER.json        | P502_PROTO_WINGDIVER.json           |  Settings for Camera, Grip Offsets  |
+        | P503_PROTO_FENCER.json           | P503_PROTO_FENCER.json              |  "IK" lengths, Spotlight, Color,    |
+        | P504_PROTO_AIRRADER.json         | P504_PROTO_AIRRAIDER.json           |  And many more, Same Applies Bellow |
+        |==================================|=====================================|=====================================|
+        | P505_RANGER.json                 | P505_RANGER.json                    | 📂 EDF 5 Military Skin             ::
+        | P506_WINGDIVER.json              | P506_WINGDIVER.json                 |                                     |
+        | P507_FENCER.json                 | P507_FENCER.json                    |                                     |
+        | P508_AIRRADER.json               | P508_AIRRAIDER.json                 |                                     |
+        |==================================|=====================================|=====================================|
+        | P601_PROTO_RANGER.json           | P601_PROTO_RANGER.json              | 📂 EDF 6 Tattered Military Skin    ::
+        | P602_PROTO_WINGDIVER.json        | P602_PROTO_WINGDIVER.json           |                                     |
+        | P603_PROTO_FENCER.json           | P603_PROTO_FENCER.json              |                                     |
+        | P604_PROTO_AIRRADER.json         | P604_PROTO_AIRRAIDER.json           |                                     |
+        |==================================|=====================================|=====================================|
+        | P605_RANGER.json                 | P605_RANGER.json                    | 📂 EDF 6 Future Military Skin      ::
+        | P606_WINGDIVER.json              | P606_WINGDIVER.json                 |                                     |
+        | P607_FENCER.json                 | P607_FENCER.json                    |                                     |
+        | P608_AIRRADER.json               | P608_AIRRAIDER.json                 |                                     |
+        \==================================|=====================================|=====================================/
+
+### 🛠 How to Switch Modes
+    - 1️⃣ In EDF MML, locate the "Request Mod Code" text box. 
+    - 2️⃣ Type ni → Press Enter → Switches to No Installer Mode.
+    - 3️⃣ Type i → Press Enter → Switches to Installer Mode.
+    - 4️⃣ The selected mode will be applied when clicking "Build Tables".
+
+### 🚀 Best Practices
+    - ✅ Use ni mode for safe mod testing before finalizing changes.
+    - ✅ If everything works in ni, then use i mode to fully install the mod.
+    - ✅ Avoid using i mode first unless confident in your mod’s stability.
+
+## 🚀 What is Mod_config_data.json (MCD)?
+    - 📌 Mod_config_data.json (MCD) is the configuration file that defines how mods interact with EDF 6. It controls:
+    - ✔ Game modifications (text, mission packs, weapons, UI elements)
+    - ✔ New content additions (custom missions, weapons, and soldier categories)
+    - ✔ File cleanup & uninstall processes
+
+### 🛠 How Does EDF MML Work With This?
+    - 1️⃣ Load Mod_config_data.json → Defines the mod structure.
+    - 2️⃣ Process with HAKKEN Core Exe's baked from Python Scripts → Reads mod data and builds the edits into the tables.
+    - 3️⃣ The HAKKEN  Core installs the Modified Files → Your content is now integrated into EDF 6!
+    - 4️⃣ Uninstall System → Mods can be safely removed using DirManifestToFilesUninstaller.
+
+### 💡 Ready to Get Started With Your MCD?
+- ##### [Step 1️⃣ MOD_INFO](#1️⃣-mod_info-metadata)
+- ##### [Step 2️⃣ DataReplacementTable](#2️⃣-datareplacementtable-modifies-existing-data)
+- ##### [Step 3️⃣ NewToAddTextTableEntries](#3️⃣-newtoaddtexttableentries-adds-new-text)
+- ##### [Step 4️⃣ NewToAddSubTitleList](#4️⃣-newtoaddsubtitlelist-adding-new-subtitles)
+- ##### [Step 5️⃣ NewToAddModeList](#5️⃣-newtoaddmodelist-adds-new-mission-packs)
+- ##### [Step 6️⃣ NewToAddSoldierWeaponCategory](#6️⃣-newtoaddsoldierweaponcategory-adding-new-soldier-weapon-slots)
+- ##### [Step 7️⃣ NewToAddWeaponCatalog ](#7️⃣-newtoaddweaponcatalog-assigning-weapons-to-soldier-slots)
+- ##### [Step 8️⃣ NewToAddWeaponTables](#8️⃣-newtoaddweapontables-adding-new-weapons-to-the-game)
+- ##### [Step 9️⃣ DirManifestToFilesUninstaller](#9️⃣-dirmanifesttofilesuninstaller-file-cleanup--uninstallation)
+- ##### [Step 1️⃣0️⃣ CHANGELOG](#1️⃣0️⃣-changelog-tracking-mod-version-history)
+
+### 1️⃣ MOD_INFO (Metadata)
+- ##### 🔹 File from Source:
+    📌 Used by scripts: ConfigWeaponCuller, MML GUI - Updating the mods, and weapons to drop with every mission or a few.
+
+- ##### 🔹 Modifies Game?
+    ❌ No
+
+- ##### 🔹 Adds New Data?
+    ❌ No
+
+- ##### 🔹 Purpose
+    Stores metadata about the mod.
+Helps mod managers identify, track, and update mods.
+- ##### 🔹 Limitations & Tips
+    ⚠ Must manually update VERSION when releasing updates to prevent conflicts.
+
+- ##### 🛠 JSON Skeleton
+```json
+"MOD_INFO": {
+    "AUTHOR": "",
+    "MOD NAME": "",
+    "LINK": "",
+    "VERSION": "",
+    "MY WEAPONS DROP WITH MY TWO MISSION PACKS": false,
+    "NOTES": ""
+}
+```
+
+- ##### ✅ JSON Example
+```json
+"MOD_INFO": {
+    "AUTHOR": "FevGrave",
+    "MOD NAME": "EDF_6-1",
+    "LINK": "https://github.com/FevGrave/EDF_6-1/archive/main.zip",
+    "VERSION": "1.0.0",
+    "MY WEAPONS DROP WITH MY TWO MISSION PACKS": true,
+    "NOTES": "Ensure compatibility with latest patch."
+}
+```
+### 2️⃣ DataReplacementTable (Modifies Existing Data)
+- ##### 🔹 File from Source:
+    📌 ConfigStringReplacer9000.py
+
+- ##### 🔹 Modifies Game?
+    ✅ Yes – Replaces existing text entries within the allowed .json files
+
+- ##### 🔹 Adds New Data?
+    ❌ No
+
+- ##### 🔹 Purpose
+    Allows modifying in-game text (e.g., item descriptions, subtitles).
+- ##### 🔹 Limitations & Tips
+    ⚠ Ensure Find values match exactly, including every possible character. and do the large enough to be unique out of the noise of data
+
+- #####  🛠 JSON Skeleton
+```json
+"DataReplacementTable": [
     {
-        "GITHUB_INFO": [], // Contains metadata about the mod, including author, name, download link, version, and notes. GITHUB DOWNLOAD
-        "DataReplacementTable": [], // Used for finding and replacing specific strings in JSON files, typically for localization changes.
-        OR patch existing content.
-        "NewToAddTextTableEntries": {}, // Adds new text entries across all supported language files.
-        "NewToAddModeList": [], // Defines new game modes or mission packs. NOT WORKING YET, MISSING Advanced Patch to bypass limitations
-        "NewToAddSoldierWeaponCategory": [], // Defines new weapon categories for different soldier classes.
-        "NewToAddWeaponCatalog-Ranger": [], // Specifies weapon slots available for each soldier class.
-        "NewToAddWeaponCatalog-WingDiver": [], // ^^^^^^
-        "NewToAddWeaponCatalog-AirRaider": [], // ^^^^^^
-        "NewToAddWeaponCatalog-Fencer": [], // ^^^^^^
-        "NewToAddWeaponTables": {}, // Organizes weapons for each soldier class.
-        "DirManifestToFilesUninstaller": {}, // Made with a Tool `ManifestMAKER.exe` that is in the renamed `mymodfolder\Mods` when you package
-        your mod to public you still need to double check the files
-        "CHANGELOG": [] // Tracks changes between mod versions.
+        "File": "",
+        "Find": { "value": "" },
+        "Replace": { "value": "" }
     }
-    
-
-## Glossary
-
-- **Modder**: An individual who creates modifications (mods) for the Earth Defense Force games.
-- **SGO File**: A proprietary file format used by the game for storing various types of data.
-- **Weapon Category ID**: A unique integer identifier for weapon categories defined in the `NewToAddSoldierWeaponCategory` block.
-- **PTR (Pointer)**: A type used in JSON structures to indicate a pointer to another structure or list.
-- **Locale**: Refers to language-specific versions of text and assets in the game (e.g., CN for Chinese, EN for English).
-
-## Top Row Buttons:
-- ### Check for Update:
-This button checks for any updates to the B.A Mod loader, ensuring you're always using the latest version.
-- ### Update Mods:
-This feature allows you to update the installed mods to their latest versions.
-- ### Build Tables:
-This button compiles the necessary tables for modding the gameplay, making sure everything is set up correctly.
-- ### Repair Tables:
-This option resets the tables to their default settings, useful if you need to revert any changes or fix issues.
-- ### Uninstall a Mod:
-This function uninstalls all files connected to the selected mod, keeping your game clean and organized.
-- ### Get Into Modding:
-Opens the modding wiki, providing valuable resources and guides for those looking to customize their gameplay experience.
-## Main Section:
-- ### EDF! Game to Launch:
-This section allows you to launch different versions of the Earth Defense Force game directly from the mod loader.
-  - EARTH DEFENSE FORCE 4.1
-  - EARTH DEFENSE FORCE 5
-  - EARTH DEFENSE FORCE 6
-- ### Open Save Folders:
-Quickly access the save folders for the different game versions, making it easy to manage your game data. Buttons below indicate the corresponding versions 
-  - 4.1, 5, 6.
-- ### Modloader Status:
-Enabled: Indicates that the winmm.dll mod loader is currently active.
-Toggle Modloader Status: A button to easily enable or disable the winmm.dll mod loader as needed.
-- ### Error Section:
-Error Block: Displays any errors or logs that occur during the modding process.
-Clear Error Block: Clears the displayed text or errors, allowing you to manage the logs effectively.
-- ### Mod, Patch, and Plugin Details:
-#### These indicators show how many mods, patches, and plugins are currently active.
-Mods: as *Mod_confog_data.json at
-
-    EARTH DEFENSE FORCE 6\Mods\EDF 6 MOD SETTINGS MAKER\MOD CONFIG DATA PLACED HERE\*YourModName*Mod_config_data.json
-Patches: as .txt 
-
-    EARTH DEFENSE FORCE 6\Mods\Patches\(PatchName).txt
-Plugins: as .dll advanced external funtions 
-
-    EARTH DEFENSE FORCE 6\Mods\Plugins\
-# Credits Section:
-## Credits to the Developers: Acknowledges the creators behind the mod loader, GUI, special game patching.
-### - BlueAmulet (Modloader)
-### - FevGrave (GUI + Table Generator)
-### - MoistGoat(Advanced MissionPack Settings)
-## Miscellaneous:
-Toggle Disabled Games Mode: Toggles a mode that likely disables certain game features.
-FevGrave, X, Reddit: Direct links to specific user profiles or communities (X refers to the social media platform previously known as Twitter).
-and one ELONGATED button to open games dir if you shortcut the EXE to your desktop
-Official EDF Channels:
-EDF Official EN on X
-EDF Official JP on X
-EDF on Reddit
-EDF Discord
-These buttons provide easy access to official Earth Defense Force channels on social media and community platforms.
-
-
-
-## GITHUB_INFO Block
-
-The `GITHUB_INFO` block is used to store metadata about the mod, including the mod name, download link, version, and any additional notes.
-
-### Fields:
-- **AUTHOR:** Your Username
-
-- **MOD NAME:** The name of the mod.
-
-- **LINK:** The direct download link for the mod. This link should always point to the latest version.
-
-- **VERSION:** The current version of the mod. **Important:** Ensure that this version number is always updated to reflect the latest release. This is crucial for the auto-download function, as it may soft lock if it attempts to download an outdated version.
-
-- **Notes:** Any additional notes related to the mod. dont use as a `CHANGELOG` there is a block for that at the very bottom
-
-### Example:
+]
+```
+- ##### ✅ JSON Example (Filled)
+```json
+"DataReplacementTable": [
     {
-        "AUTHOR": "FevGrave",
-        "MOD NAME": "EDF_6-1",
-        "LINK": "https://github.com/FevGrave/EDF_6-1/archive/refs/heads/main.zip",
-        "VERSION": "0.0.1", // Update this field with the latest version to avoid download issues
-        "Notes": "TODO / Conflicts"
-    }
-
-### Important Note:
-
-Always update the VERSION field whenever a new version of the mod is released. Failure to do so may cause the auto-download function to soft lock if it tries to download an current "outdated" version.
-
-## DataReplacementTable Block
-
-The `DataReplacementTable` block is used to find and replace specific strings in the specified JSON files. This section is essential for modifying text within the game's localization files and other related configurations.
-
-### Applicable Files:
-
-Modders should focus on editing the following files:
-
-- `ImportDefaultData.json`
-
-- `ImportTextTable-CN.json`
-
-- `ImportTextTable-EN.json`
-
-- `ImportTextTable-JA.json`
-
-- `ImportTextTable-KR.json`
-
-- `ImportTextTable-SC.json`
-
-- `ImportWeaponTextTable-CN.json`
-
-- `ImportWeaponTextTable-EN.json`
-
-- `ImportWeaponTextTable-JA.json`
-
-- `ImportWeaponTextTable-KR.json`
-
-### Fields:
-
-- **File:** Specifies which file the replacement should occur in. Must be one of the files listed above.
-
-- **Find:** The exact string value to search for in the specified file.
-
-- **Replace:** The new string that will replace the found text.
-
-### Example:
-
-    {
-      "File": "ImportTextTable-EN.json",
-      "Find": {
-      "value": "A standard room.\nStandard rooms are displayed in the lobby for everyone to join."
-      },
-        "Replace": {
-        "value": "Modded hosting in public lobbies is not recommended due to the potential for instability and unexpected behavior..."
-        }
-      },
-      {
         "File": "ImportTextTable-EN.json",
         "Find": {
-        "value": "Passcode Only"
-      },
+            "name": "RoomType_Everyone",
+            "type": "string",
+            "value": "Everyone"
+        },
         "Replace": {
-        "value": "Change Me"
-      }
+            "name": "RoomType_Everyone",
+            "type": "string",
+            "value": "Change Me (Joinable)"
+        }
     }
+]
+```
+### 3️⃣ NewToAddTextTableEntries (Adds New Text)
+- ##### 🔹 File from Source:
+    📌 ConfigTextBuilder.py
 
-### Important Considerations:
+- ##### 🔹 Modifies Game?
+    ❌ No
 
-Only the files listed under "Applicable Files" should be edited.
+- ##### 🔹 Adds New Data?
+    ✅ Yes – Adds new UI text & descriptions
 
-Ensure that the Find value matches exactly, including any special characters like newline characters (\n), to avoid unintended changes.
+- ##### 🔹 Purpose
+    Adds new localizations across multiple languages.
+    Used for new mission names, item descriptions, etc.
+- ##### 🔹 Limitations & Tips
+    ⚠ Use unique name values to avoid overwriting default game text.
 
-This block is mainly used for patching localization and small text updates, making it a powerful tool for maintaining consistency across different language versions.
+🛠 JSON Skeleton
+```json
+"NewToAddTextTableEntries": {
+    "CN": [{ "name": "", "type": "string", "value": "" }],
+    "EN": [{ "name": "", "type": "string", "value": "" }],
+    "KR": [{ "name": "", "type": "string", "value": "" }],
+    "JA": [{ "name": "", "type": "string", "value": "" }],
+    "SC": [{ "name": "", "type": "string", "value": "" }]
+}
+```
+- ##### ✅ JSON Example (Filled)
+```json
+"NewToAddTextTableEntries": {
+    "EN": [{ "name": "Test_Scenario", "type": "string", "value": "Offline MODDED Mission Mode" }],
+    "JA": [{ "name": "Test_Scenario", "type": "string", "value": "オフライン改造ミッションモード" }]
+}
+```
 
-### Use Cases:
+### 4️⃣ NewToAddSubTitleList (Adding New Subtitles)
+🛠 Section: NewToAddSubTitleList
+- ##### 🔹 File from Source:
+    ##### 📌 ConfigSubtitleAppender.py
 
-This section is ideal for modifying in-game text across different languages for making specific text-based updates without altering the core functionality of the game.
+- ##### 🔹 Modifies Game?
+    ##### ❌ No
 
-   
+- ##### 🔹 Adds New Data?
+    ##### ✅ Yes – Adds new mission subtitles
 
-## NewToAddTextTableEntries Block
+- ##### 🔹 Purpose
+    Adds custom subtitles for missions, cutscenes, or dialogue.
+    Supports multiple languages (CN, EN, JA, KR, SC).
+    Allows for customized in-game text linked to missions.
 
+- ##### 🔹 Limitations & Tips
+    ⚠ Each subtitle must have a unique name to prevent overwriting existing data.
+    ⚠ Subtitles are mission-specific, so ensure they match mission scripting.
+    ⚠ Use consistent naming (YourModpackName_MissionXXX_#) for easy tracking.
+    ⚠ If a language is not included, the game may use any filled in fallback default.
 
-The `NewToAddTextTableEntries` block is used to add new text entries into all specified localization files. Due to current limitations, entries are added to all supported language files regardless of the specific content or language.
+- ##### 🛠 JSON Skeleton
+```json
+"NewToAddSubTitleList": {
+    "CN": [],
+    "EN": [],
+    "JA": [],
+    "KR": [],
+    "SC": []
+}
+```
+- ##### ✅ JSON Example (Filled)
+```json
+"NewToAddSubTitleList": {
+    "CN": [],
+    "EN": [
+        {
+            "value": [
+                {
+                    "value": "CharacterName",
+                    "type": "str",
+                    "name": "name"
+                },
+                {
+                    "value": "Don't worry, I'll take you to a safe place.",
+                    "type": "str",
+                    "name": "caption"
+                }
+            ],
+            "type": "ptr",
+            "name": "YourModpackName_Mission001_1"
+        },
+        {
+            "value": [
+                {
+                    "value": "CharacterName",
+                    "type": "str",
+                    "name": "name"
+                },
+                {
+                    "value": "Second mission subtitle",
+                    "type": "str",
+                    "name": "caption"
+                }
+            ],
+            "type": "ptr",
+            "name": "YourModpackName_Mission001_2"
+        },
+        {
+            "value": [
+                {
+                    "value": "CharacterName",
+                    "type": "str",
+                    "name": "name"
+                },
+                {
+                    "value": "Time loop mission subtitle",
+                    "type": "str",
+                    "name": "caption"
+                }
+            ],
+            "type": "ptr",
+            "name": "YourModpackName_Mission001_3"
+        },
+        {
+            "value": [
+                {
+                    "value": "CharacterName",
+                    "type": "str",
+                    "name": "name"
+                },
+                {
+                    "value": "End mission subtitle",
+                    "type": "str",
+                    "name": "caption"
+                }
+            ],
+            "type": "ptr",
+            "name": "YourModpackName_Mission001_4"
+        }
+    ],
+    "JA": [],
+    "KR": [],
+    "SC": []
+}
+```
 
+### 5️⃣ NewToAddModeList (Adds New Mission Packs)
+- ##### 🔹 File from Source:
+    📌 ConfigBuilder.py
 
-### Applicable Files:
-The entries in this block are added into the following five files:
-- | `File Format Installed And Used` | `Starting File To Use` |
-- | `TEXTTABLE_STEAM.CN.TXT_SGO` | `ImportTextTable-CN.json` (Traditional Chinese) |
-- | `TEXTTABLE_STEAM.EN.TXT_SGO` | `ImportTextTable-EN.json` (English) |
-- | `TEXTTABLE_STEAM.KR.TXT_SGO` | `ImportTextTable-KR.json` (Korean) |
-- | `TEXTTABLE_STEAM.JA.TXT_SGO` | `ImportTextTable-JA.json` (Japanese) |
-- | `TEXTTABLE_STEAM.SC.TXT_SGO` | `ImportTextTable-CS.json` (Simplified Chinese) |
+- ##### 🔹 Modifies Game?
+    ❌ No
 
-### Fields:
+- ##### 🔹 Adds New Data?
+    ✅ Yes – Adds new mission packs
 
-    "NewToAddTextTableEntries": {
-        "CN": [
-            {"name":"Test_Scenario_F", "type":"string", "value":"离线改装任务模式"},
-        ],
-        "EN": [
-            {"name":"Test_Scenario_F", "type":"string", "value":"Offline MODDED Mission Mode"},
-        ],
-        "JA": [
-            {"name":"Test_Scenario_F", "type":"string", "value":"オフライン改造ミッションモード"},
-        ],
-        "KR": [
-            {"name":"Test_Scenario_F", "type":"string", "value":"오프라인 모드 미션 모드"},
-        ],
-        "SC": [
-            {"name":"Test_Scenario_F", "type":"string", "value":"离线�����装任务模式"},
-        ]
-    },
+- ##### 🔹 Purpose
+    Defines custom game modes or mission packs.
+- ##### 🔹 Limitations & Tips
+    ⚠ Ensure unique identifiers (e.g., mission pack names) are used to prevent conflicts with existing game modes or other mods.
+    ⚠ Test thoroughly in No Installer Mode (EDF HAKKEN NI.exe) before deploying with Installer Mode (EDF HAKKEN.exe) to avoid game instability, especially given the patch’s "nefarious" nature—back up files to maintain rhythm in your modding dance!
+    ⚠ Verify compatibility with the latest EDF 6 patches to ensure the patch’s effects remain stable across updates.
 
-- **2 Letter Lang**
+- ##### ⚠ This functional part is thanks to a "Nefarious DLC Enablement txt patch." This patch addresses two key issues:  
+    - ##### ⚠ Breaking DLC Ownership: 
+        ##### The patch bypasses restrictions tied to EDF 6’s DLC Mission Pack Ownership, Enabling modders to add custom mission packs without requiring specific DLC activation, expanding accessibility for all players. 
+    - ##### ⚠ Fixing Custom 'DLC Re-Enablement': 
+        ##### It Checks If You Have Played The DLC Mission Packs. And Blocks You From Selecting The DLC Mission Packs And Have Best Vanilla Guns Drop With Them.
 
-    - **name:** The identifier for the new text entry. **Important:** Do not use `"GameMode"` or `"MissionPack##"` (# as numbers)for your 2 or more Missionpack Labels as the `name` value, as these are reserved for special UI setups and could cause UI conflicts.
-
-    - **type:** ALWAYS set to `"string"` for text entries.
-
-    - **value:** The actual text string that will be added to the specified localization files.
-
-
-### Connections to Other Blocks:
-- The `name` and `value` fields in `NewToAddTextTableEntries` are also connected to:
-  - **`NewToAddModeList`:** The first two strings in both nodes are directly linked to the entries in [NewToAddTextTableEntries](#newtoaddtexttableentries-block).
-  - **[NewToAddSoldierWeaponCategory Block](#newtoaddsolderweaponcategory-block):** The `String` value in this block is tied to the `name` values defined here.
-
-  Certainly! I'll reformat the list to use the Markdown link style you requested. Here's the list with the note names formatted as links:
-
-
-
-### Important Considerations:
-
-- Ensure that each `name` is unique across the [NewToAddTextTableEntries](#newtoaddtexttableentries-block) to prevent conflicts.
-
-- **Do not** use `"GameMode"` or `"MissionPack##"` as `name` values. These fields are reserved for specific UI configurations and using them can disrupt the game's user interface.
-
-- The `value` should be appropriate for all language files listed above, or modders should be prepared to manually adjust the entries in each file post-import.
-
-### Use Cases:
-
-This block is used to introduce new text elements that are necessary for the mod's functionality. Examples might include new menu options, game modes, or item descriptions that weren't present in the original game.
-
-Below is an example of adding multiple new text entries:
-
+- ##### 🛠 JSON Skeleton
+```json
+"NewToAddModeList": [
     {
-        "name": "WingDiver_Weapon_Slot",
-        "type": "string",
-        "value": "New Wingdiver Weapon Slot"
-    },
-    {
-        "name": "WingDiver_Weapon_Slot_Support_Slot",
-        "type": "string",
-        "value": "New Wingdiver Support Slot"
+        "type": "ptr",
+        "value": []
     }
-
-  
-
-## NewToAddModeList Block
-
-The `NewToAddModeList` block is used to define new game modes or mission packs within the game. This block is particularly important for adding custom offline and online mission packs to the game.
-
-### Structure:
-
-The `NewToAddModeList` block typically contains two main nodes:
-
-1. **Offline Mode:** Defines settings and configurations for offline mission packs.
-
-2. **Online Mode:** Defines settings and configurations for online mission packs.
-
-### Fields:
-
-- **type:** Generally set to `"ptr"` to indicate a pointer to another structure or list.
-
-- **value:** This is an array that contains various pointers and configurations, including references to text entries, background music, game settings, and mission lists.
-
-### Offline Mode (First Block) Online Mode (Second Block):
-
-These blocks define the settings for an offline and online mission pack.
-
-### Example of one block:
+]
+```
+- ##### ✅ JSON Example (Filled)
+```json
+"NewToAddModeList": [
     {
         "type": "ptr",
         "value": [
-            {"type": "string", "value": "Test_Scenario_F"},
-            {"type": "string", "value": "Test_Scenario_Desc_F"},
-            {"type": "string", "value": "off_scenario.%LOCALE%.dds"},
-            {"type": "string", "value": "BGM_E5S02_EDFHonbu"},
-            {"type": "string", "value": "MAIN.GST"},
-            {"type": "string", "value": "MODTEST.MST"},
+            { "type": "string", "value": "Test_Scenario" },
+            { "type": "string", "value": "Test_Scenario_Desc" }
+        ]
+    }
+]
+```
+
+### 6️⃣ NewToAddSoldierWeaponCategory (Adding New Soldier Weapon Slots)
+🛠 Section: NewToAddSoldierWeaponCategory
+- ##### 🔹 File from Source:
+    📌 ConfigBuilder.py
+
+- ##### 🔹 Modifies Game?
+    ❌ No
+
+- ##### 🔹 Adds New Data?
+    ✅ Yes – Adds new weapon slot categories for soldiers
+
+- ##### 🔹 Purpose
+    Defines new weapon slots for each soldier class.
+    Allows modders to add custom weapon types for Ranger, WingDiver, AirRaider, and Fencer.
+    Used in conjunction with NewToAddWeaponCatalog-* to control weapon availability.
+- ##### 🔹 Limitations & Tips
+    ⚠ Each value ID must be unique to prevent overwriting existing weapon slots.
+    ⚠ The string name must match NewToAddWeaponCatalog-* entries to properly assign weapons.
+    ⚠ Support slots can be defined separately (e.g., "Ranger_Weapon_Slot_Support_Slot").
+
+- ##### 🛠 JSON Skeleton
+```json
+"NewToAddSoldierWeaponCategory": [
+    {
+      "type": "ptr",
+      "value": [
+        {"type": "int", "value": 0},
+        {"type": "string", "value": ""}
+      ]
+    }
+]
+```
+- ##### ✅ JSON Example (Filled)
+```json
+"NewToAddSoldierWeaponCategory": [
+    {
+      "type": "ptr",
+      "value": [
+        {"type": "int", "value": 10000},
+        {"type": "string", "value": "Ranger_Weapon_Slot"}
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {"type": "int", "value": 10001},
+        {"type": "string", "value": "Ranger_Weapon_Slot_Support_Slot"}
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {"type": "int", "value": 20000},
+        {"type": "string", "value": "WingDiver_Weapon_Slot"}
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {"type": "int", "value": 20001},
+        {"type": "string", "value": "WingDiver_Weapon_Slot_Support_Slot"}
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {"type": "int", "value": 30000},
+        {"type": "string", "value": "AirRaider_Weapon_Slot"}
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {"type": "int", "value": 30001},
+        {"type": "string", "value": "AirRaider_Weapon_Slot_Support_Slot"}
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {"type": "int", "value": 40000},
+        {"type": "string", "value": "Fencer_Weapon_Slot"}
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {"type": "int", "value": 40001},
+        {"type": "string", "value": "Fencer_Weapon_Slot_Support_Slot"}
+      ]
+    }
+]
+```
+
+### 7️⃣ NewToAddWeaponCatalog (Assigning Weapons to Soldier Slots)
+🛠 Section: NewToAddWeaponCatalog
+- ##### 🔹 File from Source:
+    📌 ConfigWeaponAppender.py, ConfigDLCWeaponCuller.py, ConfigWeaponCuller.py
+
+- ##### 🔹 Modifies Game?
+    ❌ No
+
+- ##### 🔹 Adds New Data?
+    ✅ Yes – Assigns weapons to specific soldier slots
+
+- ##### 🔹 Purpose
+Links weapon slots (defined in NewToAddSoldierWeaponCategory) to soldier classes.
+Controls which weapons are available in each slot.
+Allows multiple weapon categories per slot (e.g., support, vehicle, or dual-wielding).
+- ##### 🔹 Limitations & Tips
+    - ⚠ Weapon category IDs must match NewToAddSoldierWeaponCategory to ensure proper assignments.
+    - ⚠ Fencer has dual-wielding slots (L & R)—configure accordingly.
+
+- ##### 🛠 JSON Skeleton
+```json
+"NewToAddWeaponCatalog": {
+    "SoldierClass": {
+        "Weapon_Slot1": {"value": [{"type": "int", "value": 0}]}
+    }
+}
+```
+- ##### ✅ JSON Example (Filled)
+```json
+"NewToAddWeaponCatalog": {
+    "Ranger": {
+        "Weapon_Slot1": {"value": [{"type": "int", "value": 10000}]},
+        "Weapon_Slot2": {"value": [{"type": "int", "value": 10000}]},
+        "Weapon_SlotSupport1": {"value": [{"type": "int", "value": 10001}]},
+        "Weapon_SlotSupport2": {"value": [{"type": "int", "value": 10001}]}
+    },
+    "WingDiver": {
+        "Weapon_Slot1": {"value": [{"type": "int", "value": 20000}]},
+        "Weapon_Slot2": {"value": [{"type": "int", "value": 20000}]},
+        "Weapon_SlotPaleSupport1": {"value": [{"type": "int", "value": 20001}]},
+        "Weapon_SlotPaleSupport2": {"value": [{"type": "int", "value": 20001}]}
+    },
+    "AirRaider": {
+        "Weapon_Slot1": {"value": [{"type": "int", "value": 30000}]},
+        "Weapon_Slot2": {"value": [{"type": "int", "value": 30000}]},
+        "Weapon_Slot3": {"value": [{"type": "int", "value": 30000}]},
+        "Weapon_SlotAirRaiderSupport": {"value": [{"type": "int", "value": 30001}]},
+        "Weapon_SlotVehicle": {"value": [{"type": "int", "value": 30001}]}
+    },
+    "Fencer": {
+        "Weapon_Slot1L": {"value": [{"type": "int", "value": 40000}]},
+        "Weapon_Slot1R": {"value": [{"type": "int", "value": 40000}]},
+        "Weapon_Slot2L": {"value": [{"type": "int", "value": 40000}]},
+        "Weapon_Slot2R": {"value": [{"type": "int", "value": 40000}]},
+        "Weapon_SlotFencerSupport": {"value": [{"type": "int", "value": 40001}]}
+    }
+}
+```
+
+### 8️⃣ NewToAddWeaponTables (Adding New Weapons to the Game)
+🛠 Section: NewToAddWeaponTables
+- ##### 🔹 File from Source:
+    📌 ConfigWeaponAppender.py
+
+- ##### 🔹 Modifies Game?
+    ❌ No
+
+- ##### 🔹 Adds New Data?
+    ✅ Yes – Adds new weapons for all soldier classes
+
+- ##### 🔹 Purpose
+    Defines new weapons for Ranger, WingDiver, AirRaider, and Fencer.
+    Each weapon entry includes name, stats, and text descriptions.
+    Works with NewToAddWeaponCatalog to assign weapons to the correct slots.
+- ##### 🔹 Limitations & Tips
+    ⚠ Ensure the weapon names are unique to prevent conflicts with existing weapons.
+    ⚠ Stat values (e.g., damage, range, reload time) must be properly formatted in the "value" array. 
+    ⚠ Localized text (EN, JA, etc.) must be structured correctly to display properly in-game.
+    ⚠ Each weapon category (e.g., Assault Rifles, Shotguns) should be correctly assigned for organization.
+
+- ##### 🛠 JSON Skeleton
+```json
+"NewToAddWeaponTables": {
+    "SOLDIER_CLASS": {
+        "WEAPON_CATEGORY": [
             {
-                "type": "ptr",
-                "value": [
-                    {"type": "string", "value": "app:/Mission/DLC2_MissionList.offline.list.sgo"},
-                    {"type": "string", "value": "app:/Mission/DLC2_MissionList.offline.txt.%LOCALE%.sgo"},
-                    {"type": "string", "value": "app:/Mission/DLC2_MissionList.offline.image.rab"}
-                ]
-            },
-            {
-                "type": "ptr",
-                "value": [
-                    {
-                        "type": "ptr",
-                        "value": [
-                            {
-                                "type": "ptr",
-                                "value": [
-                                    {{{missionDifficultyScale}}}
-                                ]
-                            },
-                            {
-                                "type": "ptr",
-                                "value": [
-                                    {{{PlayerCountDiffScale}}}
-                                ]
-                            },
-                            {
-                                "type": "ptr",
-                                "value": [
-                                    {{{WeaponDrops}}}
-                                ]
-                            },
-                            {
-                                "type": "ptr",
-                                "value": [
-                                    {{{OnlineCorrection}}}
-                                ]
-                            },
-                            {
-                                "type": "ptr",
-                                "value": [
-                                    {{{InfantryCorrection}}}
-                                ]
-                            },
-                            {
-                                "type": "ptr",
-                                "value": [
-                                    {{{VehicleCorrection}}}
-                                ]
-                            },
-                            {
-                                "type": "ptr",
-                                "value": [
-                                    {{{Weapon Limit}}}
-                                ]
-                            },
-                            {
-                                "type": "ptr",
-                                "value": [
-                                    {{{Online Armor Limit}}}
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        Repeat the block above 4 more times to set Normal, Hard, Hardest, Inferno difficulties
-                    }
-                ]
-            },
-            {{{Miscellaneous}}}
-            {
-                "type": "ptr",
-                "value": [
-                    {{{LocalPlayerCount}}}
-                ]
+                "name": "",
+                "Data": {},
+                "Text": {
+                    "CN": {},
+                    "EN": {},
+                    "JA": {},
+                    "KR": {},
+                    "SC": {}
+                }
             }
         ]
     }
-
-### Connections to Other Blocks:
-- This block is connected to `NewToAddTextTableEntries`, which provides the text entries for the mode names and descriptions.
-- See [NewToAddTextTableEntries](#newtoaddtexttableentries-block) for details on adding new text entries.
-- The `missionDifficultyScale`, `PlayerCountDiffScale`, and other variables used in this block are typically defined in the game's core files. Modders should be cautious when modifying these values.
-
-  
-
-## NewToAddSoldierWeaponCategory Block
-
-
-The `NewToAddSoldierWeaponCategory` block is used to define new weapon categories for different soldier classes in the game. This block is essential for expanding the range of weapons available to different classes, allowing for greater customization and variety in gameplay.
-
-### Structure:
-
-Each entry in this block typically contains two main components:
-
-1. **Weapon Category ID:** A unique integer that identifies the weapon category.
-
-2. **Weapon Slot Name:** A string that represents the name of the weapon slot associated with that category.
-
-### Fields:
-
-- **type:** Generally set to `"ptr"` to indicate a pointer to another structure.
-
-- **value:** This is an array containing the following:
-
-- **Weapon Category ID:** An integer value that uniquely identifies the weapon category. that corresponds to the `NewToAddWeaponTables` when making a new gun or item to use
-
-- **Weapon Slot Name:** A string value that corresponds to the name of the weapon slot. This value will need to match the "name" entry in the `NewToAddTextTableEntries` block.
-
-### Example:
-
-    {
-        "type": "ptr",
-        "value": [
-            {"type": "int", "value": 10000},
-            {"type": "string", "value": "Ranger_Weapon_Slot"}
-        ]
-    },
-    {
-        "type": "ptr",
-        "value": [
-            {"type": "int", "value": 15001},
-            {"type": "string", "value": "Ranger_Weapon_Slot_Support_Slot"}
-        ]
-    },
-    {
-        "type": "ptr",
-        "value": [
-            {"type": "int", "value": 20000},
-            {"type": "string", "value": "WingDiver_Weapon_Slot"}
-        ]
-    }
-
-### Connections to Other Blocks:
-- This block is directly linked to `NewToAddTextTableEntries`, where you define the names of the weapon slots.
-- See [NewToAddTextTableEntries](#newtoaddtexttableentries-block) for instructions on adding new text entries for weapon slot names.
-- The Weapon Category IDs defined here correspond to the categories in `NewToAddWeaponTables`.
-
-
-### Important Considerations:
-
-Ensure that each Weapon Category ID is unique across the `NewToAddSoldierWeaponCategory` block to prevent conflicts.
-
-The Weapon Slot Name should be appropriately defined in the `NewToAddTextTableEntries` block to ensure proper UI representation.
-
-Proper linkage with the `NewToAddWeaponCatalog-(classes)` block is crucial to ensure the new weapon categories are accessible in the appropriate menus.
-
-### Use Cases:
-
-This block is used to introduce new weapon categories for different soldier classes, such as the Ranger, Wing Diver, Air Raider, and Fencer. By defining new categories, modders can add custom weapons to the game that fit into these new slots and appear correctly in the soldier classes' weapon selection menus.
-
-  
-
-## NewToAddWeaponCatalog-(classes) Block
-
-The `NewToAddWeaponCatalog-(classes)` block is used to specify the weapon slots available for each soldier class in the game. This block directly connects the weapon categories defined in the `NewToAddSoldierWeaponCategory` block to the specific slots that will appear in the game’s weapon selection menu for each class.
-
-### Connections to Other Blocks:
-- This block is directly linked to `NewToAddSoldierWeaponCategory`, where you define the weapon categories.
-- See [NewToAddSoldierWeaponCategory](#newtoaddsoldierweaponcategory-block) for details on defining new weapon categories.
-- The Weapon Category IDs used here should match those defined in `NewToAddSoldierWeaponCategory`.
-
-- The filler information in this block helps organize weapons according to the categories defined in `NewToAddSoldierWeaponCategory`.
-### Structure:
-
-Each soldier class has its own block, where the weapon slots are defined:
-
-- **Ranger**
-
-- **WingDiver**
-
-- **AirRaider**
-
-- **Fencer**
-
-Each entry within these blocks defines the weapon slot and the corresponding category ID or IDs.
-
-### Fields:
-
-- **Weapon Slot:** The name of the slot as it appears in the game menu.
-
-- **value:** An array containing one or more `Weapon Category ID` values that link to the weapon categories defined in the `NewToAddSoldierWeaponCategory` block.
-
-### Adding Multiple Categories to a Slot:
-
-You can add multiple weapon categories to a single slot by including more than one `Weapon Category ID` in the `value` array. This allows a single slot to support multiple weapon categories, providing greater flexibility and customization.
-
-### Example for Ranger:
-
-    "NewToAddWeaponCatalog-Ranger": [
-        {"Weapon_Slot1": {"value": [{"type": "int", "value": 10000}, {"type": "int", "value": 10001}]}},
-        {"Weapon_Slot2": {"value": [{"type": "int", "value": 10000}]}},
-        {"Weapon_SlotSupport2": {"value": [{"type": "int", "value": 15001}]}},
-        {"Weapon_SlotSupport1": {"value": [{"type": "int", "value": 15001}]}}
-    ]
-
-### Explanation:
-
-Weapon_Slot1: This slot now supports two weapon categories, 10000 and 10001. This means that both categories will be available for selection in this slot.
-
-Weapon_Slot2: This slot supports only one category, 10000.
-
-Weapon_SlotSupport1 & Weapon_SlotSupport2: These slots each support the category 15001.
-
-
-### Soldier Classes:
-
-Ranger:
-
-Weapon_Slot1: Supports multiple categories (10000, 10001), allowing greater flexibility in weapon selection.
-
-Weapon_Slot2: Supports a single category (10000).
-
-Weapon_SlotSupport1 & Weapon_SlotSupport2: Support a single category (15001).
-
-WingDiver, AirRaider, and Fencer: Follow a similar structure where multiple categories can be added to each slot by including additional Weapon Category ID values in the value array.
-
-### Connections to Other Blocks:
-- This block is connected to `NewToAddSoldierWeaponCategory`, which defines the weapon categories.
-- See [NewToAddSoldierWeaponCategory](#newtoaddsolderweaponcategory-block) for instructions on adding new weapon categories.
-- The filler information in this block helps organize weapons according to the categories defined in [NewToAddSoldierWeaponCategory Block](#newtoaddsolderweaponcategory-block).
-
-Proper configuration of this block ensures that the new weapon slots show up correctly in the game menus, allowing players to access and equip the new weapons added by the mod.
-
-### Important Considerations:
-
-Ensure that the Weapon Slot names are correctly defined and linked to the appropriate category IDs.
-
-The Weapon Category ID should match the ID used in the NewToAddSoldierWeaponCategory block to prevent any issues with weapon selection in the game.
-
-When adding multiple categories to a single slot, ensure that the slot is capable of supporting all intended categories to avoid potential conflicts or UI issues.
-
-### Use Cases:
-
-This block is used to organize and display the new weapon categories within the soldier classes' weapon selection menus. By correctly configuring this block, modders can control where and how new weapons appear in the game, ensuring that the player has easy access to the new content.
-
-  
-
-### NewToAddWeaponTables Block
-
-### Purpose of Filler Information:
-The empty arrays within each category (e.g., "Assault Rifles": []) are placeholders intended to help modders organize weapons. These placeholders allow modders to categorize and structure the weapons they're adding, ensuring what they have made will be appended to the end of the game's Weapon Tables.
-
-### Structure:
-
-The block is divided by soldier classes, with each class having its own set of weapon categories:
-
-- **RANGER**
-
-- **WINGDIVER**
-
-- **FENCER**
-
-- **AIRRAIDER**
-
-### Fields:
-
-Each soldier class contains a list of weapon categories. These categories are initially filled with placeholders (filler info) to help modders like you to organize the weapons. These categories will be appended at the end of the existing lists.
-
-### Example Structure:
-    "NewToAddWeaponTables": {
-        "RANGER": {
-            "Assault Rifles": [],
-            "Shotguns": [],
-            "Snipers": [],
-            "Rocket Launchers": [],
-            "Missile Launchers": [],
-            "Grenades": [],
-            "Special": [],
-            "Support Equipment": [],
-            "Bikes": [],
-            "Tanks": [],
-            "Helicopters": [],
-            "New Ranger Weapon Slot": [],
-            "New Ranger Support Slot": []
-        },
-        "WINGDIVER": {
-            "Short-Range": [],
-            "Mid-Range Kinetic Weapons": [],
-            "Mid-Range Pulse Weapons": [],
-            "Mid-Range Energy Weapons": [],
-            "Long-Range": [],
-            "Ranged Weapons": [],
-            "Homing Weapons": [],
-            "Special": [],
-            "Plasma Cores": [],
-            "New Wingdiver Weapon Slot": [],
-            "New Wingdiver Support Slot": []
-        },
-        "FENCER": {
-            "CC Strikers": [],
-            "CC Piercers": [],
-            "Shields": [],
-            "Autocannons": [],
-            "Cannons": [],
-            "Missile Launchers": [],
-            "Enhanced Boosters": [],
-            "Enhanced Shields": [],
-            "Enhanced Cannons": [],
-            "Enhanced Exoskeletons": [],
-            "New Fencer Weapon Slot": [],
-            "New Fencer Support Slot": []
-        },
-        "AIRRAIDER": {
-            "Request Artillery Units": [],
-            "Request Gunships": [],
-            "Request Bombers": [],
-            "Request Missiles": [],
-            "Request Satellites": [],
-            "Limpet Guns": [],
-            "Stationary Weapons": [],
-            "Support Equipment": [],
-            "Special": [],
-            "Powered Exoskeletons": [],
-            "Special Weapons": [],
-            "Helicopters": [],
-            "Ground Vehicles": [],
-            "Tanks": [],
-            "New AirRaider Weapon Slot": [],
-            "New AirRaider Support Slot": []
-        }
-    }
-
-### Purpose of Filler Information:
-
-The empty arrays within each category (e.g., "Assault Rifles": []) are placeholders intended to help YOU the modder(s) organize the weapons. These placeholders allow you to categorize and structure the weapons you’re adding, ensuring what you have made, They will be appended to the end of the games Weapon Tables
-
-### Required Structure:
-
-In addition to the filler information, each entry must include the following required skeleton structure:
-
-    {
-        "Name": "",
-        "Data": {},
-        "Text": {}
-    }
-
-### Explanation:
-
-Name: This field is not used by the game but serves as a marker to help modders understand what the blocks represent.
-
-Data: This block should contain the actual weapon data to be added, Will be appended to the WEAPONTABLE.SGO
-
-Text: This block should contain any text related to the weapon, such as descriptions, though it may also start as an empty object. It will display the stats of the item within the game's menu
-
-### Important Notes:
-
-Organization: The filler information should be used to help structure the weapon categories. As weapons are added, these placeholders will be replaced or appended with actual data.
-
-Appending: When modders add new weapons, these entries will be appended to the end of the existing lists within the game.
-
-### Use Cases:
-This block is essential for categorizing and organizing the various weapons available to each soldier class. By using the filler information and required structure, modders can ensure that new weapons are correctly integrated and displayed within the game.
-
-Below is an example of how a complete entry might look after adding 2 or more new weapons (Second weapon is just a skeleton template):
-
-    {
-        "RANGER": {
-            "Assault Rifles": [
-                {
-                    "Name": "Broken PA-11",
-                    "Data": {
-                        "value": [
-                            {"value": "AssultRifle01", "type": "str"},
-                            {"value": "app:/weapon/AssultRifle01.sgo", "type": "str"},
-                            {"value": 10000, "type": "double"},
-                            {"value": 1, "type": "double"},
-                            {"value": 0, "type": "double"},
-                            {"value": 1, "type": "double"},
-                            {"value": 1, "type": "double"},
-                            {"value": 1, "type": "double"},
-                            {"value": 0, "type": "double"}
-                        ],
-                        "type": "ptr"
-                    },
-                    "Text": {
-                        "value": [
-                            {"value": "Broken PA-11", "type": "str"},
-                            {
-                                "value": "A broken high-performance assault rifle.\nPerformance of the rifle is greatly reduced due to it having been repaired with spare parts.\n\nHolding the trigger (pressing and holding the attack button) will continually fire shots.\nFired bullets are susceptible to air resistance and decrease in power depending on distance.\n\nAt the moment being fire, the bullet's power is the maximum of the spec (Damage  value shown on the right). \nIts power will gradually decrease and become the minimum of the spec (Damage value shown on the right) when reaching its limit of the range.",
-                                "type": "str"
-                            },
-                            {
-                                "value": [
-                                    {
-                                        "value": [
-                                            {"value": "Capacity", "type": "str"},
-                                            {"value": "$0", "type": "str"},
-                                            {
-                                                "value": [
-                                                    {"value": 120, "type": "double"},
-                                                    {"value": 0, "type": "double"},
-                                                    {"value": 0, "type": "double"},
-                                                    {"value": 7, "type": "double"},
-                                                    {"value": 0.5, "type": "double"},
-                                                    {"value": 0.5, "type": "double"},
-                                                    {"value": 0, "type": "double"}
-                                                ],
-                                                "type": "ptr"
-                                            }
-                                        ],
-                                        "type": "ptr"
-                                    },
-                                    {
-                                        "value": [
-                                            {"value": "ROF", "type": "str"},
-                                            {"value": "$0/sec", "type": "str"},
-                                            {
-                                                "value": [
-                                                    {"value": 5, "type": "double"},
-                                                    {"value": 25, "type": "double"},
-                                                    {"value": 5, "type": "double"},
-                                                    {"value": 4, "type": "double"},
-                                                    {"value": 0.5, "type": "double"},
-                                                    {"value": 0.5, "type": "double"},
-                                                    {"value": 0, "type": "double"}
-                                                ],
-                                                "type": "ptr"
-                                            }
-                                        ],
-                                        "type": "ptr"
-                                    },
-                                    {
-                                        "value": [
-                                            {"value": "Damage", "type": "str"},
-                                            {"value": "$0～$1", "type": "str"},
-                                            {
-                                                "value": [
-                                                    {"value": 11, "type": "double"},
-                                                    {"value": 8, "type": "double"},
-                                                    {"value": 1, "type": "double"},
-                                                    {"value": 8, "type": "double"},
-                                                    {"value": 0.5, "type": "double"},
-                                                    {"value": 0.5, "type": "double"},
-                                                    {"value": 1, "type": "double"}
-                                                ],
-                                                "type": "ptr"
-                                            },
-                                            {
-                                                "value": [
-                                                    {"value": 5.5, "type": "double"},
-                                                    {"value": 8, "type": "double"},
-                                                    {"value": 1, "type": "double"},
-                                                    {"value": 8, "type": "double"},
-                                                    {"value": 0.5, "type": "double"},
-                                                    {"value": 0.5, "type": "double"},
-                                                    {"value": 1, "type": "double"}
-                                                ],
-                                                "type": "ptr"
-                                            }
-                                        ],
-                                        "type": "ptr"
-                                    },
-                                    {
-                                        "value": [
-                                        {"value": "Reload Time", "type": "str"},
-                                        {"value": "$0 sec", "type": "str"},
-                                        {
-                                            "value": [
-                                                {"value": 1.5, "type": "double"},
-                                                {"value": 21, "type": "double"},
-                                                {"value": 4, "type": "double"},
-                                                {"value": 8, "type": "double"},
-                                                {"value": 1, "type": "double"},
-                                                {"value": 0.5, "type": "double"},
-                                                {"value": 1, "type": "double"}
-                                            ],
-                                            "type": "ptr"
-                                            }
-                                        ],
-                                        "type": "ptr"
-                                    },
-                                    {
-                                        "value": [
-                                            {"value": "Range", "type": "str"},
-                                            {"value": "$0m", "type": "str"},
-                                            {
-                                                "value": [
-                                                    {"value": 208, "type": "double"},
-                                                    {"value": 16, "type": "double"},
-                                                    {"value": 3, "type": "double"},
-                                                    {"value": 8, "type": "double"},
-                                                    {"value": 0.5, "type": "double"},
-                                                    {"value": 0.5, "type": "double"},
-                                                    {"value": 1, "type": "double"}
-                                                ],
-                                                "type": "ptr"
-                                            }
-                                        ],
-                                        "type": "ptr"
-                                    },
-                                    {
-                                        "value": [
-                                            {"value": "Shot Speed", "type": "str"},
-                                            {"value": "$0m/s", "type": "str"},
-                                            {
-                                                "value": [
-                                                    {"value": 240, "type": "double"},
-                                                    {"value": 16, "type": "double"},
-                                                    {"value": 3, "type": "double"},
-                                                    {"value": 8, "type": "double"},
-                                                    {"value": 0.5, "type": "double"},
-                                                    {"value": 0.5, "type": "double"},
-                                                    {"value": 1, "type": "double"}
-                                                ],
-                                                "type": "ptr"
-                                            }
-                                        ],
-                                        "type": "ptr"
-                                    },
-                                    {
-                                        "value": [
-                                            {"value": "Accuracy", "type": "str"},
-                                            {"value": "$0", "type": "str"},
-                                            {
-                                                "value": [
-                                                    {"value": 0.05000000074505806, "type": "double"},
-                                                    {"value": 13, "type": "double"},
-                                                    {"value": 2, "type": "double"},
-                                                    {"value": 6, "type": "double"},
-                                                    {"value": 2, "type": "double"},
-                                                    {"value": 0.5, "type": "double"},
-                                                    {"value": 1, "type": "double"}
-                                                ],
-                                            "type": "ptr"
-                                            }
-                                        ],
-                                        "type": "ptr"
-                                    },
-                                    {
-                                        "value": [
-                                            {"value": "Zoom", "type": "str"},
-                                            {"value": "----", "type": "str"}
-                                        ],
-                                        "type": "ptr"
-                                    },
-                                    {
-                                        "value": [
-                                            {"value": "Laser Sight", "type": "str"},
-                                            {"value": "----", "type": "str"}
-                                        ],
-                                        "type": "ptr"
-                                    }
-                                ],
-                                "type": "ptr"
-                            }
-                        ],
-                        "type": "ptr"
-                    }
+}
+```
+- ##### ✅ JSON Example (Filled)
+```json
+"NewToAddWeaponTables": {
+    "RANGER": {
+        "Assault Rifles": [
+            {
+                "name": "Broken PA-11",
+                "Data": {
+                    "value": [
+                        {"value": "AssultRifle01", "type": "str"},
+                        {"value": "app:/weapon/AssultRifle01.sgo", "type": "str"},
+                        {"value": 10000, "type": "double"},
+                        {"value": 1, "type": "double"},
+                        {"value": 0, "type": "double"},
+                        {"value": 1, "type": "double"}
+                    ],
+                    "type": "ptr"
                 },
-                {
-                    "Name": "Custom Assault Rifle",
-                    "Data": {
-                        "// Weapon data goes here"
-                    },
-                    "Text": {
-                        "// Weapon text and descriptions go here"
-                    }
+            "Text": {
+                "CN": {},
+                "EN": {
+                    "value": [
+                        {"value": "Broken PA-11", "type": "str"},
+                        {
+                            "value": "A broken high-performance assault rifle.\nRepaired with spare parts, reducing its effectiveness.",
+                            "type": "str"
+                        }
+                    ],
+                    "type": "ptr"
+                },
+                "JA": [],
+                "KR": [],
+                "SC": []
                 }
-            ]
-        }
+            }
+        ],
+        "Shotguns": [],
+        "Snipers": [],
+        "Rocket Launchers": [],
+        "Missile Launchers": [],
+        "Grenades": [],
+        "Special": [],
+        "Support Equipment": [],
+        "Bikes": [],
+        "Tanks": [],
+        "Helicopters": [],
+    },
+    "WINGDIVER": {
+        "Short-Range": [],
+        "Mid-Range Energy Weapons": [],
+        "Mid-Range Energy Weapons": [],
+        "Long-Range": [],
+        "Ranged Weapons": [],
+        "Homing Weapons": [],
+        "Special": [],
+        "Plasma Cores": [],
+        "New Wingdiver Weapon Slot": [],
+        "New Wingdiver Support Slot": []
+    },
+    "FENCER": {
+        "CC Strikers": [],
+        "CC Piercers": [],
+        "Shields": [],
+        "Autocannons": [],
+        "Cannons": [],
+        "Missile Launchers": [],
+        "Enhanced Boosters": [],
+        "Enhanced Shields": [],
+        "Enhanced Cannons": [],
+        "Enhanced Exoskeletons": []
+    },
+    "AIRRAIDER": {
+        "Request Artillery Units": [],
+        "Request Gunships": [],
+        "Request Bombers": [],
+        "Request Missiles": [],
+        "Request Satellites": [],
+        "Limpet Guns": [],
+        "Stationary Weapons": [],
+        "Support Equipment": [],
+        "Special": [],
+        "Powered Exoskeletons": [],
+        "Special Weapons": [],
+        "Helicopters": [],
+        "Ground Vehicles": [],
+        "Tanks": [],
     }
+}
+```
 
-  
+### 9️⃣ DirManifestToFilesUninstaller (File Cleanup & Uninstallation)
+- ##### 🔹 File from Source:
+    📌 ManifestMAKER.py & ConfigManifestUninstaller.exe
 
-## DirManifestToFilesUninstaller
+- ##### 🔹 Modifies Game?
+    ❌ No
 
-Included in the ~~~Mods~~~ folder is a ManifestMAKER.exe will write out the dir tree and can write to the *YourModName*Mod_config_data.json
+- ##### 🔹 Adds New Data?
+    ❌ No
+
+- ##### 🔹 Purpose
+    Ensures clean removal of mod files.
+    Used by Mods Panel UI → "Uninstall" button.
+- ##### 🔹 Limitations & Tips
+    ⚠ Always use a single master folder for you mission packs.
+
+- ##### 🛠 JSON Skeleton
+```json
+"DirManifestToFilesUninstaller": {
+    "MISSION": { "Folders": [] "Files"; []},
+    "WEAPON": [],
+    "OBJECT": []
+}
+```
+- ##### ✅ JSON Example (Filled)
+```json
+"DirManifestToFilesUninstaller": {
+    "MISSION": { "Folders": ["MY_MODDED_MISSION_PACK_FOLDER"] },
+    "WEAPON": [
+        "V605_BARGA_D_CANNON.SGO",
+        "V610_MACHINEGUN.SGO"
+    ],
+    "OBJECT": [
+        "DAMAGE_TEST.rab",
+        "ANTFALL.SGO"
+    ]
+}
+```
+
+
+### 1️⃣0️⃣ CHANGELOG (Tracking Mod Version History)
+🛠 Section: CHANGELOG
+- ##### 🔹 File from Source:
+    📌 Not used by scripts – For Mod Pannel's Info only
+
+- ##### 🔹 Modifies Game?
+    ❌ No
+
+- ##### 🔹 Adds New Data?
+    ❌ No – Documentation only
+
+- ##### 🔹 Purpose
+    Keeps a record of changes for each mod version.
+    Helps track updates, fixes, and new features over time.
+    Used by modders and users to see what has changed.
+- ##### 🔹 Limitations & Tips
+    ⚠ Must be updated manually whenever a new mod version is released.
+    ⚠ Should follow a structured format (version, "summary of changes").
+    ⚠ Empty values ("") should be avoided unless marking an upcoming change.
+
+- ##### 🛠 JSON Skeleton
+```json
+"CHANGELOG": []
+```
+- ##### ✅ JSON Example (Filled)
+```json
+"CHANGELOG": [
+  "0.1.0", 
+  "Initial mod release with new weapons and missions.",
+  "0.0.9", 
+  "Building Phase"
+]
+```

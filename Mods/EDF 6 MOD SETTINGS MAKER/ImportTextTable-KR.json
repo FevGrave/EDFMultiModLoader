@@ -1481,6 +1481,16 @@
       "value": "%PLAYERNAME% 소대 대기소"
     },
     {
+      "name": "Online_FirstSignin",
+      "type": "string",
+      "value": "다음 온라인 크로스 플레이 기능을 사용하려면 Epic Games 계정에 로그인해야 합니다.\n\n　Epic Games Store 플레이어와 친구 맺기\n　Epic Games Store 플레이어 초대하기\n　Epic Games 업적\n　Epic Games 프레즌스\n　Epic Games 소셜 오버레이\n\nEpic Games 계정에 로그인하시겠습니까?\n로그인하지 않고도 온라인에서 계속 플레이할 수 있습니다."
+    },
+    {
+      "name": "Online_FirstSigninDeny",
+      "type": "string",
+      "value": "Epic Games Store 플레이어 초대 등 일부 온라인 크로스 플레이 기능이 제한됩니다.\n\n모든 온라인 크로스플레이 기능을 이용하려면 시스템 설정 화면에서 Epic Games 계정에 로그인하세요."
+    },
+    {
       "name": "Online_Game_Disconnect",
       "type": "string",
       "value": "네트워크 연결이 끊겼습니다."
@@ -1577,6 +1587,11 @@
     {"name": "Online_Syncing", "type": "string", "value": "다른 플레이어와 동기화 중입니다"},
     {"name": "Online_UGC_Freeword", "type": "string", "value": ""},
     {"name": "Online_UGC_RoomName", "type": "string", "value": "간이 방"},
+    {
+      "name": "Online_UnlinkedSignin",
+      "type": "string",
+      "value": "Epic Games 계정에 로그인할 수 없습니다.\nEpic Games 계정에 로그인하시겠습니까?\n참고: Epic Games 계정을 연결하지 않아도 온라인 플레이를 계속 즐길 수 있습니다."
+    },
     {"name": "Online_Weapon_Limit_None", "type": "string", "value": "－"},
     {"name": "Online_Weapon_Limit_Off", "type": "string", "value": "비활성화"},
     {"name": "Online_Weapon_Limit_On", "type": "string", "value": "활성화"},
@@ -3431,6 +3446,31 @@
     },
     {"name": "Sys_Detail", "type": "string", "value": "자세히"},
     {
+      "name": "Sys_EpicAccount_NotifySignin",
+      "type": "string",
+      "value": "Epic Games 계정에 로그인 중"
+    },
+    {
+      "name": "Sys_EpicAccount_SigninAlready",
+      "type": "string",
+      "value": "이미 Epic Games 계정에 로그인되어 있습니다."
+    },
+    {
+      "name": "Sys_EpicAccount_SigninCancel",
+      "type": "string",
+      "value": "Epic Games 계정 로그인이 취소되었습니다."
+    },
+    {
+      "name": "Sys_EpicAccount_SigninSuccess",
+      "type": "string",
+      "value": "Epic Games 계정에 성공적으로 로그인했습니다."
+    },
+    {
+      "name": "Sys_EpicAccount_SinginFailed",
+      "type": "string",
+      "value": "Epic Games 계정에 로그인하지 못했습니다."
+    },
+    {
       "name": "Sys_Exit_Confirmation",
       "type": "string",
       "value": "게임을 종료하시겠습니까?"
@@ -3446,6 +3486,11 @@
       "name": "Sys_InviteFailed",
       "type": "string",
       "value": "초대를 받았지만\n초대 정보를 수신하는 데 실패했습니다.\n초대 처리를 중단합니다."
+    },
+    {
+      "name": "Sys_InviteFailed_UnmatchVersion",
+      "type": "string",
+      "value": "애플리케이션 버전이 달라서 온라인 방에 참여하지 못했습니다."
     },
     {
       "name": "Sys_JoinGameAccepted",
@@ -3530,6 +3575,11 @@
       "value": "아머 내구도 한계, 무기 레벨 한계 설정을\n해제할 수 있게 됐습니다."
     },
     {
+      "name": "Sys_UpdateNotify00000",
+      "type": "string",
+      "value": "공지사항:\n더 이상 Epic Games 계정에 로그인할 필요가 없습니다.\nSteam 계정과 Epic Games 계정의 연결을 해제하려면 웹 브라우저에서 Epic Games를 방문하세요. 계정 연결을 해제할 수 있습니다."
+    },
+    {
       "name": "Sys_UseGamepad",
       "type": "string",
       "value": "컨트롤러를 사용하여 게임을 시작합니다."
@@ -3568,6 +3618,11 @@
       "value": "창 모드"
     },
     {"name": "SystemOption_DisplaySetting", "type": "string", "value": "화면 설정"},
+    {
+      "name": "SystemOption_EpicAccount_Signin",
+      "type": "string",
+      "value": "Epic Games 계정에 로그인"
+    },
     {"name": "SystemOption_LetterBox", "type": "string", "value": "레터 박스"},
     {"name": "SystemOption_Resolution", "type": "string", "value": "해상도"},
     {"name": "SystemOption_Shadow", "type": "string", "value": "섀도"},

@@ -2020,8 +2020,14 @@
           "type": "ptr",
           "value": [
             {"type": "string", "value": "app:/object/p505_ranger.sgo"},
-            {"type": "string", "value": "app:/object/p501_proto_ranger.sgo"},
-            {"type": "string", "value": "app:/object/p601_proto_ranger.sgo"},
+            {
+              "type": "string",
+              "value": "app:/object/p501_proto_ranger.sgo"
+            },
+            {
+              "type": "string",
+              "value": "app:/object/p601_proto_ranger.sgo"
+            },
             {"type": "string", "value": "app:/object/p605_ranger.sgo"}
           ]
         },
@@ -2125,7 +2131,10 @@
             {
               "type": "ptr",
               "value": [
-                {"type": "string", "value": "APP:/MENUOBJECT/p505_ranger.SGO"},
+                {
+                  "type": "string",
+                  "value": "APP:/MENUOBJECT/p505_ranger.SGO"
+                },
                 {
                   "type": "string",
                   "value": "APP:/MENUOBJECT/p501_proto_ranger.SGO"
@@ -2134,7 +2143,10 @@
                   "type": "string",
                   "value": "APP:/MENUOBJECT/p601_proto_ranger.SGO"
                 },
-                {"type": "string", "value": "APP:/MENUOBJECT/p605_ranger.SGO"}
+                {
+                  "type": "string",
+                  "value": "APP:/MENUOBJECT/p605_ranger.SGO"
+                }
               ]
             },
             {"type": "string", "value": "App:/UI/TypeSelectImage.rab"},
@@ -2161,8 +2173,14 @@
           "type": "ptr",
           "value": [
             {"type": "string", "value": "app:/object/p506_wingdiver.sgo"},
-            {"type": "string", "value": "app:/object/p502_proto_wingdiver.sgo"},
-            {"type": "string", "value": "app:/object/p602_proto_wingdiver.sgo"},
+            {
+              "type": "string",
+              "value": "app:/object/p502_proto_wingdiver.sgo"
+            },
+            {
+              "type": "string",
+              "value": "app:/object/p602_proto_wingdiver.sgo"
+            },
             {"type": "string", "value": "app:/object/p606_WingDiver.sgo"}
           ]
         },
@@ -2302,8 +2320,14 @@
           "type": "ptr",
           "value": [
             {"type": "string", "value": "app:/object/p508_airRader.sgo"},
-            {"type": "string", "value": "app:/object/p504_proto_airRader.sgo"},
-            {"type": "string", "value": "app:/object/p604_proto_airRader.sgo"},
+            {
+              "type": "string",
+              "value": "app:/object/p504_proto_airRader.sgo"
+            },
+            {
+              "type": "string",
+              "value": "app:/object/p604_proto_airRader.sgo"
+            },
             {"type": "string", "value": "app:/object/p608_airRader.sgo"}
           ]
         },
@@ -2443,7 +2467,10 @@
                   "type": "string",
                   "value": "APP:/MENUOBJECT/p604_proto_airRader.SGO"
                 },
-                {"type": "string", "value": "APP:/MENUOBJECT/p608_airRader.SGO"}
+                {
+                  "type": "string",
+                  "value": "APP:/MENUOBJECT/p608_airRader.SGO"
+                }
               ]
             },
             {"type": "string", "value": "App:/UI/TypeSelectImage.rab"},
@@ -2469,8 +2496,14 @@
           "type": "ptr",
           "value": [
             {"type": "string", "value": "app:/object/p507_fencer.sgo"},
-            {"type": "string", "value": "app:/object/p503_proto_fencer.sgo"},
-            {"type": "string", "value": "app:/object/p603_proto_fencer.sgo"},
+            {
+              "type": "string",
+              "value": "app:/object/p503_proto_fencer.sgo"
+            },
+            {
+              "type": "string",
+              "value": "app:/object/p603_proto_fencer.sgo"
+            },
             {"type": "string", "value": "app:/object/p607_fencer.sgo"}
           ]
         },
@@ -2612,7 +2645,10 @@
             {
               "type": "ptr",
               "value": [
-                {"type": "string", "value": "APP:/MENUOBJECT/p507_fencer.SGO"},
+                {
+                  "type": "string",
+                  "value": "APP:/MENUOBJECT/p507_fencer.SGO"
+                },
                 {
                   "type": "string",
                   "value": "APP:/MENUOBJECT/p503_proto_fencer.SGO"
@@ -2621,7 +2657,10 @@
                   "type": "string",
                   "value": "APP:/MENUOBJECT/p603_proto_fencer.SGO"
                 },
-                {"type": "string", "value": "APP:/MENUOBJECT/p607_fencer.SGO"}
+                {
+                  "type": "string",
+                  "value": "APP:/MENUOBJECT/p607_fencer.SGO"
+                }
               ]
             },
             {"type": "string", "value": "App:/UI/TypeSelectImage.rab"},

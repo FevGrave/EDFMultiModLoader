@@ -1,0 +1,3018 @@
+{
+    "camera": null,
+    "routes": {
+        "groups": [
+            {
+                "name": "キャリアルートA01",
+                "routes": [
+                    {
+                        "connctions": [
+                            1
+                        ],
+                        "connection_type": 1,
+                        "index": 0,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートA01",
+                        "position": [
+                            74.31610107421875,
+                            800.0,
+                            -149.50286865234375
+                        ],
+                        "unk2": 2
+                    },
+                    {
+                        "connctions": [
+                            2,
+                            0
+                        ],
+                        "connection_type": 2,
+                        "index": 1,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            50.0,
+                            456.3999938964844,
+                            -150.0
+                        ],
+                        "unk2": 3
+                    },
+                    {
+                        "connctions": [
+                            1
+                        ],
+                        "connection_type": 1,
+                        "index": 2,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -217.52638244628906,
+                            263.9789733886719,
+                            -167.83651733398438
+                        ],
+                        "unk2": 4
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートA02",
+                "routes": [
+                    {
+                        "connctions": [
+                            4
+                        ],
+                        "connection_type": 1,
+                        "index": 3,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートA02",
+                        "position": [
+                            68.398193359375,
+                            1000.0,
+                            -77.01233673095703
+                        ],
+                        "unk2": 5
+                    },
+                    {
+                        "connctions": [
+                            3,
+                            5
+                        ],
+                        "connection_type": 2,
+                        "index": 4,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            50.0,
+                            456.3999938964844,
+                            -50.0
+                        ],
+                        "unk2": 6
+                    },
+                    {
+                        "connctions": [
+                            4
+                        ],
+                        "connection_type": 1,
+                        "index": 5,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -83.41767883300781,
+                            286.003173828125,
+                            264.5649108886719
+                        ],
+                        "unk2": 7
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートA03",
+                "routes": [
+                    {
+                        "connctions": [
+                            7
+                        ],
+                        "connection_type": 1,
+                        "index": 6,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートA03",
+                        "position": [
+                            138.66134643554688,
+                            1200.0,
+                            27.612945556640625
+                        ],
+                        "unk2": 8
+                    },
+                    {
+                        "connctions": [
+                            6,
+                            8
+                        ],
+                        "connection_type": 2,
+                        "index": 7,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            150.0,
+                            456.3999938964844,
+                            0.0
+                        ],
+                        "unk2": 9
+                    },
+                    {
+                        "connctions": [
+                            7
+                        ],
+                        "connection_type": 1,
+                        "index": 8,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            335.6598205566406,
+                            379.39617919921875,
+                            -402.9027404785156
+                        ],
+                        "unk2": 10
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートA04",
+                "routes": [
+                    {
+                        "connctions": [
+                            10
+                        ],
+                        "connection_type": 1,
+                        "index": 9,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートA04",
+                        "position": [
+                            111.71874237060547,
+                            1400.0,
+                            -32.80601501464844
+                        ],
+                        "unk2": 11
+                    },
+                    {
+                        "connctions": [
+                            9,
+                            11
+                        ],
+                        "connection_type": 2,
+                        "index": 10,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            150.0,
+                            456.3999938964844,
+                            -50.0
+                        ],
+                        "unk2": 12
+                    },
+                    {
+                        "connctions": [
+                            10
+                        ],
+                        "connection_type": 1,
+                        "index": 11,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            594.0460205078125,
+                            345.0009460449219,
+                            -334.4833679199219
+                        ],
+                        "unk2": 13
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートA05",
+                "routes": [
+                    {
+                        "connctions": [
+                            13
+                        ],
+                        "connection_type": 1,
+                        "index": 12,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートA05",
+                        "position": [
+                            272.64349365234375,
+                            1600.0,
+                            -58.20918655395508
+                        ],
+                        "unk2": 14
+                    },
+                    {
+                        "connctions": [
+                            12,
+                            14
+                        ],
+                        "connection_type": 2,
+                        "index": 13,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            250.0,
+                            456.3999938964844,
+                            -100.0
+                        ],
+                        "unk2": 15
+                    },
+                    {
+                        "connctions": [
+                            13
+                        ],
+                        "connection_type": 1,
+                        "index": 14,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            51.47246170043945,
+                            319.9150085449219,
+                            -508.2663269042969
+                        ],
+                        "unk2": 16
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートA06",
+                "routes": [
+                    {
+                        "connctions": [
+                            16
+                        ],
+                        "connection_type": 1,
+                        "index": 15,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートA06",
+                        "position": [
+                            163.9047088623047,
+                            1800.0,
+                            -218.61639404296875
+                        ],
+                        "unk2": 17
+                    },
+                    {
+                        "connctions": [
+                            15,
+                            17
+                        ],
+                        "connection_type": 2,
+                        "index": 16,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            200.0,
+                            456.3999938964844,
+                            -200.0
+                        ],
+                        "unk2": 18
+                    },
+                    {
+                        "connctions": [
+                            16
+                        ],
+                        "connection_type": 1,
+                        "index": 17,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            628.5582275390625,
+                            346.512939453125,
+                            134.72708129882813
+                        ],
+                        "unk2": 19
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートB01",
+                "routes": [
+                    {
+                        "connctions": [
+                            19
+                        ],
+                        "connection_type": 1,
+                        "index": 18,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートB01",
+                        "position": [
+                            501.9718322753906,
+                            819.9264526367188,
+                            211.1290283203125
+                        ],
+                        "unk2": 20
+                    },
+                    {
+                        "connctions": [
+                            18,
+                            20
+                        ],
+                        "connection_type": 2,
+                        "index": 19,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            472.95770263671875,
+                            496.6216125488281,
+                            55.24705123901367
+                        ],
+                        "unk2": 21
+                    },
+                    {
+                        "connctions": [
+                            19,
+                            21
+                        ],
+                        "connection_type": 2,
+                        "index": 20,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            343.811279296875,
+                            374.49365234375,
+                            18.57607650756836
+                        ],
+                        "unk2": 22
+                    },
+                    {
+                        "connctions": [
+                            20
+                        ],
+                        "connection_type": 1,
+                        "index": 21,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            194.93463134765625,
+                            349.784423828125,
+                            38.66526794433594
+                        ],
+                        "unk2": 23
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートB02",
+                "routes": [
+                    {
+                        "connctions": [
+                            23
+                        ],
+                        "connection_type": 1,
+                        "index": 22,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートB02",
+                        "position": [
+                            618.9988403320313,
+                            830.947021484375,
+                            145.85498046875
+                        ],
+                        "unk2": 24
+                    },
+                    {
+                        "connctions": [
+                            22,
+                            24
+                        ],
+                        "connection_type": 2,
+                        "index": 23,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            614.4747314453125,
+                            543.2456665039063,
+                            44.485923767089844
+                        ],
+                        "unk2": 25
+                    },
+                    {
+                        "connctions": [
+                            23,
+                            25
+                        ],
+                        "connection_type": 2,
+                        "index": 24,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            554.0995483398438,
+                            370.52587890625,
+                            -64.70816802978516
+                        ],
+                        "unk2": 26
+                    },
+                    {
+                        "connctions": [
+                            24
+                        ],
+                        "connection_type": 1,
+                        "index": 25,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            411.27227783203125,
+                            351.24884033203125,
+                            -96.76062774658203
+                        ],
+                        "unk2": 27
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートB03",
+                "routes": [
+                    {
+                        "connctions": [
+                            27
+                        ],
+                        "connection_type": 1,
+                        "index": 26,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートB03",
+                        "position": [
+                            729.4016723632813,
+                            848.6256713867188,
+                            91.6927261352539
+                        ],
+                        "unk2": 28
+                    },
+                    {
+                        "connctions": [
+                            26,
+                            28
+                        ],
+                        "connection_type": 2,
+                        "index": 27,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            750.8402099609375,
+                            491.3718566894531,
+                            -38.28507995605469
+                        ],
+                        "unk2": 29
+                    },
+                    {
+                        "connctions": [
+                            27,
+                            29
+                        ],
+                        "connection_type": 2,
+                        "index": 28,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            683.575927734375,
+                            383.4855651855469,
+                            -142.40130615234375
+                        ],
+                        "unk2": 30
+                    },
+                    {
+                        "connctions": [
+                            28
+                        ],
+                        "connection_type": 1,
+                        "index": 29,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            564.0169067382813,
+                            353.7989196777344,
+                            -234.00132751464844
+                        ],
+                        "unk2": 31
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートB04",
+                "routes": [
+                    {
+                        "connctions": [
+                            31
+                        ],
+                        "connection_type": 1,
+                        "index": 30,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートB04",
+                        "position": [
+                            836.5338745117188,
+                            869.7589111328125,
+                            178.88739013671875
+                        ],
+                        "unk2": 32
+                    },
+                    {
+                        "connctions": [
+                            30,
+                            32
+                        ],
+                        "connection_type": 2,
+                        "index": 31,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            901.5795288085938,
+                            479.7677307128906,
+                            -26.245594024658203
+                        ],
+                        "unk2": 33
+                    },
+                    {
+                        "connctions": [
+                            31,
+                            33
+                        ],
+                        "connection_type": 2,
+                        "index": 32,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            837.965087890625,
+                            387.8587341308594,
+                            -217.0718536376953
+                        ],
+                        "unk2": 34
+                    },
+                    {
+                        "connctions": [
+                            32
+                        ],
+                        "connection_type": 1,
+                        "index": 33,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            652.91552734375,
+                            347.2976989746094,
+                            -371.6468505859375
+                        ],
+                        "unk2": 35
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートB05",
+                "routes": [
+                    {
+                        "connctions": [
+                            35
+                        ],
+                        "connection_type": 1,
+                        "index": 34,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートB05",
+                        "position": [
+                            894.4967041015625,
+                            921.199951171875,
+                            251.14552307128906
+                        ],
+                        "unk2": 36
+                    },
+                    {
+                        "connctions": [
+                            34,
+                            36
+                        ],
+                        "connection_type": 2,
+                        "index": 35,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            942.63525390625,
+                            621.9815673828125,
+                            100.09100341796875
+                        ],
+                        "unk2": 37
+                    },
+                    {
+                        "connctions": [
+                            35,
+                            37
+                        ],
+                        "connection_type": 2,
+                        "index": 36,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            799.0175170898438,
+                            409.5113525390625,
+                            46.686885833740234
+                        ],
+                        "unk2": 38
+                    },
+                    {
+                        "connctions": [
+                            36
+                        ],
+                        "connection_type": 1,
+                        "index": 37,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            668.5596313476563,
+                            356.6712341308594,
+                            47.91040802001953
+                        ],
+                        "unk2": 39
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートB06",
+                "routes": [
+                    {
+                        "connctions": [
+                            39
+                        ],
+                        "connection_type": 1,
+                        "index": 38,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートB06",
+                        "position": [
+                            620.9850463867188,
+                            864.6190185546875,
+                            313.6500244140625
+                        ],
+                        "unk2": 40
+                    },
+                    {
+                        "connctions": [
+                            38,
+                            40
+                        ],
+                        "connection_type": 2,
+                        "index": 39,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            448.7393798828125,
+                            440.8665466308594,
+                            163.97055053710938
+                        ],
+                        "unk2": 41
+                    },
+                    {
+                        "connctions": [
+                            41,
+                            39
+                        ],
+                        "connection_type": 2,
+                        "index": 40,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            254.7234344482422,
+                            351.6264953613281,
+                            209.41915893554688
+                        ],
+                        "unk2": 42
+                    },
+                    {
+                        "connctions": [
+                            40
+                        ],
+                        "connection_type": 1,
+                        "index": 41,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            112.94767761230469,
+                            304.61676025390625,
+                            332.4792785644531
+                        ],
+                        "unk2": 43
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートB07",
+                "routes": [
+                    {
+                        "connctions": [
+                            43
+                        ],
+                        "connection_type": 1,
+                        "index": 42,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートB07",
+                        "position": [
+                            796.6287841796875,
+                            977.39404296875,
+                            322.16400146484375
+                        ],
+                        "unk2": 44
+                    },
+                    {
+                        "connctions": [
+                            42,
+                            44
+                        ],
+                        "connection_type": 2,
+                        "index": 43,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            860.500732421875,
+                            599.8314208984375,
+                            188.4906005859375
+                        ],
+                        "unk2": 45
+                    },
+                    {
+                        "connctions": [
+                            43,
+                            45
+                        ],
+                        "connection_type": 2,
+                        "index": 44,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            675.6751098632813,
+                            389.3373718261719,
+                            106.49111938476563
+                        ],
+                        "unk2": 46
+                    },
+                    {
+                        "connctions": [
+                            44
+                        ],
+                        "connection_type": 1,
+                        "index": 45,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            497.3260803222656,
+                            348.25042724609375,
+                            116.57027435302734
+                        ],
+                        "unk2": 47
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートC01",
+                "routes": [
+                    {
+                        "connctions": [
+                            47
+                        ],
+                        "connection_type": 1,
+                        "index": 46,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートC01",
+                        "position": [
+                            580.0336303710938,
+                            779.2000732421875,
+                            -34.65188217163086
+                        ],
+                        "unk2": 48
+                    },
+                    {
+                        "connctions": [
+                            46,
+                            48
+                        ],
+                        "connection_type": 2,
+                        "index": 47,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            401.5667419433594,
+                            604.9452514648438,
+                            -315.5551452636719
+                        ],
+                        "unk2": 49
+                    },
+                    {
+                        "connctions": [
+                            47,
+                            49
+                        ],
+                        "connection_type": 2,
+                        "index": 48,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            150.26438903808594,
+                            459.4957275390625,
+                            74.94532012939453
+                        ],
+                        "unk2": 50
+                    },
+                    {
+                        "connctions": [
+                            48
+                        ],
+                        "connection_type": 1,
+                        "index": 49,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            3.1010589599609375,
+                            401.9283142089844,
+                            -542.1480712890625
+                        ],
+                        "unk2": 51
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートC02",
+                "routes": [
+                    {
+                        "connctions": [
+                            51
+                        ],
+                        "connection_type": 1,
+                        "index": 50,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートC02",
+                        "position": [
+                            709.3781127929688,
+                            876.7999877929688,
+                            -95.916259765625
+                        ],
+                        "unk2": 52
+                    },
+                    {
+                        "connctions": [
+                            50,
+                            52
+                        ],
+                        "connection_type": 2,
+                        "index": 51,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            594.3946533203125,
+                            657.64599609375,
+                            -404.2491760253906
+                        ],
+                        "unk2": 53
+                    },
+                    {
+                        "connctions": [
+                            53,
+                            51
+                        ],
+                        "connection_type": 2,
+                        "index": 52,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            390.5585021972656,
+                            567.769287109375,
+                            112.14862060546875
+                        ],
+                        "unk2": 54
+                    },
+                    {
+                        "connctions": [
+                            52
+                        ],
+                        "connection_type": 1,
+                        "index": 53,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            253.68130493164063,
+                            428.7983703613281,
+                            -407.0159912109375
+                        ],
+                        "unk2": 55
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートC03",
+                "routes": [
+                    {
+                        "connctions": [
+                            55
+                        ],
+                        "connection_type": 1,
+                        "index": 54,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートC03",
+                        "position": [
+                            850.6104736328125,
+                            1009.5999755859375,
+                            -144.94271850585938
+                        ],
+                        "unk2": 56
+                    },
+                    {
+                        "connctions": [
+                            56,
+                            54
+                        ],
+                        "connection_type": 2,
+                        "index": 55,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            748.63427734375,
+                            790.6341552734375,
+                            -526.2264404296875
+                        ],
+                        "unk2": 57
+                    },
+                    {
+                        "connctions": [
+                            57,
+                            55
+                        ],
+                        "connection_type": 2,
+                        "index": 56,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            588.4019165039063,
+                            631.5726318359375,
+                            107.27235412597656
+                        ],
+                        "unk2": 58
+                    },
+                    {
+                        "connctions": [
+                            56
+                        ],
+                        "connection_type": 1,
+                        "index": 57,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            484.8988037109375,
+                            429.0556335449219,
+                            -283.2149353027344
+                        ],
+                        "unk2": 59
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートC04",
+                "routes": [
+                    {
+                        "connctions": [
+                            59
+                        ],
+                        "connection_type": 1,
+                        "index": 58,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートC04",
+                        "position": [
+                            -324.31060791015625,
+                            772.4000244140625,
+                            211.8763427734375
+                        ],
+                        "unk2": 60
+                    },
+                    {
+                        "connctions": [
+                            58,
+                            60
+                        ],
+                        "connection_type": 2,
+                        "index": 59,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -689.1723022460938,
+                            630.4346923828125,
+                            47.42235565185547
+                        ],
+                        "unk2": 61
+                    },
+                    {
+                        "connctions": [
+                            61,
+                            59
+                        ],
+                        "connection_type": 2,
+                        "index": 60,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -446.9300231933594,
+                            429.716064453125,
+                            -210.42864990234375
+                        ],
+                        "unk2": 62
+                    },
+                    {
+                        "connctions": [
+                            60
+                        ],
+                        "connection_type": 1,
+                        "index": 61,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -749.5152587890625,
+                            305.85223388671875,
+                            -560.169189453125
+                        ],
+                        "unk2": 63
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートC05",
+                "routes": [
+                    {
+                        "connctions": [
+                            63
+                        ],
+                        "connection_type": 1,
+                        "index": 62,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートC05",
+                        "position": [
+                            -153.37869262695313,
+                            843.2000122070313,
+                            141.57135009765625
+                        ],
+                        "unk2": 64
+                    },
+                    {
+                        "connctions": [
+                            64,
+                            62
+                        ],
+                        "connection_type": 2,
+                        "index": 63,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -454.2001953125,
+                            690.4189453125,
+                            16.907337188720703
+                        ],
+                        "unk2": 65
+                    },
+                    {
+                        "connctions": [
+                            65,
+                            63
+                        ],
+                        "connection_type": 2,
+                        "index": 64,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -198.24208068847656,
+                            458.84844970703125,
+                            -230.09320068359375
+                        ],
+                        "unk2": 66
+                    },
+                    {
+                        "connctions": [
+                            64
+                        ],
+                        "connection_type": 1,
+                        "index": 65,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -467.9224853515625,
+                            324.14739990234375,
+                            -557.7332763671875
+                        ],
+                        "unk2": 67
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートC06",
+                "routes": [
+                    {
+                        "connctions": [
+                            67
+                        ],
+                        "connection_type": 1,
+                        "index": 66,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートC06",
+                        "position": [
+                            28.279664993286133,
+                            882.0,
+                            81.27034759521484
+                        ],
+                        "unk2": 68
+                    },
+                    {
+                        "connctions": [
+                            66,
+                            68
+                        ],
+                        "connection_type": 2,
+                        "index": 67,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -190.27171325683594,
+                            705.6640014648438,
+                            -26.612091064453125
+                        ],
+                        "unk2": 69
+                    },
+                    {
+                        "connctions": [
+                            69,
+                            67
+                        ],
+                        "connection_type": 2,
+                        "index": 68,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            27.734949111938477,
+                            513.066650390625,
+                            -247.4790802001953
+                        ],
+                        "unk2": 70
+                    },
+                    {
+                        "connctions": [
+                            68
+                        ],
+                        "connection_type": 1,
+                        "index": 69,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -179.70179748535156,
+                            358.9605712890625,
+                            -528.3621215820313
+                        ],
+                        "unk2": 71
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートD01",
+                "routes": [
+                    {
+                        "connctions": [
+                            71
+                        ],
+                        "connection_type": 1,
+                        "index": 70,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートD01",
+                        "position": [
+                            399.3308410644531,
+                            1000.0,
+                            181.9644775390625
+                        ],
+                        "unk2": 72
+                    },
+                    {
+                        "connctions": [
+                            70,
+                            72
+                        ],
+                        "connection_type": 2,
+                        "index": 71,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            41.79835510253906,
+                            800.0,
+                            326.1556701660156
+                        ],
+                        "unk2": 73
+                    },
+                    {
+                        "connctions": [
+                            71,
+                            73
+                        ],
+                        "connection_type": 2,
+                        "index": 72,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -248.81118774414063,
+                            600.0,
+                            200.46771240234375
+                        ],
+                        "unk2": 74
+                    },
+                    {
+                        "connctions": [
+                            74,
+                            72
+                        ],
+                        "connection_type": 2,
+                        "index": 73,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -395.2584228515625,
+                            400.0,
+                            -89.05619812011719
+                        ],
+                        "unk2": 75
+                    },
+                    {
+                        "connctions": [
+                            73
+                        ],
+                        "connection_type": 1,
+                        "index": 74,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -246.85638427734375,
+                            350.0,
+                            -373.9363098144531
+                        ],
+                        "unk2": 76
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートD02",
+                "routes": [
+                    {
+                        "connctions": [
+                            76
+                        ],
+                        "connection_type": 1,
+                        "index": 75,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートD02",
+                        "position": [
+                            39.62052917480469,
+                            1000.0,
+                            357.5320739746094
+                        ],
+                        "unk2": 77
+                    },
+                    {
+                        "connctions": [
+                            77,
+                            75
+                        ],
+                        "connection_type": 2,
+                        "index": 76,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -282.0459289550781,
+                            800.0,
+                            225.266845703125
+                        ],
+                        "unk2": 78
+                    },
+                    {
+                        "connctions": [
+                            76,
+                            78
+                        ],
+                        "connection_type": 2,
+                        "index": 77,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -417.3453063964844,
+                            600.0,
+                            -112.63385009765625
+                        ],
+                        "unk2": 79
+                    },
+                    {
+                        "connctions": [
+                            79,
+                            77
+                        ],
+                        "connection_type": 2,
+                        "index": 78,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -262.0250244140625,
+                            400.0,
+                            -389.8031921386719
+                        ],
+                        "unk2": 80
+                    },
+                    {
+                        "connctions": [
+                            78
+                        ],
+                        "connection_type": 1,
+                        "index": 79,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            72.47480010986328,
+                            423.20001220703125,
+                            -508.39111328125
+                        ],
+                        "unk2": 81
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートD03",
+                "routes": [
+                    {
+                        "connctions": [
+                            81
+                        ],
+                        "connection_type": 1,
+                        "index": 80,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートD03",
+                        "position": [
+                            -296.7846984863281,
+                            1000.0,
+                            223.89181518554688
+                        ],
+                        "unk2": 82
+                    },
+                    {
+                        "connctions": [
+                            80,
+                            82
+                        ],
+                        "connection_type": 2,
+                        "index": 81,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -439.3323974609375,
+                            800.0,
+                            -134.67050170898438
+                        ],
+                        "unk2": 83
+                    },
+                    {
+                        "connctions": [
+                            81,
+                            83
+                        ],
+                        "connection_type": 2,
+                        "index": 82,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -280.67144775390625,
+                            600.0,
+                            -420.16314697265625
+                        ],
+                        "unk2": 84
+                    },
+                    {
+                        "connctions": [
+                            82,
+                            84
+                        ],
+                        "connection_type": 2,
+                        "index": 83,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            75.0914077758789,
+                            449.20001220703125,
+                            -534.1766357421875
+                        ],
+                        "unk2": 85
+                    },
+                    {
+                        "connctions": [
+                            83
+                        ],
+                        "connection_type": 1,
+                        "index": 84,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            373.9017639160156,
+                            404.4000244140625,
+                            -373.4214782714844
+                        ],
+                        "unk2": 86
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートD04",
+                "routes": [
+                    {
+                        "connctions": [
+                            86
+                        ],
+                        "connection_type": 1,
+                        "index": 85,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートD04",
+                        "position": [
+                            -462.53564453125,
+                            1000.0,
+                            -156.8072967529297
+                        ],
+                        "unk2": 87
+                    },
+                    {
+                        "connctions": [
+                            85,
+                            87
+                        ],
+                        "connection_type": 2,
+                        "index": 86,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -300.4851989746094,
+                            800.0,
+                            -459.53082275390625
+                        ],
+                        "unk2": 88
+                    },
+                    {
+                        "connctions": [
+                            86,
+                            88
+                        ],
+                        "connection_type": 2,
+                        "index": 87,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            74.01074981689453,
+                            600.0,
+                            -579.3817749023438
+                        ],
+                        "unk2": 89
+                    },
+                    {
+                        "connctions": [
+                            87,
+                            89
+                        ],
+                        "connection_type": 2,
+                        "index": 88,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            389.4300842285156,
+                            433.20001220703125,
+                            -388.5102844238281
+                        ],
+                        "unk2": 90
+                    },
+                    {
+                        "connctions": [
+                            88
+                        ],
+                        "connection_type": 1,
+                        "index": 89,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            537.5278930664063,
+                            374.0,
+                            -74.30137634277344
+                        ],
+                        "unk2": 91
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートD05",
+                "routes": [
+                    {
+                        "connctions": [
+                            91
+                        ],
+                        "connection_type": 1,
+                        "index": 90,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートD05",
+                        "position": [
+                            -321.7310485839844,
+                            1000.0,
+                            -494.20550537109375
+                        ],
+                        "unk2": 92
+                    },
+                    {
+                        "connctions": [
+                            92,
+                            90
+                        ],
+                        "connection_type": 2,
+                        "index": 91,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            74.79979705810547,
+                            800.0,
+                            -620.7599487304688
+                        ],
+                        "unk2": 93
+                    },
+                    {
+                        "connctions": [
+                            93,
+                            91
+                        ],
+                        "connection_type": 2,
+                        "index": 92,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            402.89385986328125,
+                            600.0,
+                            -418.8561706542969
+                        ],
+                        "unk2": 94
+                    },
+                    {
+                        "connctions": [
+                            92,
+                            94
+                        ],
+                        "connection_type": 2,
+                        "index": 93,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            562.0316162109375,
+                            400.0,
+                            -76.5382308959961
+                        ],
+                        "unk2": 95
+                    },
+                    {
+                        "connctions": [
+                            93
+                        ],
+                        "connection_type": 1,
+                        "index": 94,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            371.97125244140625,
+                            350.0,
+                            220.0709228515625
+                        ],
+                        "unk2": 96
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートD06",
+                "routes": [
+                    {
+                        "connctions": [
+                            96
+                        ],
+                        "connection_type": 1,
+                        "index": 95,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートD06",
+                        "position": [
+                            74.8200912475586,
+                            1000.0,
+                            -659.071533203125
+                        ],
+                        "unk2": 97
+                    },
+                    {
+                        "connctions": [
+                            95,
+                            97
+                        ],
+                        "connection_type": 2,
+                        "index": 96,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            417.4613037109375,
+                            800.0,
+                            -455.93505859375
+                        ],
+                        "unk2": 98
+                    },
+                    {
+                        "connctions": [
+                            98,
+                            96
+                        ],
+                        "connection_type": 2,
+                        "index": 97,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            583.065673828125,
+                            600.0,
+                            -100.20256042480469
+                        ],
+                        "unk2": 99
+                    },
+                    {
+                        "connctions": [
+                            99,
+                            97
+                        ],
+                        "connection_type": 2,
+                        "index": 98,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            385.78826904296875,
+                            400.0,
+                            233.21722412109375
+                        ],
+                        "unk2": 100
+                    },
+                    {
+                        "connctions": [
+                            98
+                        ],
+                        "connection_type": 1,
+                        "index": 99,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            42.153377532958984,
+                            300.0,
+                            360.1077880859375
+                        ],
+                        "unk2": 101
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートD07",
+                "routes": [
+                    {
+                        "connctions": [
+                            101
+                        ],
+                        "connection_type": 1,
+                        "index": 100,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートD07",
+                        "position": [
+                            426.63592529296875,
+                            1000.0,
+                            -490.9868469238281
+                        ],
+                        "unk2": 102
+                    },
+                    {
+                        "connctions": [
+                            100,
+                            102
+                        ],
+                        "connection_type": 2,
+                        "index": 101,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            608.3629760742188,
+                            800.0,
+                            -125.50863647460938
+                        ],
+                        "unk2": 103
+                    },
+                    {
+                        "connctions": [
+                            101,
+                            103
+                        ],
+                        "connection_type": 2,
+                        "index": 102,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            413.45184326171875,
+                            600.0,
+                            249.25733947753906
+                        ],
+                        "unk2": 104
+                    },
+                    {
+                        "connctions": [
+                            102,
+                            104
+                        ],
+                        "connection_type": 2,
+                        "index": 103,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            42.7713623046875,
+                            400.0,
+                            392.9615783691406
+                        ],
+                        "unk2": 105
+                    },
+                    {
+                        "connctions": [
+                            103
+                        ],
+                        "connection_type": 1,
+                        "index": 104,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -259.0315246582031,
+                            350.0,
+                            244.3126983642578
+                        ],
+                        "unk2": 106
+                    }
+                ]
+            },
+            {
+                "name": "キャリアルートD08",
+                "routes": [
+                    {
+                        "connctions": [
+                            106
+                        ],
+                        "connection_type": 1,
+                        "index": 105,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "キャリアルートD08",
+                        "position": [
+                            629.4785766601563,
+                            1000.0,
+                            -149.24053955078125
+                        ],
+                        "unk2": 107
+                    },
+                    {
+                        "connctions": [
+                            107,
+                            105
+                        ],
+                        "connection_type": 2,
+                        "index": 106,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            427.75848388671875,
+                            800.0,
+                            247.1175994873047
+                        ],
+                        "unk2": 108
+                    },
+                    {
+                        "connctions": [
+                            108,
+                            106
+                        ],
+                        "connection_type": 2,
+                        "index": 107,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            41.05445098876953,
+                            600.0,
+                            380.4524841308594
+                        ],
+                        "unk2": 109
+                    },
+                    {
+                        "connctions": [
+                            109,
+                            107
+                        ],
+                        "connection_type": 2,
+                        "index": 108,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -270.2120056152344,
+                            400.0,
+                            257.8163757324219
+                        ],
+                        "unk2": 110
+                    },
+                    {
+                        "connctions": [
+                            108
+                        ],
+                        "connection_type": 1,
+                        "index": 109,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -493.69879150390625,
+                            350.0,
+                            -79.03775024414063
+                        ],
+                        "unk2": 111
+                    }
+                ]
+            }
+        ]
+    },
+    "shapes": {
+        "groups": [
+            {
+                "name": "破壊エリア",
+                "shapes": [
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                206.90060424804688,
+                                293.9468994140625,
+                                -98.05362701416016
+                            ],
+                            "radius": 150.0,
+                            "rec_size": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        "id": 113,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "名無し",
+                        "type": "Sphere",
+                        "unk1": 1,
+                        "unk2": 1
+                    }
+                ]
+            },
+            {
+                "name": "UFOBエリア",
+                "shapes": [
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                721.10595703125,
+                                1359.5999755859375,
+                                355.7892761230469
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                250.0,
+                                60.0,
+                                115.22685241699219
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        "id": 114,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "UFOB01エリア",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    }
+                ]
+            },
+            {
+                "name": "UFOCエリア",
+                "shapes": [
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                286.712890625,
+                                1344.800048828125,
+                                270.37811279296875
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                250.0,
+                                60.0,
+                                115.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        "id": 115,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "UFOC01エリア",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "spawnpoints": {
+        "groups": [
+            {
+                "name": "味方",
+                "spawnpoints": [
+                    {
+                        "facing": [ -68.04021454, 240.0860901, -227.3066101 ],
+                        "id": 118,
+                        "name": "プレイヤー",
+                        "position": [ -145.9709625, 204.5554962, -297.4856567 ]
+                    }
+                ]
+            },
+            {
+                "name": "FRIEND1",
+                "spawnpoints": [
+                    {
+                        "facing": [ -145.9709625, 204.5554962, -297.4856567 ],
+                        "id": 118,
+                        "name": "FRIEND1",
+                        "position": [ -123.5290375, 206.509079, -290.6452332 ]
+                    },
+                    {
+                        "facing": [ -145.9709625, 204.5554962, -297.4856567 ],
+                        "id": 118,
+                        "name": "FRIEND1B",
+                        "position": [ -118.5290375, 206.509079, -285.6452332 ]
+                    },
+                    {
+                        "facing": [ -145.9709625, 204.5554962, -297.4856567 ],
+                        "id": 118,
+                        "name": "FRIEND1C",
+                        "position": [ -128.5290375, 206.509079, -295.6452332 ]
+                    },
+                    {
+                        "facing": [ -145.9709625, 204.5554962, -297.4856567 ],
+                        "id": 118,
+                        "name": "FRIEND1D",
+                        "position": [ -118.5290375, 206.509079, -295.6452332 ]
+                    }
+                ]
+            },
+            {
+                "name": "FRIEND2",
+                "spawnpoints": [
+                    {
+                        "facing": [ -145.9709625, 204.5554962, -297.4856567 ],
+                        "id": 118,
+                        "name": "FRIEND2",
+                        "position": [ -129.5206299, 205.1011047, -259.1494751 ]
+                    },
+                    {
+                        "facing": [ -145.9709625, 204.5554962, -297.4856567 ],
+                        "id": 118,
+                        "name": "FRIEND2B",
+                        "position": [ -124.5206299, 205.1011047, -254.1494751 ]
+                    },
+                    {
+                        "facing": [ -145.9709625, 204.5554962, -297.4856567 ],
+                        "id": 118,
+                        "name": "FRIEND2C",
+                        "position": [ -134.5206299, 205.1011047, -264.1494751 ]
+                    },
+                    {
+                        "facing": [ -145.9709625, 204.5554962, -297.4856567 ],
+                        "id": 118,
+                        "name": "FRIEND2D",
+                        "position": [ -124.5206299, 205.1011047, -264.1494751 ]
+                    }
+                ]
+            },
+            {
+                "name": "FRIEND3",
+                "spawnpoints": [
+                    {
+                        "facing": [ -145.9709625, 204.5554962, -297.4856567 ],
+                        "id": 118,
+                        "name": "FRIEND3",
+                        "position": [ -164.8296509, 202.574295, -255.4704437 ]
+                    },
+                    {
+                        "facing": [ -145.9709625, 204.5554962, -297.4856567 ],
+                        "id": 118,
+                        "name": "FRIEND3B",
+                        "position": [ -159.8296509, 202.574295, -250.4704437 ]
+                    },
+                    {
+                        "facing": [ -145.9709625, 204.5554962, -297.4856567 ],
+                        "id": 118,
+                        "name": "FRIEND3C",
+                        "position": [ -169.8296509, 202.574295, -260.4704437 ]
+                    },
+                    {
+                        "facing": [ -145.9709625, 204.5554962, -297.4856567 ],
+                        "id": 118,
+                        "name": "FRIEND3D",
+                        "position": [ -159.8296509, 202.574295, -260.4704437 ]
+                    }
+                ]
+            },
+            {
+                "name": "MECH1",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            87.75045776367188,
+                            1000.0,
+                            -145.790283203125
+                        ],
+                        "id": 118,
+                        "name": "MECH1",
+                        "position": [ -163.1405792, 202.9670105, -284.7314453 ]
+                    }
+                ]
+            },
+            {
+                "name": "MECH2",
+                "spawnpoints": [
+                    {
+                        "facing": [ -68.04021454, 280.0860901, -227.3066101 ],
+                        "id": 118,
+                        "name": "MECH2",
+                        "position": [ -98.97951508, 212.10495, -322.8011475 ]
+                    }
+                ]
+            },
+
+
+
+
+
+
+            {
+                "name": "キャリアA",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            52.8860969543457,
+                            1000.0,
+                            -147.5181884765625
+                        ],
+                        "id": 119,
+                        "name": "キャリアA01",
+                        "position": [
+                            87.75045776367188,
+                            1000.0,
+                            -145.790283203125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            54.27819061279297,
+                            1200.0,
+                            -58.49396896362305
+                        ],
+                        "id": 120,
+                        "name": "キャリアA02",
+                        "position": [
+                            72.94251251220703,
+                            1200.0,
+                            -85.99027252197266
+                        ]
+                    },
+                    {
+                        "facing": [
+                            137.75,
+                            1400.0,
+                            27.096826553344727
+                        ],
+                        "id": 121,
+                        "name": "キャリアA03",
+                        "position": [
+                            136.97445678710938,
+                            1400.0,
+                            42.01158142089844
+                        ]
+                    },
+                    {
+                        "facing": [
+                            137.46231079101563,
+                            1600.0,
+                            -37.462276458740234
+                        ],
+                        "id": 122,
+                        "name": "キャリアA04",
+                        "position": [
+                            107.17233276367188,
+                            1600.0,
+                            -30.045822143554688
+                        ]
+                    },
+                    {
+                        "facing": [
+                            242.81536865234375,
+                            1800.0,
+                            -145.0430450439453
+                        ],
+                        "id": 123,
+                        "name": "キャリアA05",
+                        "position": [
+                            266.4560241699219,
+                            1800.0,
+                            -67.70912170410156
+                        ]
+                    },
+                    {
+                        "facing": [
+                            182.99368286132813,
+                            2000.0,
+                            -192.12619018554688
+                        ],
+                        "id": 124,
+                        "name": "キャリアA06",
+                        "position": [
+                            162.06655883789063,
+                            2000.0,
+                            -217.34634399414063
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "キャリアB",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            507.991455078125,
+                            1000.0,
+                            218.71495056152344
+                        ],
+                        "id": 125,
+                        "name": "キャリアB01",
+                        "position": [
+                            554.9896850585938,
+                            1000.0,
+                            250.66685485839844
+                        ]
+                    },
+                    {
+                        "facing": [
+                            620.2543334960938,
+                            1200.0,
+                            150.9672088623047
+                        ],
+                        "id": 126,
+                        "name": "キャリアB02",
+                        "position": [
+                            667.2525634765625,
+                            1200.0,
+                            182.9191131591797
+                        ]
+                    },
+                    {
+                        "facing": [
+                            733.1881713867188,
+                            1400.0,
+                            94.37030792236328
+                        ],
+                        "id": 127,
+                        "name": "キャリアB03",
+                        "position": [
+                            776.46484375,
+                            1400.0,
+                            125.94330596923828
+                        ]
+                    },
+                    {
+                        "facing": [
+                            829.0478515625,
+                            1600.0,
+                            171.8089599609375
+                        ],
+                        "id": 128,
+                        "name": "キャリアB04",
+                        "position": [
+                            876.0460815429688,
+                            1600.0,
+                            203.7608642578125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            891.3687133789063,
+                            1800.0,
+                            253.1395263671875
+                        ],
+                        "id": 129,
+                        "name": "キャリアB05",
+                        "position": [
+                            938.366943359375,
+                            1800.0,
+                            285.0914306640625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            617.32177734375,
+                            2000.0,
+                            313.4383850097656
+                        ],
+                        "id": 130,
+                        "name": "キャリアB06",
+                        "position": [
+                            664.3200073242188,
+                            2000.0,
+                            345.3902893066406
+                        ]
+                    },
+                    {
+                        "facing": [
+                            796.3578491210938,
+                            2200.0,
+                            335.7342529296875
+                        ],
+                        "id": 131,
+                        "name": "キャリアB07",
+                        "position": [
+                            843.3560791015625,
+                            2200.0,
+                            367.6861572265625
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "キャリアC",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            578.2723999023438,
+                            800.0,
+                            -32.101158142089844
+                        ],
+                        "id": 132,
+                        "name": "キャリアC01",
+                        "position": [
+                            609.0458374023438,
+                            855.5999755859375,
+                            18.08506965637207
+                        ]
+                    },
+                    {
+                        "facing": [
+                            710.73779296875,
+                            800.0,
+                            -91.69464111328125
+                        ],
+                        "id": 133,
+                        "name": "キャリアC02",
+                        "position": [
+                            739.9622802734375,
+                            985.5999755859375,
+                            -6.118296146392822
+                        ]
+                    },
+                    {
+                        "facing": [
+                            859.5512084960938,
+                            989.2000122070313,
+                            -132.6243438720703
+                        ],
+                        "id": 134,
+                        "name": "キャリアC03",
+                        "position": [
+                            929.5695190429688,
+                            1084.800048828125,
+                            82.06487274169922
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -287.45428466796875,
+                            781.3477783203125,
+                            230.28817749023438
+                        ],
+                        "id": 135,
+                        "name": "キャリアC04",
+                        "position": [
+                            -214.90386962890625,
+                            858.5477905273438,
+                            259.45770263671875
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -140.61029052734375,
+                            774.555419921875,
+                            148.81939697265625
+                        ],
+                        "id": 136,
+                        "name": "キャリアC05",
+                        "position": [
+                            12.54374885559082,
+                            961.3554077148438,
+                            211.19235229492188
+                        ]
+                    },
+                    {
+                        "facing": [
+                            48.117042541503906,
+                            893.7715454101563,
+                            88.55313110351563
+                        ],
+                        "id": 137,
+                        "name": "キャリアC06",
+                        "position": [
+                            214.54278564453125,
+                            1085.7716064453125,
+                            158.07281494140625
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "キャリアD",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            473.24542236328125,
+                            1200.0,
+                            115.08514404296875
+                        ],
+                        "id": 138,
+                        "name": "キャリアD01",
+                        "position": [
+                            651.9774169921875,
+                            1200.0,
+                            -176.4156036376953
+                        ]
+                    },
+                    {
+                        "facing": [
+                            33.64683532714844,
+                            1200.0,
+                            327.30645751953125
+                        ],
+                        "id": 139,
+                        "name": "キャリアD02",
+                        "position": [
+                            448.3175354003906,
+                            1200.0,
+                            222.47068786621094
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -286.57952880859375,
+                            1200.0,
+                            193.828857421875
+                        ],
+                        "id": 140,
+                        "name": "キャリアD03",
+                        "position": [
+                            44.667911529541016,
+                            1200.0,
+                            363.43817138671875
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -459.1568298339844,
+                            1200.0,
+                            -111.30035400390625
+                        ],
+                        "id": 141,
+                        "name": "キャリアD04",
+                        "position": [
+                            -308.38427734375,
+                            1200.0,
+                            226.3186492919922
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -317.0630187988281,
+                            1200.0,
+                            -481.7294921875
+                        ],
+                        "id": 142,
+                        "name": "キャリアD05",
+                        "position": [
+                            -503.04656982421875,
+                            1200.0,
+                            -103.1822738647461
+                        ]
+                    },
+                    {
+                        "facing": [
+                            80.27708435058594,
+                            1200.0,
+                            -647.1947021484375
+                        ],
+                        "id": 143,
+                        "name": "キャリアD06",
+                        "position": [
+                            -350.46270751953125,
+                            1200.0,
+                            -493.2947082519531
+                        ]
+                    },
+                    {
+                        "facing": [
+                            399.6463623046875,
+                            1200.0,
+                            -538.4100341796875
+                        ],
+                        "id": 144,
+                        "name": "キャリアD07",
+                        "position": [
+                            68.52964782714844,
+                            1200.0,
+                            -705.55126953125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            636.3594970703125,
+                            1200.0,
+                            -187.55825805664063
+                        ],
+                        "id": 145,
+                        "name": "キャリアD08",
+                        "position": [
+                            436.317626953125,
+                            1200.0,
+                            -529.281005859375
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "敵増援D",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            901.2511596679688,
+                            900.0,
+                            603.427001953125
+                        ],
+                        "id": 146,
+                        "name": "鎧イカD01",
+                        "position": [
+                            901.2511596679688,
+                            1000.0,
+                            603.427001953125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            973.1449584960938,
+                            900.0,
+                            60.40069580078125
+                        ],
+                        "id": 147,
+                        "name": "鎧イカD02",
+                        "position": [
+                            973.1449584960938,
+                            1000.0,
+                            60.40069580078125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            918.5060424804688,
+                            900.0,
+                            -392.0896301269531
+                        ],
+                        "id": 148,
+                        "name": "鎧イカD03",
+                        "position": [
+                            918.5060424804688,
+                            1000.0,
+                            -392.0896301269531
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -958.7017822265625,
+                            900.0,
+                            563.9977416992188
+                        ],
+                        "id": 149,
+                        "name": "鎧イカD04",
+                        "position": [
+                            -958.7017822265625,
+                            1000.0,
+                            563.9977416992188
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -972.900146484375,
+                            900.0,
+                            -23.33002471923828
+                        ],
+                        "id": 150,
+                        "name": "鎧イカD05",
+                        "position": [
+                            -972.900146484375,
+                            1000.0,
+                            -23.33002471923828
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -769.6384887695313,
+                            900.0,
+                            -606.5602416992188
+                        ],
+                        "id": 151,
+                        "name": "鎧イカD06",
+                        "position": [
+                            -769.6384887695313,
+                            1000.0,
+                            -606.5602416992188
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

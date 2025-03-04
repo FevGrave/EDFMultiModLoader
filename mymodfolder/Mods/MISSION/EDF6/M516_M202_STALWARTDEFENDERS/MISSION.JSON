@@ -1,0 +1,4235 @@
+{
+    "camera": null,
+    "routes": {
+        "groups": [
+            {
+                "name": "飛行ルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            1,
+                            8
+                        ],
+                        "connection_type": 2,
+                        "index": 0,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "飛行ルート",
+                        "position": [
+                            -1135.4727783203125,
+                            746.971435546875,
+                            590.022705078125
+                        ],
+                        "unk2": 2
+                    },
+                    {
+                        "connctions": [
+                            2,
+                            0
+                        ],
+                        "connection_type": 2,
+                        "index": 1,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -1157.0743408203125,
+                            711.092529296875,
+                            461.2077941894531
+                        ],
+                        "unk2": 3
+                    },
+                    {
+                        "connctions": [
+                            1,
+                            3
+                        ],
+                        "connection_type": 2,
+                        "index": 2,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -1138.082275390625,
+                            662.2702026367188,
+                            324.61444091796875
+                        ],
+                        "unk2": 4
+                    },
+                    {
+                        "connctions": [
+                            2,
+                            4
+                        ],
+                        "connection_type": 2,
+                        "index": 3,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -1045.50830078125,
+                            617.889404296875,
+                            265.0509338378906
+                        ],
+                        "unk2": 5
+                    },
+                    {
+                        "connctions": [
+                            3,
+                            5
+                        ],
+                        "connection_type": 2,
+                        "index": 4,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -933.8778686523438,
+                            614.6231689453125,
+                            283.1407775878906
+                        ],
+                        "unk2": 6
+                    },
+                    {
+                        "connctions": [
+                            4,
+                            6
+                        ],
+                        "connection_type": 2,
+                        "index": 5,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -874.9017333984375,
+                            612.0631713867188,
+                            371.837158203125
+                        ],
+                        "unk2": 7
+                    },
+                    {
+                        "connctions": [
+                            5,
+                            7
+                        ],
+                        "connection_type": 2,
+                        "index": 6,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -874.6499633789063,
+                            628.986328125,
+                            487.35345458984375
+                        ],
+                        "unk2": 8
+                    },
+                    {
+                        "connctions": [
+                            6,
+                            9
+                        ],
+                        "connection_type": 2,
+                        "index": 7,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -943.8230590820313,
+                            649.6767578125,
+                            609.2745361328125
+                        ],
+                        "unk2": 9
+                    },
+                    {
+                        "connctions": [
+                            18,
+                            0
+                        ],
+                        "connection_type": 2,
+                        "index": 8,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -1034.6383056640625,
+                            778.32373046875,
+                            668.0011596679688
+                        ],
+                        "unk2": 10
+                    },
+                    {
+                        "connctions": [
+                            10,
+                            7
+                        ],
+                        "connection_type": 2,
+                        "index": 9,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -1050.0484619140625,
+                            666.7845458984375,
+                            638.3131103515625
+                        ],
+                        "unk2": 11
+                    },
+                    {
+                        "connctions": [
+                            11,
+                            9
+                        ],
+                        "connection_type": 2,
+                        "index": 10,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -1144.6015625,
+                            713.1896362304688,
+                            571.8402099609375
+                        ],
+                        "unk2": 12
+                    },
+                    {
+                        "connctions": [
+                            10,
+                            12
+                        ],
+                        "connection_type": 2,
+                        "index": 11,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -1159.4505615234375,
+                            750.6329345703125,
+                            451.39923095703125
+                        ],
+                        "unk2": 13
+                    },
+                    {
+                        "connctions": [
+                            11,
+                            13
+                        ],
+                        "connection_type": 2,
+                        "index": 12,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -1120.6806640625,
+                            778.1865234375,
+                            323.553466796875
+                        ],
+                        "unk2": 14
+                    },
+                    {
+                        "connctions": [
+                            12,
+                            14
+                        ],
+                        "connection_type": 2,
+                        "index": 13,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -1033.1925048828125,
+                            798.48388671875,
+                            254.95533752441406
+                        ],
+                        "unk2": 15
+                    },
+                    {
+                        "connctions": [
+                            13,
+                            15
+                        ],
+                        "connection_type": 2,
+                        "index": 14,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -916.0453491210938,
+                            806.4107666015625,
+                            266.5643005371094
+                        ],
+                        "unk2": 16
+                    },
+                    {
+                        "connctions": [
+                            14,
+                            16
+                        ],
+                        "connection_type": 2,
+                        "index": 15,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -854.8575439453125,
+                            831.4698486328125,
+                            358.2115173339844
+                        ],
+                        "unk2": 17
+                    },
+                    {
+                        "connctions": [
+                            15,
+                            17
+                        ],
+                        "connection_type": 2,
+                        "index": 16,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -834.7686767578125,
+                            840.8650512695313,
+                            460.15972900390625
+                        ],
+                        "unk2": 18
+                    },
+                    {
+                        "connctions": [
+                            16,
+                            18
+                        ],
+                        "connection_type": 2,
+                        "index": 17,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -869.3805541992188,
+                            823.806640625,
+                            583.0921020507813
+                        ],
+                        "unk2": 19
+                    },
+                    {
+                        "connctions": [
+                            8,
+                            17
+                        ],
+                        "connection_type": 2,
+                        "index": 18,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -943.8489379882813,
+                            802.9798583984375,
+                            645.0144653320313
+                        ],
+                        "unk2": 20
+                    }
+                ]
+            },
+            {
+                "name": "戦車01Aルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            20
+                        ],
+                        "connection_type": 1,
+                        "index": 19,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車01Aルート",
+                        "position": [
+                            -291.4309387207031,
+                            59.023738861083984,
+                            200.2582244873047
+                        ],
+                        "unk2": 21
+                    },
+                    {
+                        "connctions": [
+                            19,
+                            21
+                        ],
+                        "connection_type": 2,
+                        "index": 20,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -286.4212341308594,
+                            60.17403793334961,
+                            221.19183349609375
+                        ],
+                        "unk2": 22
+                    },
+                    {
+                        "connctions": [
+                            20,
+                            22
+                        ],
+                        "connection_type": 2,
+                        "index": 21,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -277.12115478515625,
+                            61.83243942260742,
+                            232.98660278320313
+                        ],
+                        "unk2": 23
+                    },
+                    {
+                        "connctions": [
+                            21,
+                            23
+                        ],
+                        "connection_type": 2,
+                        "index": 22,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -272.31195068359375,
+                            62.91602325439453,
+                            245.7384796142578
+                        ],
+                        "unk2": 24
+                    },
+                    {
+                        "connctions": [
+                            22,
+                            24
+                        ],
+                        "connection_type": 2,
+                        "index": 23,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -250.04393005371094,
+                            63.38410186767578,
+                            247.50759887695313
+                        ],
+                        "unk2": 25
+                    },
+                    {
+                        "connctions": [
+                            23,
+                            25
+                        ],
+                        "connection_type": 2,
+                        "index": 24,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -234.5030059814453,
+                            62.953834533691406,
+                            250.55596923828125
+                        ],
+                        "unk2": 26
+                    },
+                    {
+                        "connctions": [
+                            24,
+                            26
+                        ],
+                        "connection_type": 2,
+                        "index": 25,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -231.2780303955078,
+                            63.744083404541016,
+                            262.50531005859375
+                        ],
+                        "unk2": 27
+                    },
+                    {
+                        "connctions": [
+                            25
+                        ],
+                        "connection_type": 1,
+                        "index": 26,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -257.66595458984375,
+                            73.38916778564453,
+                            271.52899169921875
+                        ],
+                        "unk2": 28
+                    }
+                ]
+            },
+            {
+                "name": "戦車01Bルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            28
+                        ],
+                        "connection_type": 1,
+                        "index": 27,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車01Bルート",
+                        "position": [
+                            -268.4015197753906,
+                            77.82740783691406,
+                            272.3514099121094
+                        ],
+                        "unk2": 29
+                    },
+                    {
+                        "connctions": [
+                            27,
+                            29
+                        ],
+                        "connection_type": 2,
+                        "index": 28,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -286.9642028808594,
+                            85.46273803710938,
+                            276.9287414550781
+                        ],
+                        "unk2": 30
+                    },
+                    {
+                        "connctions": [
+                            28,
+                            30
+                        ],
+                        "connection_type": 2,
+                        "index": 29,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -305.5541687011719,
+                            92.6312484741211,
+                            284.5859069824219
+                        ],
+                        "unk2": 31
+                    },
+                    {
+                        "connctions": [
+                            29,
+                            31
+                        ],
+                        "connection_type": 2,
+                        "index": 30,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -340.166748046875,
+                            99.39693450927734,
+                            294.0155334472656
+                        ],
+                        "unk2": 32
+                    },
+                    {
+                        "connctions": [
+                            30
+                        ],
+                        "connection_type": 1,
+                        "index": 31,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -374.9728088378906,
+                            106.2605209350586,
+                            304.712158203125
+                        ],
+                        "unk2": 33
+                    }
+                ]
+            },
+            {
+                "name": "戦車01Cルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            33
+                        ],
+                        "connection_type": 1,
+                        "index": 32,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車01Cルート",
+                        "position": [
+                            -384.2485046386719,
+                            109.86661529541016,
+                            309.8506774902344
+                        ],
+                        "unk2": 34
+                    },
+                    {
+                        "connctions": [
+                            32,
+                            34
+                        ],
+                        "connection_type": 2,
+                        "index": 33,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -399.551025390625,
+                            118.0947494506836,
+                            318.2032775878906
+                        ],
+                        "unk2": 35
+                    },
+                    {
+                        "connctions": [
+                            33,
+                            35
+                        ],
+                        "connection_type": 2,
+                        "index": 34,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -414.9722595214844,
+                            124.84243774414063,
+                            321.8480529785156
+                        ],
+                        "unk2": 36
+                    },
+                    {
+                        "connctions": [
+                            34,
+                            36
+                        ],
+                        "connection_type": 2,
+                        "index": 35,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -435.1043701171875,
+                            133.07920837402344,
+                            323.889892578125
+                        ],
+                        "unk2": 37
+                    },
+                    {
+                        "connctions": [
+                            35
+                        ],
+                        "connection_type": 1,
+                        "index": 36,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -472.3380432128906,
+                            147.209228515625,
+                            328.40521240234375
+                        ],
+                        "unk2": 38
+                    }
+                ]
+            },
+            {
+                "name": "戦車01Dルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            38
+                        ],
+                        "connection_type": 1,
+                        "index": 37,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車01Dルート",
+                        "position": [
+                            -506.08056640625,
+                            156.56683349609375,
+                            334.0792541503906
+                        ],
+                        "unk2": 39
+                    },
+                    {
+                        "connctions": [
+                            39,
+                            37
+                        ],
+                        "connection_type": 2,
+                        "index": 38,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -539.6288452148438,
+                            165.74708557128906,
+                            335.6045837402344
+                        ],
+                        "unk2": 40
+                    },
+                    {
+                        "connctions": [
+                            38,
+                            40
+                        ],
+                        "connection_type": 2,
+                        "index": 39,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -571.7007446289063,
+                            174.44000244140625,
+                            340.2083435058594
+                        ],
+                        "unk2": 41
+                    },
+                    {
+                        "connctions": [
+                            41,
+                            39
+                        ],
+                        "connection_type": 2,
+                        "index": 40,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -599.6231689453125,
+                            181.98085021972656,
+                            344.7455139160156
+                        ],
+                        "unk2": 42
+                    },
+                    {
+                        "connctions": [
+                            40
+                        ],
+                        "connection_type": 1,
+                        "index": 41,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -650.0792846679688,
+                            196.00897216796875,
+                            353.06549072265625
+                        ],
+                        "unk2": 43
+                    }
+                ]
+            },
+            {
+                "name": "戦車01Eルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            43
+                        ],
+                        "connection_type": 1,
+                        "index": 42,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車01Eルート",
+                        "position": [
+                            -682.2180786132813,
+                            206.2467498779297,
+                            365.6770324707031
+                        ],
+                        "unk2": 44
+                    },
+                    {
+                        "connctions": [
+                            42,
+                            44
+                        ],
+                        "connection_type": 2,
+                        "index": 43,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -710.7322998046875,
+                            214.66879272460938,
+                            378.4996032714844
+                        ],
+                        "unk2": 45
+                    },
+                    {
+                        "connctions": [
+                            43,
+                            45
+                        ],
+                        "connection_type": 2,
+                        "index": 44,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -758.5228271484375,
+                            228.07948303222656,
+                            396.9336853027344
+                        ],
+                        "unk2": 46
+                    },
+                    {
+                        "connctions": [
+                            44,
+                            46
+                        ],
+                        "connection_type": 2,
+                        "index": 45,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -790.736572265625,
+                            239.18545532226563,
+                            400.9630432128906
+                        ],
+                        "unk2": 47
+                    },
+                    {
+                        "connctions": [
+                            45
+                        ],
+                        "connection_type": 1,
+                        "index": 46,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -827.5691528320313,
+                            251.1060791015625,
+                            395.5347595214844
+                        ],
+                        "unk2": 48
+                    }
+                ]
+            },
+            {
+                "name": "戦車02Aルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            48
+                        ],
+                        "connection_type": 1,
+                        "index": 47,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車02Aルート",
+                        "position": [
+                            -289.0068054199219,
+                            58.28594207763672,
+                            184.55307006835938
+                        ],
+                        "unk2": 49
+                    },
+                    {
+                        "connctions": [
+                            49,
+                            47
+                        ],
+                        "connection_type": 2,
+                        "index": 48,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -292.72344970703125,
+                            59.1273307800293,
+                            203.66600036621094
+                        ],
+                        "unk2": 50
+                    },
+                    {
+                        "connctions": [
+                            48,
+                            50
+                        ],
+                        "connection_type": 2,
+                        "index": 49,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -283.9983825683594,
+                            60.278499603271484,
+                            220.99871826171875
+                        ],
+                        "unk2": 51
+                    },
+                    {
+                        "connctions": [
+                            49,
+                            51
+                        ],
+                        "connection_type": 2,
+                        "index": 50,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -273.8173522949219,
+                            62.93898010253906,
+                            246.35902404785156
+                        ],
+                        "unk2": 52
+                    },
+                    {
+                        "connctions": [
+                            50,
+                            52
+                        ],
+                        "connection_type": 2,
+                        "index": 51,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -257.6775207519531,
+                            63.600364685058594,
+                            249.49667358398438
+                        ],
+                        "unk2": 53
+                    },
+                    {
+                        "connctions": [
+                            51,
+                            53
+                        ],
+                        "connection_type": 2,
+                        "index": 52,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -235.44590759277344,
+                            62.852176666259766,
+                            248.55926513671875
+                        ],
+                        "unk2": 54
+                    },
+                    {
+                        "connctions": [
+                            52,
+                            54
+                        ],
+                        "connection_type": 2,
+                        "index": 53,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -226.97923278808594,
+                            62.68294143676758,
+                            255.7814178466797
+                        ],
+                        "unk2": 55
+                    },
+                    {
+                        "connctions": [
+                            55,
+                            53
+                        ],
+                        "connection_type": 2,
+                        "index": 54,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -233.27279663085938,
+                            64.18961334228516,
+                            263.7586364746094
+                        ],
+                        "unk2": 56
+                    },
+                    {
+                        "connctions": [
+                            54
+                        ],
+                        "connection_type": 1,
+                        "index": 55,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -240.2310333251953,
+                            66.37258911132813,
+                            265.97601318359375
+                        ],
+                        "unk2": 57
+                    }
+                ]
+            },
+            {
+                "name": "戦車02Bルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            57
+                        ],
+                        "connection_type": 1,
+                        "index": 56,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車02Bルート",
+                        "position": [
+                            -250.53883361816406,
+                            70.27322387695313,
+                            269.0381774902344
+                        ],
+                        "unk2": 58
+                    },
+                    {
+                        "connctions": [
+                            56,
+                            58
+                        ],
+                        "connection_type": 2,
+                        "index": 57,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -272.2671203613281,
+                            79.69947052001953,
+                            275.3964538574219
+                        ],
+                        "unk2": 59
+                    },
+                    {
+                        "connctions": [
+                            57,
+                            59
+                        ],
+                        "connection_type": 2,
+                        "index": 58,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -294.3333435058594,
+                            88.43061828613281,
+                            281.14105224609375
+                        ],
+                        "unk2": 60
+                    },
+                    {
+                        "connctions": [
+                            58,
+                            60
+                        ],
+                        "connection_type": 2,
+                        "index": 59,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -321.50018310546875,
+                            96.41768646240234,
+                            287.1449890136719
+                        ],
+                        "unk2": 61
+                    },
+                    {
+                        "connctions": [
+                            59
+                        ],
+                        "connection_type": 1,
+                        "index": 60,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -341.4211120605469,
+                            99.6085205078125,
+                            293.6029968261719
+                        ],
+                        "unk2": 62
+                    }
+                ]
+            },
+            {
+                "name": "戦車02Cルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            62
+                        ],
+                        "connection_type": 1,
+                        "index": 61,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車02Cルート",
+                        "position": [
+                            -372.87518310546875,
+                            105.92404174804688,
+                            306.08123779296875
+                        ],
+                        "unk2": 63
+                    },
+                    {
+                        "connctions": [
+                            61,
+                            63
+                        ],
+                        "connection_type": 2,
+                        "index": 62,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -392.80084228515625,
+                            114.56905364990234,
+                            315.6816711425781
+                        ],
+                        "unk2": 64
+                    },
+                    {
+                        "connctions": [
+                            62,
+                            64
+                        ],
+                        "connection_type": 2,
+                        "index": 63,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -411.18017578125,
+                            123.2184829711914,
+                            320.239013671875
+                        ],
+                        "unk2": 65
+                    },
+                    {
+                        "connctions": [
+                            63,
+                            65
+                        ],
+                        "connection_type": 2,
+                        "index": 64,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -429.2201232910156,
+                            130.3162384033203,
+                            323.20220947265625
+                        ],
+                        "unk2": 66
+                    },
+                    {
+                        "connctions": [
+                            64
+                        ],
+                        "connection_type": 1,
+                        "index": 65,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -445.2669677734375,
+                            137.52232360839844,
+                            324.66497802734375
+                        ],
+                        "unk2": 67
+                    }
+                ]
+            },
+            {
+                "name": "戦車02Dルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            67
+                        ],
+                        "connection_type": 1,
+                        "index": 66,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車02Dルート",
+                        "position": [
+                            -490.1882019042969,
+                            152.1526641845703,
+                            328.8849182128906
+                        ],
+                        "unk2": 68
+                    },
+                    {
+                        "connctions": [
+                            66,
+                            68
+                        ],
+                        "connection_type": 2,
+                        "index": 67,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -530.887939453125,
+                            163.014404296875,
+                            334.5990905761719
+                        ],
+                        "unk2": 69
+                    },
+                    {
+                        "connctions": [
+                            69,
+                            67
+                        ],
+                        "connection_type": 2,
+                        "index": 68,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -562.955810546875,
+                            171.94268798828125,
+                            336.75152587890625
+                        ],
+                        "unk2": 70
+                    },
+                    {
+                        "connctions": [
+                            68,
+                            70
+                        ],
+                        "connection_type": 2,
+                        "index": 69,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -594.20263671875,
+                            180.38162231445313,
+                            342.4272766113281
+                        ],
+                        "unk2": 71
+                    },
+                    {
+                        "connctions": [
+                            69
+                        ],
+                        "connection_type": 1,
+                        "index": 70,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -632.360595703125,
+                            190.7546844482422,
+                            349.4909973144531
+                        ],
+                        "unk2": 72
+                    }
+                ]
+            },
+            {
+                "name": "戦車02Eルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            72
+                        ],
+                        "connection_type": 1,
+                        "index": 71,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車02Eルート",
+                        "position": [
+                            -674.515869140625,
+                            203.54185485839844,
+                            361.5184631347656
+                        ],
+                        "unk2": 73
+                    },
+                    {
+                        "connctions": [
+                            73,
+                            71
+                        ],
+                        "connection_type": 2,
+                        "index": 72,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -700.3558959960938,
+                            211.14881896972656,
+                            371.71868896484375
+                        ],
+                        "unk2": 74
+                    },
+                    {
+                        "connctions": [
+                            72,
+                            74
+                        ],
+                        "connection_type": 2,
+                        "index": 73,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -749.4422607421875,
+                            224.8709716796875,
+                            393.54229736328125
+                        ],
+                        "unk2": 75
+                    },
+                    {
+                        "connctions": [
+                            73,
+                            75
+                        ],
+                        "connection_type": 2,
+                        "index": 74,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -776.6975708007813,
+                            234.1272735595703,
+                            400.0559997558594
+                        ],
+                        "unk2": 76
+                    },
+                    {
+                        "connctions": [
+                            74
+                        ],
+                        "connection_type": 1,
+                        "index": 75,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -800.2183227539063,
+                            244.28038024902344,
+                            412.79364013671875
+                        ],
+                        "unk2": 77
+                    }
+                ]
+            },
+            {
+                "name": "戦車03Aルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            77
+                        ],
+                        "connection_type": 1,
+                        "index": 76,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車03Aルート",
+                        "position": [
+                            -180.96267700195313,
+                            38.69816589355469,
+                            341.955078125
+                        ],
+                        "unk2": 78
+                    },
+                    {
+                        "connctions": [
+                            76,
+                            78
+                        ],
+                        "connection_type": 2,
+                        "index": 77,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -179.35487365722656,
+                            44.4865608215332,
+                            324.7635803222656
+                        ],
+                        "unk2": 79
+                    },
+                    {
+                        "connctions": [
+                            77,
+                            79
+                        ],
+                        "connection_type": 2,
+                        "index": 78,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -178.77854919433594,
+                            47.9359130859375,
+                            308.9454040527344
+                        ],
+                        "unk2": 80
+                    },
+                    {
+                        "connctions": [
+                            78,
+                            80
+                        ],
+                        "connection_type": 2,
+                        "index": 79,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -178.2176055908203,
+                            49.95707702636719,
+                            294.7412414550781
+                        ],
+                        "unk2": 81
+                    },
+                    {
+                        "connctions": [
+                            79,
+                            81
+                        ],
+                        "connection_type": 2,
+                        "index": 80,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -177.96971130371094,
+                            50.97126007080078,
+                            276.3997497558594
+                        ],
+                        "unk2": 82
+                    },
+                    {
+                        "connctions": [
+                            80,
+                            82
+                        ],
+                        "connection_type": 2,
+                        "index": 81,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -180.73826599121094,
+                            51.50270080566406,
+                            263.59124755859375
+                        ],
+                        "unk2": 83
+                    },
+                    {
+                        "connctions": [
+                            81,
+                            83
+                        ],
+                        "connection_type": 2,
+                        "index": 82,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -183.60577392578125,
+                            52.18794250488281,
+                            256.17071533203125
+                        ],
+                        "unk2": 84
+                    },
+                    {
+                        "connctions": [
+                            82,
+                            84
+                        ],
+                        "connection_type": 2,
+                        "index": 83,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -192.1381072998047,
+                            54.92737579345703,
+                            246.91873168945313
+                        ],
+                        "unk2": 85
+                    },
+                    {
+                        "connctions": [
+                            85,
+                            83
+                        ],
+                        "connection_type": 2,
+                        "index": 84,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -200.27491760253906,
+                            57.15526580810547,
+                            245.98631286621094
+                        ],
+                        "unk2": 86
+                    },
+                    {
+                        "connctions": [
+                            86,
+                            84
+                        ],
+                        "connection_type": 2,
+                        "index": 85,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -210.2406005859375,
+                            59.92116928100586,
+                            245.00267028808594
+                        ],
+                        "unk2": 87
+                    },
+                    {
+                        "connctions": [
+                            87,
+                            85
+                        ],
+                        "connection_type": 2,
+                        "index": 86,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -221.2266387939453,
+                            61.81539535522461,
+                            248.0447540283203
+                        ],
+                        "unk2": 88
+                    },
+                    {
+                        "connctions": [
+                            86
+                        ],
+                        "connection_type": 1,
+                        "index": 87,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -226.77281188964844,
+                            62.88710021972656,
+                            257.5220031738281
+                        ],
+                        "unk2": 89
+                    }
+                ]
+            },
+            {
+                "name": "戦車03Bルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            89
+                        ],
+                        "connection_type": 1,
+                        "index": 88,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車03Bルート",
+                        "position": [
+                            -242.05686950683594,
+                            67.02745056152344,
+                            266.8841247558594
+                        ],
+                        "unk2": 90
+                    },
+                    {
+                        "connctions": [
+                            88,
+                            90
+                        ],
+                        "connection_type": 2,
+                        "index": 89,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -273.5531921386719,
+                            80.16508483886719,
+                            274.56890869140625
+                        ],
+                        "unk2": 91
+                    },
+                    {
+                        "connctions": [
+                            91,
+                            89
+                        ],
+                        "connection_type": 2,
+                        "index": 90,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -299.4521789550781,
+                            90.05094146728516,
+                            280.2705383300781
+                        ],
+                        "unk2": 92
+                    },
+                    {
+                        "connctions": [
+                            90
+                        ],
+                        "connection_type": 1,
+                        "index": 91,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -318.84637451171875,
+                            95.94223022460938,
+                            287.2622375488281
+                        ],
+                        "unk2": 93
+                    }
+                ]
+            },
+            {
+                "name": "戦車03Cルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            93
+                        ],
+                        "connection_type": 1,
+                        "index": 92,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車03Cルート",
+                        "position": [
+                            -336.91552734375,
+                            98.78897094726563,
+                            293.6988220214844
+                        ],
+                        "unk2": 94
+                    },
+                    {
+                        "connctions": [
+                            94,
+                            92
+                        ],
+                        "connection_type": 2,
+                        "index": 93,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -354.7064514160156,
+                            102.15533447265625,
+                            303.07769775390625
+                        ],
+                        "unk2": 95
+                    },
+                    {
+                        "connctions": [
+                            95,
+                            93
+                        ],
+                        "connection_type": 2,
+                        "index": 94,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -373.8348388671875,
+                            107.341796875,
+                            311.4602966308594
+                        ],
+                        "unk2": 96
+                    },
+                    {
+                        "connctions": [
+                            94,
+                            96
+                        ],
+                        "connection_type": 2,
+                        "index": 95,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -391.1626892089844,
+                            113.82183074951172,
+                            315.27142333984375
+                        ],
+                        "unk2": 97
+                    },
+                    {
+                        "connctions": [
+                            95,
+                            97
+                        ],
+                        "connection_type": 2,
+                        "index": 96,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -412.5053405761719,
+                            123.31884765625,
+                            318.0716247558594
+                        ],
+                        "unk2": 98
+                    },
+                    {
+                        "connctions": [
+                            96
+                        ],
+                        "connection_type": 1,
+                        "index": 97,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -432.50238037109375,
+                            132.23411560058594,
+                            320.2845153808594
+                        ],
+                        "unk2": 99
+                    }
+                ]
+            },
+            {
+                "name": "戦車03Dルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            99
+                        ],
+                        "connection_type": 1,
+                        "index": 98,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車03Dルート",
+                        "position": [
+                            -454.13226318359375,
+                            140.6993408203125,
+                            323.2894592285156
+                        ],
+                        "unk2": 100
+                    },
+                    {
+                        "connctions": [
+                            100,
+                            98
+                        ],
+                        "connection_type": 2,
+                        "index": 99,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -478.78369140625,
+                            148.80982971191406,
+                            326.91851806640625
+                        ],
+                        "unk2": 101
+                    },
+                    {
+                        "connctions": [
+                            101,
+                            99
+                        ],
+                        "connection_type": 2,
+                        "index": 100,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -512.9647827148438,
+                            157.94615173339844,
+                            330.16961669921875
+                        ],
+                        "unk2": 102
+                    },
+                    {
+                        "connctions": [
+                            100,
+                            102
+                        ],
+                        "connection_type": 2,
+                        "index": 101,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -552.2637939453125,
+                            169.5937957763672,
+                            336.39764404296875
+                        ],
+                        "unk2": 103
+                    },
+                    {
+                        "connctions": [
+                            101,
+                            103
+                        ],
+                        "connection_type": 2,
+                        "index": 102,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -586.8600463867188,
+                            178.45980834960938,
+                            342.9644775390625
+                        ],
+                        "unk2": 104
+                    },
+                    {
+                        "connctions": [
+                            102
+                        ],
+                        "connection_type": 1,
+                        "index": 103,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -612.3541259765625,
+                            185.65406799316406,
+                            348.1913757324219
+                        ],
+                        "unk2": 105
+                    }
+                ]
+            },
+            {
+                "name": "戦車03Eルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            105
+                        ],
+                        "connection_type": 1,
+                        "index": 104,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車03Eルート",
+                        "position": [
+                            -642.7976684570313,
+                            193.5810089111328,
+                            349.7829284667969
+                        ],
+                        "unk2": 106
+                    },
+                    {
+                        "connctions": [
+                            106,
+                            104
+                        ],
+                        "connection_type": 2,
+                        "index": 105,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -663.9528198242188,
+                            200.32705688476563,
+                            357.6778564453125
+                        ],
+                        "unk2": 107
+                    },
+                    {
+                        "connctions": [
+                            107,
+                            105
+                        ],
+                        "connection_type": 2,
+                        "index": 106,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -683.8809204101563,
+                            208.3582000732422,
+                            373.6383361816406
+                        ],
+                        "unk2": 108
+                    },
+                    {
+                        "connctions": [
+                            106,
+                            108
+                        ],
+                        "connection_type": 2,
+                        "index": 107,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -701.4873046875,
+                            218.40493774414063,
+                            397.57086181640625
+                        ],
+                        "unk2": 109
+                    },
+                    {
+                        "connctions": [
+                            107,
+                            109
+                        ],
+                        "connection_type": 2,
+                        "index": 108,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -718.981689453125,
+                            229.27723693847656,
+                            418.2723083496094
+                        ],
+                        "unk2": 110
+                    },
+                    {
+                        "connctions": [
+                            108
+                        ],
+                        "connection_type": 1,
+                        "index": 109,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -726.1971435546875,
+                            237.40660095214844,
+                            436.69610595703125
+                        ],
+                        "unk2": 111
+                    }
+                ]
+            },
+            {
+                "name": "戦車04Aルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            111
+                        ],
+                        "connection_type": 1,
+                        "index": 110,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車04Aルート",
+                        "position": [
+                            -180.778564453125,
+                            36.24250411987305,
+                            347.8111267089844
+                        ],
+                        "unk2": 112
+                    },
+                    {
+                        "connctions": [
+                            112,
+                            110
+                        ],
+                        "connection_type": 2,
+                        "index": 111,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -177.7937469482422,
+                            43.57998275756836,
+                            327.0025329589844
+                        ],
+                        "unk2": 113
+                    },
+                    {
+                        "connctions": [
+                            113,
+                            111
+                        ],
+                        "connection_type": 2,
+                        "index": 112,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -176.83473205566406,
+                            48.08213424682617,
+                            306.8656311035156
+                        ],
+                        "unk2": 114
+                    },
+                    {
+                        "connctions": [
+                            112,
+                            114
+                        ],
+                        "connection_type": 2,
+                        "index": 113,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -177.94570922851563,
+                            49.96586227416992,
+                            292.730712890625
+                        ],
+                        "unk2": 115
+                    },
+                    {
+                        "connctions": [
+                            113,
+                            115
+                        ],
+                        "connection_type": 2,
+                        "index": 114,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -179.05747985839844,
+                            51.25735855102539,
+                            268.8338928222656
+                        ],
+                        "unk2": 116
+                    },
+                    {
+                        "connctions": [
+                            114,
+                            116
+                        ],
+                        "connection_type": 2,
+                        "index": 115,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -181.79635620117188,
+                            51.72914123535156,
+                            258.5236511230469
+                        ],
+                        "unk2": 117
+                    },
+                    {
+                        "connctions": [
+                            117,
+                            115
+                        ],
+                        "connection_type": 2,
+                        "index": 116,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -190.4092559814453,
+                            54.32851028442383,
+                            248.81161499023438
+                        ],
+                        "unk2": 118
+                    },
+                    {
+                        "connctions": [
+                            118,
+                            116
+                        ],
+                        "connection_type": 2,
+                        "index": 117,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -197.72323608398438,
+                            56.45482635498047,
+                            245.8014373779297
+                        ],
+                        "unk2": 119
+                    },
+                    {
+                        "connctions": [
+                            119,
+                            117
+                        ],
+                        "connection_type": 2,
+                        "index": 118,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -204.45278930664063,
+                            58.42965316772461,
+                            244.91429138183594
+                        ],
+                        "unk2": 120
+                    },
+                    {
+                        "connctions": [
+                            118,
+                            120
+                        ],
+                        "connection_type": 2,
+                        "index": 119,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -212.6246795654297,
+                            60.526710510253906,
+                            246.7294158935547
+                        ],
+                        "unk2": 121
+                    },
+                    {
+                        "connctions": [
+                            119
+                        ],
+                        "connection_type": 1,
+                        "index": 120,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -219.0206756591797,
+                            61.66162109375,
+                            246.7511444091797
+                        ],
+                        "unk2": 122
+                    }
+                ]
+            },
+            {
+                "name": "戦車04Bルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            122
+                        ],
+                        "connection_type": 1,
+                        "index": 121,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車04Bルート",
+                        "position": [
+                            -229.1610565185547,
+                            62.9949951171875,
+                            256.49542236328125
+                        ],
+                        "unk2": 123
+                    },
+                    {
+                        "connctions": [
+                            123,
+                            121
+                        ],
+                        "connection_type": 2,
+                        "index": 122,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -236.9378662109375,
+                            65.24613952636719,
+                            264.336669921875
+                        ],
+                        "unk2": 124
+                    },
+                    {
+                        "connctions": [
+                            124,
+                            122
+                        ],
+                        "connection_type": 2,
+                        "index": 123,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -261.0394592285156,
+                            74.82575988769531,
+                            272.0211181640625
+                        ],
+                        "unk2": 125
+                    },
+                    {
+                        "connctions": [
+                            125,
+                            123
+                        ],
+                        "connection_type": 2,
+                        "index": 124,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -280.6721496582031,
+                            83.24237823486328,
+                            275.9324645996094
+                        ],
+                        "unk2": 126
+                    },
+                    {
+                        "connctions": [
+                            126,
+                            124
+                        ],
+                        "connection_type": 2,
+                        "index": 125,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -293.3551330566406,
+                            87.7900161743164,
+                            278.7532043457031
+                        ],
+                        "unk2": 127
+                    },
+                    {
+                        "connctions": [
+                            125
+                        ],
+                        "connection_type": 1,
+                        "index": 126,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -304.0808410644531,
+                            91.80040740966797,
+                            282.2381896972656
+                        ],
+                        "unk2": 128
+                    }
+                ]
+            },
+            {
+                "name": "戦車04Cルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            128
+                        ],
+                        "connection_type": 1,
+                        "index": 127,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車04Cルート",
+                        "position": [
+                            -314.30609130859375,
+                            94.84767150878906,
+                            285.9773864746094
+                        ],
+                        "unk2": 129
+                    },
+                    {
+                        "connctions": [
+                            129,
+                            127
+                        ],
+                        "connection_type": 2,
+                        "index": 128,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -334.59466552734375,
+                            98.4954605102539,
+                            294.2381591796875
+                        ],
+                        "unk2": 130
+                    },
+                    {
+                        "connctions": [
+                            128,
+                            130
+                        ],
+                        "connection_type": 2,
+                        "index": 129,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -352.3862609863281,
+                            101.7674789428711,
+                            302.79315185546875
+                        ],
+                        "unk2": 131
+                    },
+                    {
+                        "connctions": [
+                            129,
+                            131
+                        ],
+                        "connection_type": 2,
+                        "index": 130,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -371.1199645996094,
+                            106.29180908203125,
+                            309.5335693359375
+                        ],
+                        "unk2": 132
+                    },
+                    {
+                        "connctions": [
+                            132,
+                            130
+                        ],
+                        "connection_type": 2,
+                        "index": 131,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -391.98626708984375,
+                            114.194091796875,
+                            315.438720703125
+                        ],
+                        "unk2": 133
+                    },
+                    {
+                        "connctions": [
+                            131
+                        ],
+                        "connection_type": 1,
+                        "index": 132,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -411.37347412109375,
+                            123.24042510986328,
+                            319.97613525390625
+                        ],
+                        "unk2": 134
+                    }
+                ]
+            },
+            {
+                "name": "戦車04Dルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            134
+                        ],
+                        "connection_type": 1,
+                        "index": 133,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車04Dルート",
+                        "position": [
+                            -436.5187072753906,
+                            133.533935546875,
+                            322.3683166503906
+                        ],
+                        "unk2": 135
+                    },
+                    {
+                        "connctions": [
+                            135,
+                            133
+                        ],
+                        "connection_type": 2,
+                        "index": 134,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -462.31158447265625,
+                            143.76173400878906,
+                            325.5436706542969
+                        ],
+                        "unk2": 136
+                    },
+                    {
+                        "connctions": [
+                            136,
+                            134
+                        ],
+                        "connection_type": 2,
+                        "index": 135,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -485.89874267578125,
+                            151.14602661132813,
+                            329.4844665527344
+                        ],
+                        "unk2": 137
+                    },
+                    {
+                        "connctions": [
+                            135,
+                            137
+                        ],
+                        "connection_type": 2,
+                        "index": 136,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -516.8943481445313,
+                            159.017822265625,
+                            332.0061340332031
+                        ],
+                        "unk2": 138
+                    },
+                    {
+                        "connctions": [
+                            136,
+                            138
+                        ],
+                        "connection_type": 2,
+                        "index": 137,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -541.48779296875,
+                            166.2786102294922,
+                            334.3123779296875
+                        ],
+                        "unk2": 139
+                    },
+                    {
+                        "connctions": [
+                            137,
+                            139
+                        ],
+                        "connection_type": 2,
+                        "index": 138,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -562.9317016601563,
+                            171.9259033203125,
+                            337.66845703125
+                        ],
+                        "unk2": 140
+                    },
+                    {
+                        "connctions": [
+                            138
+                        ],
+                        "connection_type": 1,
+                        "index": 139,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -584.1514892578125,
+                            177.69400024414063,
+                            342.63409423828125
+                        ],
+                        "unk2": 141
+                    }
+                ]
+            },
+            {
+                "name": "戦車04Eルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            141
+                        ],
+                        "connection_type": 1,
+                        "index": 140,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "戦車04Eルート",
+                        "position": [
+                            -612.156494140625,
+                            185.46029663085938,
+                            347.25762939453125
+                        ],
+                        "unk2": 142
+                    },
+                    {
+                        "connctions": [
+                            142,
+                            140
+                        ],
+                        "connection_type": 2,
+                        "index": 141,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -632.3150024414063,
+                            190.58975219726563,
+                            347.5465087890625
+                        ],
+                        "unk2": 143
+                    },
+                    {
+                        "connctions": [
+                            143,
+                            141
+                        ],
+                        "connection_type": 2,
+                        "index": 142,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -655.6610717773438,
+                            197.24114990234375,
+                            351.3818664550781
+                        ],
+                        "unk2": 144
+                    },
+                    {
+                        "connctions": [
+                            144,
+                            142
+                        ],
+                        "connection_type": 2,
+                        "index": 143,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -685.3984375,
+                            207.06307983398438,
+                            364.05377197265625
+                        ],
+                        "unk2": 145
+                    },
+                    {
+                        "connctions": [
+                            143
+                        ],
+                        "connection_type": 1,
+                        "index": 144,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -704.6361694335938,
+                            212.8444366455078,
+                            375.77557373046875
+                        ],
+                        "unk2": 146
+                    }
+                ]
+            }
+        ]
+    },
+    "shapes": {
+        "groups": [
+            {
+                "name": "ドラゴンエリア",
+                "shapes": [
+
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                            -297.6142272949219,
+                            65.0,
+                            10.193676948547363
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                750,
+                                1000,
+                                750
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                34.0,
+                                0.0
+                            ]
+                        },
+                        "id": 4,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "AREA",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    },
+
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                -1093.2882080078125,
+                                1023.6549682617188,
+                                -922.44140625
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                1000.0,
+                                5.0,
+                                5.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                -89.0,
+                                0.0
+                            ]
+                        },
+                        "id": 148,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "ドラゴン01エリア",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    }
+                ]
+            },
+            {
+                "name": "進行エリア",
+                "shapes": [
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                -225.61048889160156,
+                                95.9630355834961,
+                                310.43511962890625
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                40.0,
+                                300.0,
+                                200.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                12.0,
+                                0.0
+                            ]
+                        },
+                        "id": 149,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "進行エリアB",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    },
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                -326.7402038574219,
+                                95.9630355834961,
+                                333.8036193847656
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                50.0,
+                                300.0,
+                                200.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                12.0,
+                                0.0
+                            ]
+                        },
+                        "id": 150,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "進行エリアC",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    },
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                -453.2255859375,
+                                95.9630355834961,
+                                346.29522705078125
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                60.0,
+                                300.0,
+                                200.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                12.0,
+                                0.0
+                            ]
+                        },
+                        "id": 151,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "進行エリアD",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    },
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                -651.1453857421875,
+                                110.7630386352539,
+                                -1864.0416259765625
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                70.0,
+                                300.0,
+                                200.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                -77.0,
+                                0.0
+                            ]
+                        },
+                        "id": 152,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "進行エリアE",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    },
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                -1227.5303955078125,
+                                311.9630432128906,
+                                501.5452880859375
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                600.0,
+                                300.0,
+                                800.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                12.0,
+                                0.0
+                            ]
+                        },
+                        "id": 153,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "進行エリアLast",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    }
+                ]
+            },
+            {
+                "name": "破壊エリア",
+                "shapes": [
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                -183.05796813964844,
+                                60.71424102783203,
+                                253.7685089111328
+                            ],
+                            "radius": 28.284259796142578,
+                            "rec_size": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        "id": 154,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "名無し",
+                        "type": "Sphere",
+                        "unk1": 1,
+                        "unk2": 1
+                    }
+                ]
+            },
+            {
+                "name": "敵01",
+                "shapes": [
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                7.939115047454834,
+                                158.98199462890625,
+                                -228.7022247314453
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                200.0,
+                                25.0,
+                                250.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                -14.0,
+                                0.0
+                            ]
+                        },
+                        "id": 3,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "UFO1_01",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    },
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                27.09218406677246,
+                                158.98199462890625,
+                                133.428955078125
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                200.0,
+                                25.0,
+                                200.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                19.0,
+                                0.0
+                            ]
+                        },
+                        "id": 4,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "UFO1_02",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    },
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                97.71766662597656,
+                                251.3820037841797,
+                                -178.03057861328125
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                150.0,
+                                20.0,
+                                200.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                -31.0,
+                                0.0
+                            ]
+                        },
+                        "id": 5,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "UFO1_03",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    },
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                160.51695251464844,
+                                251.3820037841797,
+                                87.98082733154297
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                150.0,
+                                20.0,
+                                200.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                -0.5,
+                                0.0
+                            ]
+                        },
+                        "id": 6,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "UFO1_04",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    }
+                ]
+            },
+            {
+                "name": "敵02",
+                "shapes": [
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                830.6253662109375,
+                                50.0,
+                                -154.2345428466797
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                100.81500244140625,
+                                200.0,
+                                250.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        "id": 7,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "敵2_01",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    }
+                ]
+            },
+            {
+                "name": "敵03",
+                "shapes": [
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                159.45138549804688,
+                                221.9430694580078,
+                                -966.8694458007813
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                200.0,
+                                200.0,
+                                100.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        "id": 8,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "敵3_01",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "spawnpoints": {
+        "groups": [
+            {
+                "name": "味方",
+                "spawnpoints": [
+                    {
+                        "facing": [ -151.3841095, 61.73339462, 175.6520386 ],
+                        "id": 157,
+                        "name": "プレイヤーorig",
+                        "position": [ -150.6869812, 61.73339462, 175.1668243 ]
+                    },
+                    {
+                        "facing": [ 255.5301056, 40.25352097, -229.986557 ],
+                        "id": 157,
+                        "name": "プレイヤー",
+                        "position": [ 296.4915771, 40.49119949, -291.0464783 ]
+                    },
+                    {
+                        "facing": [ 259.2445374, 36.03527069, -262.3012695 ],
+                        "id": 157,
+                        "name": "FRIEND1",
+                        "position": [ 259.2445374, 36.03527069, -262.3012695 ]
+                    },
+                    {
+                        "facing": [ 259.2445374, 36.03527069, -262.3012695 ],
+                        "id": 157,
+                        "name": "FRIEND1B",
+                        "position": [ 264.2445374, 36.03527069, -257.3012695 ]
+                    },
+                    {
+                        "facing": [ 259.2445374, 36.03527069, -262.3012695 ],
+                        "id": 157,
+                        "name": "FRIEND1C",
+                        "position": [ 270.2445374, 36.03527069, -267.3012695 ]
+                    },
+                    {
+                        "facing": [ 259.2445374, 36.03527069, -262.3012695 ],
+                        "id": 157,
+                        "name": "FRIEND1D",
+                        "position": [ 260.2445374, 36.03527069, -267.3012695 ]
+                    },
+                    {
+                        "facing": [ 152.1483154, 23.05629921, -86.80254364 ],
+                        "id": 157,
+                        "name": "FRIEND2",
+                        "position": [ 152.1483154, 23.05629921, -86.80254364 ]
+                    },
+                    {
+                        "facing": [ 152.1483154, 23.05629921, -86.80254364 ],
+                        "id": 157,
+                        "name": "FRIEND2B",
+                        "position": [ 157.1483154, 23.05629921, -81.80254364 ]
+                    },
+                    {
+                        "facing": [ 152.1483154, 23.05629921, -86.80254364 ],
+                        "id": 157,
+                        "name": "FRIEND2C",
+                        "position": [ 147.1483154, 23.05629921, -91.80254364 ]
+                    },
+                    {
+                        "facing": [ 152.1483154, 23.05629921, -86.80254364 ],
+                        "id": 157,
+                        "name": "FRIEND2D",
+                        "position": [ 157.1483154, 23.05629921, -91.80254364 ]
+                    },
+                    {
+                        "facing": [ -0.8572627902, 23.04339981, -56.63093567 ],
+                        "id": 157,
+                        "name": "FRIEND3",
+                        "position": [ -0.8572627902, 23.04339981, -56.63093567 ]
+                    },
+                    {
+                        "facing": [ -0.8572627902, 23.04339981, -56.63093567 ],
+                        "id": 157,
+                        "name": "FRIEND3B",
+                        "position": [ 5.8572627902, 23.04339981, -51.63093567 ]
+                    },
+                    {
+                        "facing": [ -0.8572627902, 23.04339981, -56.63093567 ],
+                        "id": 157,
+                        "name": "FRIEND3C",
+                        "position": [ -5.8572627902, 23.04339981, -61.63093567 ]
+                    },
+                    {
+                        "facing": [ -0.8572627902, 23.04339981, -56.63093567 ],
+                        "id": 157,
+                        "name": "FRIEND3D",
+                        "position": [ 5.8572627902, 23.04339981, -61.63093567 ]
+                    },
+                    {
+                        "facing": [ -211.3384094, 61.96382523, 266.8581543 ],
+                        "id": 157,
+                        "name": "FRIEND4",
+                        "position": [ -211.3384094, 61.96382523, 266.8581543 ]
+                    },
+                    {
+                        "facing": [ -211.3384094, 61.96382523, 266.8581543 ],
+                        "id": 157,
+                        "name": "FRIEND4B",
+                        "position": [ -206.3384094, 61.96382523, 271.8581543 ]
+                    },
+                    {
+                        "facing": [ -211.3384094, 61.96382523, 266.8581543 ],
+                        "id": 157,
+                        "name": "FRIEND4C",
+                        "position": [ -216.3384094, 61.96382523, 261.8581543 ]
+                    },
+                    {
+                        "facing": [ -211.3384094, 61.96382523, 266.8581543 ],
+                        "id": 157,
+                        "name": "FRIEND4D",
+                        "position": [ -206.3384094, 61.96382523, 261.8581543 ]
+                    },
+                    {
+                        "facing": [ -106.7595367, 23.06735039, 285.5943909 ],
+                        "id": 157,
+                        "name": "FRIEND5",
+                        "position": [ -106.7595367, 23.06735039, 285.5943909 ]
+                    },
+                    {
+                        "facing": [ -106.7595367, 23.06735039, 285.5943909 ],
+                        "id": 157,
+                        "name": "FRIEND5B",
+                        "position": [ -101.7595367, 23.06735039, 290.5943909 ]
+                    },
+                    {
+                        "facing": [ -106.7595367, 23.06735039, 285.5943909 ],
+                        "id": 157,
+                        "name": "FRIEND5C",
+                        "position": [ -111.7595367, 23.06735039, 280.5943909 ]
+                    },
+                    {
+                        "facing": [ -106.7595367, 23.06735039, 285.5943909 ],
+                        "id": 157,
+                        "name": "FRIEND5D",
+                        "position": [ -101.7595367, 23.06735039, 280.5943909 ]
+                    },
+                    {
+                        "facing": [ 277.8058777, 38.57959747, -283.5266418 ],
+                        "id": 157,
+                        "name": "STRIKER",
+                        "position": [ 278.3631897, 38.71755981, -284.6631165 ]
+                    },
+                    {
+                        "facing": [
+                            -293.5904541015625,
+                            61.709877014160156,
+                            219.73809814453125
+                        ],
+                        "id": 158,
+                        "name": "戦車01",
+                        "position": [
+                            -291.3769836425781,
+                            58.514034271240234,
+                            186.71994018554688
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -291.17840576171875,
+                            62.405826568603516,
+                            206.9698486328125
+                        ],
+                        "id": 159,
+                        "name": "戦車02",
+                        "position": [
+                            -287.1597900390625,
+                            58.688331604003906,
+                            167.23297119140625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -180.09652709960938,
+                            49.96629333496094,
+                            319.6584167480469
+                        ],
+                        "id": 160,
+                        "name": "戦車03",
+                        "position": [
+                            -181.9432830810547,
+                            34.2491455078125,
+                            353.2434387207031
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -182.15646362304688,
+                            47.88367462158203,
+                            310.14080810546875
+                        ],
+                        "id": 161,
+                        "name": "戦車04",
+                        "position": [
+                            -184.18077087402344,
+                            28.763641357421875,
+                            371.4128723144531
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "ジェネレーター",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            -950.4703369140625,
+                            785.822509765625,
+                            464.82574462890625
+                        ],
+                        "id": 162,
+                        "name": "巨大アンカー01",
+                        "position": [
+                            -950.4703369140625,
+                            765.822509765625,
+                            464.82574462890625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -707.1009521484375,
+                            269.92730712890625,
+                            288.5863952636719
+                        ],
+                        "id": 163,
+                        "name": "アンカー01",
+                        "position": [
+                            -694.3509521484375,
+                            251.92733764648438,
+                            249.85365295410156
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -641.710205078125,
+                            307.2839660644531,
+                            463.49609375
+                        ],
+                        "id": 164,
+                        "name": "アンカー02",
+                        "position": [
+                            -616.8973999023438,
+                            284.88397216796875,
+                            513.8480834960938
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -881.5037841796875,
+                            230.33905029296875,
+                            269.5999755859375
+                        ],
+                        "id": 165,
+                        "name": "アンカー03",
+                        "position": [
+                            -854.326416015625,
+                            259.93902587890625,
+                            311.933837890625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -895.0364379882813,
+                            259.49176025390625,
+                            556.4342651367188
+                        ],
+                        "id": 166,
+                        "name": "アンカー04",
+                        "position": [
+                            -849.0308227539063,
+                            283.8917541503906,
+                            545.0117797851563
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -950.4703369140625,
+                            765.822509765625,
+                            464.82574462890625
+                        ],
+                        "id": 162,
+                        "name": "巨大アンカー01B",
+                        "position": [
+                            -950.4703369140625,
+                            765.822509765625,
+                            464.82574462890625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -694.3509521484375,
+                            251.92733764648438,
+                            249.85365295410156
+                        ],
+                        "id": 163,
+                        "name": "アンカー01B",
+                        "position": [
+                            -694.3509521484375,
+                            251.92733764648438,
+                            249.85365295410156
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -616.8973999023438,
+                            284.88397216796875,
+                            513.8480834960938
+                        ],
+                        "id": 164,
+                        "name": "アンカー02B",
+                        "position": [
+                            -616.8973999023438,
+                            284.88397216796875,
+                            513.8480834960938
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -854.326416015625,
+                            259.93902587890625,
+                            311.933837890625
+                        ],
+                        "id": 165,
+                        "name": "アンカー03B",
+                        "position": [
+                            -854.326416015625,
+                            259.93902587890625,
+                            311.933837890625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -849.0308227539063,
+                            283.8917541503906,
+                            545.0117797851563
+                        ],
+                        "id": 166,
+                        "name": "アンカー04B",
+                        "position": [
+                            -849.0308227539063,
+                            283.8917541503906,
+                            545.0117797851563
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "攻勢アンカー",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            -480.11175537109375,
+                            169.14663696289063,
+                            365.4063720703125
+                        ],
+                        "id": 167,
+                        "name": "赤アンカー03",
+                        "position": [
+                            -481.72039794921875,
+                            186.74664306640625,
+                            403.7713317871094
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -446.78857421875,
+                            143.54026794433594,
+                            303.8155517578125
+                        ],
+                        "id": 168,
+                        "name": "赤アンカー02",
+                        "position": [
+                            -462.5583801269531,
+                            154.59292602539063,
+                            252.2666015625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -403.7160949707031,
+                            118.78146362304688,
+                            333.2336730957031
+                        ],
+                        "id": 169,
+                        "name": "赤アンカー01",
+                        "position": [
+                            -377.88470458984375,
+                            153.1814727783203,
+                            366.6852111816406
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -373.0182800292969,
+                            98.7892837524414,
+                            298.7131042480469
+                        ],
+                        "id": 170,
+                        "name": "赤アンカー04",
+                        "position": [
+                            -394.40875244140625,
+                            116.78927612304688,
+                            261.15087890625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -592.2874145507813,
+                            188.99729919433594,
+                            379.6351623535156
+                        ],
+                        "id": 171,
+                        "name": "赤アンカー05",
+                        "position": [
+                            -582.794677734375,
+                            223.3972930908203,
+                            413.6243591308594
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -550.7373657226563,
+                            168.41973876953125,
+                            305.6459655761719
+                        ],
+                        "id": 172,
+                        "name": "赤アンカー06",
+                        "position": [
+                            -559.7752075195313,
+                            200.54429626464844,
+                            267.57568359375
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -720.25830078125,
+                            223.21560668945313,
+                            388.6246032714844
+                        ],
+                        "id": 173,
+                        "name": "赤アンカー07",
+                        "position": [
+                            -733.9091186523438,
+                            235.21560668945313,
+                            344.7143249511719
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -812.9197998046875,
+                            233.2259521484375,
+                            596.9876098632813
+                        ],
+                        "id": 174,
+                        "name": "赤アンカー08",
+                        "position": [
+                            -780.1244506835938,
+                            272.02593994140625,
+                            516.324462890625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -328.6216125488281,
+                            71.35159301757813,
+                            264.59954833984375
+                        ],
+                        "id": 175,
+                        "name": "赤アンカー09",
+                        "position": [
+                            -299.1106262207031,
+                            100.79425048828125,
+                            304.44976806640625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -870.7271728515625,
+                            329.84979248046875,
+                            532.1068115234375
+                        ],
+                        "id": 176,
+                        "name": "赤アンカー10",
+                        "position": [
+                            -919.0980834960938,
+                            294.2972106933594,
+                            559.0252075195313
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -861.2402954101563,
+                            225.6741943359375,
+                            220.48948669433594
+                        ],
+                        "id": 177,
+                        "name": "赤アンカー11",
+                        "position": [
+                            -858.0550537109375,
+                            241.89645385742188,
+                            251.99253845214844
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -481.72039794921875,
+                            186.74664306640625,
+                            403.7713317871094
+                        ],
+                        "id": 167,
+                        "name": "赤アンカー01B",
+                        "position": [
+                            -481.72039794921875,
+                            186.74664306640625,
+                            403.7713317871094
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -462.5583801269531,
+                            154.59292602539063,
+                            252.2666015625
+                        ],
+                        "id": 168,
+                        "name": "赤アンカー02B",
+                        "position": [
+                            -462.5583801269531,
+                            154.59292602539063,
+                            252.2666015625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -377.88470458984375,
+                            153.1814727783203,
+                            366.6852111816406
+                        ],
+                        "id": 169,
+                        "name": "赤アンカー03B",
+                        "position": [
+                            -377.88470458984375,
+                            153.1814727783203,
+                            366.6852111816406
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -394.40875244140625,
+                            116.78927612304688,
+                            261.15087890625
+                        ],
+                        "id": 170,
+                        "name": "赤アンカー04B",
+                        "position": [
+                            -394.40875244140625,
+                            116.78927612304688,
+                            261.15087890625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -582.794677734375,
+                            223.3972930908203,
+                            413.6243591308594
+                        ],
+                        "id": 171,
+                        "name": "赤アンカー05B",
+                        "position": [
+                            -582.794677734375,
+                            223.3972930908203,
+                            413.6243591308594
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -559.7752075195313,
+                            200.54429626464844,
+                            267.57568359375
+                        ],
+                        "id": 172,
+                        "name": "赤アンカー06B",
+                        "position": [
+                            -559.7752075195313,
+                            200.54429626464844,
+                            267.57568359375
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -733.9091186523438,
+                            235.21560668945313,
+                            344.7143249511719
+                        ],
+                        "id": 173,
+                        "name": "赤アンカー07B",
+                        "position": [
+                            -733.9091186523438,
+                            235.21560668945313,
+                            344.7143249511719
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -780.1244506835938,
+                            272.02593994140625,
+                            516.324462890625
+                        ],
+                        "id": 174,
+                        "name": "赤アンカー08B",
+                        "position": [
+                            -780.1244506835938,
+                            272.02593994140625,
+                            516.324462890625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -299.1106262207031,
+                            100.79425048828125,
+                            304.44976806640625
+                        ],
+                        "id": 175,
+                        "name": "赤アンカー09B",
+                        "position": [
+                            -299.1106262207031,
+                            100.79425048828125,
+                            304.44976806640625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -919.0980834960938,
+                            294.2972106933594,
+                            559.0252075195313
+                        ],
+                        "id": 176,
+                        "name": "赤アンカー10B",
+                        "position": [
+                            -919.0980834960938,
+                            294.2972106933594,
+                            559.0252075195313
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -858.0550537109375,
+                            241.89645385742188,
+                            251.99253845214844
+                        ],
+                        "id": 177,
+                        "name": "赤アンカー11B",
+                        "position": [
+                            -858.0550537109375,
+                            241.89645385742188,
+                            251.99253845214844
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "配置敵",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            -885.1910400390625,
+                            441.48077392578125,
+                            901.7361450195313
+                        ],
+                        "id": 178,
+                        "name": "爆撃01",
+                        "position": [
+                            -966.8704833984375,
+                            705.0807495117188,
+                            608.1205444335938
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -915.490234375,
+                            193.3096160888672,
+                            8.88275146484375
+                        ],
+                        "id": 179,
+                        "name": "爆撃02",
+                        "position": [
+                            -996.98486328125,
+                            694.9096069335938,
+                            297.74896240234375
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -711.9921875,
+                            267.1613464355469,
+                            460.45074462890625
+                        ],
+                        "id": 180,
+                        "name": "爆撃03",
+                        "position": [
+                            -782.8685302734375,
+                            881.5613403320313,
+                            450.9814147949219
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "敵UFO01",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            -228.87200927734375,
+                            23.0,
+                            -127.12564086914063
+                        ],
+                        "id": 13,
+                        "name": "中型UFO1_01",
+                        "position": [
+                            -248.87200927734375,
+                            20.0,
+                            -137.12564086914063
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -262.99522399902344,
+                            40.53600311279297,
+                            60.45561599731445
+                        ],
+                        "id": 14,
+                        "name": "中型UFO1_02",
+                        "position": [
+                            -242.99522399902344,
+                            35.53600311279297,
+                            60.45561599731445
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -30.418142318725586,
+                            43.0,
+                            -208.9625701904297
+                        ],
+                        "id": 15,
+                        "name": "中型UFO1_03",
+                        "position": [ -32.51931381, 40.54604721, -201.0514374 ]
+                    },
+                    {
+                        "facing": [
+                            -10.924842834472656,
+                            25.0,
+                            69.838417053222656
+                        ],
+                        "id": 16,
+                        "name": "中型UFO1_04",
+                        "position": [
+                            -40.924842834472656,
+                            20.0,
+                            49.838417053222656
+                        ]
+                    },
+                    {
+                        "facing": [
+                            117.47549438476563,
+                            23.18299865722656,
+                            101.71119689941406
+                        ],
+                        "id": 17,
+                        "name": "中型UFO1_05",
+                        "position": [
+                            137.47549438476563,
+                            20.18299865722656,
+                            121.71119689941406
+                        ]
+                    },
+                    {
+                        "facing": [
+                            138.26715087890625,
+                            40.10899353027344,
+                            -245.8534393310547
+                        ],
+                        "id": 18,
+                        "name": "中型UFO1_06",
+                        "position": [
+                            158.26715087890625,
+                            35.10899353027344,
+                            -245.8534393310547
+                        ]
+                    },
+                    {
+                        "facing": [
+                            292.8102111816406,
+                            43.2310028076172,
+                            37.257728576660156
+                        ],
+                        "id": 19,
+                        "name": "中型UFO1_07",
+                        "position": [
+                            272.8102111816406,
+                            40.2310028076172,
+                            17.257728576660156
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

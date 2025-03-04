@@ -1,0 +1,2429 @@
+{
+    "camera": null,
+    "routes": {
+        "groups": [
+            {
+                "name": "小隊01ルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            1
+                        ],
+                        "connection_type": 1,
+                        "index": 0,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊01_2ルート",
+                        "position": [
+                            11.377584457397461,
+                            -2.7313029766082764,
+                            -430.3750305175781
+                        ],
+                        "unk2": 2
+                    },
+                    {
+                        "connctions": [
+                            0
+                        ],
+                        "connection_type": 1,
+                        "index": 1,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -89.46553039550781,
+                            0.9026229977607727,
+                            442.60687255859375
+                        ],
+                        "unk2": 3
+                    },
+                    {
+                        "connctions": [
+                            3
+                        ],
+                        "connection_type": 1,
+                        "index": 2,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊01_1ルート",
+                        "position": [
+                            -77.43620300292969,
+                            -1.262228012084961,
+                            -430.28338623046875
+                        ],
+                        "unk2": 4
+                    },
+                    {
+                        "connctions": [
+                            2
+                        ],
+                        "connection_type": 1,
+                        "index": 3,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -146.5618438720703,
+                            1.882712960243225,
+                            459.30133056640625
+                        ],
+                        "unk2": 5
+                    },
+                    {
+                        "connctions": [
+                            5
+                        ],
+                        "connection_type": 1,
+                        "index": 4,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊01_3ルート",
+                        "position": [
+                            88.3001480102539,
+                            -3.0599939823150635,
+                            -433.9367370605469
+                        ],
+                        "unk2": 6
+                    },
+                    {
+                        "connctions": [
+                            4
+                        ],
+                        "connection_type": 1,
+                        "index": 5,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -33.09867858886719,
+                            0.6542710065841675,
+                            478.8046569824219
+                        ],
+                        "unk2": 7
+                    }
+                ]
+            },
+            {
+                "name": "小隊02ルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            7
+                        ],
+                        "connection_type": 1,
+                        "index": 6,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊02_1ルート",
+                        "position": [
+                            553.900390625,
+                            -3.4672389030456543,
+                            -119.00076293945313
+                        ],
+                        "unk2": 8
+                    },
+                    {
+                        "connctions": [
+                            6,
+                            10
+                        ],
+                        "connection_type": 2,
+                        "index": 7,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            56.869659423828125,
+                            -1.3626290559768677,
+                            -28.037391662597656
+                        ],
+                        "unk2": 9
+                    },
+                    {
+                        "connctions": [
+                            9
+                        ],
+                        "connection_type": 1,
+                        "index": 8,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊02_2ルート",
+                        "position": [
+                            568.6329345703125,
+                            -5.243929862976074,
+                            0.8853049874305725
+                        ],
+                        "unk2": 10
+                    },
+                    {
+                        "connctions": [
+                            8,
+                            11
+                        ],
+                        "connection_type": 2,
+                        "index": 9,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            81.55535888671875,
+                            -1.7273600101470947,
+                            60.44697570800781
+                        ],
+                        "unk2": 11
+                    },
+                    {
+                        "connctions": [
+                            7
+                        ],
+                        "connection_type": 1,
+                        "index": 10,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -355.610595703125,
+                            0.4680989980697632,
+                            32.56995391845703
+                        ],
+                        "unk2": 12
+                    },
+                    {
+                        "connctions": [
+                            9
+                        ],
+                        "connection_type": 1,
+                        "index": 11,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -327.860107421875,
+                            0.7711650133132935,
+                            123.26160430908203
+                        ],
+                        "unk2": 13
+                    }
+                ]
+            },
+            {
+                "name": "小隊03ルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            13
+                        ],
+                        "connection_type": 1,
+                        "index": 12,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊03_1ルート",
+                        "position": [
+                            -586.0269165039063,
+                            -1.5292659997940063,
+                            701.6734008789063
+                        ],
+                        "unk2": 14
+                    },
+                    {
+                        "connctions": [
+                            12
+                        ],
+                        "connection_type": 1,
+                        "index": 13,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            95.75975036621094,
+                            -2.391371965408325,
+                            118.70454406738281
+                        ],
+                        "unk2": 15
+                    },
+                    {
+                        "connctions": [
+                            15
+                        ],
+                        "connection_type": 1,
+                        "index": 14,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊03_2ルート",
+                        "position": [
+                            -646.5916748046875,
+                            -0.06876099854707718,
+                            649.7608642578125
+                        ],
+                        "unk2": 16
+                    },
+                    {
+                        "connctions": [
+                            14
+                        ],
+                        "connection_type": 1,
+                        "index": 15,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            41.845726013183594,
+                            -1.3461689949035645,
+                            9.9019775390625
+                        ],
+                        "unk2": 17
+                    },
+                    {
+                        "connctions": [
+                            17
+                        ],
+                        "connection_type": 1,
+                        "index": 16,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊03_3ルート",
+                        "position": [
+                            -711.0072631835938,
+                            2.136418104171753,
+                            580.76953125
+                        ],
+                        "unk2": 18
+                    },
+                    {
+                        "connctions": [
+                            16
+                        ],
+                        "connection_type": 1,
+                        "index": 17,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -47.478782653808594,
+                            -0.11534000188112259,
+                            -68.67684173583984
+                        ],
+                        "unk2": 19
+                    }
+                ]
+            },
+            {
+                "name": "小隊04ルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            19
+                        ],
+                        "connection_type": 1,
+                        "index": 18,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊04_1ルート",
+                        "position": [
+                            421.21160888671875,
+                            -4.997715950012207,
+                            -376.7190856933594
+                        ],
+                        "unk2": 20
+                    },
+                    {
+                        "connctions": [
+                            18
+                        ],
+                        "connection_type": 1,
+                        "index": 19,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -237.53884887695313,
+                            0.552636981010437,
+                            192.48394775390625
+                        ],
+                        "unk2": 21
+                    },
+                    {
+                        "connctions": [
+                            21
+                        ],
+                        "connection_type": 1,
+                        "index": 20,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊04_2ルート",
+                        "position": [
+                            377.9474182128906,
+                            -1.575018048286438,
+                            -420.0968017578125
+                        ],
+                        "unk2": 22
+                    },
+                    {
+                        "connctions": [
+                            20
+                        ],
+                        "connection_type": 1,
+                        "index": 21,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -268.2562561035156,
+                            0.8226209878921509,
+                            201.74899291992188
+                        ],
+                        "unk2": 23
+                    }
+                ]
+            },
+            {
+                "name": "小隊05ルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            23
+                        ],
+                        "connection_type": 1,
+                        "index": 22,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊05_1ルート",
+                        "position": [
+                            689.3661499023438,
+                            -11.491938591003418,
+                            535.888427734375
+                        ],
+                        "unk2": 24
+                    },
+                    {
+                        "connctions": [
+                            22
+                        ],
+                        "connection_type": 1,
+                        "index": 23,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            18.63723373413086,
+                            -0.35753199458122253,
+                            88.3030014038086
+                        ],
+                        "unk2": 25
+                    },
+                    {
+                        "connctions": [
+                            25
+                        ],
+                        "connection_type": 1,
+                        "index": 24,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊05_2ルート",
+                        "position": [
+                            739.1470336914063,
+                            -14.251460075378418,
+                            476.4344787597656
+                        ],
+                        "unk2": 26
+                    },
+                    {
+                        "connctions": [
+                            24
+                        ],
+                        "connection_type": 1,
+                        "index": 25,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            87.40093994140625,
+                            -1.288180947303772,
+                            17.73407745361328
+                        ],
+                        "unk2": 27
+                    },
+                    {
+                        "connctions": [
+                            27
+                        ],
+                        "connection_type": 1,
+                        "index": 26,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊05_3ルート",
+                        "position": [
+                            631.2454833984375,
+                            -5.765761852264404,
+                            623.3158569335938
+                        ],
+                        "unk2": 28
+                    },
+                    {
+                        "connctions": [
+                            26
+                        ],
+                        "connection_type": 1,
+                        "index": 27,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -13.805060386657715,
+                            -0.17778199911117554,
+                            157.3213653564453
+                        ],
+                        "unk2": 29
+                    }
+                ]
+            },
+            {
+                "name": "小隊06ルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            29
+                        ],
+                        "connection_type": 1,
+                        "index": 28,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊06_1ルート",
+                        "position": [
+                            -822.399658203125,
+                            -1.4456440210342407,
+                            -456.5011291503906
+                        ],
+                        "unk2": 30
+                    },
+                    {
+                        "connctions": [
+                            28
+                        ],
+                        "connection_type": 1,
+                        "index": 29,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -147.22396850585938,
+                            0.9831089973449707,
+                            -6.182147026062012
+                        ],
+                        "unk2": 31
+                    },
+                    {
+                        "connctions": [
+                            31
+                        ],
+                        "connection_type": 1,
+                        "index": 30,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊06_2ルート",
+                        "position": [
+                            -780.6218872070313,
+                            -3.1963980197906494,
+                            -528.5967407226563
+                        ],
+                        "unk2": 32
+                    },
+                    {
+                        "connctions": [
+                            30
+                        ],
+                        "connection_type": 1,
+                        "index": 31,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -85.04458618164063,
+                            0.330689013004303,
+                            -94.02308654785156
+                        ],
+                        "unk2": 33
+                    }
+                ]
+            },
+            {
+                "name": "小隊07ルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            33
+                        ],
+                        "connection_type": 1,
+                        "index": 32,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊07_1ルート",
+                        "position": [
+                            266.31439208984375,
+                            -2.725857973098755,
+                            -717.1029663085938
+                        ],
+                        "unk2": 34
+                    },
+                    {
+                        "connctions": [
+                            32
+                        ],
+                        "connection_type": 1,
+                        "index": 33,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -127.70104217529297,
+                            0.7274169921875,
+                            69.719482421875
+                        ],
+                        "unk2": 35
+                    },
+                    {
+                        "connctions": [
+                            35
+                        ],
+                        "connection_type": 1,
+                        "index": 34,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊07_2ルート",
+                        "position": [
+                            369.3968811035156,
+                            -3.355422019958496,
+                            -677.4390869140625
+                        ],
+                        "unk2": 36
+                    },
+                    {
+                        "connctions": [
+                            34
+                        ],
+                        "connection_type": 1,
+                        "index": 35,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -26.212190628051758,
+                            -0.669776976108551,
+                            114.06292724609375
+                        ],
+                        "unk2": 37
+                    }
+                ]
+            },
+            {
+                "name": "小隊08ルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            37
+                        ],
+                        "connection_type": 1,
+                        "index": 36,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊08_1ルート",
+                        "position": [
+                            -831.1917114257813,
+                            4.459072113037109,
+                            175.34552001953125
+                        ],
+                        "unk2": 38
+                    },
+                    {
+                        "connctions": [
+                            36
+                        ],
+                        "connection_type": 1,
+                        "index": 37,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            9.550697326660156,
+                            0.1403619945049286,
+                            109.23139953613281
+                        ],
+                        "unk2": 39
+                    },
+                    {
+                        "connctions": [
+                            39
+                        ],
+                        "connection_type": 1,
+                        "index": 38,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊08_2ルート",
+                        "position": [
+                            -843.3257446289063,
+                            4.686582088470459,
+                            75.4178466796875
+                        ],
+                        "unk2": 40
+                    },
+                    {
+                        "connctions": [
+                            38
+                        ],
+                        "connection_type": 1,
+                        "index": 39,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            4.433692932128906,
+                            -0.2157669961452484,
+                            11.453866958618164
+                        ],
+                        "unk2": 41
+                    },
+                    {
+                        "connctions": [
+                            41
+                        ],
+                        "connection_type": 1,
+                        "index": 40,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊08_3ルート",
+                        "position": [
+                            -832.3197021484375,
+                            3.6516430377960205,
+                            -15.155294418334961
+                        ],
+                        "unk2": 42
+                    },
+                    {
+                        "connctions": [
+                            40
+                        ],
+                        "connection_type": 1,
+                        "index": 41,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -13.622276306152344,
+                            -0.6680179834365845,
+                            -78.38947296142578
+                        ],
+                        "unk2": 43
+                    }
+                ]
+            },
+            {
+                "name": "小隊09ルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            43
+                        ],
+                        "connection_type": 1,
+                        "index": 42,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊09_1ルート",
+                        "position": [
+                            174.26161193847656,
+                            0.7725419998168945,
+                            804.2061157226563
+                        ],
+                        "unk2": 44
+                    },
+                    {
+                        "connctions": [
+                            42
+                        ],
+                        "connection_type": 1,
+                        "index": 43,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -406.1886901855469,
+                            0.8876839876174927,
+                            -104.4256591796875
+                        ],
+                        "unk2": 45
+                    },
+                    {
+                        "connctions": [
+                            45
+                        ],
+                        "connection_type": 1,
+                        "index": 44,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊09_2ルート",
+                        "position": [
+                            335.7404479980469,
+                            -1.994246006011963,
+                            684.88134765625
+                        ],
+                        "unk2": 46
+                    },
+                    {
+                        "connctions": [
+                            44
+                        ],
+                        "connection_type": 1,
+                        "index": 45,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -289.0276794433594,
+                            0.34373098611831665,
+                            -109.56781005859375
+                        ],
+                        "unk2": 47
+                    },
+                    {
+                        "connctions": [
+                            47
+                        ],
+                        "connection_type": 1,
+                        "index": 46,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊09_3ルート",
+                        "position": [
+                            1.6488829851150513,
+                            1.742656946182251,
+                            873.272216796875
+                        ],
+                        "unk2": 48
+                    },
+                    {
+                        "connctions": [
+                            46
+                        ],
+                        "connection_type": 1,
+                        "index": 47,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -471.4874572753906,
+                            0.6897510290145874,
+                            -23.55499267578125
+                        ],
+                        "unk2": 49
+                    }
+                ]
+            },
+            {
+                "name": "小隊10ルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            49
+                        ],
+                        "connection_type": 1,
+                        "index": 48,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊10_1ルート",
+                        "position": [
+                            -176.2810516357422,
+                            -2.0889780521392822,
+                            -715.3053588867188
+                        ],
+                        "unk2": 50
+                    },
+                    {
+                        "connctions": [
+                            48
+                        ],
+                        "connection_type": 1,
+                        "index": 49,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            23.84246063232422,
+                            -0.42026498913764954,
+                            226.5506591796875
+                        ],
+                        "unk2": 51
+                    },
+                    {
+                        "connctions": [
+                            51
+                        ],
+                        "connection_type": 1,
+                        "index": 50,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊10_2ルート",
+                        "position": [
+                            -188.25991821289063,
+                            -5.651055812835693,
+                            -831.565185546875
+                        ],
+                        "unk2": 52
+                    },
+                    {
+                        "connctions": [
+                            50
+                        ],
+                        "connection_type": 1,
+                        "index": 51,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            5.234809875488281,
+                            0.19843299686908722,
+                            104.82282257080078
+                        ],
+                        "unk2": 53
+                    }
+                ]
+            },
+            {
+                "name": "小隊11ルート",
+                "routes": [
+                    {
+                        "connctions": [
+                            53
+                        ],
+                        "connection_type": 1,
+                        "index": 52,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "小隊11_1ルート",
+                        "position": [
+                            -187.47222900390625,
+                            -1.319275975227356,
+                            728.0068359375
+                        ],
+                        "unk2": 55
+                    },
+                    {
+                        "connctions": [
+                            52
+                        ],
+                        "connection_type": 1,
+                        "index": 53,
+                        "info": {
+                            "param": "rmpa_float_WayPointWidth",
+                            "value": "-1"
+                        },
+                        "info_type": 1,
+                        "name": "名無し",
+                        "position": [
+                            -51.2037353515625,
+                            -0.10922099649906158,
+                            10.629722595214844
+                        ],
+                        "unk2": 56
+                    }
+                ]
+            }
+        ]
+    },
+    "shapes": {
+        "groups": [
+            {
+                "name": "WIPE",
+                "shapes": [
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "radius": 9999.0,
+                            "rec_size": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        "id": 3,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "WIPE",
+                        "type": "Sphere",
+                        "unk1": 1,
+                        "unk2": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "spawnpoints": {
+        "groups": [
+            {
+                "name": "味方",
+                "spawnpoints": [
+                    {
+                        "facing": [ 2.247433424, -1.937262893, -372.9936218 ],
+                        "id": 60,
+                        "name": "プレイヤー",
+                        "position": [ 2.128924847, -1.969387293, -372.1416931 ]
+                    }
+                ]
+            },
+            {
+                "name": "増援01",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            90.2279052734375,
+                            -11.262147903442383,
+                            -956.544921875
+                        ],
+                        "id": 61,
+                        "name": "敵01_1",
+                        "position": [
+                            95.60407257080078,
+                            -10.415929794311523,
+                            -1192.982177734375
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -352.66717529296875,
+                            0.08667799830436707,
+                            -886.5482177734375
+                        ],
+                        "id": 62,
+                        "name": "敵01_2",
+                        "position": [
+                            -347.291015625,
+                            -15.372692108154297,
+                            -1122.9854736328125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            504.27484130859375,
+                            -15.638471603393555,
+                            -786.732177734375
+                        ],
+                        "id": 63,
+                        "name": "敵01_3",
+                        "position": [
+                            509.6510009765625,
+                            -5.002518177032471,
+                            -1023.1693725585938
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -75.17156982421875,
+                            -2.4861690998077393,
+                            -524.309814453125
+                        ],
+                        "id": 64,
+                        "name": "小隊01_1",
+                        "position": [
+                            -75.17156982421875,
+                            -2.4861690998077393,
+                            -524.309814453125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -75.17156982421875,
+                            -2.4861690998077393,
+                            -524.309814453125
+                        ],
+                        "id": 64,
+                        "name": "小隊01_1B",
+                        "position": [ -54.2234726, -3.102010012, -511.6781311 ]
+                    },
+                    {
+                        "facing": [
+                            -75.17156982421875,
+                            -2.4861690998077393,
+                            -524.309814453125
+                        ],
+                        "id": 64,
+                        "name": "小隊01_1C",
+                        "position": [ -76.23841095, -1.994814157, -493.4986267 ]
+                    },
+                    {
+                        "facing": [
+                            7.062993049621582,
+                            -4.495281219482422,
+                            -537.4075317382813
+                        ],
+                        "id": 65,
+                        "name": "小隊01_2",
+                        "position": [
+                            7.062993049621582,
+                            -4.495282173156738,
+                            -537.4075317382813
+                        ]
+                    },
+                    {
+                        "facing": [
+                            7.062993049621582,
+                            -4.495281219482422,
+                            -537.4075317382813
+                        ],
+                        "id": 65,
+                        "name": "小隊01_2B",
+                        "position": [ 41.16779709, -4.412345409, -567.4568481 ]
+                    },
+                    {
+                        "facing": [
+                            7.062993049621582,
+                            -4.495281219482422,
+                            -537.4075317382813
+                        ],
+                        "id": 65,
+                        "name": "小隊01_2C",
+                        "position": [ 0.6997115612, -5.67383194, -591.6710205 ]
+                    },
+                    {
+                        "facing": [
+                            97.60891723632813,
+                            -3.6388120651245117,
+                            -516.7449951171875
+                        ],
+                        "id": 66,
+                        "name": "小隊01_3",
+                        "position": [
+                            97.60891723632813,
+                            -3.6388120651245117,
+                            -516.7449951171875
+                        ]
+                    },
+                    {
+                        "facing": [
+                            97.60891723632813,
+                            -3.6388120651245117,
+                            -516.7449951171875
+                        ],
+                        "id": 66,
+                        "name": "小隊01_3B",
+                        "position": [ 110.5983505, -3.679286242, -548.8141479 ]
+                    },
+                    {
+                        "facing": [
+                            97.60891723632813,
+                            -3.6388120651245117,
+                            -516.7449951171875
+                        ],
+                        "id": 66,
+                        "name": "小隊01_3C",
+                        "position": [ 120.006424, -2.128419161, -493.0532532 ]
+                    }
+                ]
+            },
+            {
+                "name": "増援02",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            653.6065673828125,
+                            -0.35273200273513794,
+                            -141.85545349121094
+                        ],
+                        "id": 67,
+                        "name": "小隊02_1",
+                        "position": [
+                            653.6065673828125,
+                            -9.61059284210205,
+                            -141.85545349121094
+                        ]
+                    },
+                    {
+                        "facing": [
+                            653.6065673828125,
+                            -0.35273200273513794,
+                            -141.85545349121094
+                        ],
+                        "id": 67,
+                        "name": "小隊02_1B",
+                        "position": [ 629.7258301, -6.440417767, -145.6661377 ]
+                    },
+                    {
+                        "facing": [
+                            653.6065673828125,
+                            -0.35273200273513794,
+                            -141.85545349121094
+                        ],
+                        "id": 67,
+                        "name": "小隊02_1C",
+                        "position": [ 636.0715332, -10.95670319, -188.4823608 ]
+                    },
+                    {
+                        "facing": [
+                            653.6065673828125,
+                            -0.35273200273513794,
+                            -141.85545349121094
+                        ],
+                        "id": 67,
+                        "name": "小隊02_1D",
+                        "position": [ 673.7498779, -14.61308765, -181.6970978 ]
+                    },
+                    {
+                        "facing": [
+                            653.6065673828125,
+                            -0.35273200273513794,
+                            -141.85545349121094
+                        ],
+                        "id": 67,
+                        "name": "小隊02_1E",
+                        "position": [ 678.8295288, -12.97504711, -150.3602295 ]
+                    },
+                    {
+                        "facing": [
+                            631.3186645507813,
+                            9.895238876342773,
+                            -4.321906089782715
+                        ],
+                        "id": 68,
+                        "name": "小隊02_2",
+                        "position": [
+                            631.3186645507813,
+                            -4.576138973236084,
+                            -4.321906089782715
+                        ]
+                    },
+                    {
+                        "facing": [
+                            631.3186645507813,
+                            9.895238876342773,
+                            -4.321906089782715
+                        ],
+                        "id": 68,
+                        "name": "小隊02_2B",
+                        "position": [ 605.3435059, -4.058922291, -4.634355068 ]
+                    },
+                    {
+                        "facing": [
+                            631.3186645507813,
+                            9.895238876342773,
+                            -4.321906089782715
+                        ],
+                        "id": 68,
+                        "name": "小隊02_2C",
+                        "position": [ 604.2953491, -2.40310955, -36.59677887 ]
+                    },
+                    {
+                        "facing": [
+                            631.3186645507813,
+                            9.895238876342773,
+                            -4.321906089782715
+                        ],
+                        "id": 68,
+                        "name": "小隊02_2D",
+                        "position": [ 651.8364868, -4.778913021, -50.73163223 ]
+                    },
+                    {
+                        "facing": [
+                            631.3186645507813,
+                            9.895238876342773,
+                            -4.321906089782715
+                        ],
+                        "id": 68,
+                        "name": "小隊02_2E",
+                        "position": [ 660.5266113, -7.365055561, -12.89614487 ]
+                    },
+                    {
+                        "facing": [
+                            934.3968505859375,
+                            6.489252090454102,
+                            -534.118408203125
+                        ],
+                        "id": 69,
+                        "name": "敵02_1",
+                        "position": [
+                            934.3968505859375,
+                            -13.510747909545898,
+                            -534.118408203125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            1205.6170654296875,
+                            10.95893383026123,
+                            -275.99102783203125
+                        ],
+                        "id": 70,
+                        "name": "敵02_2",
+                        "position": [
+                            1205.6170654296875,
+                            -9.04106616973877,
+                            -275.99102783203125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            1096.5947265625,
+                            29.482955932617188,
+                            169.68817138671875
+                        ],
+                        "id": 71,
+                        "name": "敵02_3",
+                        "position": [
+                            1096.5947265625,
+                            9.482956886291504,
+                            169.68817138671875
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "増援03",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            -570.4458618164063,
+                            -1.6251319646835327,
+                            691.420166015625
+                        ],
+                        "id": 72,
+                        "name": "戦車03_1",
+                        "position": [
+                            -659.9053344726563,
+                            -0.5488640069961548,
+                            783.3121337890625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -641.1435546875,
+                            0.13023200631141663,
+                            642.3712768554688
+                        ],
+                        "id": 73,
+                        "name": "戦車03_2",
+                        "position": [
+                            -730.60302734375,
+                            2.398653030395508,
+                            734.2632446289063
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -700.2744750976563,
+                            1.953711986541748,
+                            563.4212036132813
+                        ],
+                        "id": 74,
+                        "name": "戦車03_3",
+                        "position": [
+                            -789.7339477539063,
+                            5.2868242263793945,
+                            655.3131713867188
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -661.4195556640625,
+                            11.547046661376953,
+                            989.2227172851563
+                        ],
+                        "id": 75,
+                        "name": "敵03_1",
+                        "position": [
+                            -661.4195556640625,
+                            11.54704475402832,
+                            989.2227172851563
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -915.1818237304688,
+                            9.40414047241211,
+                            885.4820556640625
+                        ],
+                        "id": 76,
+                        "name": "敵03_2",
+                        "position": [
+                            -915.1818237304688,
+                            9.404138565063477,
+                            885.4820556640625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -987.1370849609375,
+                            13.07059097290039,
+                            603.4508056640625
+                        ],
+                        "id": 77,
+                        "name": "敵03_3",
+                        "position": [
+                            -987.1370849609375,
+                            13.070589065551758,
+                            603.4508056640625
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "増援04",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            478.9344177246094,
+                            13.931083679199219,
+                            -401.67169189453125
+                        ],
+                        "id": 78,
+                        "name": "小隊04_1",
+                        "position": [
+                            478.9344177246094,
+                            -6.068915843963623,
+                            -401.67169189453125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            478.9344177246094,
+                            13.931083679199219,
+                            -401.67169189453125
+                        ],
+                        "id": 78,
+                        "name": "小隊04_1B",
+                        "position": [ 457.6676331, -5.196762562, -401.1928711 ]
+                    },
+                    {
+                        "facing": [
+                            478.9344177246094,
+                            13.931083679199219,
+                            -401.67169189453125
+                        ],
+                        "id": 78,
+                        "name": "小隊04_1C",
+                        "position": [ 454.5898132, -3.79346633, -422.9920654 ]
+                    },
+                    {
+                        "facing": [
+                            478.9344177246094,
+                            13.931083679199219,
+                            -401.67169189453125
+                        ],
+                        "id": 78,
+                        "name": "小隊04_1D",
+                        "position": [ 502.4585876, -5.763553619, -446.7012939 ]
+                    },
+                    {
+                        "facing": [
+                            478.9344177246094,
+                            13.931083679199219,
+                            -401.67169189453125
+                        ],
+                        "id": 78,
+                        "name": "小隊04_1E",
+                        "position": [ 504.1731262, -6.578197479, -411.1233215 ]
+                    },
+                    {
+                        "facing": [
+                            411.2987365722656,
+                            19.019113540649414,
+                            -457.8819885253906
+                        ],
+                        "id": 79,
+                        "name": "小隊04_2",
+                        "position": [
+                            411.2987365722656,
+                            -0.9808859825134277,
+                            -457.8819885253906
+                        ]
+                    },
+                    {
+                        "facing": [
+                            411.2987365722656,
+                            19.019113540649414,
+                            -457.8819885253906
+                        ],
+                        "id": 79,
+                        "name": "小隊04_2B",
+                        "position": [ 387.7065735, -0.1143518165, -453.8066711 ]
+                    },
+                    {
+                        "facing": [
+                            411.2987365722656,
+                            19.019113540649414,
+                            -457.8819885253906
+                        ],
+                        "id": 79,
+                        "name": "小隊04_2C",
+                        "position": [ 385.1463623, -0.06167183816, -489.8788147 ]
+                    },
+                    {
+                        "facing": [
+                            411.2987365722656,
+                            19.019113540649414,
+                            -457.8819885253906
+                        ],
+                        "id": 79,
+                        "name": "小隊04_2D",
+                        "position": [ 441.359375, -2.308956861, -499.2052002 ]
+                    },
+                    {
+                        "facing": [
+                            411.2987365722656,
+                            19.019113540649414,
+                            -457.8819885253906
+                        ],
+                        "id": 79,
+                        "name": "小隊04_2E",
+                        "position": [ 437.226532, -2.167921782, -463.2939148 ]
+                    },
+                    {
+                        "facing": [
+                            774.1097412109375,
+                            -12.519584655761719,
+                            -721.4498291015625
+                        ],
+                        "id": 80,
+                        "name": "敵04_1",
+                        "position": [
+                            774.1097412109375,
+                            -32.51958465576172,
+                            -721.4498291015625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            408.25347900390625,
+                            10.0918550491333,
+                            -854.3795166015625
+                        ],
+                        "id": 81,
+                        "name": "敵04_2",
+                        "position": [
+                            408.25347900390625,
+                            -9.9081449508667,
+                            -854.3795166015625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            959.77001953125,
+                            -12.405534744262695,
+                            -371.8731689453125
+                        ],
+                        "id": 82,
+                        "name": "敵04_3",
+                        "position": [
+                            957.0785522460938,
+                            -12.724169731140137,
+                            -371.46533203125
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "増援05",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            777.7830810546875,
+                            8.736653327941895,
+                            593.4043579101563
+                        ],
+                        "id": 83,
+                        "name": "戦車05_1",
+                        "position": [
+                            777.7830810546875,
+                            -11.263346672058105,
+                            593.4043579101563
+                        ]
+                    },
+                    {
+                        "facing": [
+                            836.6181640625,
+                            9.472711563110352,
+                            497.15142822265625
+                        ],
+                        "id": 84,
+                        "name": "戦車05_2",
+                        "position": [
+                            836.6181640625,
+                            -10.527288436889648,
+                            497.15142822265625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            668.5968627929688,
+                            15.170153617858887,
+                            656.88818359375
+                        ],
+                        "id": 85,
+                        "name": "戦車05_3",
+                        "position": [
+                            668.5968627929688,
+                            -4.829845905303955,
+                            656.88818359375
+                        ]
+                    },
+                    {
+                        "facing": [
+                            893.6436767578125,
+                            13.331398963928223,
+                            710.4266357421875
+                        ],
+                        "id": 86,
+                        "name": "敵05_1",
+                        "position": [
+                            893.6436767578125,
+                            -6.668601036071777,
+                            710.4266357421875
+                        ]
+                    },
+                    {
+                        "facing": [
+                            1009.6539306640625,
+                            18.71692657470703,
+                            782.7373657226563
+                        ],
+                        "id": 87,
+                        "name": "敵05_2",
+                        "position": [
+                            1009.6539306640625,
+                            -1.2830740213394165,
+                            782.7373657226563
+                        ]
+                    },
+                    {
+                        "facing": [
+                            1139.084716796875,
+                            23.24409294128418,
+                            868.83251953125
+                        ],
+                        "id": 88,
+                        "name": "敵05_3",
+                        "position": [
+                            1139.084716796875,
+                            3.2440919876098633,
+                            868.83251953125
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "増援06",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            -822.2578125,
+                            -1.441038966178894,
+                            -457.5513916015625
+                        ],
+                        "id": 89,
+                        "name": "ニクス06_1",
+                        "position": [
+                            -876.6433715820313,
+                            -1.4664080142974854,
+                            -494.2969055175781
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -780.3132934570313,
+                            -3.184180974960327,
+                            -526.6478271484375
+                        ],
+                        "id": 90,
+                        "name": "ニクス06_2",
+                        "position": [
+                            -819.9015502929688,
+                            -1.999608039855957,
+                            -551.0372924804688
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -1147.50830078125,
+                            7.792271137237549,
+                            -564.47998046875
+                        ],
+                        "id": 91,
+                        "name": "敵06_1",
+                        "position": [
+                            -1147.50830078125,
+                            -12.20772933959961,
+                            -564.47998046875
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -1117.627197265625,
+                            3.6827890872955322,
+                            -616.8692016601563
+                        ],
+                        "id": 92,
+                        "name": "敵06_2",
+                        "position": [
+                            -1117.627197265625,
+                            -16.317211151123047,
+                            -616.8692016601563
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -1081.9825439453125,
+                            -1.2037769556045532,
+                            -676.92236328125
+                        ],
+                        "id": 93,
+                        "name": "敵06_3",
+                        "position": [
+                            -1081.9825439453125,
+                            -21.203777313232422,
+                            -676.92236328125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -1040.897705078125,
+                            -3.7644479274749756,
+                            -730.8897094726563
+                        ],
+                        "id": 94,
+                        "name": "敵06_4",
+                        "position": [
+                            -1040.897705078125,
+                            -23.764448165893555,
+                            -730.8897094726563
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -1007.7600708007813,
+                            -6.0080342292785645,
+                            -784.2642822265625
+                        ],
+                        "id": 95,
+                        "name": "敵06_5",
+                        "position": [
+                            -1007.7600708007813,
+                            -26.008033752441406,
+                            -784.2642822265625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -972.978515625,
+                            -8.662919998168945,
+                            -838.8789672851563
+                        ],
+                        "id": 96,
+                        "name": "敵06_6",
+                        "position": [
+                            -972.978515625,
+                            -28.662919998168945,
+                            -838.8789672851563
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -925.3680419921875,
+                            -9.829862594604492,
+                            -896.988037109375
+                        ],
+                        "id": 97,
+                        "name": "敵06_7",
+                        "position": [
+                            -925.3680419921875,
+                            -29.829862594604492,
+                            -896.988037109375
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -898.6278686523438,
+                            -8.413322448730469,
+                            -944.0543212890625
+                        ],
+                        "id": 98,
+                        "name": "敵06_8",
+                        "position": [
+                            -898.6278686523438,
+                            -28.41332244873047,
+                            -944.0543212890625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -858.6467895507813,
+                            -7.059815883636475,
+                            -985.289794921875
+                        ],
+                        "id": 99,
+                        "name": "敵06_9",
+                        "position": [
+                            -858.6467895507813,
+                            -27.059816360473633,
+                            -985.289794921875
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -826.759033203125,
+                            -5.889925003051758,
+                            -1018.9653930664063
+                        ],
+                        "id": 100,
+                        "name": "敵06_10",
+                        "position": [
+                            -826.759033203125,
+                            -25.889925003051758,
+                            -1018.9653930664063
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "増援07",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            298.2860412597656,
+                            16.198610305786133,
+                            -778.2759399414063
+                        ],
+                        "id": 101,
+                        "name": "戦車07_1",
+                        "position": [
+                            298.2860412597656,
+                            -3.8013899326324463,
+                            -778.2759399414063
+                        ]
+                    },
+                    {
+                        "facing": [
+                            398.5539855957031,
+                            13.85062026977539,
+                            -732.237548828125
+                        ],
+                        "id": 102,
+                        "name": "戦車07_2",
+                        "position": [
+                            398.5539855957031,
+                            -6.149378776550293,
+                            -732.237548828125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            449.6404724121094,
+                            9.284939765930176,
+                            -894.2589111328125
+                        ],
+                        "id": 103,
+                        "name": "敵07_1",
+                        "position": [
+                            449.6404724121094,
+                            -10.715060234069824,
+                            -894.2589111328125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            581.9892578125,
+                            16.274555206298828,
+                            -1142.367919921875
+                        ],
+                        "id": 104,
+                        "name": "敵07_2",
+                        "position": [
+                            581.9892578125,
+                            -3.7254440784454346,
+                            -1142.367919921875
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "増援08",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            -891.0728149414063,
+                            28.03650665283203,
+                            190.9145965576172
+                        ],
+                        "id": 105,
+                        "name": "小隊08_1",
+                        "position": [
+                            -891.0728149414063,
+                            8.036505699157715,
+                            190.9145965576172
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -891.0728149414063,
+                            28.03650665283203,
+                            190.9145965576172
+                        ],
+                        "id": 105,
+                        "name": "小隊08_1B",
+                        "position": [ -864.4039917, 6.26509428, 186.2497101 ]
+                    },
+                    {
+                        "facing": [
+                            -891.0728149414063,
+                            28.03650665283203,
+                            190.9145965576172
+                        ],
+                        "id": 105,
+                        "name": "小隊08_1C",
+                        "position": [ -867.5949707, 6.478074074, 156.2706909 ]
+                    },
+                    {
+                        "facing": [
+                            -907.9698486328125,
+                            29.694185256958008,
+                            73.8543930053711
+                        ],
+                        "id": 106,
+                        "name": "小隊08_2",
+                        "position": [
+                            -907.9698486328125,
+                            9.694185256958008,
+                            73.8543930053711
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -907.9698486328125,
+                            29.694185256958008,
+                            73.8543930053711
+                        ],
+                        "id": 106,
+                        "name": "小隊08_2B",
+                        "position": [ -888.5397339, 8.279589653, 41.90443802 ]
+                    },
+                    {
+                        "facing": [
+                            -907.9698486328125,
+                            29.694185256958008,
+                            73.8543930053711
+                        ],
+                        "id": 106,
+                        "name": "小隊08_2C",
+                        "position": [ -934.4953613, 11.54954624, 36.0935173 ]
+                    },
+                    {
+                        "facing": [
+                            -896.3419189453125,
+                            28.47266387939453,
+                            -14.11990737915039
+                        ],
+                        "id": 107,
+                        "name": "小隊08_3",
+                        "position": [
+                            -896.3419189453125,
+                            8.472664833068848,
+                            -14.11990737915039
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -896.3419189453125,
+                            28.47266387939453,
+                            -14.11990737915039
+                        ],
+                        "id": 107,
+                        "name": "小隊08_3B",
+                        "position": [ -873.9318848, 6.538925648, -49.55859375 ]
+                    },
+                    {
+                        "facing": [
+                            -896.3419189453125,
+                            28.47266387939453,
+                            -14.11990737915039
+                        ],
+                        "id": 107,
+                        "name": "小隊08_3C",
+                        "position": [ -915.1633301, 9.668652534, -56.26096344 ]
+                    },
+                    {
+                        "facing": [ 5.682346344, 0.6773584485, 320.4963684 ],
+                        "id": 107,
+                        "name": "TRANSPORT",
+                        "position": [ 25.36543846, -0.5484842062, 306.7844849 ]
+                    },
+                    {
+                        "facing": [ 85.20394135, 70, -947.0579224 ],
+                        "id": 107,
+                        "name": "TRANSPORT_ORIGIN",
+                        "position": [ 91.98868561, 70, -999 ]
+                    },
+                    {
+                        "facing": [
+                            -1059.0645751953125,
+                            33.671085357666016,
+                            269.302978515625
+                        ],
+                        "id": 108,
+                        "name": "敵08_1",
+                        "position": [
+                            -1059.0645751953125,
+                            13.671085357666016,
+                            269.302978515625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -1104.82568359375,
+                            34.709877014160156,
+                            161.52792358398438
+                        ],
+                        "id": 109,
+                        "name": "敵08_2",
+                        "position": [
+                            -1104.82568359375,
+                            14.709878921508789,
+                            161.52792358398438
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -1131.655029296875,
+                            35.356380462646484,
+                            45.62063980102539
+                        ],
+                        "id": 110,
+                        "name": "敵08_3",
+                        "position": [
+                            -1131.655029296875,
+                            15.356380462646484,
+                            45.62063980102539
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -1110.841064453125,
+                            34.54615783691406,
+                            -76.31776428222656
+                        ],
+                        "id": 111,
+                        "name": "敵08_4",
+                        "position": [
+                            -1110.841064453125,
+                            14.546157836914063,
+                            -76.31776428222656
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -1062.7232666015625,
+                            34.18547821044922,
+                            -158.48680114746094
+                        ],
+                        "id": 112,
+                        "name": "敵08_5",
+                        "position": [
+                            -1062.7232666015625,
+                            14.185477256774902,
+                            -158.48680114746094
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "増援09",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            163.8223876953125,
+                            26.055099487304688,
+                            794.02880859375
+                        ],
+                        "id": 113,
+                        "name": "戦車09_1",
+                        "position": [
+                            198.3010711669922,
+                            0.8806380033493042,
+                            859.189453125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            354.13134765625,
+                            -0.6272469758987427,
+                            702.5089111328125
+                        ],
+                        "id": 114,
+                        "name": "戦車09_2",
+                        "position": [
+                            379.2643737792969,
+                            2.5601630210876465,
+                            740.5484619140625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            344.4523010253906,
+                            13.353668212890625,
+                            1297.2703857421875
+                        ],
+                        "id": 115,
+                        "name": "敵09_1",
+                        "position": [
+                            344.4523010253906,
+                            -6.646330833435059,
+                            1297.2703857421875
+                        ]
+                    },
+                    {
+                        "facing": [
+                            11.256345748901367,
+                            1.540917992591858,
+                            891.302734375
+                        ],
+                        "id": 116,
+                        "name": "戦車09_3",
+                        "position": [
+                            30.229280471801758,
+                            3.019573926925659,
+                            942.2508544921875
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "増援10",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            -163.2271728515625,
+                            -1.781749963760376,
+                            -663.3221435546875
+                        ],
+                        "id": 117,
+                        "name": "プロテウス10_1",
+                        "position": [
+                            -182.16957092285156,
+                            -2.233886957168579,
+                            -738.7179565429688
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -167.044677734375,
+                            -4.386950969696045,
+                            -758.0465698242188
+                        ],
+                        "id": 118,
+                        "name": "プロテウス10_2",
+                        "position": [
+                            -195.81317138671875,
+                            -7.57455587387085,
+                            -868.0740966796875
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -699.0494384765625,
+                            121.45184326171875,
+                            -721.9735717773438
+                        ],
+                        "id": 119,
+                        "name": "敵10_1",
+                        "position": [
+                            -714.9422607421875,
+                            -29.30213737487793,
+                            -906.9634399414063
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -361.45843505859375,
+                            242.70916748046875,
+                            -838.2002563476563
+                        ],
+                        "id": 120,
+                        "name": "敵10_2",
+                        "position": [
+                            -491.47955322265625,
+                            -24.94277572631836,
+                            -1102.25
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -160.84033203125,
+                            29.636642456054688,
+                            -941.6840209960938
+                        ],
+                        "id": 121,
+                        "name": "敵10_3",
+                        "position": [
+                            -70.39002990722656,
+                            -10.12938404083252,
+                            -1152.6981201171875
+                        ]
+                    },
+                    {
+                        "facing": [
+                            391.1961669921875,
+                            24.54419708251953,
+                            -1000.345703125
+                        ],
+                        "id": 122,
+                        "name": "敵10_4",
+                        "position": [
+                            320.69989013671875,
+                            0.01818300038576126,
+                            -1037.555908203125
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "増援11",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            -181.9768829345703,
+                            -1.0955859422683716,
+                            711.9263305664063
+                        ],
+                        "id": 123,
+                        "name": "バルガ11_1",
+                        "position": [
+                            -221.6294403076172,
+                            0.5180330276489258,
+                            900.668212890625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -53.686004638671875,
+                            99.51354217529297,
+                            1112.322265625
+                        ],
+                        "id": 124,
+                        "name": "敵11_1",
+                        "position": [
+                            -25.557376861572266,
+                            -1.6864540576934814,
+                            1343.6187744140625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -268.4128723144531,
+                            166.96871948242188,
+                            939.8059692382813
+                        ],
+                        "id": 125,
+                        "name": "敵11_2",
+                        "position": [
+                            -359.8165283203125,
+                            5.2959442138671875,
+                            1360.30615234375
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -450.822509765625,
+                            37.494991302490234,
+                            983.275634765625
+                        ],
+                        "id": 126,
+                        "name": "敵11_3",
+                        "position": [
+                            -594.6088256835938,
+                            13.804458618164063,
+                            1165.60595703125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -383.273681640625,
+                            20.82493591308594,
+                            1381.12109375
+                        ],
+                        "id": 127,
+                        "name": "敵11_4",
+                        "position": [
+                            -437.531005859375,
+                            20.82492065429688,
+                            1581.6986083984375
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

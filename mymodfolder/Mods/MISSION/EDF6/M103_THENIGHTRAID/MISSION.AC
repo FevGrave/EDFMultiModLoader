@@ -1,0 +1,1394 @@
+﻿//
+// The Night Raid
+//
+
+#include "app:/Mission/AsCommon.h"
+
+Talkers g_soldiers;
+
+class __EventData {
+	uint m_counter  = 0;
+	bool m_is_break = false;
+	bool m_is_pass = false;
+	internal_SyncCounter m_game_thread_sync;
+	internal_SyncCounter m_voice_thread_sync;
+	Mutex m_mutex;
+};
+
+__EventData __0000_data;
+__EventData __0001_data;
+__EventData __0002_data;
+__EventData __0003_data;
+__EventData __0004_data;
+__EventData __0005_data;
+__EventData __0006_data;
+__EventData __0007_data;
+__EventData __0008_data;
+__EventData __0009_data;
+__EventData __000A_data;
+
+const uint __END_SYNC = 0x7fffffff;
+
+// [e2d_section_data] {"GUID":null,"Name":"グローバル定義","Type":"Global"}
+//フラグリストの情報
+Object squad01;
+Object squad03;
+
+Object tank01;
+Object tank02;
+Object tank03;
+Object tank04;
+
+Object SQUAD1_1;
+Object SQUAD1_2;
+Object SQUAD1_3;
+Object SQUAD1_4;
+Object SQUAD1_5;
+
+Object SQUAD2_1;
+Object SQUAD2_2;
+Object SQUAD2_3;
+Object SQUAD2_4;
+Object SQUAD2_5;
+Object SQUAD2_6;
+
+float cannon_radius = 200.0f;
+int cannon_count = 8;
+
+int air_raid_count = 0;
+float silver_level = 1.0f;
+float gold_level = 0.8f;
+float green_level = 0.9f;
+
+
+//EDF6にてプレイヤーに当てるために作成した空爆の調整のために追加
+float cannon_interval = 0.3f;
+int EDF6_cannon_count = 10;
+float EDF6_cannon_radius = 150;
+
+//======================================
+// 開始
+void Main()
+{
+	if( IsBoolState(0,::__0000_data.m_is_break,::__0000_data.m_is_break) ) return;
+	
+	::__0000_data.m_counter++;
+	const uint32 MAX_EVENT_ID = 10;
+	internal_Initialize(MAX_EVENT_ID);
+	internal_GetEventState(0).SetName("開始");
+	internal_GetEventState(1).SetName("戦車隊砲撃開始");
+	internal_GetEventState(2).SetName("空爆1回目、正面からプレイヤー側に向かって爆撃");
+	internal_GetEventState(3).SetName("wave2");
+	internal_GetEventState(4).SetName("空爆2回目、敵を横薙ぎに空爆");
+	internal_GetEventState(5).SetName("wave3");
+	internal_GetEventState(6).SetName("空爆3回目");
+	internal_GetEventState(7).SetName("wave4");
+	internal_GetEventState(8).SetName("終了");
+	internal_GetEventState(9).SetName("空爆4回目");
+	internal_GetEventState(10).SetName("同じ軌道で空爆追加(敵が強めなので)");
+	
+	Mutex_LockObject@ __internal_thread_lock = ::__0000_data.m_mutex.Lock();
+	internal_InitEventThread(0, ::__0000_data.m_counter, "Main", "開始");
+	
+	// --------------------- pre loading begin.
+	BeginLoading();
+	PreloadMap("app:/map/nw_Seiyu_night.mac", "night", -1);
+	Preload("app:/ui/UiResourceGroup_InMission.sgo", -1);
+	Preload("app:/ui/UiResourceGroup_MissionCleared.sgo", -1);
+	Preload("app:/ui/UiResourceGroup_MissionFailed.sgo", -1);
+	Preload("app:/object/AiHeavyArmor_SMC_Leader.sgo", -1);
+	Preload("app:/object/AiHeavyArmor_SMC.sgo", -1);
+	Preload("app:/object/AiArmySoldier_SN_Leader.sgo", -1);
+	Preload("app:/object/AiArmySoldier_SN.sgo", -1);
+	Preload("app:/object/AiArmySoldier_AF_Leader.sgo", -1);
+	Preload("app:/object/AiArmySoldier_AF.sgo", -1);
+	Preload("app:/object/AiPaleWing_IZN_Leader.sgo", -1);
+	Preload("app:/object/AiPaleWing_IZN.sgo", -1);
+	Preload("app:/object/v603_flak_ai.sgo", -1);
+	Preload("app:/object/v601_tank_ai.sgo", -1);
+	Preload("app:/object/e602_berserker.sgo", -1);
+	Preload("app:/object/DemoIndirectFireE25.sgo", -1);
+	Preload("app:/object/e602_berserker_bommer.sgo", -1);
+	Preload("app:/object/e602_berserker_middle_bommer.sgo", -1);
+	Preload("app:/object/DemoAirStrikeE25_10.sgo", -1);
+	Preload("app:/object/e602_berserker_grapple.sgo", -1);
+	Preload("app:/object/e602_berserker_large_punch.sgo", -1);
+	Preload("app:/object/e602_berserker_middle_punch.sgo", -1);
+	PreloadPlayerResource();
+	WaitPreload();
+	Online_WaitStart();
+	EndLoading();
+	// --------------------- pre loading end.
+
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0000_data.m_game_thread_sync.Reset();
+	::__0000_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0000_voice_event");
+
+	Main_usercode();
+	
+	::__0000_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void Main_usercode()
+{
+	// [e2d_section_data] {"GUID":"3cb0734c-d878-4072-b106-6e875ce147cb","Name":"開始","Type":"game_script"}
+	if( IsBoolState(0,::__0000_data.m_is_pass,::__0000_data.m_is_pass) == false){
+		//Map("app:/Map/ig_WreckTown01.mac", "fine" );
+		//Map("app:/Map/ig_WreckTown01.mac", "FineCloud" );
+		//Map("app:/Map/ig_WreckTown01.mac", "cloudy" );
+		//Map("app:/Map/ig_WreckTown01.mac", "cloudy2" );
+		//Map("app:/Map/ig_WreckTown01.mac", "evening" );
+		//Map("app:/Map/ig_WreckTown01.mac", "sunset" );
+
+		//2000mのマップだとプレイヤーが空爆範囲外に逃げることができるので、狭いマップに変更しました。
+		//Map("app:/map/ig_2000mCity601.mac" /*マップファイルパス*/, "fine" /*天候名*/);
+
+		Map("app:/map/nw_Seiyu_night.mac" /*マップファイルパス*/, "night" /*天候名*/);
+		//Map("app:/map/nw_Seiyu.mac"/*マップファイルパス*/, "fine" /*天候名*/);
+
+
+
+		//プレイヤー付近のオブジェクトを破壊
+		MapObjectDestroy("破壊01");
+		MapObjectDestroy("破壊02");
+		MapObjectDestroy("破壊03");
+		MapObjectDestroy("破壊04");
+
+		//遠くから敵が大量に来ているのを見えるように、マップ上の建物を間引いておく
+		MapObjectDestroy4_Group("破壊2" /*エリアグループ名*/, MOD4_FLAG_IGNORE_SMALL /*MapObjectDestroy4Flags 列挙型の値組み合わせ*/);
+		MapObjectDestroy4_Group("破壊3" /*エリアグループ名*/, 0 /*MapObjectDestroy4Flags 列挙型の値組み合わせ*/);
+
+
+		CreatePlayer("プレイヤー");
+
+		Bgm("BGM_inGame_Soutousen");
+
+		Merman_FogScene(0, 0, 0, 0.25);
+		SceneEffect_Snow(0.5f, 0.8f, 10000, 0.05);
+
+		//味方兵士は空爆に当たってもすぐに死なないように耐久値を倍に設定
+		squad01 = CreateFriendSquad( "小隊01",
+		                            15.0f,
+		                            "app:/object/AiHeavyArmor_SMC_Leader.sgo",
+		                            "app:/object/AiHeavyArmor_SMC.sgo",
+		                            5,
+		                            1.0f,
+		                            TRUE ).SetDurability(200).SetAutoResurrection(true);
+
+		SQUAD1_1=CreateFriend(
+			"小隊02",
+			"app:/object/AiArmySoldier_SN_Leader.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_1);
+		}
+
+		SQUAD1_2=CreateFriend(
+			"小隊02B",
+			"app:/object/AiArmySoldier_SN.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_2);
+		}
+
+		SQUAD1_3=CreateFriend(
+			"小隊02C",
+			"app:/object/AiArmySoldier_SN.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_3);
+		}
+
+		SQUAD1_4=CreateFriend(
+			"小隊02D",
+			"app:/object/AiArmySoldier_SN.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_4);
+		}
+
+		SQUAD1_5=CreateFriend(
+			"小隊02E",
+			"app:/object/AiArmySoldier_SN.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_5_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_5);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_5_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_5);
+		}
+
+		squad03 = CreateFriendSquad( "小隊03",
+		                            15.0f,
+		                            "app:/object/AiPaleWing_IZN_Leader.sgo",
+		                            "app:/object/AiPaleWing_IZN.sgo",
+		                            4,
+		                            1.0f,
+		                            TRUE ).SetAutoResurrection(true);
+
+		SQUAD2_1=CreateFriend(
+			"小隊04",
+			"app:/object/AiArmySoldier_AF_Leader.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_1);
+		}
+
+		SQUAD2_2=CreateFriend(
+			"小隊04B",
+			"app:/object/AiArmySoldier_AF.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_2);
+		}
+
+		SQUAD2_3=CreateFriend(
+			"小隊04C",
+			"app:/object/AiArmySoldier_AF.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_3);
+		}
+
+		SQUAD2_4=CreateFriend(
+			"小隊04D",
+			"app:/object/AiArmySoldier_AF.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_4);
+		}
+
+		SQUAD2_5=CreateFriend(
+			"小隊04E",
+			"app:/object/AiArmySoldier_AF.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_5_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_5);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_5_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_5);
+		}
+
+		SQUAD2_6=CreateFriend(
+			"小隊04F",
+			"app:/object/AiArmySoldier_AF.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_6_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_6);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_6_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_6);
+		}
+
+		SetAiFormationRadius( squad01, 15.0f );
+		SetAiFormationRadius( SQUAD1_1, 15.0f );
+		SetAiFormationRadius( SQUAD1_2, 15.0f );
+		SetAiFormationRadius( SQUAD1_3, 15.0f );
+		SetAiFormationRadius( SQUAD1_4, 15.0f );
+		SetAiFormationRadius( SQUAD1_5, 15.0f );
+		SetAiFormationRadius( squad03, 15.0f );
+		SetAiFormationRadius( SQUAD2_1, 15.0f );
+		SetAiFormationRadius( SQUAD2_2, 15.0f );
+		SetAiFormationRadius( SQUAD2_3, 15.0f );
+		SetAiFormationRadius( SQUAD2_4, 15.0f );
+		SetAiFormationRadius( SQUAD2_5, 15.0f );
+		SetAiFormationRadius( SQUAD2_6, 15.0f );
+
+		{
+			// 戦車追加
+			tank01 = CreateFriend( "戦車01", "app:/object/v603_flak_ai.sgo", 1.0f, FALSE ).SetDurability(200);
+			tank02 = CreateFriend( "戦車02", "app:/object/v603_flak_ai.sgo", 1.0f, FALSE ).SetDurability(200);
+			tank03 = CreateFriend( "戦車03", "app:/object/v601_tank_ai.sgo", 1.0f, FALSE ).SetDurability(200);
+			tank04 = CreateFriend( "戦車04", "app:/object/v601_tank_ai.sgo", 1.0f, FALSE ).SetDurability(200);
+		}
+
+
+		{
+			int count = 10;
+
+			//プレイヤー正面の敵かつwave1なのでボリュームを持たせるために多めに配置
+			CreateEnemyGroup_Area(
+				"敵1_01",	// エリア名
+				"app:/object/e602_berserker.sgo",	// sgo ファイルパス
+				50,	// 作成数
+				1,	// レベル（標準：1）
+				true	// true に設定すると遭遇状態
+			);
+			CreateEnemyGroup_Area(
+				"敵1_02",	// エリア名
+				"app:/object/e602_berserker.sgo",	// sgo ファイルパス
+				count,	// 作成数
+				1,	// レベル（標準：1）
+				true	// true に設定すると遭遇状態
+			);
+
+			CreateEnemyGroup_Area(
+				"敵1_03",	// エリア名
+				"app:/object/e602_berserker.sgo",	// sgo ファイルパス
+				count,	// 作成数
+				1,	// レベル（標準：1）
+				true	// true に設定すると遭遇状態
+			);
+
+		}
+	}
+	// -----------------
+	::__0000_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0001_game_event", "戦車隊砲撃開始", 0.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 1); // 戦車隊砲撃開始
+		// [e2d_section_data] {"GUID":"95180677-33c6-4b05-a4b1-cc76b32e2cc9","Name":"Link from [開始]","Type":"Link"}
+		e.Factor_WaitNC(10.0f);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0002_game_event", "空爆1回目、正面からプレイヤー側に向かって爆撃", 1.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 1); // 空爆1回目、正面からプレイヤー側に向かって爆撃
+		// [e2d_section_data] {"GUID":"48e397c1-544c-4ca6-bede-1c305f44341d","Name":"Link from [開始]","Type":"Link"}
+		e.Factor_WaitNC(20);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0003_game_event", "wave2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // wave2
+		// [e2d_section_data] {"GUID":"01f4aa2d-5c62-4057-8b3c-cf3abbabb028","Name":"Link from [開始]","Type":"Link"}
+		e.Factor_TeamObjectCount( TEAM_ID_ENEMY, 5);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0017_game_event", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+		e.Factor_Wait(10.0f);
+	}
+}
+
+void __0000_voice_event()
+{
+	__0000_voice_event_usercode();
+	
+	::__0000_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0000_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"3cb0734c-d878-4072-b106-6e875ce147cb","Name":"開始","Type":"voice_script"}
+	if( IsBoolState(0,::__0000_data.m_is_pass,::__0000_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//======================================
+// 戦車隊砲撃開始
+void __0001_game_event()
+{
+	if( IsBoolState(1,::__0001_data.m_is_break,::__0001_data.m_is_break) ) return;
+	
+	::__0001_data.m_counter++;
+	if( ::__0001_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0001_data.m_mutex.Lock();
+	internal_InitEventThread(1, ::__0001_data.m_counter, "__0001_game_event", "戦車隊砲撃開始");
+	
+	__0001_game_event_usercode();
+}
+
+void __0001_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"ac8268e8-8ebc-4b47-a9ea-bb8507ed5e72","Name":"戦車隊砲撃開始","Type":"game_script"}
+	if( IsBoolState(1,::__0001_data.m_is_pass,::__0001_data.m_is_pass) == false){
+		SetAiVehicleAttack(tank01, TRUE );
+		SetAiVehicleAttack(tank02, TRUE );
+		SetAiVehicleAttack(tank03, TRUE );
+		SetAiVehicleAttack(tank04, TRUE );
+	}
+}
+
+//======================================
+// 空爆1回目、正面からプレイヤー側に向かって爆撃
+void __0002_game_event()
+{
+	if( IsBoolState(2,::__0002_data.m_is_break,::__0002_data.m_is_break) ) return;
+	
+	::__0002_data.m_counter++;
+	if( ::__0002_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0002_data.m_mutex.Lock();
+	internal_InitEventThread(2, ::__0002_data.m_counter, "__0002_game_event", "空爆1回目、正面からプレイヤー側に向かって爆撃");
+	
+	__0002_game_event_usercode();
+}
+
+void __0002_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"90b7618e-1325-44a5-b32b-f113a9874c72","Name":"空爆1回目、正面からプレイヤー側に向かって爆撃","Type":"game_script"}
+	if( IsBoolState(2,::__0002_data.m_is_pass,::__0002_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		float interval = 3;
+
+		PointAirStrike("砲撃1_01", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃1_02", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃1_03", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃1_04", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃1_05", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃1_06", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃1_07", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+
+
+
+		/*
+		Wait(interval);
+		PointAirStrike("砲撃1_08", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃1_09", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃1_10", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		 */
+	}
+}
+
+//======================================
+// wave2
+void __0003_game_event()
+{
+	if( IsBoolState(3,::__0003_data.m_is_break,::__0003_data.m_is_break) ) return;
+	
+	::__0003_data.m_counter++;
+	if( ::__0003_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0003_data.m_mutex.Lock();
+	internal_InitEventThread(3, ::__0003_data.m_counter, "__0003_game_event", "wave2");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0003_data.m_game_thread_sync.Reset();
+	::__0003_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0003_voice_event");
+
+	__0003_game_event_usercode();
+	
+	::__0003_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0003_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0003_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"51a37333-665c-4e65-b6b5-727f74bdee02","Name":"wave2","Type":"game_script"}
+	if( IsBoolState(3,::__0003_data.m_is_pass,::__0003_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+		/*
+		CreateEnemyGroup_Area(
+			"敵2_02",	// エリア名
+			"app:/object/e602_berserker_bommer_st.sgo",	// sgo ファイルパス
+			60,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+
+		CreateEnemyGroup_Area(
+			"敵2_02",	// エリア名
+			"app:/object/e602_berserker_middle_bommer.sgo",	// sgo ファイルパス
+			3,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+		 */
+
+
+		/*
+		CreateEnemyGroup_Area(
+			"敵2_02",	// エリア名
+			"app:/object/e602_berserker_grapple.sgo",	// sgo ファイルパス
+			70,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+
+		CreateEnemy(
+			"敵2_02",	// 配置ポイント
+			"app:/object/e602_berserker_middle_punch.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+		CreateEnemy(
+			"敵2_03",	// 配置ポイント
+			"app:/object/e602_berserker_middle_punch.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+		 */
+
+		CreateEnemyGroup_Area(
+			"敵2_01",	// エリア名
+			"app:/object/e602_berserker_bommer.sgo",	// sgo ファイルパス
+			70,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+
+		CreateEnemy(
+			"敵2_02",	// 配置ポイント
+			"app:/object/e602_berserker_middle_bommer.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+
+		CreateEnemy(
+			"敵2_03",	// 配置ポイント
+			"app:/object/e602_berserker_middle_bommer.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+
+
+
+
+	}
+	// -----------------
+	::__0003_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0003_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0004_game_event", "空爆2回目、敵を横薙ぎに空爆", 0.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 1); // 空爆2回目、敵を横薙ぎに空爆
+		// [e2d_section_data] {"GUID":"2872d7cc-ee47-4658-ad07-3f5287264db6","Name":"Link from [wave2]","Type":"Link"}
+		e.Factor_WaitNC(30.0f);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0005_game_event", "wave3", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // wave3
+		// [e2d_section_data] {"GUID":"9c56b351-91df-4de0-b0f0-39cc202cbbe2","Name":"Link from [wave2]","Type":"Link"}
+		e.Factor_TeamObjectCount( TEAM_ID_ENEMY, 5);
+	}
+}
+
+void __0003_voice_event()
+{
+	__0003_voice_event_usercode();
+	
+	::__0003_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0003_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0003_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"51a37333-665c-4e65-b6b5-727f74bdee02","Name":"wave2","Type":"voice_script"}
+	if( IsBoolState(3,::__0003_data.m_is_pass,::__0003_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//======================================
+// 空爆2回目、敵を横薙ぎに空爆
+void __0004_game_event()
+{
+	if( IsBoolState(4,::__0004_data.m_is_break,::__0004_data.m_is_break) ) return;
+	
+	::__0004_data.m_counter++;
+	Mutex_LockObject@ __internal_thread_lock = ::__0004_data.m_mutex.Lock();
+	internal_InitEventThread(4, ::__0004_data.m_counter, "__0004_game_event", "空爆2回目、敵を横薙ぎに空爆");
+	
+	__0004_game_event_usercode();
+}
+
+void __0004_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"00ddbbb7-f827-456f-9660-1f7d6bc1d87a","Name":"空爆2回目、敵を横薙ぎに空爆","Type":"game_script"}
+	if( IsBoolState(4,::__0004_data.m_is_pass,::__0004_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		float Airstrike_interval = 10;
+
+
+		CreateNeutral( "空爆2_01", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆2_02", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆2_03", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆2_04", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆2_05", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆2_06", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆2_07", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+
+		/*
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆2_08", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆2_09", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆2_10", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		 */
+	}
+}
+
+//======================================
+// wave3
+void __0005_game_event()
+{
+	if( IsBoolState(5,::__0005_data.m_is_break,::__0005_data.m_is_break) ) return;
+	
+	::__0005_data.m_counter++;
+	if( ::__0005_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0005_data.m_mutex.Lock();
+	internal_InitEventThread(5, ::__0005_data.m_counter, "__0005_game_event", "wave3");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0005_data.m_game_thread_sync.Reset();
+	::__0005_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0005_voice_event");
+
+	__0005_game_event_usercode();
+	
+	::__0005_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0005_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0005_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"5f6276a8-e81f-4b0e-b8f5-881d64d1c996","Name":"wave3","Type":"game_script"}
+	if( IsBoolState(5,::__0005_data.m_is_pass,::__0005_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+
+		CreateEnemyGroup_Area(
+			"敵3_01",	// エリア名
+			"app:/object/e602_berserker_grapple.sgo",	// sgo ファイルパス
+			50,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+
+		CreateEnemyGroup_Area(
+			"敵3_02",	// エリア名
+			"app:/object/e602_berserker_grapple.sgo",	// sgo ファイルパス
+			50,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+
+
+	}
+	// -----------------
+	::__0005_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0005_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0006_game_event", "空爆3回目", 1.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 1); // 空爆3回目
+		// [e2d_section_data] {"GUID":"49c18177-b4b8-4eeb-b483-44fe1ab2a9fa","Name":"Link from [wave3]","Type":"Link"}
+		e.Factor_WaitNC(40.0f);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0007_game_event", "wave4", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // wave4
+		// [e2d_section_data] {"GUID":"614392b2-4b1a-4e0f-8b20-58b9f4a11664","Name":"Link from [wave3]","Type":"Link"}
+		e.Factor_TeamObjectCount( TEAM_ID_ENEMY, 5);
+	}
+}
+
+void __0005_voice_event()
+{
+	__0005_voice_event_usercode();
+	
+	::__0005_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0005_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0005_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"5f6276a8-e81f-4b0e-b8f5-881d64d1c996","Name":"wave3","Type":"voice_script"}
+	if( IsBoolState(5,::__0005_data.m_is_pass,::__0005_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//======================================
+// 空爆3回目
+void __0006_game_event()
+{
+	if( IsBoolState(6,::__0006_data.m_is_break,::__0006_data.m_is_break) ) return;
+	
+	::__0006_data.m_counter++;
+	if( ::__0006_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0006_data.m_mutex.Lock();
+	internal_InitEventThread(6, ::__0006_data.m_counter, "__0006_game_event", "空爆3回目");
+	
+	__0006_game_event_usercode();
+}
+
+void __0006_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"82e907da-a515-46cd-ba5c-644de2b2f740","Name":"空爆3回目","Type":"game_script"}
+	if( IsBoolState(6,::__0006_data.m_is_pass,::__0006_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+
+		float Airstrike_interval = 10;
+
+		CreateNeutral( "空爆3_10", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆3_09", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆3_08", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆3_07", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆3_06", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆3_05", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆3_04", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+
+		/*
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆3_03", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆3_02", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		Wait(Airstrike_interval);
+		CreateNeutral( "空爆3_01", "app:/object/DemoAirStrikeE25_10.sgo", 1.0f );
+		 */
+	}
+}
+
+//======================================
+// wave4
+void __0007_game_event()
+{
+	if( IsBoolState(7,::__0007_data.m_is_break,::__0007_data.m_is_break) ) return;
+	
+	::__0007_data.m_counter++;
+	if( ::__0007_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0007_data.m_mutex.Lock();
+	internal_InitEventThread(7, ::__0007_data.m_counter, "__0007_game_event", "wave4");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0007_data.m_game_thread_sync.Reset();
+	::__0007_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0007_voice_event");
+
+	__0007_game_event_usercode();
+	
+	::__0007_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0007_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0007_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"180b82ff-2304-45a1-87e1-b3ea891b045a","Name":"wave4","Type":"game_script"}
+	if( IsBoolState(7,::__0007_data.m_is_pass,::__0007_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		CreateEnemyGroup_Area(
+			"敵4_01",	// エリア名
+			"app:/object/e602_berserker_large_punch.sgo",	// sgo ファイルパス
+			1,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+
+		CreateEnemyGroup_Area(
+			"敵4_01",	// エリア名
+			"app:/object/e602_berserker_middle_bommer.sgo",	// sgo ファイルパス
+			4,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+
+		CreateEnemyGroup_Area(
+			"敵4_01",	// エリア名
+			"app:/object/e602_berserker_middle_punch.sgo",	// sgo ファイルパス
+			4,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+
+		CreateEnemyGroup_Area(
+			"敵4_01",	// エリア名
+			"app:/object/e602_berserker.sgo",	// sgo ファイルパス
+			20,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+
+		CreateEnemyGroup_Area(
+			"敵4_02",	// エリア名
+			"app:/object/e602_berserker_large_punch.sgo",	// sgo ファイルパス
+			1,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+
+		CreateEnemyGroup_Area(
+			"敵4_02",	// エリア名
+			"app:/object/e602_berserker_middle_bommer.sgo",	// sgo ファイルパス
+			4,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+
+		CreateEnemyGroup_Area(
+			"敵4_02", 	// エリア名
+			"app:/object/e602_berserker_middle_punch.sgo",	// sgo ファイルパス
+			4,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+
+		CreateEnemyGroup_Area(
+			"敵4_02",	// エリア名
+			"app:/object/e602_berserker.sgo",	// sgo ファイルパス
+			20,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Spawn(0);
+	}
+	// -----------------
+	::__0007_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0007_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0008_game_event", "終了", 100000000.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 終了
+		// [e2d_section_data] {"GUID":"f4b476e2-7d10-4f6d-9cd8-4d3861545843","Name":"Link from [wave4]","Type":"Link"}
+		e.Factor_TeamObjectCount( TEAM_ID_ENEMY, 5);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0009_game_event", "空爆4回目", 1.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 1); // 空爆4回目
+		// [e2d_section_data] {"GUID":"e9b73b11-dec1-40e1-89d9-acc2c39b8831","Name":"Link from [wave4]","Type":"Link"}
+		e.Factor_WaitNC(30.0f);
+	}
+}
+
+void __0007_voice_event()
+{
+	__0007_voice_event_usercode();
+	
+	::__0007_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0007_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0007_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"180b82ff-2304-45a1-87e1-b3ea891b045a","Name":"wave4","Type":"voice_script"}
+	if( IsBoolState(7,::__0007_data.m_is_pass,::__0007_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//======================================
+// 終了
+void __0008_game_event()
+{
+	if( IsBoolState(8,::__0008_data.m_is_break,::__0008_data.m_is_break) ) return;
+	
+	::__0008_data.m_counter++;
+	if( ::__0008_data.m_counter != 1 ) return;
+	if( internal_BeginFinishing() == false ) return; // 終了処理が開始済みなら帰る
+	Mutex_LockObject@ __internal_thread_lock = ::__0008_data.m_mutex.Lock();
+	internal_InitEventThread(8, ::__0008_data.m_counter, "__0008_game_event", "終了");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0008_data.m_game_thread_sync.Reset();
+	::__0008_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0008_voice_event");
+
+	__0008_game_event_usercode();
+	
+	::__0008_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0008_data.m_voice_thread_sync.Wait(__END_SYNC);
+	while(true) sys_Yield();
+}
+
+void __0008_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"51495695-fc7c-4f61-a542-29084797bc08","Name":"終了","Type":"game_script"}
+	if( IsBoolState(8,::__0008_data.m_is_pass,::__0008_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		MissionClear();
+	}
+	// -----------------
+	::__0008_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0008_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0008_voice_event()
+{
+	__0008_voice_event_usercode();
+	
+	::__0008_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0008_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0008_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"51495695-fc7c-4f61-a542-29084797bc08","Name":"終了","Type":"voice_script"}
+	if( IsBoolState(8,::__0008_data.m_is_pass,::__0008_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//======================================
+// 空爆4回目
+void __0009_game_event()
+{
+	if( IsBoolState(9,::__0009_data.m_is_break,::__0009_data.m_is_break) ) return;
+	
+	::__0009_data.m_counter++;
+	if( ::__0009_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0009_data.m_mutex.Lock();
+	internal_InitEventThread(9, ::__0009_data.m_counter, "__0009_game_event", "空爆4回目");
+	
+	__0009_game_event_usercode();
+}
+
+void __0009_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"58884fb2-8f45-4e25-91e1-f8d98119bf82","Name":"空爆4回目","Type":"game_script"}
+	if( IsBoolState(9,::__0009_data.m_is_pass,::__0009_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+		float interval = 3;
+
+		PointAirStrike("砲撃4_01", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃4_02", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃4_03", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃4_04", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃4_05", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃4_06", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃4_07", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+
+		/*
+		Wait(interval);
+		PointAirStrike("砲撃4_08", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃4_09", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃4_10", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		 */
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__000A_game_event", "同じ軌道で空爆追加(敵が強めなので)", 1.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 1); // 同じ軌道で空爆追加(敵が強めなので)
+		// [e2d_section_data] {"GUID":"061ed569-b8ed-4c64-b3e3-61ae4844a690","Name":"Link from [空爆4回目]","Type":"Link"}
+		e.Factor_WaitNC(30.0f);
+	}
+}
+
+//======================================
+// 同じ軌道で空爆追加(敵が強めなので)
+void __000A_game_event()
+{
+	if( IsBoolState(10,::__000A_data.m_is_break,::__000A_data.m_is_break) ) return;
+	
+	::__000A_data.m_counter++;
+	if( ::__000A_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__000A_data.m_mutex.Lock();
+	internal_InitEventThread(10, ::__000A_data.m_counter, "__000A_game_event", "同じ軌道で空爆追加(敵が強めなので)");
+	
+	__000A_game_event_usercode();
+}
+
+void __000A_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"897edfb9-78d0-47ad-aa97-49ae4dcabc5c","Name":"同じ軌道で空爆追加(敵が強めなので)","Type":"game_script"}
+	if( IsBoolState(10,::__000A_data.m_is_pass,::__000A_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		float interval = 3;
+
+		PointAirStrike("砲撃4_01", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃4_02", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃4_03", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃4_04", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃4_05", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃4_06", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+		Wait(interval);
+		PointAirStrike("砲撃4_07", EDF6_cannon_radius, "app:/object/DemoIndirectFireE25.sgo", 1.0f, EDF6_cannon_count, cannon_interval );
+	}
+}
+
+void __0017_game_event()
+{
+		SetEncount(tank01);
+		SetEncount(tank02);
+		SetEncount(tank03);
+		SetEncount(tank04);
+}
+
+
+
+void SQUAD1_1_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD1_1_REVIVE_B()
+{
+		SQUAD1_1.Resurrection();
+}
+
+void SQUAD1_1_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_1, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_1);
+		}
+}
+
+void SQUAD1_2_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD1_2_REVIVE_B()
+{
+		SQUAD1_2.Resurrection();
+}
+
+void SQUAD1_2_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_2, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_2);
+		}
+}
+
+void SQUAD1_3_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD1_3_REVIVE_B()
+{
+		SQUAD1_3.Resurrection();
+}
+
+void SQUAD1_3_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_3, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_3);
+		}
+}
+
+void SQUAD1_4_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD1_4_REVIVE_B()
+{
+		SQUAD1_4.Resurrection();
+}
+
+void SQUAD1_4_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_4, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_4);
+		}
+}
+
+void SQUAD1_5_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_5_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD1_5_REVIVE_B()
+{
+		SQUAD1_5.Resurrection();
+}
+
+void SQUAD1_5_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_5, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_5_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_5);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_5_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_5);
+		}
+}
+
+void SQUAD2_1_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD2_1_REVIVE_B()
+{
+		SQUAD2_1.Resurrection();
+}
+
+void SQUAD2_1_REVIVE_C()
+{
+		SetObjectDurability(SQUAD2_1, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_1);
+		}
+}
+
+void SQUAD2_2_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD2_2_REVIVE_B()
+{
+		SQUAD2_2.Resurrection();
+}
+
+void SQUAD2_2_REVIVE_C()
+{
+		SetObjectDurability(SQUAD2_2, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_2);
+		}
+}
+
+void SQUAD2_3_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD2_3_REVIVE_B()
+{
+		SQUAD2_3.Resurrection();
+}
+
+void SQUAD2_3_REVIVE_C()
+{
+		SetObjectDurability(SQUAD2_3, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_3);
+		}
+}
+
+void SQUAD2_4_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_4_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD2_4_REVIVE_B()
+{
+		SQUAD2_4.Resurrection();
+}
+
+void SQUAD2_4_REVIVE_C()
+{
+		SetObjectDurability(SQUAD2_4, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_4);
+		}
+}
+
+
+void SQUAD2_5_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_5_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD2_5_REVIVE_B()
+{
+		SQUAD2_5.Resurrection();
+}
+
+void SQUAD2_5_REVIVE_C()
+{
+		SetObjectDurability(SQUAD2_5, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_5_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_5);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_5_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_5);
+		}
+}
+
+void SQUAD2_6_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_6_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD2_6_REVIVE_B()
+{
+		SQUAD2_6.Resurrection();
+}
+
+void SQUAD2_6_REVIVE_C()
+{
+		SetObjectDurability(SQUAD2_6, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_6_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_6);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_6_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_6);
+		}
+}

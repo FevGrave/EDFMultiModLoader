@@ -2,6 +2,13 @@ import json
 import os
 import sys
 
+def check_arguments():
+    if len(sys.argv) < 3:
+        print("Usage: python script.py <output_directory>")
+        sys.exit(1)
+    #print(f"[DEBUG] Output directory: {sys.argv[1]}")
+    return sys.argv[1], sys.argv[2]
+
 def compress_json_file(input_file_path):
     # Read the original JSON data with UTF-8 encoding
     with open(input_file_path, 'r', encoding='utf-8') as file:
@@ -25,14 +32,15 @@ def compress_all_jsons_in_directory(directory_path):
             compress_json_file(file_path)
     print("Compression complete for all JSON files.")
 
+def main(output_directory, current_directory):
+    # Compress all JSON files in the specified output directory
+    compress_all_jsons_in_directory(output_directory)
+
+# Allow the script to be called directly or from another script
 if __name__ == "__main__":
-    # Check if the directory path is provided as a command-line argument
     if len(sys.argv) < 2:
-        print("Usage: python script.py <directory_path>")
+        print("Usage: python script.py <output_directory>")
         sys.exit(1)
     
-    # Get the directory path from the command-line arguments
-    directory_path = sys.argv[1]
-    
-    # Call the function with the directory path
-    compress_all_jsons_in_directory(directory_path)
+    output_directory = sys.argv[1]
+    main(output_directory)

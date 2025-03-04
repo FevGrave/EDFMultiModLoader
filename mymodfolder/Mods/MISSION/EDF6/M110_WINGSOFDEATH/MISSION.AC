@@ -1,0 +1,1050 @@
+﻿//
+// Wings of Death
+//
+
+#include "app:/Mission/AsCommon.h"
+
+Talkers g_soldiers;
+
+class __EventData {
+	uint m_counter  = 0;
+	bool m_is_break = false;
+	bool m_is_pass = false;
+	internal_SyncCounter m_game_thread_sync;
+	internal_SyncCounter m_voice_thread_sync;
+	Mutex m_mutex;
+};
+
+__EventData __0000_data;
+__EventData __0001_data;
+__EventData __0002_data;
+__EventData __0003_data;
+__EventData __0004_data;
+__EventData __0005_data;
+
+const uint __END_SYNC = 0x7fffffff;
+
+// [e2d_section_data] {"GUID":null,"Name":"グローバル定義","Type":"Global"}
+
+Object hornetnest1_01;
+Object hornetnest1_02;
+Object hornetnest1_03;
+Object hornetnest1_04;
+
+Object hornetnest2_01;
+Object hornetnest2_02;
+Object hornetnest2_03;
+Object hornetnest2_04;
+
+Object hornetnest3_01;
+Object hornetnest3_02;
+Object hornetnest3_03;
+Object hornetnest3_04;
+Object hornetnest3_05;
+
+Object hornetnest4_01;
+Object hornetnest4_02;
+Object hornetnest4_03;
+Object hornetnest4_04;
+Object hornetnest4_05;
+
+Object hornetnest5_01;
+Object hornetnest5_02;
+Object hornetnest5_03;
+Object hornetnest5_04;
+Object hornetnest5_05;
+Object hornetnest5_06;
+
+Object vegalta1;
+Object vegalta2;
+
+Object SQUAD1_1;
+Object SQUAD1_2;
+Object SQUAD1_3;
+Object SQUAD1_4;
+Object SQUAD1_5;
+
+//蜂の巣から出てくる敵のセットアップ
+//HornetNestSetUp(該当するObject,出現させる敵のsgoパス,敵数,出現間隔,次の集団発生までの間隔);
+void HornetNestSetUp(Object object,string path,int count,float interval,float next_interval)
+{
+	object.SetEnemyGenerator(
+		0,	// 内部ジェネレータ番号
+		path,	// 発生させるオブジェクトの sgo ファイルパス
+		count,	// 発生数
+		1,	// レベル
+		interval,	// １体毎の発生間隔
+		next_interval,	// 次回の集団発生までの間隔
+		false	// 遭遇状態で作成する？
+	);
+}
+
+//======================================
+// 開始
+void Main()
+{
+	if( IsBoolState(0,::__0000_data.m_is_break,::__0000_data.m_is_break) ) return;
+	
+	::__0000_data.m_counter++;
+	const uint32 MAX_EVENT_ID = 5;
+	internal_Initialize(MAX_EVENT_ID);
+	internal_GetEventState(0).SetName("開始");
+	internal_GetEventState(1).SetName("それぞれの蜂の巣に敵を設定");
+	internal_GetEventState(2).SetName("増援1回目＆蜂の巣からの敵増加");
+	internal_GetEventState(3).SetName("増援2回目＆蜂の巣からの敵増加");
+	internal_GetEventState(4).SetName("増援3回目＆蜂の巣からの敵増加");
+	internal_GetEventState(5).SetName("終了");
+	
+	Mutex_LockObject@ __internal_thread_lock = ::__0000_data.m_mutex.Lock();
+	internal_InitEventThread(0, ::__0000_data.m_counter, "Main", "開始");
+	
+	// --------------------- pre loading begin.
+	BeginLoading();
+	PreloadMap("app:/map/nw_Haikyo601.mac", "cloudy2", -1);
+	Preload("app:/ui/UiResourceGroup_InMission.sgo", -1);
+	Preload("app:/ui/UiResourceGroup_MissionCleared.sgo", -1);
+	Preload("app:/ui/UiResourceGroup_MissionFailed.sgo", -1);
+	Preload("app:/object/AiArmySoldier_SN_Leader.sgo", -1);
+	Preload("app:/object/AiArmySoldier_AF.sgo", -1);
+	Preload("app:/object/AIPALEWING_ELITE_LR_LEADER.sgo", -1);
+	Preload("app:/object/AIPALEWING_LR.sgo", -1);
+	Preload("app:/object/e615_hornetnest_small01.sgo", -1);
+	Preload("app:/object/e615_hornetnest_small02.sgo", -1);
+	Preload("app:/object/e615_hornetnest_small03.sgo", -1);
+	Preload("app:/object/e668_giantbee_medium.sgo", -1);
+	Preload("app:/object/GiantBeeQueen.sgo", -1);
+	Preload("app:/object/GiantBeeQueen02.sgo", -1);
+	Preload("app:/object/GiantBee01Charge.sgo", -1);
+	Preload("app:/object/GiantBee02Charge.sgo", -1);
+	Preload("app:/object/V504_BEGARUTA_AI.sgo", -1);
+	Preload("app:/object/v603_flak_ai.sgo", -1);
+	Preload("app:/object/ShelterDoor.sgo", -1);
+	PreloadPlayerResource();
+	WaitPreload();
+	Online_WaitStart();
+	EndLoading();
+	// --------------------- pre loading end.
+
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0000_data.m_game_thread_sync.Reset();
+	::__0000_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0000_voice_event");
+
+	Main_usercode();
+	
+	::__0000_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void Main_usercode()
+{
+	// [e2d_section_data] {"GUID":"5074b8ed-bdf9-47f3-a281-9ed036321edd","Name":"開始","Type":"game_script"}
+	if( IsBoolState(0,::__0000_data.m_is_pass,::__0000_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		Map("app:/map/nw_Haikyo601.mac","cloudy2");
+
+		SetFullLightWeightMode();
+
+		EventLightTool tool;
+		tool.EnvFadeAnimation(
+			EVENT_LIGHT_ENV_FADE_FOG_DISTANCE,	// アニメーションさせるパラメータタイプ
+			0,	// x
+			800,	// y 最初は50
+			0,	// z
+			0,	// w
+			0.0	// アニメーション時間
+		);// ゲーム進行スクリプト
+
+		SceneEffect_Snow(0.51f, 0.4f, 50000, 0.0);
+
+		CreatePlayer("プレイヤー");
+
+		CreateNeutral("Map外部シャッター1", "app:/object/ShelterDoor.sgo", 1);
+
+		Bgm("BGM_E5M14_Tutorial");
+
+		vegalta1=CreateFriend("TANK001", "app:/object/V504_BEGARUTA_AI.sgo", 1.0f, FALSE ).SetDurability(200);
+		vegalta2=CreateFriend("TANK002", "app:/object/v603_flak_ai.sgo", 1.0f, FALSE ).SetDurability(200);
+
+
+
+
+		SQUAD1_1=CreateFriend(
+			"味方01",
+			"app:/object/AiArmySoldier_SN_Leader.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_1);
+		}
+
+		SQUAD1_2=CreateFriend(
+			"味方01B",
+			"app:/object/AiArmySoldier_AF.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_2);
+		}
+
+		SQUAD1_3=CreateFriend(
+			"味方01C",
+			"app:/object/AiArmySoldier_AF.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_3);
+		}
+
+		SQUAD1_4=CreateFriend(
+			"味方01D",
+			"app:/object/AiArmySoldier_AF.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_4);
+		}
+
+		SQUAD1_5=CreateFriend(
+			"味方01E",
+			"app:/object/AiArmySoldier_AF.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_5_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_5);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_5_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_5);
+		}
+		
+		CreateFriendSquad(
+			"味方02",	// 配置ポイント
+			10,	// 部下の配置半径
+			"app:/object/AIPALEWING_ELITE_LR_LEADER.sgo",	// リーダー sgo パス
+			"app:/object/AIPALEWING_LR.sgo",	// 部下 sgo パス
+			3,	// 部下の数
+			1,	// レベル
+			true	// プレイヤーに合流する？
+		);
+
+		{
+			hornetnest1_01 = CreateEnemy2(
+				"小型蜂の巣1_01",	// 配置ポイント
+				"app:/object/e615_hornetnest_small01.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest1_02 = CreateEnemy2(
+				"小型蜂の巣1_02",	// 配置ポイント
+				"app:/object/e615_hornetnest_small02.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest1_03 = CreateEnemy2(
+				"小型蜂の巣1_03",	// 配置ポイント
+				"app:/object/e615_hornetnest_small01.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest1_04 = CreateEnemy2(
+				"小型蜂の巣1_04",	// 配置ポイント
+				"app:/object/e615_hornetnest_small03.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+			
+			CreateEnemyGroup_Area(
+				"中型1_01",	// エリア名
+				"app:/object/e668_giantbee_medium.sgo",	// sgo ファイルパス
+				2,	// 作成数
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+			
+		}
+
+		{
+			hornetnest2_01 = CreateEnemy2(
+				"小型蜂の巣2_01",	// 配置ポイント
+				"app:/object/e615_hornetnest_small01.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest2_02 = CreateEnemy2(
+				"小型蜂の巣2_02",	// 配置ポイント
+				"app:/object/e615_hornetnest_small02.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest2_03 = CreateEnemy2(
+				"小型蜂の巣2_03",	// 配置ポイント
+				"app:/object/e615_hornetnest_small01.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest2_04 = CreateEnemy2(
+				"小型蜂の巣2_04",	// 配置ポイント
+				"app:/object/e615_hornetnest_small03.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+			
+			CreateEnemyGroup_Area(
+				"中型2_01",	// エリア名
+				"app:/object/e668_giantbee_medium.sgo",	// sgo ファイルパス
+				4,	// 作成数
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+		}
+
+		{
+			hornetnest3_01 = CreateEnemy2(
+				"小型蜂の巣3_01",	// 配置ポイント
+				"app:/object/e615_hornetnest_small01.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest3_02 = CreateEnemy2(
+				"小型蜂の巣3_02",	// 配置ポイント
+				"app:/object/e615_hornetnest_small02.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest3_03 = CreateEnemy2(
+				"小型蜂の巣3_03",	// 配置ポイント
+				"app:/object/e615_hornetnest_small01.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest3_04 = CreateEnemy2(
+				"小型蜂の巣3_04",	// 配置ポイント
+				"app:/object/e615_hornetnest_small03.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+			
+			hornetnest3_05 = CreateEnemy2(
+				"小型蜂の巣3_05",	// 配置ポイント
+				"app:/object/e615_hornetnest_small02.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+			
+			CreateEnemyGroup_Area(
+				"中型3_01",	// エリア名
+				"app:/object/e668_giantbee_medium.sgo",	// sgo ファイルパス
+				6,	// 作成数
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+		}
+
+		{
+			hornetnest4_01 = CreateEnemy2(
+				"小型蜂の巣4_01",	// 配置ポイント
+				"app:/object/e615_hornetnest_small01.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest4_02 = CreateEnemy2(
+				"小型蜂の巣4_02",	// 配置ポイント
+				"app:/object/e615_hornetnest_small02.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest4_03 = CreateEnemy2(
+				"小型蜂の巣4_03",	// 配置ポイント
+				"app:/object/e615_hornetnest_small01.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest4_04 = CreateEnemy2(
+				"小型蜂の巣4_04",	// 配置ポイント
+				"app:/object/e615_hornetnest_small03.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+			
+			hornetnest4_05 = CreateEnemy2(
+				"小型蜂の巣4_05",	// 配置ポイント
+				"app:/object/e615_hornetnest_small02.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// tr ue に設定すると遭遇状態
+			);
+			
+			CreateEnemyGroup_Area(
+				"中型4_01",	// エリア名
+				"app:/object/e668_giantbee_medium.sgo",	// sgo ファイルパス
+				6,	// 作成数
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+		}
+
+		{
+			hornetnest5_01 = CreateEnemy2(
+				"小型蜂の巣5_01",	// 配置ポイント
+				"app:/object/e615_hornetnest_small01.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest5_02 = CreateEnemy2(
+				"小型蜂の巣5_02",	// 配置ポイント
+				"app:/object/e615_hornetnest_small02.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest5_03 = CreateEnemy2(
+				"小型蜂の巣5_03",	// 配置ポイント
+				"app:/object/e615_hornetnest_small01.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+
+			hornetnest5_04 = CreateEnemy2(
+				"小型蜂の巣5_04",	// 配置ポイント
+				"app:/object/e615_hornetnest_small03.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+			
+			hornetnest5_05 = CreateEnemy2(
+				"小型蜂の巣5_05",	// 配置ポイント
+				"app:/object/e615_hornetnest_small02.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// tr ue に設定すると遭遇状態
+			);
+			
+			hornetnest5_06 = CreateEnemy2(
+				"小型蜂の巣5_06",	// 配置ポイント
+				"app:/object/e615_hornetnest_small03.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// tr ue に設定すると遭遇状態
+			);
+			
+			CreateEnemyGroup_Area(
+				"中型5_01",	// エリア名
+				"app:/object/e668_giantbee_medium.sgo",	// sgo ファイルパス
+				6,	// 作成数
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+		}
+
+		//敵集団の間に大型の蜂を配置
+
+		{
+			CreateEnemy(
+				"大型01",	// 配置ポイント
+				"app:/object/GiantBeeQueen.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+			
+			CreateEnemy(
+				"大型02",	// 配置ポイント
+				"app:/object/GiantBeeQueen02.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+			
+			CreateEnemy(
+				"大型03",	// 配置ポイント
+				"app:/object/GiantBeeQueen.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+			
+			CreateEnemy(
+				"大型04",	// 配置ポイント
+				"app:/object/GiantBeeQueen02.sgo",	// sgo ファイルパス
+				1,	// レベル（標準：1）
+				false	// true に設定すると遭遇状態
+			);
+		}
+	}
+	// -----------------
+	::__0000_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0001_game_event", "それぞれの蜂の巣に敵を設定", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 0); // それぞれの蜂の巣に敵を設定
+		// [e2d_section_data] {"GUID":"6e3e4a23-e986-4f67-9aa6-525b2b88e7ee","Name":"Link from [開始]","Type":"Link"}
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0017_game_event", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+		e.Factor_Wait(10.0f);
+	}
+}
+
+void __0000_voice_event()
+{
+	__0000_voice_event_usercode();
+	
+	::__0000_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0000_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"5074b8ed-bdf9-47f3-a281-9ed036321edd","Name":"開始","Type":"voice_script"}
+	if( IsBoolState(0,::__0000_data.m_is_pass,::__0000_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//======================================
+// それぞれの蜂の巣に敵を設定
+void __0001_game_event()
+{
+	if( IsBoolState(1,::__0001_data.m_is_break,::__0001_data.m_is_break) ) return;
+	
+	::__0001_data.m_counter++;
+	if( ::__0001_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0001_data.m_mutex.Lock();
+	internal_InitEventThread(1, ::__0001_data.m_counter, "__0001_game_event", "それぞれの蜂の巣に敵を設定");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0001_data.m_game_thread_sync.Reset();
+	::__0001_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0001_voice_event");
+
+	__0001_game_event_usercode();
+	
+	::__0001_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0001_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0001_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"a56612a5-a2de-44d5-95de-fd9a80926170","Name":"それぞれの蜂の巣に敵を設定","Type":"game_script"}
+	if( IsBoolState(1,::__0001_data.m_is_pass,::__0001_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+		//HornetNestSetUp(該当するObject(蜂の巣),出現させる敵のsgoパス,敵数,出現間隔,次の集団発生までの間隔);
+
+		HornetNestSetUp(hornetnest1_01,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest1_02,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest1_03,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest1_04,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+
+
+		HornetNestSetUp(hornetnest2_01,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest2_02,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest2_03,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest2_04,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+
+
+		HornetNestSetUp(hornetnest3_01,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest3_02,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest3_03,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest3_04,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest3_05,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+
+
+		HornetNestSetUp(hornetnest4_01,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest4_02,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest4_03,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest4_04,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest4_05,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+
+
+		HornetNestSetUp(hornetnest5_01,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest5_02,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest5_03,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest5_04,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest5_05,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+		HornetNestSetUp(hornetnest5_06,"app:/object/GiantBee01Charge.sgo",2,0.1,10);
+	}
+	// -----------------
+	::__0001_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0001_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0002_game_event", "増援1回目＆蜂の巣からの敵増加", 1.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 1); // 増援1回目＆蜂の巣からの敵増加
+		// [e2d_section_data] {"GUID":"2a8afab0-20df-4e05-97e4-140b3ffe6929","Name":"Link from [それぞれの蜂の巣に敵を設定]","Type":"Link"}
+		e.Factor_GeneratorEnemyCount(18);
+	}
+}
+
+void __0001_voice_event()
+{
+	__0001_voice_event_usercode();
+	
+	::__0001_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0001_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0001_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"a56612a5-a2de-44d5-95de-fd9a80926170","Name":"それぞれの蜂の巣に敵を設定","Type":"voice_script"}
+	if( IsBoolState(1,::__0001_data.m_is_pass,::__0001_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//======================================
+// 増援1回目＆蜂の巣からの敵増加
+void __0002_game_event()
+{
+	if( IsBoolState(2,::__0002_data.m_is_break,::__0002_data.m_is_break) ) return;
+	
+	::__0002_data.m_counter++;
+	if( ::__0002_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0002_data.m_mutex.Lock();
+	internal_InitEventThread(2, ::__0002_data.m_counter, "__0002_game_event", "増援1回目＆蜂の巣からの敵増加");
+	
+	__0002_game_event_usercode();
+}
+
+void __0002_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"06b9f47d-4f44-48ba-89e9-63e09c261d34","Name":"増援1回目＆蜂の巣からの敵増加","Type":"game_script"}
+	if( IsBoolState(2,::__0002_data.m_is_pass,::__0002_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		CreateFlyingEnemyGroup_Area(
+			"増援1回目",	// エリア名
+			"app:/object/e668_giantbee_medium.sgo",	// sgo ファイルパス
+			5,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+
+		CreateFlyingEnemyGroup_Area(
+			"増援1回目",	// エリア名
+			"app:/object/GiantBee02Charge.sgo",	// sgo ファイルパス
+			15,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+
+		//蜂の巣の敵数増加
+		HornetNestSetUp(hornetnest1_01,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest1_02,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest1_03,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest1_04,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+
+		HornetNestSetUp(hornetnest2_01,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest2_02,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest2_03,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest2_04,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+
+		HornetNestSetUp(hornetnest3_01,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest3_02,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest3_03,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest3_04,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest3_05,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+
+		HornetNestSetUp(hornetnest4_01,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest4_02,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest4_03,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest4_04,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest4_05,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+
+		HornetNestSetUp(hornetnest5_01,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest5_02,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest5_03,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest5_04,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest5_05,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+		HornetNestSetUp(hornetnest5_06,"app:/object/GiantBee01Charge.sgo",4,0.1,10);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0003_game_event", "増援2回目＆蜂の巣からの敵増加", 1.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 1); // 増援2回目＆蜂の巣からの敵増加
+		// [e2d_section_data] {"GUID":"9ebc3bc1-e0e7-478d-b92a-9fe46f7dbcce","Name":"Link from [増援1回目＆蜂の巣からの敵増加]","Type":"Link"}
+		e.Factor_GeneratorEnemyCount(9);
+	}
+}
+
+//======================================
+// 増援2回目＆蜂の巣からの敵増加
+void __0003_game_event()
+{
+	if( IsBoolState(3,::__0003_data.m_is_break,::__0003_data.m_is_break) ) return;
+	
+	::__0003_data.m_counter++;
+	if( ::__0003_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0003_data.m_mutex.Lock();
+	internal_InitEventThread(3, ::__0003_data.m_counter, "__0003_game_event", "増援2回目＆蜂の巣からの敵増加");
+	
+	__0003_game_event_usercode();
+}
+
+void __0003_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"2ee40784-5e42-49e5-bec3-298c0fe5a571","Name":"増援2回目＆蜂の巣からの敵増加","Type":"game_script"}
+	if( IsBoolState(3,::__0003_data.m_is_pass,::__0003_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		CreateFlyingEnemyGroup_Area(
+			"増援2回目",	// エリア名
+			"app:/object/e668_giantbee_medium.sgo",	// sgo ファイルパス
+			10,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+
+		CreateFlyingEnemyGroup_Area(
+			"増援2回目",	// エリア名
+			"app:/object/GiantBee02Charge.sgo",	// sgo ファイルパス
+			20,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+
+		//蜂の巣の敵数増加
+		HornetNestSetUp(hornetnest1_01,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest1_02,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest1_03,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest1_04,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+
+		HornetNestSetUp(hornetnest2_01,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest2_02,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest2_03,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest2_04,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+
+		HornetNestSetUp(hornetnest3_01,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest3_02,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest3_03,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest3_04,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest3_05,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+
+		HornetNestSetUp(hornetnest4_01,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest4_02,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest4_03,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest4_04,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest4_05,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+
+		HornetNestSetUp(hornetnest5_01,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest5_02,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest5_03,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest5_04,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest5_05,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+		HornetNestSetUp(hornetnest5_06,"app:/object/GiantBee01Charge.sgo",6,0.1,10);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0004_game_event", "増援3回目＆蜂の巣からの敵増加", 1.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 1); // 増援3回目＆蜂の巣からの敵増加
+		// [e2d_section_data] {"GUID":"d3ecc701-e6a8-4ed6-a6a1-f99a4818c11a","Name":"Link from [増援2回目＆蜂の巣からの敵増加]","Type":"Link"}
+		e.Factor_GeneratorEnemyCount(4);
+	}
+}
+
+//======================================
+// 増援3回目＆蜂の巣からの敵増加
+void __0004_game_event()
+{
+	if( IsBoolState(4,::__0004_data.m_is_break,::__0004_data.m_is_break) ) return;
+	
+	::__0004_data.m_counter++;
+	if( ::__0004_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0004_data.m_mutex.Lock();
+	internal_InitEventThread(4, ::__0004_data.m_counter, "__0004_game_event", "増援3回目＆蜂の巣からの敵増加");
+	
+	__0004_game_event_usercode();
+}
+
+void __0004_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"5ba74045-80b0-4d49-9521-09095bdf0356","Name":"増援3回目＆蜂の巣からの敵増加","Type":"game_script"}
+	if( IsBoolState(4,::__0004_data.m_is_pass,::__0004_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		CreateFlyingEnemyGroup_Area(
+			"増援3回目",	// エリア名
+			"app:/object/e668_giantbee_medium.sgo",	// sgo ファイルパス
+			20,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+
+		CreateFlyingEnemyGroup_Area(
+			"増援2回目",	// エリア名
+			"app:/object/GiantBee02Charge.sgo",	// sgo ファイルパス
+			30,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+
+		//蜂の巣の敵数増加
+		HornetNestSetUp(hornetnest1_01,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest1_02,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest1_03,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest1_04,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+
+		HornetNestSetUp(hornetnest2_01,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest2_02,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest2_03,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest2_04,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+
+		HornetNestSetUp(hornetnest3_01,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest3_02,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest3_03,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest3_04,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest3_05,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+
+		HornetNestSetUp(hornetnest4_01,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest4_02,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest4_03,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest4_04,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest4_05,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+
+		HornetNestSetUp(hornetnest5_01,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest5_02,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest5_03,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest5_04,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest5_05,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+		HornetNestSetUp(hornetnest5_06,"app:/object/GiantBee01Charge.sgo",8,0.1,10);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0006_game_event", "wave3", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // wave3
+		// [e2d_section_data] {"GUID":"3b02b344-8606-461d-ac0b-38d08bbde4b5","Name":"Link from [wave2]","Type":"Link"}
+		e.Factor_TeamObjectCount( TEAM_ID_ENEMY, 15);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0005_game_event", "wave3", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // wave3
+		// [e2d_section_data] {"GUID":"3b02b344-8606-461d-ac0b-38d08bbde4b5","Name":"Link from [wave2]","Type":"Link"}
+		e.Factor_TeamObjectCount( TEAM_ID_ENEMY, 2);
+	}
+}
+
+//======================================
+// 終了
+void __0005_game_event()
+{
+	if( IsBoolState(5,::__0005_data.m_is_break,::__0005_data.m_is_break) ) return;
+	
+	::__0005_data.m_counter++;
+	if( ::__0005_data.m_counter != 1 ) return;
+	if( internal_BeginFinishing() == false ) return; // 終了処理が開始済みなら帰る
+	Mutex_LockObject@ __internal_thread_lock = ::__0005_data.m_mutex.Lock();
+	internal_InitEventThread(5, ::__0005_data.m_counter, "__0005_game_event", "終了");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0005_data.m_game_thread_sync.Reset();
+	::__0005_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0005_voice_event");
+
+	__0005_game_event_usercode();
+	
+	::__0005_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0005_data.m_voice_thread_sync.Wait(__END_SYNC);
+	while(true) sys_Yield();
+}
+
+void __0005_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"101df1ef-2944-4235-a1c4-53ad995241c6","Name":"終了","Type":"game_script"}
+	if( IsBoolState(5,::__0005_data.m_is_pass,::__0005_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		MissionClear();
+	}
+	// -----------------
+	::__0005_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0005_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0005_voice_event()
+{
+	__0005_voice_event_usercode();
+	
+	::__0005_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0005_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0005_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"101df1ef-2944-4235-a1c4-53ad995241c6","Name":"終了","Type":"voice_script"}
+	if( IsBoolState(5,::__0005_data.m_is_pass,::__0005_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+void __0006_game_event()
+{
+	SendTeamEncount(TEAM_ID_ENEMY);
+}
+
+void __0017_game_event()
+{
+		SetEncount(vegalta1);
+		SetEncount(vegalta2);
+}
+
+void SQUAD1_1_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD1_1_REVIVE_B()
+{
+		SQUAD1_1.Resurrection();
+}
+
+void SQUAD1_1_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_1, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_1);
+		}
+}
+
+void SQUAD1_2_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD1_2_REVIVE_B()
+{
+		SQUAD1_2.Resurrection();
+}
+
+void SQUAD1_2_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_2, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_2);
+		}
+}
+
+void SQUAD1_3_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD1_3_REVIVE_B()
+{
+		SQUAD1_3.Resurrection();
+}
+
+void SQUAD1_3_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_3, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_3);
+		}
+}
+
+void SQUAD1_4_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD1_4_REVIVE_B()
+{
+		SQUAD1_4.Resurrection();
+}
+
+void SQUAD1_4_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_4, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_4);
+		}
+}
+
+void SQUAD1_5_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_5_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD1_5_REVIVE_B()
+{
+		SQUAD1_5.Resurrection();
+}
+
+void SQUAD1_5_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_5, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_5_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_5);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_5_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_5);
+		}
+}

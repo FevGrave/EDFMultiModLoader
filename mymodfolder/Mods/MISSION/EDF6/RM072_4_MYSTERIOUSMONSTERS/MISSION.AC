@@ -1,0 +1,1536 @@
+﻿//
+// Defeat Archelus
+//
+
+#include "app:/Mission/AsCommon.h"
+
+Talkers g_soldiers;
+
+class __EventData {
+	uint m_counter  = 0;
+	bool m_is_break = false;
+	bool m_is_pass = false;
+	internal_SyncCounter m_game_thread_sync;
+	internal_SyncCounter m_voice_thread_sync;
+	Mutex m_mutex;
+};
+
+__EventData __0000_data;
+__EventData __0001_data;
+__EventData __0002_data;
+__EventData __0003_data;
+__EventData __0004_data;
+__EventData __0005_data;
+__EventData __0006_data;
+__EventData __0007_data;
+__EventData __0008_data;
+__EventData __0009_data;
+__EventData __000A_data;
+__EventData __000B_data;
+__EventData __000C_data;
+__EventData __000D_data;
+__EventData __000E_data;
+__EventData __000F_data;
+__EventData __0010_data;
+__EventData __0011_data;
+__EventData __0012_data;
+__EventData __0013_data;
+__EventData __0014_data;
+__EventData __0015_data;
+__EventData __0016_data;
+__EventData __0017_data;
+__EventData __0018_data;
+__EventData __0019_data;
+__EventData __001A_data;
+__EventData __001B_data;
+
+const uint __END_SYNC = 0x7fffffff;
+
+// [e2d_section_data] {"GUID":null,"Name":"グローバル定義","Type":"Global"}
+//フラグリストの情報
+Object monster;
+Object radon;
+
+Object baruga;
+Object transporter;
+
+Object spriggan;
+Object grimreaper;
+
+Object soldier01;
+Object soldier02;
+Object soldier03;
+Object soldier04;
+Object soldier05;
+
+
+//デファインの情報
+
+
+//======================================
+// 開始
+void Main()
+{
+	if( IsBoolState(0,::__0000_data.m_is_break,::__0000_data.m_is_break) ) return;
+	
+	::__0000_data.m_counter++;
+	const uint32 MAX_EVENT_ID = 27;
+	internal_Initialize(MAX_EVENT_ID);
+	internal_GetEventState(0).SetName("開始");
+	internal_GetEventState(1).SetName("怪獣移動、バラム登場");
+	internal_GetEventState(2).SetName("音声(soldier05レンジャーSN兵士)874");
+	internal_GetEventState(3).SetName("音声（情報官）");
+	internal_GetEventState(4).SetName("音声（本部通信）");
+	internal_GetEventState(5).SetName("音声（情報官と本部の通信）");
+	internal_GetEventState(6).SetName("音声（情報官）");
+	internal_GetEventState(7).SetName("音声（情報官）");
+	internal_GetEventState(8).SetName("音声（軍曹チーム兵士C）");
+	internal_GetEventState(9).SetName("音声（オペレーター）");
+	internal_GetEventState(10).SetName("音声（本部）");
+	internal_GetEventState(11).SetName("バラム注目");
+	internal_GetEventState(12).SetName("怪獣注目");
+	internal_GetEventState(13).SetName(" AIを指定オブジェクト方向へ向ける");
+	internal_GetEventState(14).SetName("音声（輸送機パイロットから通信）13");
+	internal_GetEventState(15).SetName("音声（輸送機パイロット）14");
+	internal_GetEventState(16).SetName("音声（輸送機パイロット）15");
+	internal_GetEventState(17).SetName("AIの向き指定をクリア");
+	internal_GetEventState(18).SetName("AIランダムトーク解禁");
+	internal_GetEventState(19).SetName("翼竜怪獣登場");
+	internal_GetEventState(20).SetName("アーケルス咆哮");
+	internal_GetEventState(21).SetName("アーケルス死亡");
+	internal_GetEventState(22).SetName("戦闘開始");
+	internal_GetEventState(23).SetName("音声（オペレーター）");
+	internal_GetEventState(24).SetName("音声（オペレーター）");
+	internal_GetEventState(25).SetName("バルガ搭乗許可");
+	internal_GetEventState(26).SetName("翼竜怪獣撤退");
+	internal_GetEventState(27).SetName("終了");
+	
+	Mutex_LockObject@ __internal_thread_lock = ::__0000_data.m_mutex.Lock();
+	internal_InitEventThread(0, ::__0000_data.m_counter, "Main", "開始");
+	
+	// --------------------- pre loading begin.
+	BeginLoading();
+	PreloadMap("app:/Map/nw_Seiyu.mac", "evening", -1);
+	Preload("app:/ui/UiResourceGroup_InMission.sgo", -1);
+	Preload("app:/ui/UiResourceGroup_MissionCleared.sgo", -1);
+	Preload("app:/ui/UiResourceGroup_MissionFailed.sgo", -1);
+	Preload("app:/object/AiArmySoldier_sn.sgo", -1);
+	Preload("app:/Object/AiPaleWing_elite_LR_Leader.sgo", -1);
+	Preload("app:/Object/AiPaleWing_elite_Lance.sgo", -1);
+	Preload("app:/Object/AiHeavyArmor_SP_Leader.sgo", -1);
+	Preload("app:/Object/AiHeavyArmor_SP.sgo", -1);
+	Preload("app:/object/e504_monsterA.sgo", -1);
+	Preload("app:/object/AiArmySoldier_S_AF_Leader.sgo", -1);
+	Preload("app:/object/AiArmySoldier_S_AF_Leader.sgo", -1);
+	Preload("app:/object/AiArmySoldier_S_Follower1.sgo", -1);
+	Preload("app:/object/AiArmySoldier_S_Follower2.sgo", -1);
+	Preload("app:/object/AiArmySoldier_S_Follower3.sgo", -1);
+	Preload("app:/object/v508_transport_formation.sgo", -1);
+	Preload("app:/object/V605_BARGA_CANNON_MISSION2.sgo", -1);
+	Preload("app:/object/e604_radon.sgo", -1);
+	PreloadPlayerResource();
+	WaitPreload();
+	Online_WaitStart();
+	EndLoading();
+	// --------------------- pre loading end.
+
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0000_data.m_game_thread_sync.Reset();
+	::__0000_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0000_voice_event");
+
+	Main_usercode();
+	
+	::__0000_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void Main_usercode()
+{
+	// [e2d_section_data] {"GUID":"23f8b4d6-6c22-431b-9b38-6099a961529f","Name":"開始","Type":"game_script"}
+	if( IsBoolState(0,::__0000_data.m_is_pass,::__0000_data.m_is_pass) == false){
+		//Map("app:/Map/nw_Seiyu_night.mac", "night" );
+		Map("app:/Map/nw_Seiyu.mac", "evening" );
+		SetWeaponCondition( WEAPON_CONDITION_FORCE_ENABLE );
+
+		CreatePlayer("プレイヤー");
+
+		{
+			soldier01 = CreateFriend("兵士01", "app:/object/AiArmySoldier_sn.sgo", 1, FALSE );
+			FixObjectAiPosition(soldier01, true );
+			soldier02 = CreateFriend("兵士02", "app:/object/AiArmySoldier_sn.sgo", 1, FALSE );
+			FixObjectAiPosition(soldier02, true );
+			soldier03 = CreateFriend("兵士03", "app:/object/AiArmySoldier_sn.sgo", 1, FALSE );
+			FixObjectAiPosition(soldier03, true );
+			soldier04 = CreateFriend("兵士04", "app:/object/AiArmySoldier_sn.sgo", 1, FALSE );
+			FixObjectAiPosition(soldier04, true );
+			soldier05 = CreateFriend("兵士05", "app:/object/AiArmySoldier_sn.sgo", 1, FALSE );
+			FixObjectAiPosition(soldier05, true );
+		}
+
+		{
+		float friend_level = 2;
+		CreateSergentSquad(
+			"小隊01",	// 配置ポイント
+			10,	// 配置半径
+			friend_level,	// レベル
+			false	// プレイヤーに合流する？
+			);
+		spriggan = CreateFriendSquad("小隊02", 10.0f,
+									"app:/Object/AiPaleWing_elite_LR_Leader.sgo",
+									"app:/Object/AiPaleWing_elite_Lance.sgo",
+									1, friend_level, FALSE );
+
+		grimreaper = CreateFriendSquad("小隊03", 10.0f,
+									"app:/Object/AiHeavyArmor_SP_Leader.sgo",
+									"app:/Object/AiHeavyArmor_SP.sgo",
+									2, friend_level, FALSE );
+		SetObjectAutoResurrection( g_sergent, true );
+		SetObjectAutoResurrection( spriggan, true );
+		SetObjectAutoResurrection( grimreaper, true );
+		}
+
+		monster = CreateEnemy("怪獣", "app:/object/e504_monsterA.sgo", 1, FALSE );
+		SetIgnoreDamageEventMode( monster, true);
+
+		Bgm("BGM_E5M10_Daikaiju");//大怪獣
+
+		DisableAiRandomTalk(); // 全体のAI会話を禁止
+	}
+	// -----------------
+	::__0000_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0001_game_event", "怪獣移動、バラム登場", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 0); // 怪獣移動、バラム登場
+		// [e2d_section_data] {"GUID":"c253de3b-4dbe-488a-a397-872de2b1721a","Name":"Link from [開始]","Type":"Link"}
+	}
+}
+
+void __0000_voice_event()
+{
+	__0000_voice_event_usercode();
+	
+	::__0000_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0000_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"23f8b4d6-6c22-431b-9b38-6099a961529f","Name":"開始","Type":"voice_script"}
+	if( IsBoolState(0,::__0000_data.m_is_pass,::__0000_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//======================================
+// 怪獣移動、バラム登場
+void __0001_game_event()
+{
+	if( IsBoolState(1,::__0001_data.m_is_break,::__0001_data.m_is_break) ) return;
+	
+	::__0001_data.m_counter++;
+	if( ::__0001_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0001_data.m_mutex.Lock();
+	internal_InitEventThread(1, ::__0001_data.m_counter, "__0001_game_event", "怪獣移動、バラム登場");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0001_data.m_game_thread_sync.Reset();
+	::__0001_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0001_voice_event");
+
+	__0001_game_event_usercode();
+	
+	::__0001_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0001_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0001_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"d2a8a3ec-37c4-4ce7-9680-fb749fac7137","Name":"怪獣移動、バラム登場","Type":"game_script"}
+	if( IsBoolState(1,::__0001_data.m_is_pass,::__0001_data.m_is_pass) == false){
+		SetAiRoute( monster, "怪獣ルート01");
+		SetAiMoveSpeed( monster, 0.25f );
+
+		transporter = CreateTransporter("バラム", "バラム投下",
+		                  "app:/object/v508_transport_formation.sgo", "", "app:/object/V605_BARGA_CANNON_MISSION2.sgo", 10.0 );
+		baruga = GetPartsObject( transporter, 0, 0 );
+		SetVehicleRide( baruga, false );
+
+		ResetTimer(0);
+	}
+	// -----------------
+	::__0001_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0001_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0002_game_event", "音声(soldier05レンジャーSN兵士)874", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 音声(soldier05レンジャーSN兵士)874
+		// [e2d_section_data] {"GUID":"6b26ab7e-3c85-4a46-8f4f-8c859def9aed","Name":"Link from [怪獣移動、バラム登場]","Type":"Link"}
+		e.Factor_Wait(1.0f);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__000C_game_event", "怪獣注目", 0.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 1); // 怪獣注目
+		// [e2d_section_data] {"GUID":"7fc2088e-7c0d-4810-8b67-cd41e226f835","Name":"Link from [怪獣移動、バラム登場]","Type":"Link"}
+		e.Factor_Timer(0, 3);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__000D_game_event", " AIを指定オブジェクト方向へ向ける", 0.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 0); //  AIを指定オブジェクト方向へ向ける
+		// [e2d_section_data] {"GUID":"0c84efff-aafb-48d6-99bd-f42ae88f2214","Name":"Link from [怪獣移動、バラム登場]","Type":"Link"}
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__000E_game_event", "音声（輸送機パイロットから通信）13", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 音声（輸送機パイロットから通信）13
+		// [e2d_section_data] {"GUID":"6f3e60a1-6504-4dae-81d2-2d001ec15a63","Name":"Link from [怪獣移動、バラム登場]","Type":"Link"}
+		e.Factor_WaitNC(42.0f);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0013_game_event", "翼竜怪獣登場", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 翼竜怪獣登場
+		// [e2d_section_data] {"GUID":"9043b602-b1a7-4e05-b8da-b5ab705ef509","Name":"Link from [怪獣移動、バラム登場]","Type":"Link"}
+		e.Factor_AiMoveEnd(monster);
+	}
+}
+
+void __0001_voice_event()
+{
+	__0001_voice_event_usercode();
+	
+	::__0001_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0001_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0001_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"d2a8a3ec-37c4-4ce7-9680-fb749fac7137","Name":"怪獣移動、バラム登場","Type":"voice_script"}
+	if( IsBoolState(1,::__0001_data.m_is_pass,::__0001_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//======================================
+// 音声(soldier05レンジャーSN兵士)874
+void __0002_game_event()
+{
+	if( IsBoolState(2,::__0002_data.m_is_break,::__0002_data.m_is_break) ) return;
+	
+	::__0002_data.m_counter++;
+	if( ::__0002_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0002_data.m_mutex.Lock();
+	internal_InitEventThread(2, ::__0002_data.m_counter, "__0002_game_event", "音声(soldier05レンジャーSN兵士)874");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0002_data.m_game_thread_sync.Reset();
+	::__0002_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0002_voice_event");
+
+	// -----------------
+	::__0002_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0002_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0003_game_event", "音声（情報官）", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 音声（情報官）
+		// [e2d_section_data] {"GUID":"fde380c4-bb54-47ef-9522-fad44c1354a5","Name":"Link from [音声(soldier05レンジャーSN兵士)874]","Type":"Link"}
+		e.Factor_Wait(2.0f);
+	}
+	
+	::__0002_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0002_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0002_voice_event()
+{
+	__0002_voice_event_usercode();
+	
+	::__0002_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0002_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0002_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"b882e9be-f2fa-4cb3-9c81-a4939e48e0dd","Name":"音声(soldier05レンジャーSN兵士)874","Type":"voice_script"}
+	if( IsBoolState(2,::__0002_data.m_is_pass,::__0002_data.m_is_pass) == false){
+		TalkBegin();
+
+		Talk_AddSingle( soldier05, "AE181_001", "npc_ap023_call_add", 0.0f ); //「アーケルス接近！」兵士874
+
+		TalkEnd();
+		WaitVoice();
+	}
+}
+
+//======================================
+// 音声（情報官）
+void __0003_game_event()
+{
+	if( IsBoolState(3,::__0003_data.m_is_break,::__0003_data.m_is_break) ) return;
+	
+	::__0003_data.m_counter++;
+	if( ::__0003_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0003_data.m_mutex.Lock();
+	internal_InitEventThread(3, ::__0003_data.m_counter, "__0003_game_event", "音声（情報官）");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0003_data.m_game_thread_sync.Reset();
+	::__0003_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0003_voice_event");
+
+	// -----------------
+	::__0003_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0003_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0004_game_event", "音声（本部通信）", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 音声（本部通信）
+		// [e2d_section_data] {"GUID":"5e87ff69-1763-4f76-9a94-e1965284cc1e","Name":"Link from [音声（情報官）]","Type":"Link"}
+		e.Factor_Wait(1.0f);
+	}
+	
+	::__0003_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0003_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0003_voice_event()
+{
+	__0003_voice_event_usercode();
+	
+	::__0003_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0003_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0003_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"028ee9f7-0985-4d0c-9588-89465d6761b1","Name":"音声（情報官）","Type":"voice_script"}
+	if( IsBoolState(3,::__0003_data.m_is_pass,::__0003_data.m_is_pass) == false){
+		RadioVoice("AE181_002_E",0.0f); //「まもなく輸送機が到着します。」情報官
+	}
+}
+
+//======================================
+// 音声（本部通信）
+void __0004_game_event()
+{
+	if( IsBoolState(4,::__0004_data.m_is_break,::__0004_data.m_is_break) ) return;
+	
+	::__0004_data.m_counter++;
+	if( ::__0004_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0004_data.m_mutex.Lock();
+	internal_InitEventThread(4, ::__0004_data.m_counter, "__0004_game_event", "音声（本部通信）");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0004_data.m_game_thread_sync.Reset();
+	::__0004_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0004_voice_event");
+
+	// -----------------
+	::__0004_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0004_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0005_game_event", "音声（情報官と本部の通信）", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 音声（情報官と本部の通信）
+		// [e2d_section_data] {"GUID":"264a7951-f288-4660-a489-8196651367cc","Name":"Link from [音声（本部通信）]","Type":"Link"}
+		e.Factor_Wait(0.5f);
+	}
+	
+	::__0004_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0004_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0004_voice_event()
+{
+	__0004_voice_event_usercode();
+	
+	::__0004_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0004_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0004_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"8be07c9b-e5b6-465d-815e-01ba3f11c0f9","Name":"音声（本部通信）","Type":"voice_script"}
+	if( IsBoolState(4,::__0004_data.m_is_pass,::__0004_data.m_is_pass) == false){
+		RadioVoice("AE181_003_E",0.0f); //「間に合ったようだな。」本部
+	}
+}
+
+//======================================
+// 音声（情報官と本部の通信）
+void __0005_game_event()
+{
+	if( IsBoolState(5,::__0005_data.m_is_break,::__0005_data.m_is_break) ) return;
+	
+	::__0005_data.m_counter++;
+	if( ::__0005_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0005_data.m_mutex.Lock();
+	internal_InitEventThread(5, ::__0005_data.m_counter, "__0005_game_event", "音声（情報官と本部の通信）");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0005_data.m_game_thread_sync.Reset();
+	::__0005_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0005_voice_event");
+
+	// -----------------
+	::__0005_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0005_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0006_game_event", "音声（情報官）", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 音声（情報官）
+		// [e2d_section_data] {"GUID":"58ddc61d-fd5b-4c92-b38c-19a6972ebaa1","Name":"Link from [音声（情報官と本部の通信）]","Type":"Link"}
+		e.Factor_Wait(1.0f);
+	}
+	
+	::__0005_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0005_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0005_voice_event()
+{
+	__0005_voice_event_usercode();
+	
+	::__0005_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0005_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0005_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"90d5b025-2f73-4c75-9f44-d26adecdea3e","Name":"音声（情報官と本部の通信）","Type":"voice_script"}
+	if( IsBoolState(5,::__0005_data.m_is_pass,::__0005_data.m_is_pass) == false){
+		RadioVoice("AE181_004_E",0.0f); //「問題があります。正規のパイロットが行方不明です。」情報官
+
+		RadioVoice("AE181_005_E",0.2f); //「何！？」本部
+	}
+}
+
+//======================================
+// 音声（情報官）
+void __0006_game_event()
+{
+	if( IsBoolState(6,::__0006_data.m_is_break,::__0006_data.m_is_break) ) return;
+	
+	::__0006_data.m_counter++;
+	if( ::__0006_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0006_data.m_mutex.Lock();
+	internal_InitEventThread(6, ::__0006_data.m_counter, "__0006_game_event", "音声（情報官）");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0006_data.m_game_thread_sync.Reset();
+	::__0006_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0006_voice_event");
+
+	// -----------------
+	::__0006_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0006_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0007_game_event", "音声（情報官）", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 音声（情報官）
+		// [e2d_section_data] {"GUID":"7a6d961b-59f9-4b16-a223-415a6dfb343b","Name":"Link from [音声（情報官）]","Type":"Link"}
+		e.Factor_Wait(1.0f);
+	}
+	
+	::__0006_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0006_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0006_voice_event()
+{
+	__0006_voice_event_usercode();
+	
+	::__0006_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0006_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0006_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"f8ff405d-fe8e-418c-870f-3c91ee21f416","Name":"音声（情報官）","Type":"voice_script"}
+	if( IsBoolState(6,::__0006_data.m_is_pass,::__0006_data.m_is_pass) == false){
+		RadioVoice("AE181_006_E",0.0f); //「敵は目前です。作戦は続行します。」情報官
+	}
+}
+
+//======================================
+// 音声（情報官）
+void __0007_game_event()
+{
+	if( IsBoolState(7,::__0007_data.m_is_break,::__0007_data.m_is_break) ) return;
+	
+	::__0007_data.m_counter++;
+	if( ::__0007_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0007_data.m_mutex.Lock();
+	internal_InitEventThread(7, ::__0007_data.m_counter, "__0007_game_event", "音声（情報官）");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0007_data.m_game_thread_sync.Reset();
+	::__0007_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0007_voice_event");
+
+	// -----------------
+	::__0007_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0007_data.m_voice_thread_sync.Wait(__END_SYNC);
+	
+	::__0007_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0007_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0007_voice_event()
+{
+	__0007_voice_event_usercode();
+	
+	::__0007_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0007_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0007_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"d70f0033-58da-4d8c-af87-531ed44216f7","Name":"音声（情報官）","Type":"voice_script"}
+	if( IsBoolState(7,::__0007_data.m_is_pass,::__0007_data.m_is_pass) == false){
+		RadioVoice("AE181_007_E",0.0f); //「一度バルガを操作した者がいるはずです。彼なら。」情報官
+
+		RadioVoice("AE181_008_E",0.5f); //「訓練も受けていないんだぞ。」本部
+	}
+}
+
+//======================================
+// 音声（軍曹チーム兵士C）
+void __0008_game_event()
+{
+	if( IsBoolState(8,::__0008_data.m_is_break,::__0008_data.m_is_break) ) return;
+	
+	::__0008_data.m_counter++;
+	if( ::__0008_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0008_data.m_mutex.Lock();
+	internal_InitEventThread(8, ::__0008_data.m_counter, "__0008_game_event", "音声（軍曹チーム兵士C）");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0008_data.m_game_thread_sync.Reset();
+	::__0008_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0008_voice_event");
+
+	// -----------------
+	::__0008_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0008_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0009_game_event", "音声（オペレーター）", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 音声（オペレーター）
+		// [e2d_section_data] {"GUID":"f88bfc85-8fbf-4025-a334-92919b42b6e9","Name":"Link from [音声（軍曹チーム兵士C）]","Type":"Link"}
+		e.Factor_Wait(0.5f);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__000B_game_event", "バラム注目", 0.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 1); // バラム注目
+		// [e2d_section_data] {"GUID":"c5e0a066-6a42-4a9c-8534-53d8f1fda961","Name":"Link from [音声（軍曹チーム兵士C）]","Type":"Link"}
+		e.Factor_WaitNC(1.5f);
+	}
+	
+	::__0008_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0008_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0008_voice_event()
+{
+	__0008_voice_event_usercode();
+	
+	::__0008_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0008_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0008_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"9e10971b-1405-432b-8222-1ec9cd6f33dc","Name":"音声（軍曹チーム兵士C）","Type":"voice_script"}
+	if( IsBoolState(8,::__0008_data.m_is_pass,::__0008_data.m_is_pass) == false){
+		TalkBegin();
+
+		Talk_AddSingle( g_sergent_follower3, "DLC_BE004_012", "npc_ap026_surprise_add", 0.0f ); //「アーケルスが来るぞ！」兵士Ｃ
+
+		TalkEnd();
+		WaitVoice();
+	}
+}
+
+//======================================
+// 音声（オペレーター）
+void __0009_game_event()
+{
+	if( IsBoolState(9,::__0009_data.m_is_break,::__0009_data.m_is_break) ) return;
+	
+	::__0009_data.m_counter++;
+	if( ::__0009_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0009_data.m_mutex.Lock();
+	internal_InitEventThread(9, ::__0009_data.m_counter, "__0009_game_event", "音声（オペレーター）");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0009_data.m_game_thread_sync.Reset();
+	::__0009_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0009_voice_event");
+
+	// -----------------
+	::__0009_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0009_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__000A_game_event", "音声（本部）", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 音声（本部）
+		// [e2d_section_data] {"GUID":"1fb1fbd1-0798-45a2-8a58-ed2261b2cb7f","Name":"Link from [音声（オペレーター）]","Type":"Link"}
+		e.Factor_Wait(0.5f);
+	}
+	
+	::__0009_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0009_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0009_voice_event()
+{
+	__0009_voice_event_usercode();
+	
+	::__0009_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0009_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0009_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"14f2dbc1-442d-482c-b07f-63327c9e4ddc","Name":"音声（オペレーター）","Type":"voice_script"}
+	if( IsBoolState(9,::__0009_data.m_is_pass,::__0009_data.m_is_pass) == false){
+		RadioVoice("AE181_010_E",0.0f); //「ストーム１、バルガに搭乗してください。」オペレーター
+	}
+}
+
+//======================================
+// 音声（本部）
+void __000A_game_event()
+{
+	if( IsBoolState(10,::__000A_data.m_is_break,::__000A_data.m_is_break) ) return;
+	
+	::__000A_data.m_counter++;
+	if( ::__000A_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__000A_data.m_mutex.Lock();
+	internal_InitEventThread(10, ::__000A_data.m_counter, "__000A_game_event", "音声（本部）");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__000A_data.m_game_thread_sync.Reset();
+	::__000A_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__000A_voice_event");
+
+	// -----------------
+	::__000A_data.m_game_thread_sync.Update(__END_SYNC);
+	::__000A_data.m_voice_thread_sync.Wait(__END_SYNC);
+	
+	::__000A_data.m_game_thread_sync.Update(__END_SYNC);
+	::__000A_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __000A_voice_event()
+{
+	__000A_voice_event_usercode();
+	
+	::__000A_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__000A_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __000A_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"300a9724-84d1-4244-b78d-85df2fb0f3a7","Name":"音声（本部）","Type":"voice_script"}
+	if( IsBoolState(10,::__000A_data.m_is_pass,::__000A_data.m_is_pass) == false){
+		RadioVoice("AE181_011_E",0.0f); //「やむをえん。頼むぞ。」本部
+	}
+}
+
+//======================================
+// バラム注目
+void __000B_game_event()
+{
+	if( IsBoolState(11,::__000B_data.m_is_break,::__000B_data.m_is_break) ) return;
+	
+	::__000B_data.m_counter++;
+	if( ::__000B_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__000B_data.m_mutex.Lock();
+	internal_InitEventThread(11, ::__000B_data.m_counter, "__000B_game_event", "バラム注目");
+	
+	__000B_game_event_usercode();
+}
+
+void __000B_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"4274b81d-0aa8-45fb-88da-85ca8e0a4fc2","Name":"バラム注目","Type":"game_script"}
+	if( IsBoolState(11,::__000B_data.m_is_pass,::__000B_data.m_is_pass) == false){
+		//LookCameraToObject( transporter, 0.0f, 30.0f, 0.0f, 120.0f, 4.0f );
+	}
+}
+
+//======================================
+// 怪獣注目
+void __000C_game_event()
+{
+	if( IsBoolState(12,::__000C_data.m_is_break,::__000C_data.m_is_break) ) return;
+	
+	::__000C_data.m_counter++;
+	if( ::__000C_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__000C_data.m_mutex.Lock();
+	internal_InitEventThread(12, ::__000C_data.m_counter, "__000C_game_event", "怪獣注目");
+	
+	__000C_game_event_usercode();
+}
+
+void __000C_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"63ec67bf-36a7-42aa-ba0a-4a512abbb199","Name":"怪獣注目","Type":"game_script"}
+	if( IsBoolState(12,::__000C_data.m_is_pass,::__000C_data.m_is_pass) == false){
+		LookCameraToObject( monster, 0.0f, 30.0f, 0.0f, 120.0f, 4.0f );
+	}
+}
+
+//======================================
+//  AIを指定オブジェクト方向へ向ける
+void __000D_game_event()
+{
+	if( IsBoolState(13,::__000D_data.m_is_break,::__000D_data.m_is_break) ) return;
+	
+	::__000D_data.m_counter++;
+	if( ::__000D_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__000D_data.m_mutex.Lock();
+	internal_InitEventThread(13, ::__000D_data.m_counter, "__000D_game_event", " AIを指定オブジェクト方向へ向ける");
+	
+	__000D_game_event_usercode();
+}
+
+void __000D_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"09f36d6f-c01d-43e2-a4fc-30d8c94e3318","Name":" AIを指定オブジェクト方向へ向ける","Type":"game_script"}
+	if( IsBoolState(13,::__000D_data.m_is_pass,::__000D_data.m_is_pass) == false){
+		SetAiObjectDirection_Object( soldier01, monster, -1, false ); // AIを指定オブジェクト方向へ向ける
+		SetAiObjectDirection_Object( soldier02, monster, -1, false ); // AIを指定オブジェクト方向へ向ける
+		SetAiObjectDirection_Object( soldier03, monster, -1, false ); // AIを指定オブジェクト方向へ向ける
+		SetAiObjectDirection_Object( soldier04, monster, -1, false ); // AIを指定オブジェクト方向へ向ける
+		SetAiObjectDirection_Object( soldier05, monster, -1, false ); // AIを指定オブジェクト方向へ向ける
+
+		SetAiObjectDirection_Object( g_sergent, monster, -1, true ); // AIを指定オブジェクト方向へ向ける
+		SetAiObjectDirection_Object( spriggan, monster, -1, true ); // AIを指定オブジェクト方向へ向ける
+		SetAiObjectDirection_Object( grimreaper, monster, -1, true ); // AIを指定オブジェクト方向へ向ける
+	}
+}
+
+//======================================
+// 音声（輸送機パイロットから通信）13
+void __000E_game_event()
+{
+	if( IsBoolState(14,::__000E_data.m_is_break,::__000E_data.m_is_break) ) return;
+	
+	::__000E_data.m_counter++;
+	if( ::__000E_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__000E_data.m_mutex.Lock();
+	internal_InitEventThread(14, ::__000E_data.m_counter, "__000E_game_event", "音声（輸送機パイロットから通信）13");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__000E_data.m_game_thread_sync.Reset();
+	::__000E_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__000E_voice_event");
+
+	// -----------------
+	::__000E_data.m_game_thread_sync.Update(__END_SYNC);
+	::__000E_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__000F_game_event", "音声（輸送機パイロット）14", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 音声（輸送機パイロット）14
+		// [e2d_section_data] {"GUID":"a6d9ff81-4e5a-4a07-898e-ba65918f9158","Name":"Link from [音声（輸送機パイロットから通信）13]","Type":"Link"}
+		e.Factor_Wait(0.5f);
+	}
+	
+	::__000E_data.m_game_thread_sync.Update(__END_SYNC);
+	::__000E_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __000E_voice_event()
+{
+	__000E_voice_event_usercode();
+	
+	::__000E_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__000E_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __000E_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"8f483627-f0c3-4cfa-a403-e3dc64f208af","Name":"音声（輸送機パイロットから通信）13","Type":"voice_script"}
+	if( IsBoolState(14,::__000E_data.m_is_pass,::__000E_data.m_is_pass) == false){
+		RadioVoice("AE181_012_E",0.0f); //「投下地点を確認。」パイロット13（輸送機）
+	}
+}
+
+//======================================
+// 音声（輸送機パイロット）14
+void __000F_game_event()
+{
+	if( IsBoolState(15,::__000F_data.m_is_break,::__000F_data.m_is_break) ) return;
+	
+	::__000F_data.m_counter++;
+	if( ::__000F_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__000F_data.m_mutex.Lock();
+	internal_InitEventThread(15, ::__000F_data.m_counter, "__000F_game_event", "音声（輸送機パイロット）14");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__000F_data.m_game_thread_sync.Reset();
+	::__000F_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__000F_voice_event");
+
+	// -----------------
+	::__000F_data.m_game_thread_sync.Update(__END_SYNC);
+	::__000F_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0010_game_event", "音声（輸送機パイロット）15", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 音声（輸送機パイロット）15
+		// [e2d_section_data] {"GUID":"b341e446-6d5a-46ca-b102-d58c88c444ed","Name":"Link from [音声（輸送機パイロット）14]","Type":"Link"}
+		e.Factor_Wait(0.5f);
+	}
+	
+	::__000F_data.m_game_thread_sync.Update(__END_SYNC);
+	::__000F_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __000F_voice_event()
+{
+	__000F_voice_event_usercode();
+	
+	::__000F_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__000F_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __000F_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"eb4a9d93-3a27-4378-b39e-929272bb3c61","Name":"音声（輸送機パイロット）14","Type":"voice_script"}
+	if( IsBoolState(15,::__000F_data.m_is_pass,::__000F_data.m_is_pass) == false){
+//		RadioVoice("AE181_013_E",0.0f); //「バルガ、投下。」パイロット14（輸送機）
+	}
+}
+
+//======================================
+// 音声（輸送機パイロット）15
+void __0010_game_event()
+{
+	if( IsBoolState(16,::__0010_data.m_is_break,::__0010_data.m_is_break) ) return;
+	
+	::__0010_data.m_counter++;
+	if( ::__0010_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0010_data.m_mutex.Lock();
+	internal_InitEventThread(16, ::__0010_data.m_counter, "__0010_game_event", "音声（輸送機パイロット）15");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0010_data.m_game_thread_sync.Reset();
+	::__0010_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0010_voice_event");
+
+	// -----------------
+	::__0010_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0010_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0011_game_event", "AIの向き指定をクリア", 0.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 0); // AIの向き指定をクリア
+		// [e2d_section_data] {"GUID":"2ea205e0-cc86-4e03-8551-3dc09d1bccbd","Name":"Link from [音声（輸送機パイロット）15]","Type":"Link"}
+	}
+	
+	::__0010_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0010_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0010_voice_event()
+{
+	__0010_voice_event_usercode();
+	
+	::__0010_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0010_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0010_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"34414c4e-50a4-44e6-9734-be8207982e21","Name":"音声（輸送機パイロット）15","Type":"voice_script"}
+	if( IsBoolState(16,::__0010_data.m_is_pass,::__0010_data.m_is_pass) == false){
+//		RadioVoice("AE181_014_E",0.0f); //「切り離せ！」パイロット15（輸送機）
+	}
+}
+
+//======================================
+// AIの向き指定をクリア
+void __0011_game_event()
+{
+	if( IsBoolState(17,::__0011_data.m_is_break,::__0011_data.m_is_break) ) return;
+	
+	::__0011_data.m_counter++;
+	if( ::__0011_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0011_data.m_mutex.Lock();
+	internal_InitEventThread(17, ::__0011_data.m_counter, "__0011_game_event", "AIの向き指定をクリア");
+	
+	__0011_game_event_usercode();
+}
+
+void __0011_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"11668d68-e8d1-4684-b467-66c8047d38a3","Name":"AIの向き指定をクリア","Type":"game_script"}
+	if( IsBoolState(17,::__0011_data.m_is_pass,::__0011_data.m_is_pass) == false){
+		ClearAiObjectDirection( soldier01, false ); // AIの向き指定をクリア
+		ClearAiObjectDirection( soldier02, false ); 
+		ClearAiObjectDirection( soldier03, false ); 
+		ClearAiObjectDirection( soldier04, false ); 
+		ClearAiObjectDirection( soldier05, false ); 
+		ClearAiObjectDirection( g_sergent, true ); 
+		ClearAiObjectDirection( spriggan, true ); 
+		ClearAiObjectDirection( grimreaper, true );
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0012_game_event", "AIランダムトーク解禁", 0.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 0); // AIランダムトーク解禁
+		// [e2d_section_data] {"GUID":"f1d441e5-9af3-4768-86ef-055eade1f39a","Name":"Link from [AIの向き指定をクリア]","Type":"Link"}
+	}
+}
+
+//======================================
+// AIランダムトーク解禁
+void __0012_game_event()
+{
+	if( IsBoolState(18,::__0012_data.m_is_break,::__0012_data.m_is_break) ) return;
+	
+	::__0012_data.m_counter++;
+	if( ::__0012_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0012_data.m_mutex.Lock();
+	internal_InitEventThread(18, ::__0012_data.m_counter, "__0012_game_event", "AIランダムトーク解禁");
+	
+	__0012_game_event_usercode();
+}
+
+void __0012_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"44715ffa-57af-48fd-8585-2c7a6656be71","Name":"AIランダムトーク解禁","Type":"game_script"}
+	if( IsBoolState(18,::__0012_data.m_is_pass,::__0012_data.m_is_pass) == false){
+		EnableAiRandomTalk(); // 全体のAI会話を許可
+	}
+}
+
+//======================================
+// 翼竜怪獣登場
+void __0013_game_event()
+{
+	if( IsBoolState(19,::__0013_data.m_is_break,::__0013_data.m_is_break) ) return;
+	
+	::__0013_data.m_counter++;
+	if( ::__0013_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0013_data.m_mutex.Lock();
+	internal_InitEventThread(19, ::__0013_data.m_counter, "__0013_game_event", "翼竜怪獣登場");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0013_data.m_game_thread_sync.Reset();
+	::__0013_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0013_voice_event");
+
+	__0013_game_event_usercode();
+	
+	::__0013_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0013_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0013_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"01704d65-330f-48f0-bdbb-421bae491d3d","Name":"翼竜怪獣登場","Type":"game_script"}
+	if( IsBoolState(19,::__0013_data.m_is_pass,::__0013_data.m_is_pass) == false){
+		monster.SetAiRoute("怪獣ルート02" /*ルート名*/);
+
+
+		radon=CreateEnemy(
+			"翼竜怪獣",	// 配置ポイント
+			"app:/object/e604_radon.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+			);
+			
+		radon.SetAiRoute("翼竜怪獣侵入" /*ルート名*/);
+			
+		radon.SetInvincible(true);
+		radon.SetAcceptEncount(false/*bool*/);
+		radon.SetIgnoreDamageEventMode(true /*有効／無効*/);
+		radon.EDF6_FlyingDyno_SetForm(1 /*形態番号*/);
+		radon.EDF6_FlyingDyno_SetAutoDownRatio(1 /*割合 (0～1)*/);
+		radon.EDF6_FlyingDyno_SetAutoWakeup(false /*ON/OFF*/);
+//		radon.SetDurabilityMin(90 /*％*/);
+
+		radon.ExcludeTeamManager(true /*除外する？*/);
+		//	翼竜怪獣が接近するまでのウェイト
+		Wait(12.0f /*この命令で停止する秒数*/);
+
+			LookCameraToObject(
+			radon,	// 注視オブジェクト
+			0,	// x
+			50,	// y
+			0,	// z
+			200,	// 注視半径
+			2.0f	// 注視時間
+			);
+		radon.ExcludeTeamManager(false /*除外する？*/);
+		SetObjectDurability(radon, 1000.0f);
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0008_game_event", "音声（軍曹チーム兵士C）", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 音声（軍曹チーム兵士C）
+		e.Factor_Wait(0.0f);
+	}
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("SIREN_DESTROYED", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_ObjectDestroy(radon);
+	}
+
+	}
+	// -----------------
+	::__0013_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0013_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0014_game_event", "アーケルス咆哮", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // アーケルス咆哮
+		// [e2d_section_data] {"GUID":"fa8fcabb-b26c-418d-8049-1c4a8071f4f7","Name":"Link from [翼竜怪獣登場]","Type":"Link"}
+		e.Factor_AiMoveEnd(monster);
+	}
+}
+
+void __0013_voice_event()
+{
+	__0013_voice_event_usercode();
+	
+	::__0013_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0013_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0013_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"01704d65-330f-48f0-bdbb-421bae491d3d","Name":"翼竜怪獣登場","Type":"voice_script"}
+	if( IsBoolState(19,::__0013_data.m_is_pass,::__0013_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//======================================
+// アーケルス咆哮
+void __0014_game_event()
+{
+	if( IsBoolState(20,::__0014_data.m_is_break,::__0014_data.m_is_break) ) return;
+	
+	::__0014_data.m_counter++;
+	if( ::__0014_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0014_data.m_mutex.Lock();
+	internal_InitEventThread(20, ::__0014_data.m_counter, "__0014_game_event", "アーケルス咆哮");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0014_data.m_game_thread_sync.Reset();
+	::__0014_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0014_voice_event");
+
+	__0014_game_event_usercode();
+	
+	::__0014_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0014_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0014_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"0bd6a9ac-865c-422e-bf7b-f763743300a1","Name":"アーケルス咆哮","Type":"game_script"}
+	if( IsBoolState(20,::__0014_data.m_is_pass,::__0014_data.m_is_pass) == false){
+		// ゲーム進行スクリプト 
+		ObjectAction( monster, MONSTER501_ACTION_SHOUT0 );
+	}
+	// -----------------
+	::__0014_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0014_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0015_game_event", "アーケルス死亡", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // アーケルス死亡
+		// [e2d_section_data] {"GUID":"3ce2a6a5-1169-4cdf-93a6-7118f096133b","Name":"Link from [アーケルス咆哮]","Type":"Link"}
+		e.Factor_AiMoveEnd(radon);
+	}
+}
+
+void __0014_voice_event()
+{
+	__0014_voice_event_usercode();
+	
+	::__0014_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0014_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0014_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"0bd6a9ac-865c-422e-bf7b-f763743300a1","Name":"アーケルス咆哮","Type":"voice_script"}
+	if( IsBoolState(20,::__0014_data.m_is_pass,::__0014_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//======================================
+// アーケルス死亡
+void __0015_game_event()
+{
+	if( IsBoolState(21,::__0015_data.m_is_break,::__0015_data.m_is_break) ) return;
+	
+	::__0015_data.m_counter++;
+	if( ::__0015_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0015_data.m_mutex.Lock();
+	internal_InitEventThread(21, ::__0015_data.m_counter, "__0015_game_event", "アーケルス死亡");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0015_data.m_game_thread_sync.Reset();
+	::__0015_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0015_voice_event");
+
+	__0015_game_event_usercode();
+	
+	::__0015_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0015_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0015_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"3426cdc4-8ddc-4830-afe5-caa54f0c8096","Name":"アーケルス死亡","Type":"game_script"}
+	if( IsBoolState(21,::__0015_data.m_is_pass,::__0015_data.m_is_pass) == false){
+		// ゲーム進行スクリプト 
+		radon.Action2("form2_vertical_flame");
+
+		//　死亡イベント用
+		Wait(5.0f /*この命令で停止する秒数*/);
+		monster.Suicide();
+		Wait(5.0f /*この命令で停止する秒数*/);
+
+
+		radon.AppealAnimation("appeal_fly_shout" /*アニメーション名*/);
+	}
+	// -----------------
+	::__0015_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0015_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0016_game_event", "戦闘開始", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 戦闘開始
+		// [e2d_section_data] {"GUID":"bc2333c8-4de7-4347-81ba-ad859dee7f54","Name":"Link from [アーケルス死亡]","Type":"Link"}
+		e.Factor_Wait(5.0f);
+	}
+}
+
+void __0015_voice_event()
+{
+	__0015_voice_event_usercode();
+	
+	::__0015_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0015_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0015_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"3426cdc4-8ddc-4830-afe5-caa54f0c8096","Name":"アーケルス死亡","Type":"voice_script"}
+	if( IsBoolState(21,::__0015_data.m_is_pass,::__0015_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//======================================
+// 戦闘開始
+void __0016_game_event()
+{
+	if( IsBoolState(22,::__0016_data.m_is_break,::__0016_data.m_is_break) ) return;
+	
+	::__0016_data.m_counter++;
+	if( ::__0016_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0016_data.m_mutex.Lock();
+	internal_InitEventThread(22, ::__0016_data.m_counter, "__0016_game_event", "戦闘開始");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0016_data.m_game_thread_sync.Reset();
+	::__0016_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0016_voice_event");
+
+	__0016_game_event_usercode();
+	
+	::__0016_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0016_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0016_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"e801037f-c7e9-4fd3-8574-35b9eba1f308","Name":"戦闘開始","Type":"game_script"}
+	if( IsBoolState(22,::__0016_data.m_is_pass,::__0016_data.m_is_pass) == false){
+		// ゲーム進行スクリプト 
+
+			
+		radon.SetInvincible(false);
+		radon.SetAcceptEncount(true/*bool*/);
+		radon.SetIgnoreDamageEventMode(false /*有効／無効*/);
+		radon.SetEncount();
+	}
+	// -----------------
+	::__0016_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0016_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0017_game_event", "音声（オペレーター）", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 0); // 音声（オペレーター）
+		// [e2d_section_data] {"GUID":"03be92f6-3514-48bd-af82-9cb9645da0cd","Name":"Link from [戦闘開始]","Type":"Link"}
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__001A_game_event", "翼竜怪獣撤退", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_OR, 2); // 翼竜怪獣撤退
+		// [e2d_section_data] {"GUID":"66acfcba-aab5-4e4b-a3f9-107d9279f7ac","Name":"Link from [戦闘開始]","Type":"Link"}
+		e.Factor_Wait(300.0f);
+		e.Factor_ObjectDestroy(baruga);
+	}
+}
+
+void __0016_voice_event()
+{
+	__0016_voice_event_usercode();
+	
+	::__0016_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0016_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0016_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"e801037f-c7e9-4fd3-8574-35b9eba1f308","Name":"戦闘開始","Type":"voice_script"}
+	if( IsBoolState(22,::__0016_data.m_is_pass,::__0016_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//======================================
+// 音声（オペレーター）
+void __0017_game_event()
+{
+	if( IsBoolState(23,::__0017_data.m_is_break,::__0017_data.m_is_break) ) return;
+	
+	::__0017_data.m_counter++;
+	if( ::__0017_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0017_data.m_mutex.Lock();
+	internal_InitEventThread(23, ::__0017_data.m_counter, "__0017_game_event", "音声（オペレーター）");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0017_data.m_game_thread_sync.Reset();
+	::__0017_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0017_voice_event");
+
+	// -----------------
+	::__0017_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0017_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0018_game_event", "音声（オペレーター）", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 0); // 音声（オペレーター）
+		// [e2d_section_data] {"GUID":"2701bf5d-eec6-4aa8-bc59-e37f8d29f413","Name":"Link from [音声（オペレーター）]","Type":"Link"}
+	}
+	
+	::__0017_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0017_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0017_voice_event()
+{
+	__0017_voice_event_usercode();
+	
+	::__0017_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0017_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0017_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"581588ce-ff4a-4b53-bff1-6299c51d6ced","Name":"音声（オペレーター）","Type":"voice_script"}
+	if( IsBoolState(23,::__0017_data.m_is_pass,::__0017_data.m_is_pass) == false){
+		RadioVoice("AE181_015_E",0.0f); //「バルガ起動。」オペレーター
+	}
+}
+
+//======================================
+// 音声（オペレーター）
+void __0018_game_event()
+{
+	if( IsBoolState(24,::__0018_data.m_is_break,::__0018_data.m_is_break) ) return;
+	
+	::__0018_data.m_counter++;
+	if( ::__0018_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0018_data.m_mutex.Lock();
+	internal_InitEventThread(24, ::__0018_data.m_counter, "__0018_game_event", "音声（オペレーター）");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0018_data.m_game_thread_sync.Reset();
+	::__0018_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0018_voice_event");
+
+	// -----------------
+	::__0018_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0018_data.m_voice_thread_sync.Wait(__END_SYNC);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0019_game_event", "バルガ搭乗許可", 0.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 0); // バルガ搭乗許可
+		// [e2d_section_data] {"GUID":"3e57a6f6-7952-4b5b-bbd5-e9b047570580","Name":"Link from [音声（オペレーター）]","Type":"Link"}
+	}
+	
+	::__0018_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0018_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0018_voice_event()
+{
+	__0018_voice_event_usercode();
+	
+	::__0018_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0018_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0018_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"d98aa9b9-bd4e-44ed-8d57-05174226595f","Name":"音声（オペレーター）","Type":"voice_script"}
+	if( IsBoolState(24,::__0018_data.m_is_pass,::__0018_data.m_is_pass) == false){
+		RadioVoice("AE181_016_E",0.0f); //「搭乗してください。」オペレーター
+	}
+}
+
+//======================================
+// バルガ搭乗許可
+void __0019_game_event()
+{
+	if( IsBoolState(25,::__0019_data.m_is_break,::__0019_data.m_is_break) ) return;
+	
+	::__0019_data.m_counter++;
+	if( ::__0019_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0019_data.m_mutex.Lock();
+	internal_InitEventThread(25, ::__0019_data.m_counter, "__0019_game_event", "バルガ搭乗許可");
+	
+	__0019_game_event_usercode();
+}
+
+void __0019_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"867c9e58-993e-457b-833f-2aeb1cad0969","Name":"バルガ搭乗許可","Type":"game_script"}
+	if( IsBoolState(25,::__0019_data.m_is_pass,::__0019_data.m_is_pass) == false){
+		SetVehicleRide( baruga, true );
+	}
+}
+
+//======================================
+// 翼竜怪獣撤退
+void __001A_game_event()
+{
+	if( IsBoolState(26,::__001A_data.m_is_break,::__001A_data.m_is_break) ) return;
+	
+	::__001A_data.m_counter++;
+	if( ::__001A_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__001A_data.m_mutex.Lock();
+	internal_InitEventThread(26, ::__001A_data.m_counter, "__001A_game_event", "翼竜怪獣撤退");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__001A_data.m_game_thread_sync.Reset();
+	::__001A_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__001A_voice_event");
+
+	__001A_game_event_usercode();
+	
+	::__001A_data.m_game_thread_sync.Update(__END_SYNC);
+	::__001A_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __001A_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"5087b703-fa67-4917-aed5-aba7c5669286","Name":"翼竜怪獣撤退","Type":"game_script"}
+	if( IsBoolState(26,::__001A_data.m_is_pass,::__001A_data.m_is_pass) == false){
+
+// FAIL
+
+		radon.SetAiRoute_DeleteWheneDone("翼竜怪獣撤退" /*ルート名*/);
+		radon.SetIgnoreDamageEventMode(true /*有効／無効*/);
+
+		EventLightTool tool;
+		EventLightTool_EnvFadeAnimation( EVENT_LIGHT_ENV_FADE_SKY_COLOR, 0.25, 0.0, 0.0, 0, 12.0f );
+		Bgm("BGM_tikyuu2_mothership");
+
+		Wait(4.0f /*この命令で停止する秒数*/);
+		LookCameraToObject(
+			radon,	// 注視オブジェクト
+			0,	// x
+			0,	// y
+			0,	// z
+			200,	// 注視半径
+			6	// 注視時間
+			);
+
+	}
+	// -----------------
+	::__001A_data.m_game_thread_sync.Update(__END_SYNC);
+	::__001A_data.m_voice_thread_sync.Wait(__END_SYNC);
+
+}
+
+void __001A_voice_event()
+{
+	__001A_voice_event_usercode();
+	
+	::__001A_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__001A_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __001A_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"5087b703-fa67-4917-aed5-aba7c5669286","Name":"翼竜怪獣撤退","Type":"voice_script"}
+	if( IsBoolState(26,::__001A_data.m_is_pass,::__001A_data.m_is_pass) == false){
+		
+	}
+}
+
+//======================================
+// 終了
+void __001B_game_event()
+{
+	if( IsBoolState(27,::__001B_data.m_is_break,::__001B_data.m_is_break) ) return;
+	
+	::__001B_data.m_counter++;
+	if( ::__001B_data.m_counter != 1 ) return;
+	if( internal_BeginFinishing() == false ) return; // 終了処理が開始済みなら帰る
+	Mutex_LockObject@ __internal_thread_lock = ::__001B_data.m_mutex.Lock();
+	internal_InitEventThread(27, ::__001B_data.m_counter, "__001B_game_event", "終了");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__001B_data.m_game_thread_sync.Reset();
+	::__001B_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__001B_voice_event");
+
+	__001B_game_event_usercode();
+	
+	::__001B_data.m_game_thread_sync.Update(__END_SYNC);
+	::__001B_data.m_voice_thread_sync.Wait(__END_SYNC);
+	while(true) sys_Yield();
+}
+
+void __001B_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"e8afcc44-9736-4f7f-93ed-fa8db7f65e5d","Name":"終了","Type":"game_script"}
+	if( IsBoolState(27,::__001B_data.m_is_pass,::__001B_data.m_is_pass) == false){
+
+		MissionClear();
+	}
+	// -----------------
+	::__001B_data.m_game_thread_sync.Update(__END_SYNC);
+	::__001B_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __001B_voice_event()
+{
+	__001B_voice_event_usercode();
+	
+	::__001B_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__001B_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __001B_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"e8afcc44-9736-4f7f-93ed-fa8db7f65e5d","Name":"終了","Type":"voice_script"}
+	if( IsBoolState(27,::__001B_data.m_is_pass,::__001B_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+void SIREN_DESTROYED()
+{
+		Wait(3);
+		RadioVoice("BE063_047",0.0f);
+		Wait(1);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("BARGA_DESTROYED", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_ObjectDestroy(baruga);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__001B_game_event", "音声（軍曹チーム兵士C）", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 音声（軍曹チーム兵士C）
+		e.Factor_Wait(1.0f);
+	}
+}
+
+void BARGA_DESTROYED()
+{
+		RadioVoice("BE090_203",0.0f);
+}
+

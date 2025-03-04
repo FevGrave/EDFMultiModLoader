@@ -2289,6 +2289,16 @@
             "value": "%PLAYERNAME%'s Squad Quarters"
         },
         {
+            "name": "Online_FirstSignin",
+            "type": "string",
+            "value": "You must be signed in to your Epic Games account to use the following online cross-play features\n\n　Friending an Epic Games Store player\n　Invite Epic Games Store players\n　Epic Games Achievements\n　Epic Games Presence\n　Epic Games Social Overlays\n\nDo you want to sign in to your Epic Games account?\nYou can still play online without signing in."
+        },
+        {
+            "name": "Online_FirstSigninDeny",
+            "type": "string",
+            "value": "Some online cross-play features, such as invitations to Epic Games Store players, will be restricted.\n\nTo access all online crossplay features, please sign in to your Epic Games account in the System Settings screen."
+        },
+        {
             "name": "Online_Game_Disconnect",
             "type": "string",
             "value": "You have been disconnected from the session."
@@ -2412,6 +2422,11 @@
             "name": "Online_UGC_RoomName",
             "type": "string",
             "value": "Instant Room"
+        },
+        {
+            "name": "Online_UnlinkedSignin",
+            "type": "string",
+            "value": "You were unable to sign in to your Epic Games account.\nDo you want to sign in to your Epic Games account?\nPlease note: If you do not link your Epic Games account, you will still be able to enjoy online play."
         },
         {
             "name": "Online_Weapon_Limit_None",
@@ -4316,7 +4331,7 @@
         {
             "name": "RoomType_Everyone",
             "type": "string",
-            "value": "Change Me"
+            "value": "Everyone"
         },
         {
             "name": "RoomType_Everyone_Desc",
@@ -4416,7 +4431,7 @@
         {
             "name": "RoomType_PassCodeOnly",
             "type": "string",
-            "value": "Change Me"
+            "value": "Change Me (Password)"
         },
         {
             "name": "RoomType_PassCodeOnly_Desc",
@@ -5419,6 +5434,31 @@
             "value": "Details"
         },
         {
+            "name": "Sys_EpicAccount_NotifySignin",
+            "type": "string",
+            "value": "Signing in to Epic Games account..."
+        },
+        {
+            "name": "Sys_EpicAccount_SigninAlready",
+            "type": "string",
+            "value": "You are already signed in to your Epic Games account."
+        },
+        {
+            "name": "Sys_EpicAccount_SigninCancel",
+            "type": "string",
+            "value": "Canceled signing in to your Epic Games account."
+        },
+        {
+            "name": "Sys_EpicAccount_SigninSuccess",
+            "type": "string",
+            "value": "Successfully signed in to your Epic Games account."
+        },
+        {
+            "name": "Sys_EpicAccount_SinginFailed",
+            "type": "string",
+            "value": "Failed to sign in to your Epic Games account."
+        },
+        {
             "name": "Sys_Exit_Confirmation",
             "type": "string",
             "value": "Do you want to exit the game?"
@@ -5442,6 +5482,11 @@
             "name": "Sys_InviteFailed",
             "type": "string",
             "value": "You received an invite,\nbut an error has occurred.\nThe invite process will be canceled."
+        },
+        {
+            "name": "Sys_InviteFailed_UnmatchVersion",
+            "type": "string",
+            "value": "Could not join the online room due to different application versions."
         },
         {
             "name": "Sys_JoinGameAccepted",
@@ -5594,6 +5639,11 @@
             "value": "You can now remove armor limits and weapon level limits."
         },
         {
+            "name": "Sys_UpdateNotify00000",
+            "type": "string",
+            "value": "Notice:\nSigning in to your Epic Games account is no longer required.\nIf you wish to unlink your Steam account from your Epic Games account, please visit Epic Games in your web browser. You can unlink your accounts."
+        },
+        {
             "name": "Sys_UseGamepad",
             "type": "string",
             "value": "Start the game using the gamepad."
@@ -5647,6 +5697,11 @@
             "name": "SystemOption_DisplaySetting",
             "type": "string",
             "value": "Screen Settings"
+        },
+        {
+            "name": "SystemOption_EpicAccount_Signin",
+            "type": "string",
+            "value": "Sign in to Epic Games account"
         },
         {
             "name": "SystemOption_LetterBox",

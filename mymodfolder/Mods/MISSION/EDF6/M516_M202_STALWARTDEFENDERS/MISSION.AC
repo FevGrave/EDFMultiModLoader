@@ -1,0 +1,5264 @@
+﻿//
+// The Sentinels
+//
+
+#include "app:/Mission/AsCommon.h"
+
+Talkers g_soldiers;
+
+class __EventData {
+	uint m_counter  = 0;
+	bool m_is_break = false;
+	bool m_is_pass = false;
+	internal_SyncCounter m_game_thread_sync;
+	internal_SyncCounter m_voice_thread_sync;
+	Mutex m_mutex;
+};
+
+__EventData __0000_data;
+__EventData __0001_data;
+__EventData __0002_data;
+__EventData __0003_data;
+__EventData __0004_data;
+__EventData __0005_data;
+__EventData __0006_data;
+__EventData __0007_data;
+__EventData __0008_data;
+__EventData __0009_data;
+__EventData __000A_data;
+__EventData __000B_data;
+__EventData __000C_data;
+__EventData __000D_data;
+__EventData __000E_data;
+
+const uint __END_SYNC = 0x7fffffff;
+
+// [e2d_section_data] {"GUID":null,"Name":"グローバル定義","Type":"Global"}
+Object bigAnker01;
+
+Object anker01;
+Object anker02;
+Object anker03;
+Object anker04;
+Object anker05;
+Object anker06;
+Object anker07;
+Object anker08;
+Object anker09;
+Object anker10;
+Object anker11;
+Object anker12;
+Object anker13;
+Object anker14;
+Object anker15;
+Object anker16;
+Object anker17;
+Object anker18;
+Object anker19;
+Object anker20;
+Object anker21;
+Object anker22;
+
+Object anker01B;
+Object anker02B;
+Object anker03B;
+Object anker04B;
+Object anker05B;
+Object anker06B;
+Object anker07B;
+Object anker08B;
+Object anker09B;
+Object anker10B;
+Object anker11B;
+Object anker12B;
+Object anker13B;
+Object anker14B;
+Object anker15B;
+Object anker16B;
+Object anker17B;
+Object anker18B;
+Object anker19B;
+Object anker20B;
+Object anker21B;
+Object anker22B;
+
+Object nix01;
+Object nix02;
+Object tank01;
+Object tank02;
+
+Object SQUAD1_1;
+Object SQUAD1_2;
+Object SQUAD1_3;
+Object SQUAD1_4;
+Object SQUAD2_1;
+Object SQUAD2_2;
+Object SQUAD2_3;
+Object SQUAD2_4;
+Object SQUAD3_1;
+Object SQUAD3_2;
+Object SQUAD3_3;
+Object SQUAD3_4;
+Object SQUAD4_1;
+Object SQUAD4_2;
+Object SQUAD4_3;
+Object SQUAD4_4;
+Object SQUAD5_1;
+Object SQUAD5_2;
+Object SQUAD5_3;
+Object SQUAD5_4;
+
+UI handle;
+
+//======================================
+// 開始
+void Main()
+{
+	if( IsBoolState(0,::__0000_data.m_is_break,::__0000_data.m_is_break) ) return;
+	
+	::__0000_data.m_counter++;
+	const uint32 MAX_EVENT_ID = 14;
+	internal_Initialize(MAX_EVENT_ID);
+	internal_GetEventState(0).SetName("開始");
+	internal_GetEventState(1).SetName("ビッグアンカーエンカウント起動");
+	internal_GetEventState(2).SetName("アンカー01エンカウント起動");
+	internal_GetEventState(3).SetName("アンカー02エンカウント起動");
+	internal_GetEventState(4).SetName("アンカー03エンカウント起動");
+	internal_GetEventState(5).SetName("アンカー04エンカウント起動");
+	internal_GetEventState(6).SetName("終了");
+	internal_GetEventState(7).SetName("中継");
+	internal_GetEventState(8).SetName("移動終了&特定エリアについたら乗り物進行");
+	internal_GetEventState(9).SetName("中継");
+	internal_GetEventState(10).SetName("移動終了&特定エリアについたら乗り物進行");
+	internal_GetEventState(11).SetName("中継");
+	internal_GetEventState(12).SetName("移動終了&特定エリアについたら乗り物進行");
+	internal_GetEventState(13).SetName("中継");
+	internal_GetEventState(14).SetName("乗移動終了&特定エリアについたら乗り物進行");
+	
+	Mutex_LockObject@ __internal_thread_lock = ::__0000_data.m_mutex.Lock();
+	internal_InitEventThread(0, ::__0000_data.m_counter, "Main", "開始");
+	
+	// --------------------- pre loading begin.
+	BeginLoading();
+	PreloadMap("app:/map/ig_MountainVillage.mac", "sunset2", -1);
+	Preload("app:/ui/UiResourceGroup_InMission.sgo", -1);
+	Preload("app:/ui/UiResourceGroup_MissionCleared.sgo", -1);
+	Preload("app:/ui/UiResourceGroup_MissionFailed.sgo", -1);
+	Preload("app:/object/v612_nix_g_ai.sgo", -1);
+	Preload("app:/object/v603_flak_ai.sgo", -1);
+	Preload("app:/object/AIARMYSOLDIER_AF_LEADER.sgo", -1);
+	Preload("app:/object/AIARMYSOLDIER_AF.sgo", -1);
+	Preload("app:/object/AIARMYSOLDIER_SG_LEADER.sgo", -1);
+	Preload("app:/object/AIARMYSOLDIER_SG.sgo", -1);
+	Preload("app:/object/AIHEAVYARMOR_SSG_LEADER.sgo", -1);
+	Preload("app:/object/AIHEAVYARMOR_SSG.sgo", -1);
+	Preload("app:/object/AIARMYSOLDIER_SP.sgo", -1);
+	Preload("app:/object/AIHEAVYARMOR_SP_LEADER.sgo", -1);
+	Preload("app:/object/AIPALEWING_ELITE_LR_LEADER.sgo", -1);
+	Preload("app:/object/AIPALEWING_ELITE_LR.sgo", -1);
+	Preload("app:/object/e505_generator_superlarge.sgo", -1);
+	Preload("app:/object/e612_anchor_blue.sgo", -1);
+	Preload("app:/object/e666_anchor_small_heavyfire_blue.sgo", -1);
+	Preload("app:/object/e612_anchor_blue_NS.sgo", -1);
+	Preload("app:/object/e666_anchor_small_heavyfire_blue_NS.sgo", -1);
+	Preload("app:/object/e612_anchor_blue_NSW.sgo", -1);
+	Preload("app:/object/e666_anchor_small_heavyfire_blue_NSW.sgo", -1);
+	Preload("app:/object/e515_imperialufo_ace.sgo", -1);
+	Preload("app:/object/RedSmallDragon.sgo", -1);
+	Preload("app:/object/e507_goldufo.sgo", -1);
+	Preload("app:/object/E515_IMPERIALUFO_PROTOTYPE.sgo", -1);
+	Preload("app:/object/e507_goldufo_big.sgo", -1);
+	Preload("app:/object/e515_imperialufo.sgo", -1);
+	Preload("app:/object/e507_goldufo_hi.sgo", -1);
+	Preload("app:/object/e605_spinnerufo.sgo", -1);
+	Preload("app:/object/e507_goldufo_ace.sgo", -1);
+	Preload("app:/object/VEHICLE401_STRIKER_MPACK2.sgo", -1);
+	Preload("app:/object/E650_GIANTANT01.sgo", -1);
+	Preload("app:/object/E650_GIANTANT02B.sgo", -1);
+	Preload("app:/object/E651_SPIDER01.sgo", -1);
+	Preload("app:/object/YERROWSMALLDRAGON.sgo", -1);
+	Preload("app:/object/GIANTBEE01.sgo", -1);
+	Preload("app:/object/E602_BERSERKER.sgo", -1);
+	Preload("app:/object/E602_BERSERKER_GRAPPLE.sgo", -1);
+
+
+
+	PreloadPlayerResource();
+	WaitPreload();
+	Online_WaitStart();
+	EndLoading();
+	// --------------------- pre loading end.
+
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0000_data.m_game_thread_sync.Reset();
+	::__0000_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0000_voice_event");
+
+	Main_usercode();
+	
+	::__0000_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void Main_usercode()
+{
+	// [e2d_section_data] {"GUID":"60a12ca1-1810-4b12-a821-6f0a6888c9ad","Name":"開始","Type":"game_script"}
+	if( IsBoolState(0,::__0000_data.m_is_pass,::__0000_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		SetRagdollManagerAcceptGeneratorObjectMode(true);
+
+		Map("app:/map/ig_MountainVillage.mac",  "sunset2"/*天候名*/);
+
+		CreatePlayer("プレイヤー" /*プレイヤーを作成するポイント*/);
+
+// SETTINGS
+
+		SetMoveArea("AREA");
+
+		Bgm("BGM_E4D02_UFOShuurai");
+
+// FRIENDS
+
+		SQUAD1_1=CreateFriend(
+			"FRIEND1",
+			"app:/object/AIARMYSOLDIER_AF_LEADER.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_1);
+		}
+
+		SQUAD1_2=CreateFriend(
+			"FRIEND1B",
+			"app:/object/AIARMYSOLDIER_AF.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_2);
+		}
+
+		SQUAD1_3=CreateFriend(
+			"FRIEND1C",
+			"app:/object/AIARMYSOLDIER_AF.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_3);
+		}
+
+		SQUAD1_4=CreateFriend(
+			"FRIEND1D",
+			"app:/object/AIARMYSOLDIER_AF.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_4);
+		}
+
+		SQUAD2_1=CreateFriend(
+			"FRIEND2",
+			"app:/object/AIHEAVYARMOR_SSG_LEADER.sgo",
+			1,
+			true
+		).SetAutoResurrection(true).SetDurability(200);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_1);
+		}
+
+		SQUAD2_2=CreateFriend(
+			"FRIEND2B",
+			"app:/object/AIHEAVYARMOR_SSG.sgo",
+			1,
+			true
+		).SetAutoResurrection(true).SetDurability(200);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_2);
+		}
+
+		SQUAD2_3=CreateFriend(
+			"FRIEND2C",
+			"app:/object/AIHEAVYARMOR_SSG.sgo",
+			1,
+			true
+		).SetAutoResurrection(true).SetDurability(200);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_3);
+		}
+
+		SQUAD2_4=CreateFriend(
+			"FRIEND2D",
+			"app:/object/AIHEAVYARMOR_SSG.sgo",
+			1,
+			true
+		).SetAutoResurrection(true).SetDurability(200);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_4);
+		}
+
+		SQUAD3_1=CreateFriend(
+			"FRIEND3",
+			"app:/object/AIPALEWING_ELITE_LR_LEADER.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD3_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD3_1);
+		}
+
+		SQUAD3_2=CreateFriend(
+			"FRIEND3B",
+			"app:/object/AIPALEWING_ELITE_LR.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD3_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD3_2);
+		}
+
+		SQUAD3_3=CreateFriend(
+			"FRIEND3C",
+			"app:/object/AIPALEWING_ELITE_LR.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD3_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD3_3);
+		}
+
+		SQUAD3_4=CreateFriend(
+			"FRIEND3D",
+			"app:/object/AIPALEWING_ELITE_LR.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD3_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD3_4);
+		}
+
+		SQUAD4_1=CreateFriend(
+			"FRIEND5",
+			"app:/object/AIARMYSOLDIER_SG_LEADER.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD4_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD4_1);
+		}
+
+		SQUAD4_2=CreateFriend(
+			"FRIEND5B",
+			"app:/object/AIARMYSOLDIER_SG.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD4_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD4_2);
+		}
+
+		SQUAD4_3=CreateFriend(
+			"FRIEND5C",
+			"app:/object/AIARMYSOLDIER_SG.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD4_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD4_3);
+		}
+
+		SQUAD4_4=CreateFriend(
+			"FRIEND5D",
+			"app:/object/AIARMYSOLDIER_SG.sgo",
+			1,
+			true
+		).SetAutoResurrection(true);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD4_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD4_4);
+		}
+
+		CreateVehicle("STRIKER", "app:/object/VEHICLE401_STRIKER_MPACK2.sgo");
+
+
+
+// STATIC ENEMIES
+				
+		bigAnker01 = CreateEnemy(
+			"巨大アンカー01",	// 配置ポイント
+			"app:/object/e505_generator_superlarge.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).SetEncountReportRadius(0 /*半径*/);
+				
+		CreateFlyingEnemyGroup_Area(
+			"UFO1_01",	// エリア名
+			"app:/object/e605_spinnerufo.sgo",	// sgo ファイルパス
+			5,	// 作成数
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+			);
+
+		CreateFlyingEnemyGroup_Area(
+			"UFO1_02",	// エリア名
+			"app:/object/e605_spinnerufo.sgo",	// sgo ファイルパス
+			5,	// 作成数
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+			);
+
+		CreateFlyingEnemyGroup_Area(
+			"UFO1_03",	// エリア名
+			"app:/object/e605_spinnerufo.sgo",	// sgo ファイルパス
+			5,	// 作成数
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+			);
+			
+		CreateFlyingEnemyGroup_Area(
+			"UFO1_04",	// エリア名
+			"app:/object/e605_spinnerufo.sgo",	// sgo ファイルパス
+			5,	// 作成数
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+			);
+
+		int count = 5;
+		if( GetDifficulty() > MISSION_DIFFICULTY_HARDEST ) count = 10;
+
+		CreateFlyingEnemyGroup_Area(
+			"ドラゴン01エリア",	// エリア名
+			"app:/object/RedSmallDragon.sgo",	// sgo ファイルパス
+			10,	// 作成数
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).SetAiRoute("飛行ルート" /*ルート名*/).SetAiEncountRouteCancel();
+
+		CreateEnemy(
+			"爆撃01",	// 配置ポイント
+			"app:/object/e507_goldufo_big.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		CreateEnemy(
+			"爆撃02",	// 配置ポイント
+			"app:/object/e507_goldufo_big.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		CreateEnemy(
+			"爆撃03",	// 配置ポイント
+			"app:/object/e507_goldufo_big.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+	}
+	// -----------------
+	::__0000_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_voice_thread_sync.Wait(__END_SYNC);
+
+// FAI CADERE I PILONI
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_1", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+// MEGA ALERT + VICTORY CONDITION
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0001_game_event", "ビッグアンカーエンカウント起動", 1.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 1); // ビッグアンカーエンカウント起動
+		e.Factor_ObjectEncount(bigAnker01);
+	}
+
+// MOVIMENTO VEICOLI
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("MOVIMENTO_VEICOLI", "移動終了&特定エリアについたら乗り物進行", 1.00, EVENT_TYPE_ASYNC, EVENT_CHECK_OR, 2); // 移動終了&特定エリアについたら乗り物進行
+		e.Factor_PlayerAreaIn("進行エリアB");
+		e.Factor_PlayerAreaIn("進行エリアLast");
+	}
+
+}
+
+void __0000_voice_event()
+{
+	__0000_voice_event_usercode();
+	
+	::__0000_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0000_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"60a12ca1-1810-4b12-a821-6f0a6888c9ad","Name":"開始","Type":"voice_script"}
+	if( IsBoolState(0,::__0000_data.m_is_pass,::__0000_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//======================================
+// ビッグアンカーエンカウント起動
+void __0001_game_event()
+{
+	if( IsBoolState(1,::__0001_data.m_is_break,::__0001_data.m_is_break) ) return;
+	
+	::__0001_data.m_counter++;
+	if( ::__0001_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0001_data.m_mutex.Lock();
+	internal_InitEventThread(1, ::__0001_data.m_counter, "__0001_game_event", "ビッグアンカーエンカウント起動");
+	
+	__0001_game_event_usercode();
+}
+
+void __0001_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"285ed173-d8bd-4152-80e8-784781dab4b3","Name":"ビッグアンカーエンカウント起動","Type":"game_script"}
+	if( IsBoolState(1,::__0001_data.m_is_pass,::__0001_data.m_is_pass) == false){
+
+// MEGA ALERT + VICTORY CONDITION
+
+		Bgm("BGM_inGame_KougekiKaishi");
+
+		SendTeamEncount(TEAM_ID_ENEMY /*チームID*/);
+
+		int count = 1;
+		if( GetDifficulty() > MISSION_DIFFICULTY_HARDEST ) count = 2;
+
+		bigAnker01.SetEnemyGenerator(
+			0,	// 内部ジェネレータ番号
+			"app:/object/e515_imperialufo.sgo",	// 発生させるオブジェクトの sgo ファイルパス
+			count*8,	// 発生数
+			1,	// レベル
+			0.2,	// １体毎の発生間隔
+			55,	// 次回の集団発生までの間隔
+			false	// 遭遇状態で作成する？
+		);
+		bigAnker01.SetEnemyGenerator(
+			1,	// 内部ジェネレータ番号
+			"app:/object/e507_goldufo_hi.sgo",	// 発生させるオブジェクトの sgo ファイルパス
+			count*8,	// 発生数
+			1,	// レベル
+			0.2,	// １体毎の発生間隔
+			45,	// 次回の集団発生までの間隔
+			false	// 遭遇状態で作成する？
+		);
+		bigAnker01.SetEnemyGenerator(
+			2,	// 内部ジェネレータ番号
+			"app:/object/e605_spinnerufo.sgo",	// 発生させるオブジェクトの sgo ファイルパス
+			10,	// 発生数
+			1,	// レベル
+			0.2,	// １体毎の発生間隔
+			48,	// 次回の集団発生までの間隔
+			false	// 遭遇状態で作成する？
+		);
+		bigAnker01.SetEnemyGenerator(
+			3,	// 内部ジェネレータ番号
+			"app:/object/e507_goldufo_big.sgo",	// 発生させるオブジェクトの sgo ファイルパス
+			count*2,	// 発生数
+			1,	// レベル
+			3.0,	// １体毎の発生間隔
+			80,	// 次回の集団発生までの間隔
+			false	// 遭遇状態で作成する？
+		);
+		bigAnker01.SetEnemyGenerator(
+			4,	// 内部ジェネレータ番号
+			"app:/object/RedSmallDragon.sgo",	// 発生させるオブジェクトの sgo ファイルパス
+			count*2,	// 発生数
+			1,	// レベル
+			0.2,	// １体毎の発生間隔
+			72,	// 次回の集団発生までの間隔
+			false	// 遭遇状態で作成する？
+		);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("BONUS", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(bigAnker01);
+		}
+
+/////////////////////////////////////////////////////////
+
+		SetInstantEnemyGenerator(anker01, 0, "app:/object/e605_spinnerufo.sgo",  4, 1.0f, 0.2, false );
+
+		SetInstantEnemyGenerator(anker02, 0, "app:/object/e605_spinnerufo.sgo",  4, 1.0f, 0.2, false );
+
+		SetInstantEnemyGenerator(anker03, 0, "app:/object/e507_goldufo_ace.sgo",  4, 1.0f, 0.2, false );
+
+		SetInstantEnemyGenerator(anker04, 0, "app:/object/e515_imperialufo_ace.sgo",  4, 1.0f, 0.2, false );
+
+		SetInstantEnemyGenerator(anker06, 0, "app:/object/e507_goldufo_ace.sgo",  4, 1.0f, 0.2, false );
+
+		SetInstantEnemyGenerator(anker07, 0, "app:/object/e515_imperialufo_ace.sgo",  4, 1.0f, 0.2, false );
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("VICTORY_CHECK", "敵全滅", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 敵全滅
+			e.Factor_GeneratorEnemyCount(0);
+		}
+
+		handle = Dialog_Notification( "Z_SHIELDDOWN" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("MSG_END", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(4.0f);
+		}
+
+	}
+}
+
+void __0006_game_event()
+{
+	if( IsBoolState(6,::__0006_data.m_is_break,::__0006_data.m_is_break) ) return;
+	
+	::__0006_data.m_counter++;
+	if( ::__0006_data.m_counter != 1 ) return;
+	if( internal_BeginFinishing() == false ) return; // 終了処理が開始済みなら帰る
+	Mutex_LockObject@ __internal_thread_lock = ::__0006_data.m_mutex.Lock();
+	internal_InitEventThread(6, ::__0006_data.m_counter, "__0006_game_event", "終了");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0006_data.m_game_thread_sync.Reset();
+	::__0006_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0006_voice_event");
+
+	__0006_game_event_usercode();
+	
+	::__0006_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0006_data.m_voice_thread_sync.Wait(__END_SYNC);
+	while(true) sys_Yield();
+}
+
+void __0006_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"2e62d599-8eb0-45b9-811a-6c0580cb6a41","Name":"終了","Type":"game_script"}
+	if( IsBoolState(6,::__0006_data.m_is_pass,::__0006_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		MissionClear();
+	}
+	// -----------------
+	::__0006_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0006_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0006_voice_event()
+{
+	__0006_voice_event_usercode();
+	
+	::__0006_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0006_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0006_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"2e62d599-8eb0-45b9-811a-6c0580cb6a41","Name":"終了","Type":"voice_script"}
+	if( IsBoolState(6,::__0006_data.m_is_pass,::__0006_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+void MOVIMENTO_VEICOLI()
+{
+
+		Bgm("BGM_E4M05_Totsugeki_old");
+
+		SQUAD5_1=CreateFriend(
+			"FRIEND4",
+			"app:/object/AIHEAVYARMOR_SP_LEADER.sgo",
+			1,
+			true
+		).SetAutoResurrection(true).SetDurability(200);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD5_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD5_1);
+		}
+
+		SQUAD5_2=CreateFriend(
+			"FRIEND4B",
+			"app:/object/AIHEAVYARMOR_SP.sgo",
+			1,
+			true
+		).SetAutoResurrection(true).SetDurability(200);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD5_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD5_2);
+		}
+
+		SQUAD5_3=CreateFriend(
+			"FRIEND4C",
+			"app:/object/AIHEAVYARMOR_SP.sgo",
+			1,
+			true
+		).SetAutoResurrection(true).SetDurability(200);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD5_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD5_3);
+		}
+
+		SQUAD5_4=CreateFriend(
+			"FRIEND4D",
+			"app:/object/AIHEAVYARMOR_SP.sgo",
+			1,
+			true
+		).SetAutoResurrection(true).SetDurability(200);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD5_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD5_4);
+		}
+
+		nix01 = CreateFriend(
+			"戦車01",	// 配置ポイント
+			"app:/object/v612_nix_g_ai.sgo",	// sgo パス
+			1,	// レベル
+			false	// プレイヤーに合流する？
+		).SetAiRoute("戦車01Aルート" /*ルート名*/).SetAiMoveSpeed(1.0).SetDurability(200);
+
+		nix02 = CreateFriend(
+			"戦車02",	// 配置ポイント
+			"app:/object/v612_nix_g_ai.sgo",	// sgo パス
+			1,	// レベル
+			false	// プレイヤーに合流する？
+		).SetAiRoute("戦車02Aルート" /*ルート名*/).SetAiMoveSpeed(1.0).SetDurability(200);
+
+		tank01 = CreateFriend(
+			"戦車03",	// 配置ポイント
+			"app:/object/v603_flak_ai.sgo",	// sgo パス
+			1,	// レベル
+			false	// プレイヤーに合流する？
+		).SetAiRoute("戦車03Aルート" /*ルート名*/).SetAiMoveSpeed(0.5).SetDurability(200);
+
+		tank02 = CreateFriend(
+			"戦車04",	// 配置ポイント
+			"app:/object/v603_flak_ai.sgo",	// sgo パス
+			1,	// レベル
+			false	// プレイヤーに合流する？
+		).SetAiRoute("戦車04Aルート" /*ルート名*/).SetAiMoveSpeed(0.5).SetDurability(200);
+
+//		e.Factor_AiMoveEndOrDie(nix01);
+//		e.Factor_AiMoveEndOrDie(nix02);
+//		e.Factor_AiMoveEndOrDie(tank01);
+//		e.Factor_AiMoveEndOrDie(tank02);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("__0008_game_event", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(37.0);
+		}
+}
+
+//======================================
+// 移動終了&特定エリアについたら乗り物進行
+void __0008_game_event()
+{
+	if( IsBoolState(8,::__0008_data.m_is_break,::__0008_data.m_is_break) ) return;
+	
+	::__0008_data.m_counter++;
+	if( ::__0008_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__0008_data.m_mutex.Lock();
+	internal_InitEventThread(8, ::__0008_data.m_counter, "__0008_game_event", "移動終了&特定エリアについたら乗り物進行");
+	
+	__0008_game_event_usercode();
+}
+
+void __0008_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"ecdc277d-4e7b-4336-a147-222ae4695591","Name":"移動終了&特定エリアについたら乗り物進行","Type":"game_script"}
+	if( IsBoolState(8,::__0008_data.m_is_pass,::__0008_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		nix01.SetAiRoute("戦車01Bルート" /*ルート名*/);
+		nix02.SetAiRoute("戦車02Bルート" /*ルート名*/);
+		tank01.SetAiRoute("戦車03Bルート" /*ルート名*/).SetAiMoveSpeed(0.3);
+		tank02.SetAiRoute("戦車04Bルート" /*ルート名*/).SetAiMoveSpeed(0.3);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0009_game_event", "中継", 100000000.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 4); // 中継
+		// [e2d_section_data] {"GUID":"2d05c395-3a7b-4f37-9a80-041d016ff108","Name":"Link from [移動終了&特定エリアについたら乗り物進行]","Type":"Link"}
+		e.Factor_AiMoveEndOrDie(nix01);
+		e.Factor_AiMoveEndOrDie(nix02);
+		e.Factor_AiMoveEndOrDie(tank01);
+		e.Factor_AiMoveEndOrDie(tank02);
+	}
+}
+
+//======================================
+// 中継
+void __0009_game_event()
+{
+	if( IsBoolState(9,::__0009_data.m_is_break,::__0009_data.m_is_break) ) return;
+	
+	::__0009_data.m_counter++;
+	Mutex_LockObject@ __internal_thread_lock = ::__0009_data.m_mutex.Lock();
+	internal_InitEventThread(9, ::__0009_data.m_counter, "__0009_game_event", "中継");
+	
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__000A_game_event", "移動終了&特定エリアについたら乗り物進行", 1.00, EVENT_TYPE_ASYNC, EVENT_CHECK_OR, 2); // 移動終了&特定エリアについたら乗り物進行
+		// [e2d_section_data] {"GUID":"ea2c98ee-24d8-48bd-b870-ab9435b6d1b9","Name":"Link from [中継]","Type":"Link"}
+		e.Factor_PlayerAreaIn("進行エリアC");
+		e.Factor_PlayerAreaIn("進行エリアLast");
+	}
+}
+
+//======================================
+// 移動終了&特定エリアについたら乗り物進行
+void __000A_game_event()
+{
+	if( IsBoolState(10,::__000A_data.m_is_break,::__000A_data.m_is_break) ) return;
+	
+	::__000A_data.m_counter++;
+	if( ::__000A_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__000A_data.m_mutex.Lock();
+	internal_InitEventThread(10, ::__000A_data.m_counter, "__000A_game_event", "移動終了&特定エリアについたら乗り物進行");
+	
+	__000A_game_event_usercode();
+}
+
+void __000A_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"cde9ffcc-487a-48c2-8835-c54d11cdbc13","Name":"移動終了&特定エリアについたら乗り物進行","Type":"game_script"}
+	if( IsBoolState(10,::__000A_data.m_is_pass,::__000A_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		nix01.SetAiRoute("戦車01Cルート" /*ルート名*/);
+		nix02.SetAiRoute("戦車02Cルート" /*ルート名*/);
+		tank01.SetAiRoute("戦車03Cルート" /*ルート名*/).SetAiMoveSpeed(0.5);
+		tank02.SetAiRoute("戦車04Cルート" /*ルート名*/).SetAiMoveSpeed(0.5);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__000B_game_event", "中継", 100000000.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 4); // 中継
+		// [e2d_section_data] {"GUID":"baa6eda4-52fd-47be-9aa9-62d6fd25b8af","Name":"Link from [移動終了&特定エリアについたら乗り物進行]","Type":"Link"}
+		e.Factor_AiMoveEndOrDie(nix01);
+		e.Factor_AiMoveEndOrDie(nix02);
+		e.Factor_AiMoveEndOrDie(tank01);
+		e.Factor_AiMoveEndOrDie(tank02);
+	}
+}
+
+//======================================
+// 中継
+void __000B_game_event()
+{
+	if( IsBoolState(11,::__000B_data.m_is_break,::__000B_data.m_is_break) ) return;
+	
+	::__000B_data.m_counter++;
+	Mutex_LockObject@ __internal_thread_lock = ::__000B_data.m_mutex.Lock();
+	internal_InitEventThread(11, ::__000B_data.m_counter, "__000B_game_event", "中継");
+	
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__000C_game_event", "移動終了&特定エリアについたら乗り物進行", 1.00, EVENT_TYPE_ASYNC, EVENT_CHECK_OR, 2); // 移動終了&特定エリアについたら乗り物進行
+		// [e2d_section_data] {"GUID":"9acc22b3-926c-4c04-85a1-26d034f6b6c3","Name":"Link from [中継]","Type":"Link"}
+		e.Factor_PlayerAreaIn("進行エリアD");
+		e.Factor_PlayerAreaIn("進行エリアLast");
+	}
+}
+
+//======================================
+// 移動終了&特定エリアについたら乗り物進行
+void __000C_game_event()
+{
+	if( IsBoolState(12,::__000C_data.m_is_break,::__000C_data.m_is_break) ) return;
+	
+	::__000C_data.m_counter++;
+	if( ::__000C_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__000C_data.m_mutex.Lock();
+	internal_InitEventThread(12, ::__000C_data.m_counter, "__000C_game_event", "移動終了&特定エリアについたら乗り物進行");
+	
+	__000C_game_event_usercode();
+}
+
+void __000C_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"8e893d5a-e435-4424-8384-c13c8708d7a6","Name":"移動終了&特定エリアについたら乗り物進行","Type":"game_script"}
+	if( IsBoolState(12,::__000C_data.m_is_pass,::__000C_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		nix01.SetAiRoute("戦車01Dルート" /*ルート名*/);
+		nix02.SetAiRoute("戦車02Dルート" /*ルート名*/);
+		tank01.SetAiRoute("戦車03Dルート" /*ルート名*/);
+		tank02.SetAiRoute("戦車04Dルート" /*ルート名*/);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__000D_game_event", "中継", 100000000.00, EVENT_TYPE_ASYNC, EVENT_CHECK_AND, 4); // 中継
+		// [e2d_section_data] {"GUID":"53dcc7f8-ba72-430a-9ed5-565515bafa02","Name":"Link from [移動終了&特定エリアについたら乗り物進行]","Type":"Link"}
+		e.Factor_AiMoveEndOrDie(nix01);
+		e.Factor_AiMoveEndOrDie(nix02);
+		e.Factor_AiMoveEndOrDie(tank01);
+		e.Factor_AiMoveEndOrDie(tank02);
+	}
+}
+
+//======================================
+// 中継
+void __000D_game_event()
+{
+	if( IsBoolState(13,::__000D_data.m_is_break,::__000D_data.m_is_break) ) return;
+	
+	::__000D_data.m_counter++;
+	Mutex_LockObject@ __internal_thread_lock = ::__000D_data.m_mutex.Lock();
+	internal_InitEventThread(13, ::__000D_data.m_counter, "__000D_game_event", "中継");
+	
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__000E_game_event", "乗移動終了&特定エリアについたら乗り物進行", 1.00, EVENT_TYPE_ASYNC, EVENT_CHECK_OR, 2); // 乗移動終了&特定エリアについたら乗り物進行
+		// [e2d_section_data] {"GUID":"fb5d00c3-8ea9-4ae7-a402-883ccea8f664","Name":"Link from [中継]","Type":"Link"}
+		e.Factor_PlayerAreaIn("進行エリアE");
+		e.Factor_PlayerAreaIn("進行エリアLast");
+	}
+}
+
+//======================================
+// 乗移動終了&特定エリアについたら乗り物進行
+void __000E_game_event()
+{
+	if( IsBoolState(14,::__000E_data.m_is_break,::__000E_data.m_is_break) ) return;
+	
+	::__000E_data.m_counter++;
+	if( ::__000E_data.m_counter != 1 ) return;
+	Mutex_LockObject@ __internal_thread_lock = ::__000E_data.m_mutex.Lock();
+	internal_InitEventThread(14, ::__000E_data.m_counter, "__000E_game_event", "乗移動終了&特定エリアについたら乗り物進行");
+	
+	__000E_game_event_usercode();
+}
+
+void __000E_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"f88ccf6f-f640-4ef5-ad67-07a95d5f1582","Name":"乗移動終了&特定エリアについたら乗り物進行","Type":"game_script"}
+	if( IsBoolState(14,::__000E_data.m_is_pass,::__000E_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+		nix01.SetAiRoute("戦車01Eルート" /*ルート名*/);
+		nix02.SetAiRoute("戦車02Eルート" /*ルート名*/);
+		tank01.SetAiRoute("戦車03Eルート" /*ルート名*/);
+		tank02.SetAiRoute("戦車04Eルート" /*ルート名*/);
+	}
+}
+
+void VICTORY_CHECK()
+{
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("VICTORY_10", "裸軍団増援", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 裸軍団増援
+		e.Factor_TeamObjectCount(TEAM_ID_ENEMY, 10);
+	}
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("VICTORY_5", "裸軍団増援", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 裸軍団増援
+		e.Factor_TeamObjectCount(TEAM_ID_ENEMY, 5);
+	}
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0006_game_event", "裸軍団増援", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 裸軍団増援
+		e.Factor_TeamObjectCount(TEAM_ID_ENEMY, 2);
+	}
+
+}
+
+void VICTORY_10()
+{
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("ANTISTUCK", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+		e.Factor_Wait(120.0);
+	}
+}
+
+void VICTORY_5()
+{
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("ANTISTUCK", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+		e.Factor_Wait(30.0);
+	}
+}
+
+void ANTISTUCK()
+{
+		SuicideTeamObject(TEAM_ID_ENEMY);
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// CHANGE ANKERS
+// Resurrects the blue anchors with shields, when the shieldless ones die
+
+void change_anker01()
+{
+		DeleteObject( anker01 );
+
+		anker01B = CreateEnemy2(
+			"アンカー01",	// 配置ポイント
+			"app:/object/e612_anchor_blue.sgo",	// sgo ファイルパス
+			1.0,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker02()
+{
+		DeleteObject( anker02 );
+
+		anker02B = CreateEnemy2(
+			"アンカー02",	// 配置ポイント
+			"app:/object/e612_anchor_blue.sgo",	// sgo ファイルパス
+			0.9,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker03()
+{
+		DeleteObject( anker03 );
+
+		anker03B = CreateEnemy2(
+			"アンカー03",	// 配置ポイント
+			"app:/object/e612_anchor_blue.sgo",	// sgo ファイルパス
+			0.8,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker04()
+{
+		DeleteObject( anker04 );
+
+		anker04B = CreateEnemy2(
+			"アンカー04",	// 配置ポイント
+			"app:/object/e612_anchor_blue.sgo",	// sgo ファイルパス
+			0.7,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker05()
+{
+		DeleteObject( anker05 );
+
+		anker05B = CreateEnemy2(
+			"赤アンカー01",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue.sgo",	// sgo ファイルパス
+			1.0,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker06()
+{
+		DeleteObject( anker06 );
+
+		anker06B = CreateEnemy2(
+			"赤アンカー02",	// 配置ポイント
+			"app:/object/e612_anchor_blue.sgo",	// sgo ファイルパス
+			0.9,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker07()
+{
+		DeleteObject( anker07 );
+
+		anker07B = CreateEnemy2(
+			"赤アンカー03",	// 配置ポイント
+			"app:/object/e612_anchor_blue.sgo",	// sgo ファイルパス
+			0.8,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker08()
+{
+		DeleteObject( anker08 );
+
+		anker08B = CreateEnemy2(
+			"赤アンカー04",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue.sgo",	// sgo ファイルパス
+			0.7,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker09()
+{
+		DeleteObject( anker09 );
+
+		anker09B = CreateEnemy2(
+			"赤アンカー05",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue.sgo",	// sgo ファイルパス
+			1.0,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker10()
+{
+		DeleteObject( anker10 );
+
+		anker10B = CreateEnemy2(
+			"赤アンカー06",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue.sgo",	// sgo ファイルパス
+			0.9,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker11()
+{
+		DeleteObject( anker11 );
+
+		anker11B = CreateEnemy2(
+			"赤アンカー07",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue.sgo",	// sgo ファイルパス
+			0.7,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker12()
+{
+		DeleteObject( anker12 );
+
+		anker12B = CreateEnemy2(
+			"赤アンカー08",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue.sgo",	// sgo ファイルパス
+			1.0,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker13()
+{
+		DeleteObject( anker13 );
+
+		anker13B = CreateEnemy2(
+			"赤アンカー09",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue.sgo",	// sgo ファイルパス
+			0.9,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker14()
+{
+		DeleteObject( anker14 );
+
+		anker14B = CreateEnemy2(
+			"赤アンカー10",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue.sgo",	// sgo ファイルパス
+			0.8,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker15()
+{
+		DeleteObject( anker15 );
+
+		anker15B = CreateEnemy2(
+			"赤アンカー11",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue.sgo",	// sgo ファイルパス
+			0.7,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void change_anker16()
+{
+		DeleteObject( anker16 );
+
+		anker16B = CreateEnemy2(
+			"中型UFO1_01",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue.sgo",	// sgo ファイルパス
+			1.0,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+			);
+}
+
+void change_anker17()
+{
+		DeleteObject( anker17 );
+
+		anker17B = CreateEnemy2(
+			"中型UFO1_02",	// 配置ポイント
+			"app:/object/e612_anchor_blue.sgo",	// sgo ファイルパス
+			0.9,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+			);
+}
+
+void change_anker18()
+{
+		DeleteObject( anker18 );
+
+		anker18B = CreateEnemy2(
+			"中型UFO1_03",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue.sgo",	// sgo ファイルパス
+			0.8,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+			);
+}
+
+void change_anker19()
+{
+		DeleteObject( anker19 );
+
+		anker19B = CreateEnemy2(
+			"中型UFO1_04",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue.sgo",	// sgo ファイルパス
+			0.7,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+			);
+}
+
+void change_anker20()
+{
+		DeleteObject( anker20 );
+
+		anker20B = CreateEnemy2(
+			"中型UFO1_05",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue.sgo",	// sgo ファイルパス
+			1.0,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+			);
+			
+}
+
+void change_anker21()
+{
+		DeleteObject( anker21 );
+
+		anker21B = CreateEnemy2(
+			"中型UFO1_06",	// 配置ポイント
+			"app:/object/e612_anchor_blue.sgo",	// sgo ファイルパス
+			0.9,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+			);
+}
+
+void change_anker22()
+{
+		DeleteObject( anker22 );
+
+		anker22B = CreateEnemy2(
+			"中型UFO1_07",	// 配置ポイント
+			"app:/object/e612_anchor_blue.sgo",	// sgo ファイルパス
+			0.8,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+			);
+}
+
+void anker01_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 94.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 86.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 78.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 70.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 62.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 54.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 46.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 38.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 30.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 22.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 14.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 10.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 06.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 02.0f);
+		}
+}
+
+void anker01_spawn()
+{
+
+		SetInstantEnemyGenerator(anker01, 0, "app:/object/E602_BERSERKER_GRAPPLE.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker02_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 94.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 86.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 78.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 70.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 62.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 54.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 46.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 38.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 30.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 22.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 14.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 10.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 06.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 02.0f);
+		}
+}
+
+void anker02_spawn()
+{
+
+		SetInstantEnemyGenerator(anker02, 0, "app:/object/e507_goldufo.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker03_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 94.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 86.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 78.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 70.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 62.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 54.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 46.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 38.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 30.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 22.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 14.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 10.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 06.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 02.0f);
+		}
+}
+
+void anker03_spawn()
+{
+
+		SetInstantEnemyGenerator(anker03, 0, "app:/object/E602_BERSERKER.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker04_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 94.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 86.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 78.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 70.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 62.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 54.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 46.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 38.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 30.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 22.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 14.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 10.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 06.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 02.0f);
+		}
+}
+
+void anker04_spawn()
+{
+
+		SetInstantEnemyGenerator(anker04, 0, "app:/object/E515_IMPERIALUFO_PROTOTYPE.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker05_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker05_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker05, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker05_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker05, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker05_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker05, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker05_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker05, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker05_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker05, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker05_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker05, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker05_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker05, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker05_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker05, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker05_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker05, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker05_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker05, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker05_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker05, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker05_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker05, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker05_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker05, 04.0f);
+		}
+}
+
+void anker05_spawn()
+{
+
+		SetInstantEnemyGenerator(anker05, 0, "app:/object/E650_GIANTANT01.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker06_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 94.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 86.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 78.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 70.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 62.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 54.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 46.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 38.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 30.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 22.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 14.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 10.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 06.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 02.0f);
+		}
+}
+
+void anker06_spawn()
+{
+
+		SetInstantEnemyGenerator(anker06, 0, "app:/object/E602_BERSERKER_GRAPPLE.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker07_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 94.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 86.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 78.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 70.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 62.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 54.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 46.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 38.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 30.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 22.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 14.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 10.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 06.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 02.0f);
+		}
+}
+
+void anker07_spawn()
+{
+
+		SetInstantEnemyGenerator(anker07, 0, "app:/object/E602_BERSERKER.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker08_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker08_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker08, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker08_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker08, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker08_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker08, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker08_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker08, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker08_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker08, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker08_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker08, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker08_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker08, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker08_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker08, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker08_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker08, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker08_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker08, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker08_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker08, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker08_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker08, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker08_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker08, 04.0f);
+		}
+}
+
+void anker08_spawn()
+{
+
+		SetInstantEnemyGenerator(anker08, 0, "app:/object/E650_GIANTANT02B.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker09_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker09_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker09, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker09_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker09, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker09_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker09, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker09_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker09, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker09_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker09, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker09_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker09, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker09_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker09, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker09_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker09, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker09_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker09, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker09_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker09, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker09_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker09, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker09_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker09, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker09_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker09, 04.0f);
+		}
+}
+
+void anker09_spawn()
+{
+
+		SetInstantEnemyGenerator(anker09, 0, "app:/object/E651_SPIDER01.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker10_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker10_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker10, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker10_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker10, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker10_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker10, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker10_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker10, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker10_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker10, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker10_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker10, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker10_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker10, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker10_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker10, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker10_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker10, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker10_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker10, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker10_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker10, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker10_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker10, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker10_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker10, 04.0f);
+		}
+}
+
+void anker10_spawn()
+{
+
+		SetInstantEnemyGenerator(anker10, 0, "app:/object/YERROWSMALLDRAGON.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker11_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker11_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker11, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker11_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker11, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker11_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker11, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker11_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker11, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker11_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker11, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker11_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker11, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker11_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker11, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker11_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker11, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker11_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker11, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker11_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker11, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker11_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker11, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker11_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker11, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker11_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker11, 04.0f);
+		}
+}
+
+void anker11_spawn()
+{
+
+		SetInstantEnemyGenerator(anker11, 0, "app:/object/GIANTBEE01.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker12_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker12_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker12, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker12_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker12, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker12_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker12, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker12_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker12, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker12_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker12, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker12_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker12, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker12_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker12, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker12_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker12, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker12_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker12, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker12_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker12, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker12_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker12, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker12_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker12, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker12_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker12, 04.0f);
+		}
+}
+
+void anker12_spawn()
+{
+
+		SetInstantEnemyGenerator(anker12, 0, "app:/object/E650_GIANTANT01.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker13_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker13_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker13, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker13_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker13, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker13_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker13, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker13_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker13, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker13_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker13, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker13_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker13, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker13_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker13, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker13_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker13, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker13_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker13, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker13_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker13, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker13_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker13, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker13_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker13, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker13_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker13, 04.0f);
+		}
+}
+
+void anker13_spawn()
+{
+
+		SetInstantEnemyGenerator(anker13, 0, "app:/object/E650_GIANTANT02B.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker14_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker14_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker14, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker14_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker14, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker14_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker14, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker14_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker14, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker14_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker14, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker14_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker14, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker14_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker14, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker14_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker14, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker14_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker14, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker14_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker14, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker14_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker14, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker14_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker14, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker14_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker14, 04.0f);
+		}
+}
+
+void anker14_spawn()
+{
+
+		SetInstantEnemyGenerator(anker14, 0, "app:/object/E651_SPIDER01.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker15_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker15_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker15, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker15_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker15, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker15_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker15, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker15_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker15, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker15_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker15, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker15_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker15, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker15_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker15, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker15_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker15, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker15_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker15, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker15_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker15, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker15_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker15, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker15_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker15, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker15_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker15, 04.0f);
+		}
+}
+
+void anker15_spawn()
+{
+
+		SetInstantEnemyGenerator(anker15, 0, "app:/object/YERROWSMALLDRAGON.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker16_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 96.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 94.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 92.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 88.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 86.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 84.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 80.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 78.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 76.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 72.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 70.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 68.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 64.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 62.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 60.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 56.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 54.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 52.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 48.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 46.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 44.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 40.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 38.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 36.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 32.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 30.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 28.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 24.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 22.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 20.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 16.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 14.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 10.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 08.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 06.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 04.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 02.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 0.1f);
+		}
+}
+
+void anker16_spawn()
+{
+
+		SetInstantEnemyGenerator(anker16, 0, "app:/object/E650_GIANTANT01.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker17_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 96.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 94.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 92.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 88.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 86.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 84.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 80.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 78.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 76.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 72.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 70.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 68.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 64.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 62.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 60.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 56.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 54.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 52.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 48.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 46.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 44.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 40.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 38.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 36.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 32.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 30.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 28.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 24.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 22.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 20.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 16.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 14.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 10.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 08.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 06.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 04.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 02.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 0.1f);
+		}
+}
+
+void anker17_spawn()
+{
+
+		SetInstantEnemyGenerator(anker17, 0, "app:/object/E515_IMPERIALUFO_PROTOTYPE.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker18_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 96.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 94.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 92.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 88.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 86.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 84.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 80.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 78.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 76.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 72.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 70.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 68.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 64.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 62.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 60.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 56.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 54.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 52.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 48.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 46.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 44.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 40.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 38.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 36.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 32.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 30.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 28.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 24.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 22.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 20.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 16.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 14.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 10.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 08.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 06.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 04.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 02.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 0.1f);
+		}
+}
+
+void anker18_spawn()
+{
+
+		SetInstantEnemyGenerator(anker18, 0, "app:/object/E650_GIANTANT02B.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker19_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 96.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 94.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 92.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 88.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 86.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 84.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 80.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 78.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 76.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 72.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 70.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 68.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 64.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 62.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 60.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 56.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 54.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 52.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 48.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 46.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 44.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 40.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 38.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 36.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 32.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 30.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 28.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 24.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 22.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 20.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 16.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 14.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 10.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 08.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 06.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 04.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 02.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 0.1f);
+		}
+}
+
+void anker19_spawn()
+{
+
+		SetInstantEnemyGenerator(anker19, 0, "app:/object/E651_SPIDER01.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker20_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 96.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 94.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 92.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 88.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 86.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 84.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 80.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 78.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 76.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 72.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 70.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 68.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 64.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 62.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 60.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 56.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 54.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 52.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 48.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 46.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 44.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 40.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 38.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 36.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 32.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 30.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 28.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 24.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 22.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 20.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 16.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 14.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 10.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 08.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 06.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 04.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 02.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 0.1f);
+		}
+}
+
+void anker20_spawn()
+{
+
+		SetInstantEnemyGenerator(anker20, 0, "app:/object/YERROWSMALLDRAGON.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker21_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 96.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 94.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 92.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 88.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 86.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 84.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 80.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 78.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 76.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 72.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 70.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 68.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 64.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 62.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 60.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 56.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 54.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 52.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 48.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 46.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 44.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 40.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 38.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 36.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 32.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 30.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 28.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 24.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 22.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 20.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 16.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 14.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 10.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 08.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 06.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 04.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 02.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 0.1f);
+		}
+}
+
+void anker21_spawn()
+{
+
+		SetInstantEnemyGenerator(anker21, 0, "app:/object/e507_goldufo.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void anker22_bagaglio()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 98.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 96.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 94.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 92.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 90.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 88.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 86.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 84.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 82.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 80.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 78.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 76.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 74.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 72.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 70.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 68.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 66.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 64.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 62.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 60.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 58.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 56.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 54.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 52.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 50.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 48.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 46.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 44.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 42.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 40.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 38.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 36.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 34.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 32.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 30.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 28.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 26.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 24.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 22.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 20.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 18.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 16.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 14.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 12.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 10.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 08.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 06.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 04.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 02.0f);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_spawn", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 0.1f);
+		}
+}
+
+void anker22_spawn()
+{
+
+		SetInstantEnemyGenerator(anker22, 0, "app:/object/E602_BERSERKER.sgo",  1, 0.5f, 0.0f, TRUE );
+
+}
+
+void PYLONS_1()
+{
+		anker16 = CreateEnemy2(
+			"中型UFO1_01",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue_NS.sgo",	// sgo ファイルパス
+			1.0,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+			).SetEncountReportRadius(200 /*半径*/).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker16, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker16", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker16, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker16_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_2", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_2()
+{
+		anker17 = CreateEnemy2(
+			"中型UFO1_02",	// 配置ポイント
+			"app:/object/e612_anchor_blue_ns.sgo",	// sgo ファイルパス
+			0.9,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+			).SetEncountReportRadius(200 /*半径*/).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker17, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker17", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker17, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker17_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_3", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_3()
+{
+			
+		anker18 = CreateEnemy2(
+			"中型UFO1_03",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue_NS.sgo",	// sgo ファイルパス
+			0.8,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+			).SetEncountReportRadius(200 /*半径*/).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker18, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker18", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker18, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker18_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_4", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_4()
+{
+			
+		anker19 = CreateEnemy2(
+			"中型UFO1_04",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue_NS.sgo",	// sgo ファイルパス
+			0.7,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+			).SetEncountReportRadius(200 /*半径*/).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker19, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker19", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker19, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker19_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_5", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_5()
+{
+			
+		anker20 = CreateEnemy2(
+			"中型UFO1_05",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue_NS.sgo",	// sgo ファイルパス
+			1.0,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+			).SetEncountReportRadius(200 /*半径*/).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker20, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker20", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker20, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker20_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_6", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_6()
+{
+			
+		anker21 = CreateEnemy2(
+			"中型UFO1_06",	// 配置ポイント
+			"app:/object/e612_anchor_blue_ns.sgo",	// sgo ファイルパス
+			0.9,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+			).SetEncountReportRadius(200 /*半径*/).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker21, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker21", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker21, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker21_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_7", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_7()
+{
+			
+		anker22 = CreateEnemy2(
+			"中型UFO1_07",	// 配置ポイント
+			"app:/object/e612_anchor_blue_ns.sgo",	// sgo ファイルパス
+			0.8,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+			).SetEncountReportRadius(200 /*半径*/).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker22, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker22", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker22, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker22_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_8", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_8()
+{
+
+// PYLONS ABOVE
+
+		anker01 = CreateEnemy2(
+			"アンカー01",	// 配置ポイント
+			"app:/object/e612_anchor_blue_nsw.sgo",	// sgo ファイルパス
+			0.7,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker01, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker01", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker01, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker01_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_9", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_9()
+{
+			
+		anker02 = CreateEnemy2(
+			"アンカー02",	// 配置ポイント
+			"app:/object/e612_anchor_blue_nsw.sgo",	// sgo ファイルパス
+			1.0,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker02, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker02", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker02, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker02_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_10", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_10()
+{
+			
+		anker03 = CreateEnemy2(
+			"アンカー03",	// 配置ポイント
+			"app:/object/e612_anchor_blue_nsw.sgo",	// sgo ファイルパス
+			0.9,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker03, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker03", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker03, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker03_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_11", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_11()
+{
+			
+		anker04 = CreateEnemy2(
+			"アンカー04",	// 配置ポイント
+			"app:/object/e612_anchor_blue_nsw.sgo",	// sgo ファイルパス
+			0.8,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker04, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker04", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker04, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker04_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_12", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_12()
+{
+			
+		anker05 = CreateEnemy2(
+			"赤アンカー01",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue_NSW.sgo",	// sgo ファイルパス
+			0.7,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker05, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker05", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker05, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker05_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_13", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_13()
+{
+			
+		anker06 = CreateEnemy2(
+			"赤アンカー02",	// 配置ポイント
+			"app:/object/e612_anchor_blue_nsw.sgo",	// sgo ファイルパス
+			1.0,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker06, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker06", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker06, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker06_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_14", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_14()
+{
+			
+		anker07 = CreateEnemy2(
+			"赤アンカー03",	// 配置ポイント
+			"app:/object/e612_anchor_blue_nsw.sgo",	// sgo ファイルパス
+			0.9,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker07, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker07", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker07, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker07_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_15", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_15()
+{
+			
+		anker08 = CreateEnemy2(
+			"赤アンカー04",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue_NSW.sgo",	// sgo ファイルパス
+			0.8,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker08, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker08", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker08, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker08_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_16", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+// PYLONS BELOW
+
+void PYLONS_16()
+{
+			
+		anker09 = CreateEnemy2(
+			"赤アンカー05",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue_NS.sgo",	// sgo ファイルパス
+			0.7,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker09, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker09", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker09, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker09_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_17", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_17()
+{
+			
+		anker10 = CreateEnemy2(
+			"赤アンカー06",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue_NS.sgo",	// sgo ファイルパス
+			1.0,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker10, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker10", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker10, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker10_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_18", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_18()
+{
+			
+		anker11 = CreateEnemy2(
+			"赤アンカー07",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue_NS.sgo",	// sgo ファイルパス
+			0.9,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker11, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker11", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker11, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker11_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_19", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_19()
+{
+			
+		anker12 = CreateEnemy2(
+			"赤アンカー08",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue_NS.sgo",	// sgo ファイルパス
+			0.8,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker12, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker12", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker12, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker12_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_20", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_20()
+{
+			
+		anker13 = CreateEnemy2(
+			"赤アンカー09",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue_NS.sgo",	// sgo ファイルパス
+			0.7,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker13, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker13", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker13, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker13_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_21", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_21()
+{
+			
+		anker14 = CreateEnemy2(
+			"赤アンカー10",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue_NS.sgo",	// sgo ファイルパス
+			1.0,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker14, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker14", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker14, 1.00f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("anker14_bagaglio", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(0.0);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("PYLONS_22", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+			e.Factor_Wait(1.0);
+		}
+}
+
+void PYLONS_22()
+{
+			
+		anker15 = CreateEnemy2(
+			"赤アンカー11",	// 配置ポイント
+			"app:/object/e666_anchor_small_heavyfire_blue_NS.sgo",	// sgo ファイルパス
+			0.9,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).EDF6_TimeShip_Anchor_Falling();
+
+		SetObjectDurabilityMin(anker15, 0.01f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("change_anker15", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDurability(anker15, 1.00f);
+		}
+}
+
+void BONUS()
+{
+
+		ObjectSuicide( anker01B );
+		ObjectSuicide( anker02B );
+		ObjectSuicide( anker03B );
+		ObjectSuicide( anker04B );
+		ObjectSuicide( anker05B );
+		ObjectSuicide( anker06B );
+		ObjectSuicide( anker07B );
+		ObjectSuicide( anker08B );
+		ObjectSuicide( anker09B );
+		ObjectSuicide( anker10B );
+		ObjectSuicide( anker11B );
+		ObjectSuicide( anker12B );
+		ObjectSuicide( anker13B );
+		ObjectSuicide( anker14B );
+		ObjectSuicide( anker15B );
+		ObjectSuicide( anker16B );
+		ObjectSuicide( anker17B );
+		ObjectSuicide( anker18B );
+		ObjectSuicide( anker19B );
+		ObjectSuicide( anker20B );
+		ObjectSuicide( anker21B );
+		ObjectSuicide( anker22B );
+
+		ObjectSuicide( anker01 );
+		ObjectSuicide( anker02 );
+		ObjectSuicide( anker03 );
+		ObjectSuicide( anker04 );
+		ObjectSuicide( anker05 );
+		ObjectSuicide( anker06 );
+		ObjectSuicide( anker07 );
+		ObjectSuicide( anker08 );
+		ObjectSuicide( anker09 );
+		ObjectSuicide( anker10 );
+		ObjectSuicide( anker11 );
+		ObjectSuicide( anker12 );
+		ObjectSuicide( anker13 );
+		ObjectSuicide( anker14 );
+		ObjectSuicide( anker15 );
+		ObjectSuicide( anker16 );
+		ObjectSuicide( anker17 );
+		ObjectSuicide( anker18 );
+		ObjectSuicide( anker19 );
+		ObjectSuicide( anker20 );
+		ObjectSuicide( anker21 );
+		ObjectSuicide( anker22 );
+
+		handle = Dialog_Notification( "Z_SHIELDRESTORE" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("MSG_END", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(4.0f);
+		}
+
+}
+
+void MSG_END()
+{
+		CloseUi( handle );
+}
+
+void SQUAD1_1_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD1_1_REVIVE_B()
+{
+		SQUAD1_1.Resurrection();
+}
+
+void SQUAD1_1_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_1, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_1);
+		}
+}
+
+void SQUAD1_2_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD1_2_REVIVE_B()
+{
+		SQUAD1_2.Resurrection();
+}
+
+void SQUAD1_2_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_2, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_2);
+		}
+}
+
+void SQUAD1_3_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD1_3_REVIVE_B()
+{
+		SQUAD1_3.Resurrection();
+}
+
+void SQUAD1_3_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_3, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_3);
+		}
+}
+
+void SQUAD1_4_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD1_4_REVIVE_B()
+{
+		SQUAD1_4.Resurrection();
+}
+
+void SQUAD1_4_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_4, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_4);
+		}
+}
+
+void SQUAD2_1_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD2_1_REVIVE_B()
+{
+		SQUAD2_1.Resurrection();
+}
+
+void SQUAD2_1_REVIVE_C()
+{
+		SetObjectDurability(SQUAD2_1, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_1);
+		}
+}
+
+void SQUAD2_2_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD2_2_REVIVE_B()
+{
+		SQUAD2_2.Resurrection();
+}
+
+void SQUAD2_2_REVIVE_C()
+{
+		SetObjectDurability(SQUAD2_2, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_2);
+		}
+}
+
+void SQUAD2_3_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD2_3_REVIVE_B()
+{
+		SQUAD2_3.Resurrection();
+}
+
+void SQUAD2_3_REVIVE_C()
+{
+		SetObjectDurability(SQUAD2_3, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_3);
+		}
+}
+
+void SQUAD2_4_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_4_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD2_4_REVIVE_B()
+{
+		SQUAD2_4.Resurrection();
+}
+
+void SQUAD2_4_REVIVE_C()
+{
+		SetObjectDurability(SQUAD2_4, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_4);
+		}
+}
+
+void SQUAD3_1_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_1_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD3_1_REVIVE_B()
+{
+		SQUAD3_1.Resurrection();
+}
+
+void SQUAD3_1_REVIVE_C()
+{
+		SetObjectDurability(SQUAD3_1, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD3_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD3_1);
+		}
+}
+
+void SQUAD3_2_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_2_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD3_2_REVIVE_B()
+{
+		SQUAD3_2.Resurrection();
+}
+
+void SQUAD3_2_REVIVE_C()
+{
+		SetObjectDurability(SQUAD3_2, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD3_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD3_2);
+		}
+}
+
+void SQUAD3_3_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_3_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD3_3_REVIVE_B()
+{
+		SQUAD3_3.Resurrection();
+}
+
+void SQUAD3_3_REVIVE_C()
+{
+		SetObjectDurability(SQUAD3_3, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD3_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD3_3);
+		}
+}
+
+void SQUAD3_4_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_4_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD3_4_REVIVE_B()
+{
+		SQUAD3_4.Resurrection();
+}
+
+void SQUAD3_4_REVIVE_C()
+{
+		SetObjectDurability(SQUAD3_4, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD3_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD3_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD3_4);
+		}
+}
+
+void SQUAD4_1_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_1_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD4_1_REVIVE_B()
+{
+		SQUAD4_1.Resurrection();
+}
+
+void SQUAD4_1_REVIVE_C()
+{
+		SetObjectDurability(SQUAD4_1, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD4_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD4_1);
+		}
+}
+
+void SQUAD4_2_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_2_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD4_2_REVIVE_B()
+{
+		SQUAD4_2.Resurrection();
+}
+
+void SQUAD4_2_REVIVE_C()
+{
+		SetObjectDurability(SQUAD4_2, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD4_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD4_2);
+		}
+}
+
+void SQUAD4_3_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_3_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD4_3_REVIVE_B()
+{
+		SQUAD4_3.Resurrection();
+}
+
+void SQUAD4_3_REVIVE_C()
+{
+		SetObjectDurability(SQUAD4_3, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD4_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD4_3);
+		}
+}
+
+void SQUAD4_4_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_4_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD4_4_REVIVE_B()
+{
+		SQUAD4_4.Resurrection();
+}
+
+void SQUAD4_4_REVIVE_C()
+{
+		SetObjectDurability(SQUAD4_4, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD4_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD4_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD4_4);
+		}
+}
+
+void SQUAD5_1_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_1_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD5_1_REVIVE_B()
+{
+		SQUAD5_1.Resurrection();
+}
+
+void SQUAD5_1_REVIVE_C()
+{
+		SetObjectDurability(SQUAD5_1, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD5_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD5_1);
+		}
+}
+
+void SQUAD5_2_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_2_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD5_2_REVIVE_B()
+{
+		SQUAD5_2.Resurrection();
+}
+
+void SQUAD5_2_REVIVE_C()
+{
+		SetObjectDurability(SQUAD5_2, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD5_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD5_2);
+		}
+}
+
+void SQUAD5_3_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_3_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD5_3_REVIVE_B()
+{
+		SQUAD5_3.Resurrection();
+}
+
+void SQUAD5_3_REVIVE_C()
+{
+		SetObjectDurability(SQUAD5_3, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD5_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD5_3);
+		}
+}
+
+void SQUAD5_4_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_4_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(120.0f);
+		}
+}
+
+void SQUAD5_4_REVIVE_B()
+{
+		SQUAD5_4.Resurrection();
+}
+
+void SQUAD5_4_REVIVE_C()
+{
+		SetObjectDurability(SQUAD5_4, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_4_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD5_4);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD5_4_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD5_4);
+		}
+}

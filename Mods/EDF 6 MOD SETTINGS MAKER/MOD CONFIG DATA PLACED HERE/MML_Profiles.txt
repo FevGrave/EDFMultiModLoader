@@ -1,0 +1,2 @@
+B: {TheLostMissionPackMod_config_data:1, NeoprimalsWeaponPackMod_config_data:1, Mod_config_data:1}
+C: {Mod_config_data:0, NeoprimalsWeaponPackMod_config_data:1, TheLostMissionPackMod_config_data:1}

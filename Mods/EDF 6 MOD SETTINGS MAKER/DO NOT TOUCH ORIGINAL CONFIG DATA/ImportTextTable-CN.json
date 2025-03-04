@@ -1340,6 +1340,16 @@
       "type": "string",
       "value": "%PLAYERNAME%小隊據點"
     },
+    {
+      "name": "Online_FirstSignin",
+      "type": "string",
+      "value": "您必須登入 Epic Games 帳戶才能使用下列線上交叉遊戲功能。\n\n　加 Epic Games Store 玩家為好友\n　邀請 Epic Games Store 玩家\n　Epic Games 成就\n　Epic Games 存在\n　Epic Games 社交覆蓋\n\n您要登入您的 Epic Games 帳戶嗎？\n無需登入，您仍可進行線上遊戲。"
+    },
+    {
+      "name": "Online_FirstSigninDeny",
+      "type": "string",
+      "value": "某些線上交叉遊戲功能，例如從 Epic Games Store 邀請玩家的功能，會受到限制。\n\n若要存取所有線上交叉遊戲功能，請在系統設定畫面登入您的 Epic Games 帳戶。"
+    },
     {"name": "Online_Game_Disconnect", "type": "string", "value": "網路已中斷。"},
     {"name": "Online_Game_Exit", "type": "string", "value": "開房者已選擇撤退。"},
     {"name": "Online_Game_Retry", "type": "string", "value": "開房者已選擇再次出擊。"},
@@ -1409,6 +1419,11 @@
     {"name": "Online_Syncing", "type": "string", "value": "正在與其他玩家同步……"},
     {"name": "Online_UGC_Freeword", "type": "string", "value": ""},
     {"name": "Online_UGC_RoomName", "type": "string", "value": "簡易房間"},
+    {
+      "name": "Online_UnlinkedSignin",
+      "type": "string",
+      "value": "您無法登入您的 Epic Games 帳戶。\n您要登入您的 Epic Games 帳戶嗎？\n請注意：如果您沒有連結您的 Epic Games 帳戶，您仍然可以享受線上遊戲。"
+    },
     {"name": "Online_Weapon_Limit_None", "type": "string", "value": "─"},
     {"name": "Online_Weapon_Limit_Off", "type": "string", "value": "無效"},
     {"name": "Online_Weapon_Limit_On", "type": "string", "value": "有效"},
@@ -3158,6 +3173,31 @@
       "value": "<A>繼續 <RB/RT>捲動文字"
     },
     {"name": "Sys_Detail", "type": "string", "value": "詳細內容"},
+    {
+      "name": "Sys_EpicAccount_NotifySignin",
+      "type": "string",
+      "value": "正在登入您的 Epic Games 帳戶。"
+    },
+    {
+      "name": "Sys_EpicAccount_SigninAlready",
+      "type": "string",
+      "value": "您已登入您的 Epic Games 帳戶。"
+    },
+    {
+      "name": "Sys_EpicAccount_SigninCancel",
+      "type": "string",
+      "value": "取消登入您的 Epic Games 帳戶。"
+    },
+    {
+      "name": "Sys_EpicAccount_SigninSuccess",
+      "type": "string",
+      "value": "成功登入您的 Epic Games 帳戶。"
+    },
+    {
+      "name": "Sys_EpicAccount_SinginFailed",
+      "type": "string",
+      "value": "登入您的 Epic Games 帳戶失敗。"
+    },
     {"name": "Sys_Exit_Confirmation", "type": "string", "value": "確定要結束遊戲嗎？"},
     {"name": "Sys_Exit_Game", "type": "string", "value": "即將結束遊戲。"},
     {"name": "Sys_InviteAccepted", "type": "string", "value": "將參與遊戲。"},
@@ -3170,6 +3210,11 @@
       "name": "Sys_InviteFailed",
       "type": "string",
       "value": "雖然收到邀請，\n但無法接收邀請資訊。\n即將中斷邀請處理。"
+    },
+    {
+      "name": "Sys_InviteFailed_UnmatchVersion",
+      "type": "string",
+      "value": "應用程式版本不同。我無法加入線上房間。"
     },
     {
       "name": "Sys_JoinGameAccepted",
@@ -3253,6 +3298,11 @@
       "type": "string",
       "value": "可解除\n裝甲值上限與武器等級上限的設定。"
     },
+    {
+      "name": "Sys_UpdateNotify00000",
+      "type": "string",
+      "value": "通知：\n不再需要登入您的 Epic Games 帳戶。\n如果您希望解除 Steam 帳戶與 Epic Games 帳戶的連結，請在網頁瀏覽器中造訪 Epic Games。您可以解除帳戶連結。"
+    },
     {"name": "Sys_UseGamepad", "type": "string", "value": "使用遊戲手把開始遊戲。"},
     {"name": "Sys_UseKeyboard", "type": "string", "value": "使用鍵盤和滑鼠開始遊戲。"},
     {
@@ -3284,6 +3334,11 @@
       "value": "視窗模式"
     },
     {"name": "SystemOption_DisplaySetting", "type": "string", "value": "畫面設定"},
+    {
+      "name": "SystemOption_EpicAccount_Signin",
+      "type": "string",
+      "value": "登入 Epic Games 帳戶"
+    },
     {"name": "SystemOption_LetterBox", "type": "string", "value": "黑邊"},
     {"name": "SystemOption_Resolution", "type": "string", "value": "解析度"},
     {"name": "SystemOption_Shadow", "type": "string", "value": "陰影"},
