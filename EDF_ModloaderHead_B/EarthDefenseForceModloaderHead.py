@@ -1,19 +1,58 @@
-import os, re, sys, threading, webbrowser, requests, shutil, subprocess, json, time, pytz
+import os, re, sys, threading, webbrowser, requests, shutil, subprocess, json, time, uuid
 import tkinter as tk, tkinter.messagebox as messagebox, eggs as eggs, random
-import tkinter.font as tkFont, EDF_ModloaderHeadFunc as funcs
+import tkinter.font as tkFont, EDF_ModloaderHeadFunc as funcs, ImageResources as img_res
 from PIL import Image, ImageTk, ImageFont
-from ImageResources import set_icons, bg_image_path
-from EDF_ModloaderHeadFunc import load_settings, save_settings, settings, toggle_mods_panels, get_settings
+from ImageResources import *
+from EDF_ModloaderHeadFunc import *
 
 '''
 #TODO
+Conflict Detection
+Load Order Management
+Are not implemented yet, but are planned for future releases.
 
-get coding support for nexus
-finalize R2Modman code share support
+get coding support for nexus, and GET PREMIUM PAYWALL YEETED INTO THE SUN, ie paying once for a lifetime of premium support.
+finalize R2Modman code share support for MML, IE UUID SUPPORT.
+EDF EDF EDF
 '''
 
+class LanguageManager:
+    def __init__(self, default_language="en"):
+        self.current_language = default_language
+        self.translations = {}
+        self.language_dir = os.path.join(os.path.dirname(__file__), "languages")
+        self.load_translations(default_language)
+
+    def load_translations(self, language_code):
+        lang_file = os.path.join(self.language_dir, f"{language_code}.json")
+        try:
+            if os.path.exists(lang_file):
+                with open(lang_file, "r", encoding="utf-8") as f:
+                    self.translations = json.load(f)
+                self.current_language = language_code
+                print(f"Loaded translations for language: {language_code}")
+            else:
+                print(f"Language file {lang_file} not found. Falling back to English.")
+                self.load_translations("en")
+        except Exception as e:
+            print(f"Error loading translations for {language_code}: {e}")
+            if language_code != "en":
+                self.load_translations("en")
+
+    def get(self, key, **kwargs):
+        text = self.translations.get(key, key)
+        try:
+            return text.format(**kwargs) if kwargs else text
+        except KeyError:
+            print(f"Warning: Missing format variables for key '{key}'")
+            return text
+
+# Initialize language manager
+lang_manager = LanguageManager(settings.get("language", "en"))
+translatable_widgets = []
+
 def get_version():
-    return "0.0.9-R2ModManTest"
+    return "0.0.9.2-LARGE QUACK"
 
 def title():
     return "Earth Defense Force: Multi-Mod-Loader --- V " + get_version()
@@ -27,17 +66,18 @@ def height():
 root = tk.Tk()
 root.title(title())
 root.geometry(f"{width()}x{height()}")
-root.resizable(False, False)
+#root.resizable(False, False)
 
 RUN_BAT_FILES_ENABLED = True  # Set to False to hide the debug build HAKKEN exe button
 
-BAT_FILES_DIRS = (
-    r"F:\SteamLibrary\steamapps\common\EARTH DEFENSE FORCE 6\Mods\EDF 6 MOD SETTINGS MAKER",
-    r"F:\SteamLibrary\steamapps\common\EARTH DEFENSE FORCE 6\EDF_ModloaderHead_B"
+BAT_FILES_DIRS = ( # Change this to where the batch files you want run here
+    r"F:\SteamLibrary\steamapps\common\EARTH DEFENSE FORCE 6", # ALL FILES TO DO MML EXPORT DIR
+    r"F:\SteamLibrary\steamapps\common\EARTH DEFENSE FORCE 6\Mods\EDF 6 MOD SETTINGS MAKER", # HAKKEN DIR
+    r"F:\SteamLibrary\steamapps\common\EARTH DEFENSE FORCE 6\EDF_ModloaderHead_B", #MML DIR
 )
 
 EXCLUDED_BAT_FILES = {
-    "Python Install PREREQUISETS.bat"  # Add any batch files you want to exclude here
+    "Python Install PREREQUISETS.bat",  # BLACK list any batch files you want to exclude here
 }
 
 def run_bat_files_from_dirs():
@@ -153,24 +193,41 @@ def load_custom_font(size=10):
     font_path = get_font_path()
     if os.path.exists(font_path):
         try:
-            # Load the font using PIL's ImageFont
             pil_font = ImageFont.truetype(font_path, size)
-            # Register the font with Tkinter
             custom_font = tkFont.Font(family=pil_font.getname()[0], size=size)
             return custom_font
         except Exception as e:
             print(f"Error loading custom font: {e}. Using default font.")
-            return tkFont.Font(size=size)  # Fallback to default font if loading fails
+            return tkFont.Font(size=size)
     else:
         print(f"Font file not found at {font_path}. Using default font.")
-        return tkFont.Font(size=size)  # Fallback to default font if not found
+        return tkFont.Font(size=size)
 
-global_font = load_custom_font(10)
-global_font_h = load_custom_font(12)
+def update_global_fonts():
+    global global_font, global_font_h
+    settings = funcs.get_settings()
+    font_sizes = settings.get("font_sizes", {"global_font": 10, "global_font_h": 12})
+    global_font = load_custom_font(font_sizes.get("global_font", 10))
+    global_font_h = load_custom_font(font_sizes.get("global_font_h", 12))
+    # Reapply fonts to all widgets (this requires iterating over translatable_widgets)
+    for item in translatable_widgets:
+        attr, widget, key, kwargs = item if len(item) == 4 else (item[0], item[1], item[2], {})
+        if attr in ['text', 'textvariable']:
+            if 'font' in widget.keys():
+                widget.config(font=global_font if attr == 'text' else global_font_h)
+
+def set_font_size(font_key, size):
+    settings = funcs.get_settings()
+    settings["font_sizes"] = settings.get("font_sizes", {"global_font": 10, "global_font_h": 12})
+    settings["font_sizes"][font_key] = size
+    with open("MMLsettings.json", "w") as f:
+        json.dump(settings, f, indent=4)
+    update_global_fonts()
+
+update_global_fonts()
 global_fill_color = TextColor()
 
-def get_button_style(command=None):
-    """Returns common style options for buttons with an optional command."""
+def get_button_style(command=None, translation_key=None):
     style = {
         'font': global_font,
         'bg': ButtonBackGround(),
@@ -179,27 +236,103 @@ def get_button_style(command=None):
         'activeforeground': PressedTextColor(),
         'relief': 'groove',
         'bd': 2,
-        'cursor': 'hand2'  # Change the cursor to a pointer when hovering
+        'cursor': 'hand2'
     }
     if command:
         style['command'] = command
-    return style
+    tooltip_text = lang_manager.get(f"tooltip_{translation_key}") if translation_key else None
+    return style, tooltip_text
 
-def apply_hover_effect(button, hover_bg=hover_bg(), hover_fg=hover_fg(), normal_bg=None, normal_fg=None):
-    """Adds a hover effect to a button."""
-    if not normal_bg:
-        normal_bg = button.cget("bg")
-    if not normal_fg:
-        normal_fg = button.cget("fg")
-
+def apply_hover_and_tooltip(widget, tooltip_text=None, hover_bg=None, hover_fg=None, normal_bg=None, normal_fg=None):
+    """Apply hover effect and tooltip to a widget with unified event handling and debounce."""
+    # Skip if no effects are needed
+    if not tooltip_text and not (hover_bg or hover_fg):
+        return
+    
+    # Use settings for hover colors if not provided
+    hover_bg = hover_bg or settings.get("colors", {}).get("hover_bg", "#555555")
+    hover_fg = hover_fg or settings.get("colors", {}).get("hover_fg", "#ffffff")
+    
+    # Use current widget colors if not provided
+    normal_bg = normal_bg or widget.cget("bg")
+    normal_fg = normal_fg or widget.cget("fg")
+    
+    # Store normal colors to prevent override issues
+    if not hasattr(widget, "_normal_bg"):
+        widget._normal_bg = normal_bg
+        widget._normal_fg = normal_fg
+    
+    # Create tooltip window if tooltip_text is provided
+    tooltip = None
+    if tooltip_text:
+        tooltip = tk.Toplevel(widget)
+        tooltip.withdraw()
+        tooltip.wm_overrideredirect(True)
+        
+        label = tk.Label(
+            tooltip,
+            text=tooltip_text,
+            bg=settings.get("colors", {}).get("tooltip_bg", "#333333"),
+            fg=settings.get("colors", {}).get("tooltip_fg", "#ffffff"),
+            font=load_custom_font(10),
+            bd=1,
+            relief="solid",
+            padx=4,
+            pady=2,
+            wraplength=300
+        )
+        label.pack()
+        widget.tooltip_window = tooltip  # Store reference to prevent garbage collection
+    
     def on_enter(event):
-        button.config(bg=hover_bg, fg=hover_fg)
-
+        # Apply hover effect immediately
+        widget.config(bg=hover_bg, fg=hover_fg)
+        
+        # Show tooltip with a 200ms delay
+        if tooltip:
+            def show_tooltip():
+                if not hasattr(widget, "tooltip_visible") or not widget.tooltip_visible:
+                    x = widget.winfo_rootx() + event.x + 5
+                    y = widget.winfo_rooty() + event.y + 5
+                    
+                    # Keep tooltip within screen bounds
+                    screen_width = widget.winfo_screenwidth()
+                    screen_height = widget.winfo_screenheight()
+                    tooltip_width = label.winfo_reqwidth()
+                    tooltip_height = label.winfo_reqheight()
+                    
+                    if x + tooltip_width > screen_width:
+                        x = widget.winfo_rootx() - tooltip_width - 5
+                    if y + tooltip_height > screen_height:
+                        y = widget.winfo_rooty() - tooltip_height - 5
+                    
+                    tooltip.wm_geometry(f"+{x}+{y}")
+                    tooltip.deiconify()
+                    widget.tooltip_visible = True
+            
+            # Cancel any existing tooltip delay
+            if hasattr(widget, "tooltip_id"):
+                widget.after_cancel(widget.tooltip_id)
+            widget.tooltip_id = widget.after(200, show_tooltip)
+    
     def on_leave(event):
-        button.config(bg=normal_bg, fg=normal_fg)
-
-    button.bind("<Enter>", on_enter)
-    button.bind("<Leave>", on_leave)
+        # Revert hover effect
+        widget.config(bg=widget._normal_bg, fg=widget._normal_fg)
+        
+        # Hide tooltip and cancel any pending show
+        if tooltip:
+            tooltip.withdraw()
+            widget.tooltip_visible = False
+            if hasattr(widget, "tooltip_id"):
+                widget.after_cancel(widget.tooltip_id)
+    
+    # Remove existing bindings to prevent duplicates
+    widget.unbind("<Enter>")
+    widget.unbind("<Leave>")
+    
+    # Apply unified bindings
+    widget.bind("<Enter>", on_enter)
+    widget.bind("<Leave>", on_leave)
 
 def get_label_style():
     """Returns common style options for labels."""
@@ -209,8 +342,7 @@ def get_label_style():
         'fg': TextColor()
     }
 
-def get_label_style_alt(command=None):
-    """Returns Important style options for labels."""
+def get_label_style_alt(command=None, translation_key=None):
     style = {
         'font': global_font,
         'bg': TextColor(),
@@ -220,7 +352,8 @@ def get_label_style_alt(command=None):
     }
     if command:
         style['command'] = command
-    return style
+    tooltip_text = lang_manager.get(f"tooltip_{translation_key}") if translation_key else None
+    return style, tooltip_text
 
 def draw_centered_text_with_bg(canvas, x, y, text, fill_color, bg_color, **style):
     # Create the text with centered alignment
@@ -238,6 +371,7 @@ def draw_centered_text_with_bg(canvas, x, y, text, fill_color, bg_color, **style
 
     # Lower the rectangle to ensure it is behind the text
     canvas.tag_lower(rect_id, text_id)
+    return text_id  # Return the text item ID for later updates
 
 def start_directory_monitoring():
     """Start monitoring mod, patch, and plugin directories for changes using polling."""
@@ -349,10 +483,6 @@ def server_reboot_in_progress():
 
     update_loading_bar()
 
-for widget in root.winfo_children():
-    if isinstance(widget, tk.Button):
-        apply_hover_effect(widget, hover_bg="#555555", hover_fg="#ffffff")
-
 # Initialize settings and load the current platform choice
 platform_choice = settings.get("edf6_platform", "steam")
 labels_and_buttons = []
@@ -378,25 +508,28 @@ GAME_FOLDERS = {
 }
 # Grouped social media links
 social_media_groups = {
-    "Get Into Modding": [
-        ("Documentation/Wiki", "https://github.com/KCreator/Earth-Defence-Force-Documentation/wiki"),
-        ("Maybe Birb's Guide on 'HOW TO MOD EARTH DEFENSE FORCE'", "https://steamcommunity.com/sharedfiles/filedetails/?id=3083510169")
+    "Get Into Modding / Useful Links": [
+        ("Documentation / Wiki", "https://github.com/KCreator/Earth-Defence-Force-Documentation/wiki"),
+        ("Maybe Birb's Guide on 'HOW TO MOD EDF'", "https://steamcommunity.com/sharedfiles/filedetails/?id=3083510169"),
+        ("Loadout Planner / Mission Database", "https://invadersfromplanet.space/"),
     ],
     "Blue Amulet's Modloader": [
-        ("Source Code", "https://www.github.com/repos/BlueAmulet/EDFModLoader")
+        ("Source Code", "https://github.com/BlueAmulet/EDFModLoader")
     ],
-    "Official EDF Channel's socials": [
+    "Official EDF Channel's Socials": [
         ("Official EDF EN on X", "https://x.com/EDF_OFFICIAL_EN"),
         ("Official EDF JP on X", "https://x.com/EDF_OFFICIAL"),
         ("Official EDF Reddit", "https://www.reddit.com/r/EDF/"),
-        ("Official EDF Discord", "https://discord.com/invite/EDF")
+        ("Official EDF Discord", "https://discord.com/invite/EDF"),
+        ("Official EDF Wiki", "https://theearthdefenseforce.fandom.com/"),
     ],
-    "FevGrave's socials": [
+    "FevGrave's Socials": [
         ("X", "https://x.com/FevGrave"),
         ("Reddit", "https://www.reddit.com/user/FevGrave/"),
-        ("Source Code", "https://github.com/FevGrave/EDFMultiModLoader"),
-        ("Discord Model/Thumbnail Request Form", "https://discord.com/channels/207292314064781312/1272000404875378718"),
-        ("Discord MML Form", "https://discord.com/channels/207292314064781312/1284693030003019797")
+        ("MML Source Code", "https://github.com/FevGrave/EDFMultiModLoader"),
+        ("Discord Model / Thumbnail Request Form", "https://discord.com/channels/207292314064781312/1272000404875378718"),
+        ("Discord MML Form", "https://discord.com/channels/207292314064781312/1284693030003019797"),
+        ("Ko-Fi", "https://ko-fi.com/D1D41FKS1S"),
     ]
 }
 
@@ -422,15 +555,53 @@ current_game = None
 for folder in GAME_FOLDERS.keys():
     if folder in BASE_DIR:
         current_game = folder
+        show_error(f"Detected current_game: {current_game}")
         break
+print(f"Current game detected: {current_game}")  # Add this
+
+def get_game_dir():
+    settings = funcs.get_settings()
+    base_dir = settings.get("base_dir", "")
+    script_dir = os.path.dirname(os.path.abspath(__file__ if '__file__' in globals() else sys.executable))
+    
+    # Try base_dir from settings
+    if base_dir and os.path.isdir(base_dir):
+        mods_dir = os.path.join(base_dir, "Mods", "EDF 6 MOD SETTINGS MAKER")
+        if os.path.isdir(mods_dir):
+            return base_dir
+    
+    # Fallback to script_dir or common Steam paths
+    potential_paths = [
+        script_dir,
+        os.path.join(script_dir, ".."),
+        os.path.join(script_dir, "..", ".."),
+        r"F:\SteamLibrary\steamapps\common",
+        r"C:\Program Files (x86)\Steam\steamapps\common"
+    ]
+    
+    for path in potential_paths:
+        for game_name in GAME_FOLDERS.keys():
+            full_path = os.path.normpath(os.path.join(path, game_name))
+            if os.path.isdir(full_path):
+                mods_dir = os.path.join(full_path, "Mods", "EDF 6 MOD SETTINGS MAKER")
+                if os.path.isdir(mods_dir):
+                    global current_game
+                    current_game = game_name
+                    settings["base_dir"] = full_path
+                    with open("MMLsettings.json", "w") as f:
+                        json.dump(settings, f, indent=4)
+                    return full_path
+    
+    # Log failure and return script_dir as last resort
+    show_error(f"Warning: Could not find valid game directory. Using script directory: {script_dir}")
+    return script_dir
 
 # Set the taskbar and title bar images
 set_icons(root, BASE_DIR)
 
 # Load the background image
 if os.path.exists(bg_image_path):
-    bg_image = Image.open(bg_image_path)
-    bg_photo = ImageTk.PhotoImage(bg_image)
+    bg_photo = load_resized_background_image(bg_image_path, width(), height())
 else:
     print(f"Background image not found: {bg_image_path}")
     bg_photo = None
@@ -440,6 +611,58 @@ canvas = tk.Canvas(root, width=width(), height=height())
 canvas.pack(fill="both", expand=True)
 if bg_photo:
     canvas.create_image(0, 0, image=bg_photo, anchor="nw")
+
+def set_random_background_image():
+    global bg_photo
+    image_path = get_random_background_path()
+    if not image_path or not os.path.exists(image_path):
+        show_error("⚠️ Failed to select a valid background image.")
+        return
+
+    try:
+        new_bg = Image.open(image_path).convert("RGBA")
+        new_bg_resized = new_bg.resize((width(), height()), Image.Resampling.LANCZOS)  # Resize to 675x920
+        bg_photo = ImageTk.PhotoImage(new_bg_resized)
+
+        canvas.delete("background")  # Clear previous background
+        bg_id = canvas.create_image(0, 0, image=bg_photo, anchor="nw", tags="background")
+        canvas.tag_lower(bg_id)  # Ensure it’s behind all GUI widgets
+
+        show_error(f"✅ Random background image applied: {os.path.basename(image_path)}")
+    except Exception as e:
+        show_error(f"❌ Failed to load image: {str(e)}")
+
+def set_background_image_manual(image_name):
+    global bg_photo  # Keep image alive to prevent garbage collection
+
+    # Check allowed extensions
+    valid_extensions = ('.jpg', '.jpeg', '.png', '.webp')
+    if not image_name.lower().endswith(valid_extensions):
+        show_error(f"❌ Unsupported image format: '{image_name}'. Use JPG, PNG, or WEBP.")
+        return
+
+    # Resolve image path
+    if os.path.exists(os.path.join(custom_images_dir, image_name)):
+        image_path = os.path.join(custom_images_dir, image_name)
+    elif os.path.exists(os.path.join(images_dir, image_name)):
+        image_path = os.path.join(images_dir, image_name)
+    else:
+        show_error(f"❌ Image '{image_name}' not found in custom or default folders.")
+        return
+
+    try:
+        # Open and resize the image
+        new_bg = Image.open(image_path).convert("RGBA")
+        new_bg_resized = new_bg.resize((width(), height()), Image.Resampling.LANCZOS)
+        bg_photo = ImageTk.PhotoImage(new_bg_resized)
+
+        canvas.delete("background")  # Clear previous background
+        bg_id = canvas.create_image(0, 0, image=bg_photo, anchor="nw", tags="background")
+        canvas.tag_lower(bg_id)  # Push behind widgets
+
+        show_error(f"✅ Background changed to '{image_name}'")
+    except Exception as e:
+        show_error(f"❌ Failed to load image: {str(e)}")
 
 def get_padding(index, total):
     """Helper function to calculate padding based on button position."""
@@ -455,37 +678,40 @@ def get_padding(index, total):
 def open_link(url):
     webbrowser.open(url)
 
-def check_for_update():
+def check_for_update(prefer_prerelease=True):
     clear_error()
     try:
         gui_release_api_url = 'https://api.github.com/repos/FevGrave/EDFMultiModLoader/releases'
-
-        headers = {
-            'Accept': 'application/vnd.github.v3+json',
-        }
+        headers = {'Accept': 'application/vnd.github.v3+json'}
+        
         response = requests.get(gui_release_api_url, headers=headers)
         response.raise_for_status()
         releases = response.json()
-        latest_prerelease = next((release for release in releases if release.get('prerelease', False)), None)
-
-        if not latest_prerelease:
-            show_error("No pre-release found.")
+        
+        # Determine which release to check for
+        if prefer_prerelease:
+            latest_release = next((release for release in releases if not release.get('prerelease', False)), None)
+            release_type = "stable release"
+        else:
+            latest_release = next((release for release in releases if release.get('prerelease', False)), None)
+            release_type = "pre-release"
+        
+        if not latest_release:
+            show_error(f"No {release_type} found.")
             return
-
-        latest_version = latest_prerelease.get('tag_name', '0.0.0').strip()
-        assets = latest_prerelease.get('assets', [])
+        
+        latest_version = latest_release.get('tag_name', '0.0.0').strip()
+        assets = latest_release.get('assets', [])
         current_version = get_version().strip()
 
         if current_version == latest_version:
             show_error("You are using the latest EDF Multi Mod Loader version.")
             show_error("Use the cmds of 'help', 'h', 'HELP' in the Request Mod Code")
-            # If already up to date, show the changelog for this version
             show_error("changelog.txt")
         elif current_version < latest_version:
-            # Prompt the user to update
             update_prompt = messagebox.askyesno(
                 "EDF MML Update Available",
-                f"Version {latest_version} is available! You are currently using {current_version}. Do you want to update now?"
+                f"{release_type.capitalize()} version {latest_version} is available! You are currently using {current_version}. Do you want to update now?"
             )
             if update_prompt:
                 executable_name = "EDF MML.exe"
@@ -493,7 +719,6 @@ def check_for_update():
 
                 if download_url:
                     download_and_replace_executable(download_url, executable_name)
-                    # After update, show the changelog for the new version
                     show_error("changelog.txt")
                 else:
                     show_error(f"Update failed: Could not find {executable_name} in the latest release assets.")
@@ -536,6 +761,99 @@ def download_and_replace_executable(download_url, executable_name):
     except Exception as e:
         show_error(f"An error occurred during the update process: {str(e)}")
 
+def check_for_ba_update():
+    clear_error()
+    try:
+        ml_release_api_url = 'https://api.github.com/repos/BlueAmulet/EDFModLoader/releases/latest'
+        response = requests.get(ml_release_api_url)
+        response.raise_for_status()
+        data = response.json()
+        latest_version = data['tag_name']
+        assets = data['assets']
+        extract_to = get_game_dir()
+        print(f"Using extract_to for check_for_ba_update: {extract_to}")  # Debug
+
+        zip_targets = {
+            "EDFModLoader.zip": None,
+            "Plugins6.zip": "EARTH DEFENSE FORCE 6",
+            "Plugins5.zip": "EARTH DEFENSE FORCE 5",
+            "Plugins41.zip": "EARTH DEFENSE FORCE 4.1"
+        }
+
+        for zip_name, game_filter in zip_targets.items():
+            if game_filter and current_game != game_filter:
+                continue
+            for asset in assets:
+                if asset['name'] == zip_name:
+                    zip_url = asset['browser_download_url']
+                    funcs.download_and_extract_zip(zip_url, zip_name, extract_to, show_error)
+                    break
+            else:
+                show_error(f"{zip_name} not found in GitHub release.")
+
+        show_error(f"Updated to version {latest_version} completed.")
+        ep = os.path.join(extract_to, "Mods", "ExtraPatches")
+        dp = os.path.join(extract_to, "Mods", "DisabledPatches")
+        if os.path.exists(ep):
+            if os.path.exists(dp): 
+                shutil.rmtree(dp)
+            os.rename(ep, dp)
+            show_error('Renamed "ExtraPatches" to "DisabledPatches".')
+        else:
+            show_error('"ExtraPatches" folder not found.')
+    except requests.exceptions.RequestException as e:
+        show_error(f"Update failed: {str(e)}")
+    except Exception as e:
+        show_error(f"Unexpected error: {str(e)}")
+
+def update_mods():
+    update_mod_counts()
+    clear_error()
+    try:
+        parent_dir = get_game_dir()
+        print(f"Using parent_dir for update_mods: {parent_dir}")  # Debug
+        funcs.update_mods(show_error, parent_dir=parent_dir)
+    except Exception as e:
+        show_error(f"Failed to update mods: {str(e)}")
+
+def build_tables():
+    update_mod_counts()
+    clear_error()
+    show_error("Generating Content Please Wait...")
+    error_block.update()
+    threading.Thread(target=run_build_tables).start()
+
+def run_build_tables():
+    try:
+        current_dir = os.getcwd()
+        print(f"Current directory: {current_dir}")  # Debug
+        settings = load_settings(current_dir)
+        if settings is None:
+            raise ValueError("Failed to load settings")
+        
+        modloader_style = settings.get("modloader_HAKKEN_style", "NI")
+        exe_name = "EDF HAKKEN NI.exe" if modloader_style == "NI" else "EDF HAKKEN.exe"
+        print(f"Selected EXE: {exe_name}")  # Debug
+        
+        show_error(f"Starting build process using: {exe_name}")
+        funcs.build_tables(show_error, exe_name=exe_name)
+        show_error("Build process completed successfully.")
+    except Exception as e:
+        show_error(f"An error occurred during the build process: {str(e)}")
+        error_block.update()
+
+def repair_tables():
+    clear_error()
+    try:
+        current_dir = get_game_dir()
+        print(f"Using current_dir for repair_tables: {current_dir}")  # Debug
+        show_error("Starting table repair process...")
+        if not current_dir or not os.path.isdir(current_dir):
+            raise ValueError(f"Invalid game directory: {current_dir}")
+        funcs.repair_tables(show_error, current_dir)
+    except Exception as e:
+        show_error(f"Failed to repair tables: {str(e)}")
+        
 def check_for_ba_update():
     clear_error()
     try:
@@ -613,16 +931,18 @@ def check_for_ba_update():
 
 def update_mods():
     update_mod_counts()
-    clear_error() 
+    clear_error()
     try:
-        funcs.update_mods(show_error)  # Call the update mods function
+        parent_dir = get_game_dir()
+        print(f"Using parent_dir for update_mods: {parent_dir}")  # Debug
+        funcs.update_mods(show_error, parent_dir=parent_dir)
     except Exception as e:
-        show_error(str(e))
+        show_error(f"Failed to update mods: {str(e)}")
 
 def build_tables():
     update_mod_counts()
     clear_error()  # Clear errors first
-    show_error("Starting the EDF HAKKEN build process...")
+    show_error("Generating Content Please Wait...")
     error_block.update()  # Update the UI
 
     # Run the task in a separate thread
@@ -631,10 +951,16 @@ def build_tables():
 def run_build_tables():
     try:
         # Load settings to check modloader_HAKKEN_style
-        settings = load_settings(os.getcwd())
-        modloader_style = settings.get("modloader_HAKKEN_style", "NI")  # Default to "NI" (No Installer)
-        # Map styles to EXE names
+        current_dir = os.getcwd()
+        print(f"Current directory: {current_dir}")  # Debug
+        settings = load_settings(current_dir)
+        if settings is None:
+            raise ValueError("Failed to load settings")
+        
+        modloader_style = settings.get("modloader_HAKKEN_style", "NI")  # Default to "NI"
         exe_name = "EDF HAKKEN NI.exe" if modloader_style == "NI" else "EDF HAKKEN.exe"
+        print(f"Selected EXE: {exe_name}")  # Debug
+        
         # Pass the selected EXE to build_tables
         show_error(f"Starting build process using: {exe_name}")
         funcs.build_tables(show_error, exe_name=exe_name)
@@ -644,21 +970,128 @@ def run_build_tables():
         error_block.update()
 
 def repair_tables():
-    clear_error()  # Clear errors first
+    clear_error()
     try:
+        current_dir = get_game_dir()
+        print(f"Using current_dir for repair_tables: {current_dir}")  # Debug
+        if not current_dir or not os.path.isdir(current_dir):
+            raise ValueError(f"Invalid game directory: {current_dir}")
         funcs.repair_tables(show_error, current_dir)
     except Exception as e:
-        show_error(str(e))
+        show_error(f"Failed to repair tables: {str(e)}")
+
+def create_mml_installer_tools(canvas, y_pos):
+    def check_for_ba_update():
+        clear_error()
+        try:
+            ml_release_api_url = 'https://api.github.com/repos/BlueAmulet/EDFModLoader/releases/latest'
+            response = requests.get(ml_release_api_url)
+            response.raise_for_status()
+            data = response.json()
+            latest_version = data['tag_name']
+            assets = data['assets']
+            extract_to = r'F:\\SteamLibrary\\steamapps\\common\\EARTH DEFENSE FORCE 6'
+
+            zip_targets = {
+                "EDFModLoader.zip": None,
+                "Plugins6.zip": "EARTH DEFENSE FORCE 6",
+                "Plugins5.zip": "EARTH DEFENSE FORCE 5",
+                "Plugins41.zip": "EARTH DEFENSE FORCE 4.1"
+            }
+
+            for zip_name, game_filter in zip_targets.items():
+                if game_filter and current_game != game_filter:
+                    continue
+                for asset in assets:
+                    if asset['name'] == zip_name:
+                        zip_url = asset['browser_download_url']
+                        funcs.download_and_extract_zip(zip_url, zip_name, extract_to, show_error)
+                        break
+                else:
+                    show_error(f"{zip_name} not found in GitHub release.")
+
+            show_error(f"Updated to version {latest_version} completed.")
+            ep = os.path.join(extract_to, "Mods", "ExtraPatches")
+            dp = os.path.join(extract_to, "Mods", "DisabledPatches")
+            if os.path.exists(ep):
+                if os.path.exists(dp): shutil.rmtree(dp)
+                os.rename(ep, dp)
+                show_error('Renamed "ExtraPatches" to "DisabledPatches".')
+            else:
+                show_error('"ExtraPatches" folder not found.')
+        except requests.exceptions.RequestException as e:
+            show_error(f"Update failed: {str(e)}")
+        except Exception as e:
+            show_error(f"Unexpected error: {str(e)}")
+
+    def update_mods():
+        update_mod_counts()
+        clear_error()
+        try:
+            parent_dir = get_game_dir()
+            print(f"Using parent_dir for update_mods: {parent_dir}")  # Debug
+            funcs.update_mods(show_error, parent_dir=parent_dir)
+        except Exception as e:
+            show_error(f"Failed to update mods: {str(e)}")
+
+    def run_build_tables():
+        try:
+            settings = load_settings(os.getcwd())
+            style = settings.get("modloader_HAKKEN_style", "NI")
+            exe_name = "EDF HAKKEN NI.exe" if style == "NI" else "EDF HAKKEN.exe"
+            show_error(f"Starting build: {exe_name}")
+            funcs.build_tables(show_error, exe_name=exe_name)
+            show_error("Build process completed.")
+        except Exception as e:
+            show_error(f"Build error: {str(e)}")
+            error_block.update()
+
+    def build_tables():
+        update_mod_counts()
+        clear_error()
+        show_error("Generating content...")
+        error_block.update()
+        threading.Thread(target=run_build_tables).start()
+
+    def repair_tables():
+        clear_error()
+        try:
+            current_dir = get_game_dir()
+            print(f"Using current_dir for repair_tables: {current_dir}")  # Debug
+            if not current_dir or not os.path.isdir(current_dir):
+                raise ValueError(f"Invalid game directory: {current_dir}")
+            funcs.repair_tables(show_error, current_dir)
+        except Exception as e:
+            show_error(f"Failed to repair tables: {str(e)}")
+
+    tools_frame = tk.Frame(root, bg=bgY())
+    buttons = [
+        ("update_modloader_ba", check_for_ba_update, "update_modloader_ba"),
+        ("update_mods", update_mods, "update_mods"),
+        ("build_tables", build_tables, "build_tables"),
+        ("repair_tables", repair_tables, "repair_tables"),
+        ("mods_panel", lambda: toggle_mods_panels(show_error), "mods_panel")
+    ]
+    for idx, (translation_key, cmd, tooltip_key) in enumerate(buttons):
+        style, tooltip = get_label_style_alt(cmd, tooltip_key)
+        b = tk.Button(tools_frame, text=lang_manager.get(translation_key), **style)
+        apply_hover_and_tooltip(b, tooltip)
+        translatable_widgets.append(('text', b, translation_key))
+        b.pack(side="left", padx=get_padding(idx, len(buttons)))
+    canvas.create_window(width() // 2, y_pos, window=tools_frame, anchor="center")
+    return y_pos + 30
 
 def create_game_launch_bar(canvas, y_position):
+    global translatable_widgets, toggle_button
     # Add a label above the dropdown, play button, toggle button, and progress tracker button
     label = tk.Label(
         root,
-        text="EDF! Game to Launch",
+        text=lang_manager.get("edf_game_to_launch"),
         font=global_font_h,
         bg=JustBackGround(),
         fg=TextColor(),
     )
+    translatable_widgets.append(('text', label, "edf_game_to_launch"))
     canvas.create_window(width() // 2, y_position, window=label)
     y_position += 35
 
@@ -666,7 +1099,7 @@ def create_game_launch_bar(canvas, y_position):
     game_launch_frame = tk.Frame(root, bg=bgY(), highlightthickness=0)
 
     # Dropdown menu for selecting games
-    selected_game = tk.StringVar(value="Earth Defense Force 6")  # Default selection
+    selected_game = tk.StringVar(value="Earth Defense Force 6")
     game_dropdown = tk.OptionMenu(game_launch_frame, selected_game, *GAME_FOLDERS.keys())
     game_dropdown.config(
         bg=ButtonBackGround(),
@@ -683,56 +1116,48 @@ def create_game_launch_bar(canvas, y_position):
         activebackground=hover_bg(),
         activeforeground=hover_fg()
     )
-    game_dropdown.pack(side="left", padx=(0, 10))
+    apply_hover_and_tooltip(game_dropdown, lang_manager.get("tooltip_game_dropdown"))
+    game_dropdown.pack(side="left", padx=(2, 5))
 
     # Add the "Play This Game" button
     def handle_launch():
         game_key = selected_game.get()
         app_ids = GAME_FOLDERS.get(game_key)
-    
         if not app_ids:
             show_error(f"Game '{game_key}' not found in GAME_FOLDERS.")
             return
-
-        if len(app_ids) == 1:  # Single ID available, default to Steam
+        if len(app_ids) == 1:
             funcs.launch_game([app_ids[0]], show_error)
         else:
             if platform_choice == "epic" and len(app_ids) > 1:
-                funcs.launch_game(app_ids, show_error)  # Pass both IDs, Epic is prioritized
+                funcs.launch_game(app_ids, show_error)
             else:
-                funcs.launch_game([app_ids[0]], show_error)  # Steam ID
+                funcs.launch_game([app_ids[0]], show_error)
 
-    play_button = tk.Button(
-        game_launch_frame,
-        text="Play This Game",
-        command=handle_launch,
-        **get_label_style_alt()
-    )
-    apply_hover_effect(play_button)
-    play_button.pack(side="left", padx=(0, 10))
+    style, tooltip = get_label_style_alt(command=handle_launch, translation_key="play_this_game")
+    play_button = tk.Button(game_launch_frame, text=lang_manager.get("play_this_game"), **style)
+    apply_hover_and_tooltip(play_button, tooltip)
+    translatable_widgets.append(('text', play_button, "play_this_game"))
+    play_button.pack(side="left", padx=(5, 5))
 
-    # Add the toggle button for platform selection
-    global toggle_button
+    # Toggle button
+    style, tooltip = get_button_style(command=toggle_platform, translation_key="current_platform")
     toggle_button = tk.Button(
         game_launch_frame,
-        text=f"Current Platform: {platform_choice.capitalize()}",
-        command=toggle_platform,
-        **get_button_style()
+        text=lang_manager.get("current_platform", platform=platform_choice.capitalize()),
+        **style
     )
-    apply_hover_effect(toggle_button)
-    toggle_button.pack(side="left", padx=(0, 10))
+    apply_hover_and_tooltip(toggle_button, tooltip)
+    translatable_widgets.append(('text', toggle_button, "current_platform", {'platform': platform_choice.capitalize()}))
+    toggle_button.pack(side="left", padx=(5, 5))
 
-    # Add the "Progress Tracker" button
-    progress_tracker_button = tk.Button(
-        game_launch_frame,
-        text="Online Progress Tracker",
-        command=launch_progress_tracker,
-        **get_label_style_alt()
-    )
-    apply_hover_effect(progress_tracker_button)
-    progress_tracker_button.pack(side="left", padx=(0, 0))
+    # Progress tracker button
+    style, tooltip = get_label_style_alt(command=launch_progress_tracker, translation_key="online_progress_tracker")
+    progress_tracker_button = tk.Button(game_launch_frame, text=lang_manager.get("online_progress_tracker"), **style)
+    apply_hover_and_tooltip(progress_tracker_button, tooltip)
+    translatable_widgets.append(('text', progress_tracker_button, "online_progress_tracker"))
+    progress_tracker_button.pack(side="left", padx=(5, 0))
 
-    # Add the frame to the canvas
     canvas.create_window(width() // 2, y_position, window=game_launch_frame, anchor="center")
     return y_position
 
@@ -755,9 +1180,24 @@ def toggle_modloader_status():
     except Exception as e:
         show_error(str(e))
 
-def show_error(error_msg):
+def update_modloader_status():
+    try:
+        current_status = funcs.get_modloader_status()
+        modloader_status.set(lang_manager.get("toggle_modloader_status", status=current_status))
+        # Update translatable_widgets entry for the modloader toggle button
+        if modloader_toggle_button:
+            for i, item in enumerate(translatable_widgets):
+                if item[1] == modloader_toggle_button:
+                    translatable_widgets[i] = ('textvariable', modloader_toggle_button, "toggle_modloader_status", {'status': current_status})
+                    break
+            update_ui_translations()  # Reapply all translations to ensure consistency
+    except Exception as e:
+        show_error(str(e))
+
+def show_error(error_key_or_msg, **kwargs):
     error_block.config(state=tk.NORMAL)
-    error_block.insert(tk.END, error_msg + '\n')
+    text = lang_manager.get(error_key_or_msg, **kwargs) if error_key_or_msg in lang_manager.translations else error_key_or_msg
+    error_block.insert(tk.END, text + '\n')
     error_block.config(state=tk.DISABLED)
 
 def clear_error():
@@ -803,105 +1243,82 @@ def open_mod_folder(folder_path):
         show_error(f"Failed to open folder: {str(e)}")
 
 def create_mod_info_buttons(canvas, y_position):
-    """Creates interactive buttons to replace labels for mod information."""
-    global mods_button, patches_button, plugins_button  # Declare global for dynamic updates
-
+    global mods_button, patches_button, plugins_button
     mods_frame = tk.Frame(root, bg=bgY())
 
-    # Create buttons to open mod-related directories
-    mods_button = tk.Button(
-        mods_frame,
-        text="Mods:",
-        **get_button_style(lambda: open_mod_folder(r"Mods\EDF 6 MOD SETTINGS MAKER\MOD CONFIG DATA PLACED HERE"))
-    )
-    total_mods_label = tk.Label(mods_frame, textvariable=total_mods, **get_label_style())
-    apply_hover_effect(mods_button)
-
-    patches_button = tk.Button(
-        mods_frame,
-        text="Patches:",
-        **get_button_style(lambda: open_mod_folder(r"Mods\Patches"))
-    )
-    total_patches_label = tk.Label(mods_frame, textvariable=total_patches, **get_label_style())
-    apply_hover_effect(patches_button)
-
-    plugins_button = tk.Button(
-        mods_frame,
-        text="Plugins:",
-        **get_button_style(lambda: open_mod_folder(r"Mods\Plugins"))
-    )
-    total_plugins_label = tk.Label(mods_frame, textvariable=total_plugins, **get_label_style())
-    apply_hover_effect(plugins_button)
-
-    # Pack the buttons and labels
-    mods_button.pack(side="left", padx=0)
-    total_mods_label.pack(side="left", padx=(5, 5))
-    patches_button.pack(side="left", padx=0)
-    total_patches_label.pack(side="left", padx=(5, 5))
-    plugins_button.pack(side="left", padx=0)
-    total_plugins_label.pack(side="left", padx=(5, 5))
-    plugins_button.pack(side="left", padx=0)
+    # MODS BUTTON and LABEL
+    style, tooltip = get_button_style(command=lambda: open_mod_folder(r"Mods\EDF 6 MOD SETTINGS MAKER\MOD CONFIG DATA PLACED HERE"), translation_key="mods")
+    mods_button = tk.Button(mods_frame, text=lang_manager.get("mods"), **style)
+    apply_hover_and_tooltip(mods_button, tooltip)
+    translatable_widgets.append(('text', mods_button, "mods"))
+    mods_button.pack(side="left", padx=(0, 2))
     
-    # Add the frame to the canvas
+    total_mods_label = tk.Label(mods_frame, textvariable=total_mods, **get_label_style())
+    total_mods_label.pack(side="left", padx=(0, 2))
+
+    # PATCHES BUTTON and LABEL
+    style, tooltip = get_button_style(command=lambda: open_mod_folder(r"Mods\Patches"), translation_key="patches")
+    patches_button = tk.Button(mods_frame, text=lang_manager.get("patches"), **style)
+    apply_hover_and_tooltip(patches_button, tooltip)
+    translatable_widgets.append(('text', patches_button, "patches"))
+    patches_button.pack(side="left", padx=(0, 2))
+    
+    total_patches_label = tk.Label(mods_frame, textvariable=total_patches, **get_label_style())
+    total_patches_label.pack(side="left", padx=(0, 2))
+
+    # PLUGINS BUTTON and LABEL
+    style, tooltip = get_button_style(command=lambda: open_mod_folder(r"Mods\Plugins"), translation_key="plugins")
+    plugins_button = tk.Button(mods_frame, text=lang_manager.get("plugins"), **style)
+    apply_hover_and_tooltip(plugins_button, tooltip)
+    translatable_widgets.append(('text', plugins_button, "plugins"))
+    plugins_button.pack(side="left", padx=(0, 2))
+    
+    total_plugins_label = tk.Label(mods_frame, textvariable=total_plugins, **get_label_style())
+    total_plugins_label.pack(side="left", padx=(0, 2))
+
     labels_and_buttons.append(canvas.create_window(width() // 2, y_position, window=mods_frame))
     return y_position + 35
 
-def update_modloader_status():
-    try:
-        current_status = funcs.get_modloader_status()  # Get the current status
-        modloader_status.set(f"Toggle Modloader Status: {current_status}")  # Update with prefixed text
-    except Exception as e:
-        show_error(str(e))
-
 def toggle_platform():
-    """Toggle between Steam and Epic for EDF6 and save the choice."""
-    global platform_choice, toggle_button  # Ensure both are accessible
+    global platform_choice, toggle_button
     platform_choice = "epic" if platform_choice == "steam" else "steam"
-
-    # Update the settings dictionary
     settings = get_settings()
-    settings["edf6_platform"] = platform_choice  # Update platform in settings
-    save_settings(settings)  # Persist the updated settings
-
-    # Update the toggle button text
+    settings["edf6_platform"] = platform_choice
+    save_settings(settings)
     if toggle_button:
-        toggle_button.config(text=f"Current Platform: {platform_choice.capitalize()}")
+        toggle_button.config(text=lang_manager.get("current_platform", platform=platform_choice.capitalize()))
+        # Update translatable_widgets entry
+        for i, item in enumerate(translatable_widgets):
+            if item[1] == toggle_button:
+                translatable_widgets[i] = ('text', toggle_button, "current_platform", {'platform': platform_choice.capitalize()})
+                break
 
 def create_mod_hosting_services(canvas, y_position):
     y_pos = y_position
+    print(f"Mod Hosting Services y_pos start: {y_pos}")  # Debug
 
-    # Add "Mod Hosting Services" text
-    draw_centered_text_with_bg(
-        canvas,
-        width() // 2,
-        y_pos,
-        "Mod Hosting Services",
-        global_fill_color,  # Foreground color
-        JustBackGround(),   # Background color
-        font=global_font_h
-    )
-    y_pos += 30  # Spacing below the label
-
-    # Add dropdown for game selection
+    # Note: Header is now in create_ui, so this function only handles the frame
     hosting_frame = tk.Frame(root, bg=bgY())
-    selected_game = tk.StringVar(value="Earth Defense Force 6")  # Default game
+    selected_game = tk.StringVar(value="Earth Defense Force 6")
 
-    # Function to dynamically update mod hosting links
     def update_links(selected_game):
-        # Clear the existing buttons in the frame
+        print(f"Updating links for game: {selected_game}")  # Debug
         for widget in dynamic_links_frame.winfo_children():
             widget.destroy()
-
-        # Get the links for the selected game
         links = game_to_mod_host_links.get(selected_game, [])
-
-        # Create buttons for each link
+        print(f"Links found: {links}")  # Debug
+        if not links:
+            tk.Label(dynamic_links_frame, text=lang_manager.get("no_mod_hosting_available"), bg=bgY(), fg=TextColor()).pack(side="left")
+            translatable_widgets.append(('text', dynamic_links_frame.winfo_children()[0], "no_mod_hosting_available", {}))
         for i, (label, url) in enumerate(links):
-            button = tk.Button(dynamic_links_frame, text=label, command=lambda u=url: open_link(u), **get_button_style())
-            apply_hover_effect(button)
+            label_key = label.lower().replace(" ", "_")  # e.g., "Nexus Mods" -> "nexus_mods"
+            style, _ = get_button_style(command=lambda u=url: open_link(u))
+            button = tk.Button(dynamic_links_frame, text=lang_manager.get(label_key), **style)
+            apply_hover_and_tooltip(button, lang_manager.get("tooltip_mod_hosting_link", label=lang_manager.get(label_key), game=selected_game))
+            translatable_widgets.append(('text', button, label_key, {}))
             button.pack(side="left", padx=get_padding(i, len(links)))
+        dynamic_links_frame.update()
 
-    # Dropdown menu
     dropdown = tk.OptionMenu(hosting_frame, selected_game, *game_to_mod_host_links.keys(), command=update_links)
     dropdown.config(
         bg=ButtonBackGround(),
@@ -918,47 +1335,231 @@ def create_mod_hosting_services(canvas, y_position):
         activebackground=hover_bg(),
         activeforeground=hover_fg()
     )
-    dropdown.pack(side="left", padx=(0, 10))  # Add padding between dropdown and buttons
+    apply_hover_and_tooltip(dropdown, lang_manager.get("tooltip_game_dropdown"))
+    translatable_widgets.append(('text', dropdown, "tooltip_game_dropdown", {}))
+    dropdown.pack(side="left", padx=(2, 5))
 
-    # Create a frame for dynamic mod hosting links
     dynamic_links_frame = tk.Frame(hosting_frame, bg=bgY())
-    dynamic_links_frame.pack(side="left")  # Pack it into the hosting frame
+    dynamic_links_frame.pack(side="left", padx=5)
 
-    # Initialize the links with the default game
+    style, tooltip = get_label_style_alt(command=import_local_r2z, translation_key="import_r2z")
+    import_r2z_button = tk.Button(hosting_frame, text=lang_manager.get("import_r2z"), **style)
+    apply_hover_and_tooltip(import_r2z_button, tooltip)
+    translatable_widgets.append(('text', import_r2z_button, "import_r2z", {}))
+    import_r2z_button.pack(side="left", padx=(5, 0))
+
     update_links(selected_game.get())
-
-    # Place the hosting frame on the canvas
     canvas.create_window(width() // 2, y_pos, window=hosting_frame, anchor="center")
-    return y_pos  # Return the updated y_position
+    print(f"Hosting frame placed at y_pos: {y_pos}")  # Debug
+    return y_pos
+
+def import_local_r2z():
+    """Open a file dialog to select a .r2z file, move it to Ziped_Mods, and process it."""
+    clear_error()
+    try:
+        # Open file dialog to select .r2z file
+        file_path = filedialog.askopenfilename(
+            title="Select R2Z Profile File",
+            filetypes=[("R2Z Files", "*.r2z"), ("All Files", "*.*")]
+        )
+        if not file_path:
+            show_error("⚠️ No file selected.")
+            return
+
+        # Validate file extension
+        if not file_path.lower().endswith(".r2z"):
+            show_error("❌ Selected file is not a .r2z file.")
+            return
+
+        # Generate a UUID-like identifier from the filename (or use a random UUID)
+        uuid_code = os.path.splitext(os.path.basename(file_path))[0]
+        if not re.match(r"^[0-9a-fA-F\-]{36}$", uuid_code):
+            uuid_code = str(uuid.uuid4())  # Fallback to random UUID if filename isn't UUID-like
+
+        # Target directory
+        target_dir = os.path.join(os.getcwd(), "Ziped_Mods")
+        os.makedirs(target_dir, exist_ok=True)
+        target_path = os.path.join(target_dir, f"{uuid_code}.r2z")
+
+        # Move or copy the file to Ziped_Mods
+        if os.path.abspath(file_path) != os.path.abspath(target_path):
+            shutil.copy2(file_path, target_path)
+            show_error(f"✅ Copied .r2z file to: {target_path}")
+        else:
+            show_error(f"ℹ️ .r2z file already at target location: {target_path}")
+
+        # Verify file is a valid zip and list contents
+        try:
+            with zipfile.ZipFile(target_path, 'r') as z:
+                contents = z.namelist()
+                show_error(f"📦 Zip contents: {contents}")
+        except zipfile.BadZipFile:
+            show_error(f"❌ The selected file is not a valid zip archive.")
+            os.remove(target_path)  # Clean up invalid file
+            return
+
+        # Call funcs.process_r2z_profile to unpack and process
+        if hasattr(funcs, 'process_r2z_profile'):
+            show_error("ℹ️ Using funcs.process_r2z_profile to process .r2z file.")
+            if funcs.process_r2z_profile(uuid_code, show_error):
+                show_error(f"✔️ R2Z profile processed successfully.")
+                funcs.update_mods(show_error)  # Refresh mods
+            else:
+                show_error(f"⚠️ Failed to process R2Z profile.")
+        else:
+            show_error(f"❌ funcs.process_r2z_profile not found. Using fallback processing.")
+            if fallback_process_r2z_profile(uuid_code, target_path):
+                show_error(f"✔️ R2Z profile processed successfully (fallback).")
+                try:
+                    funcs.update_mods(show_error)  # Refresh mods
+                except AttributeError:
+                    show_error("⚠️ funcs.update_mods not found. Mods may need manual refresh.")
+            else:
+                show_error(f"⚠️ Failed to process R2Z profile (fallback).")
+
+    except Exception as e:
+        show_error(f"❌ Error importing .r2z file: {str(e)}")
+
+def fallback_process_r2z_profile(uuid_code, r2z_file):
+    """Fallback function to unpack .r2z file, skipping r2modman-specific data."""
+    try:
+        extract_path = os.path.join("Ziped_Mods", uuid_code)
+        os.makedirs(extract_path, exist_ok=True)
+
+        # Define r2modman-specific files and patterns to skip
+        r2mm_files = [
+            "manifest.json", "export.r2x", "changelog.txt", "doorstop_config.ini",
+            "config.json", "r2modman_settings.json", "readme.md", "license",
+            "requirements.txt"
+        ]
+        r2mm_patterns = [
+            ".github/", ".git/", "__pycache__/", "tests/", "docs/"
+        ]
+
+        # Unpack the .r2z file, skipping unwanted files
+        with zipfile.ZipFile(r2z_file, 'r') as zip_ref:
+            extracted_files = 0
+            for file_info in zip_ref.infolist():
+                file_name = file_info.filename
+
+                # Skip directories
+                if file_info.is_dir():
+                    continue
+
+                # Check for r2modman-specific files or patterns
+                skip_file = False
+                # Match exact filenames (case-insensitive)
+                base_name = os.path.basename(file_name).lower()
+                if base_name in r2mm_files:
+                    show_error(f"⚠️ Skipped r2modman file in .r2z: {file_name}")
+                    continue
+
+                # Match patterns in file path
+                for pattern in r2mm_patterns:
+                    if pattern in file_name.lower():
+                        show_error(f"⚠️ Skipped r2modman-related file in .r2z: {file_name}")
+                        skip_file = True
+                        break
+
+                if skip_file:
+                    continue
+
+                # Extract the file
+                zip_ref.extract(file_info, extract_path)
+                show_error(f"✔️ Extracted: {file_name}")
+                extracted_files += 1
+
+        # If no files were extracted (all were skipped), log a warning
+        if extracted_files == 0:
+            show_error("⚠️ No mod files extracted from .r2z (all files were r2modman-specific).")
+            shutil.rmtree(extract_path)
+            show_error(f"🗑️ Cleaned up temporary directory: {extract_path}")
+            return True  # Still considered successful, as skipping was intentional
+
+        # Move mod files to target directory, preserving structure
+        mod_target_dir = os.path.join(os.getcwd(), "Mods", "EDF 6 MOD SETTINGS MAKER", "MOD CONFIG DATA PLACED HERE")
+        os.makedirs(mod_target_dir, exist_ok=True)
+
+        for root, dirs, files in os.walk(extract_path):
+            # Determine relative path to preserve mod directory structure
+            rel_path = os.path.relpath(root, extract_path)
+            if rel_path == ".":
+                # Top-level files (not in a mod subdirectory)
+                target_mod_dir = mod_target_dir
+            else:
+                # Preserve mod subdirectory (e.g., mods/Chimera-System_Clock -> MOD CONFIG DATA PLACED HERE/Chimera-System_Clock)
+                target_mod_dir = os.path.join(mod_target_dir, rel_path.replace("mods/", "", 1))
+
+            os.makedirs(target_mod_dir, exist_ok=True)
+
+            for file in files:
+                src_path = os.path.join(root, file)
+                dst_path = os.path.join(target_mod_dir, file)
+                # Avoid overwriting by appending a suffix if file exists
+                base, ext = os.path.splitext(dst_path)
+                counter = 1
+                while os.path.exists(dst_path):
+                    dst_path = f"{base}_{counter}{ext}"
+                    counter += 1
+                shutil.move(src_path, dst_path)
+                show_error(f"➡️ Moved mod file to: {dst_path}")
+
+        # Clean up extracted directory
+        shutil.rmtree(extract_path)
+        show_error(f"🗑️ Cleaned up temporary directory: {extract_path}")
+        show_error(f"✅ R2Z profile for {uuid_code} extracted successfully.")
+        return True
+
+    except Exception as e:
+        show_error(f"❌ Error in fallback processing: {str(e)}")
+        return False
 
 def handle_request_drop_off(request_code):
     """Handle the request drop-off button click with support for text-based commands."""
-    
-    def is_valid_uuid(candidate):
-        # Basic UUID format validation of 36 characters in HEX For R2Modman code sharing
-        return bool(re.match(r"^[0-9a-fA-F\-]{36}$", candidate))
-
     def process_request():
+        def is_valid_uuid(candidate):
+            # Basic UUID format validation of 36 characters in HEX For R2Modman code sharing
+            return bool(re.match(r"^[0-9a-fA-F\-]{36}$", candidate))
+            #0195686c-6290-f2e2-f0a8-c208f1b368e8
         clear_error()
         if not request_code.strip():
             show_error("Error: Request code cannot be empty!")
             return None
         normalized_code = request_code.strip().lower() # Normalize the input by trimming whitespace and converting to lowercase
-        if is_valid_uuid(normalized_code):
-            show_error(f"Processing Mod request with UUID: {normalized_code}")
-            # Add R2MODMAN UUID processing logic here
-            update_mods()
         
-        elif normalized_code in ["debug_cmd"]:
+        if normalized_code in ["debug_cmd"]:
             clear_error()
+
+        elif normalized_code in ["bg list"]:
+            result = cmd_bg_list(return_text=True)
+            show_error(result)
+
+        elif normalized_code.startswith("bg "):
+            cmd = normalized_code.strip().lower()
+            if cmd == "bg random" or cmd == "bg r":
+                set_random_background_image()
+            elif cmd.startswith("bg "):
+                image_name = normalized_code[3:].strip()  # Extract the image name after "bg "
+                if not image_name:
+                    show_error("❌ No image name provided. Use 'bg [image_name]' with a valid JPG, PNG, or WEBP file.")
+                    return
+                valid_extensions = ('.jpg', '.jpeg', '.png', '.webp')
+                if not image_name.lower().endswith(valid_extensions):
+                    show_error(f"❌ Unsupported image format: '{image_name}'. Use JPG, PNG, or WEBP.")
+                    return
+                set_background_image_manual(image_name)
+            else:
+                show_error(f"Unknown command: {normalized_code}")
 
         elif normalized_code in ["no install", "ni"]:
             show_error("Processing No Install (NI) request...")
+            repair_tables()
             funcs.build_tables(show_error, exe_name="EDF HAKKEN NI.exe")
             update_setting("modloader_HAKKEN_style", "NI")
 
         elif normalized_code in ["install", "i"]:
             show_error("Processing Install (I) request...")
+            repair_tables()
             funcs.build_tables(show_error, exe_name="EDF HAKKEN.exe")
             update_setting("modloader_HAKKEN_style", "I")
 
@@ -1050,6 +1651,15 @@ def handle_request_drop_off(request_code):
             clear_error()
             eggs.edf_mission_generator(show_error)
 
+        elif normalized_code in ["jesus", "jesus_christ"]:
+            clear_error()
+            eggs.get_daily_bible_verse(show_error)
+
+        elif is_valid_uuid(normalized_code):
+            show_error(f"Valid Mod request UUID")
+            # Add R2MODMAN UUID processing logic here
+            #update_mods()
+
         else:
             show_error("Error: Invalid request code or command!")
 
@@ -1062,15 +1672,16 @@ def create_mod_request_input(canvas, y_position):
     # Add the header above the input field
     header_label = tk.Label(
         root,
-        text="Request Mod Code: Air Force Drop-Off (R2modman Code Sharing{incomplete})",
+        text=lang_manager.get("request_code_header"),
         font=global_font_h,
         bg=JustBackGround(),
         fg=TextColor()
     )
+    translatable_widgets.append(('text', header_label, "request_code_header"))
     canvas.create_window(width() // 2, y_pos, window=header_label)
-    y_pos += 30  # Adjust spacing below the header
+    y_pos += 30
 
-    # Create a frame to hold the slider, input field, and button
+    # Create a frame to hold the input field and button
     input_frame = tk.Frame(
         root,
         bg=bgY(),
@@ -1084,34 +1695,26 @@ def create_mod_request_input(canvas, y_position):
         input_frame,
         textvariable=text_var,
         font=global_font,
-        width=int(65),
+        width=65,
         bg="#EDFEDF",
         fg="black",
         relief="groove"
     )
+    apply_hover_and_tooltip(text_input, lang_manager.get("tooltip_request_code_input"))
     text_input.pack(side="left", padx=get_padding(2, 4), pady=0)
+    text_input.bind("<Return>", lambda event: handle_request_drop_off(text_var.get()))
+    translatable_widgets.append(('text', text_input, "tooltip_request_code_input"))
 
     # Add the "Request Drop Off Now" button
-    drop_off_button = tk.Button(
-        input_frame,
-        text="Request Drop Off Now",
-        command=lambda: [
-            handle_request_drop_off(text_var.get())
-        ],
-        **get_label_style_alt()
-    )
+    style, tooltip = get_label_style_alt(command=lambda: handle_request_drop_off(text_var.get()), translation_key="request_drop_off_now")
+    drop_off_button = tk.Button(input_frame, text=lang_manager.get("request_drop_off_now"), **style)
+    apply_hover_and_tooltip(drop_off_button, tooltip)
+    translatable_widgets.append(('text', drop_off_button, "request_drop_off_now"))
     drop_off_button.pack(side="left", padx=get_padding(3, 4), pady=0)
-    apply_hover_effect(drop_off_button)
 
     # Add the input frame to the canvas
-    canvas.create_window(
-        width() // 2,
-        y_pos,
-        window=input_frame,
-        anchor="center"
-    )
-    y_pos += 5  # Adjust spacing below the input field
-
+    canvas.create_window(width() // 2, y_pos, window=input_frame, anchor="center")
+    y_pos += 5
     return y_pos
 
 def search_nexus_mods():
@@ -1143,143 +1746,278 @@ def search_nexus_mods():
 def create_social_media_links_horizontal(canvas, y_position):
     y_pos = y_position
 
-    # Loop through each group and create a horizontal frame for each
     for group_name, links in social_media_groups.items():
-        # Add a label for the group
+        # Add a label for the group with translated key
+        group_key = group_name.lower().replace(" ", "_").replace("/", "_").replace("'", "")
         group_label = tk.Label(
             root,
-            text=group_name,
+            text=lang_manager.get(group_key, fallback=group_name),
             font=global_font,
             bg=JustBackGround(),
             fg=TextColor()
         )
+        translatable_widgets.append(('text', group_label, group_key, {}))
         canvas.create_window(width() // 2, y_pos, window=group_label)
-        y_pos += 26  # Adjust spacing as necessary
+        y_pos += 26
 
         # Create a frame to hold the buttons horizontally
         frame = tk.Frame(root, bg=bgY())
-        
-        # Loop through the links and create buttons
-        for i, (label, url) in enumerate(links):
-            command = lambda u=url: search_nexus_mods() if u is None else open_link(u)
-            button = tk.Button(frame, text=label, command=command, **get_button_style())
+
+        # Loop through the links and create buttons with tooltips
+        for i, link_data in enumerate(links):
+            if len(link_data) == 3:
+                label, url, tooltip = link_data
+                label_key = label.lower().replace(" ", "_").replace("/", "_").replace("'", "")
+            else:
+                label, url = link_data
+                label_key = label.lower().replace(" ", "_").replace("/", "_").replace("'", "")
+                tooltip = lang_manager.get(f"tooltip_{label_key}", label=label)
+
+            style, _ = get_button_style(command=lambda u=url: search_nexus_mods() if u is None else open_link(u))
+            button = tk.Button(frame, text=lang_manager.get(label_key, fallback=label), **style)
+            apply_hover_and_tooltip(button, tooltip)
+            translatable_widgets.append(('text', button, label_key, {}))
             button.pack(side="left", padx=get_padding(i, len(links)))
-            apply_hover_effect(button)
 
-        # Center-align the frame and increment y-position
         canvas.create_window(width() // 2, y_pos, window=frame, anchor="center")
-        y_pos += 30 
-    return y_pos  # Return the updated y_position
+        y_pos += 30
 
-# Create UI elements
+    return y_pos
+
+def update_ui_translations():
+    print("Translatable widgets:", [(i, item) for i, item in enumerate(translatable_widgets)])  # Debug
+    for i, item in enumerate(translatable_widgets):
+        try:
+            if len(item) == 3:
+                attr, widget, key = item
+                kwargs = {}
+            elif len(item) == 4:
+                attr, widget, key, kwargs = item
+            else:
+                print(f"Warning: Invalid translatable_widgets entry at index {i}: {item}")
+                continue
+            if attr == 'text':
+                widget.config(text=lang_manager.get(key, **kwargs))
+            elif attr == 'textvariable':
+                if 'textvariable' in widget.keys() and isinstance(widget['textvariable'], tk.StringVar):
+                    widget['textvariable'].set(lang_manager.get(key, **kwargs))
+                else:
+                    print(f"Warning: Widget {key} has no valid textvariable")
+            elif attr == 'canvas_text':
+                canvas, text_id, _, _ = item
+                if isinstance(text_id, int):
+                    canvas.itemconfig(text_id, text=lang_manager.get(key, **kwargs))
+                else:
+                    print(f"Warning: Invalid text_id {text_id} for key {key}")
+            tooltip_key = f"tooltip_{key}"
+            if tooltip_key in lang_manager.translations:
+                apply_hover_and_tooltip(widget, lang_manager.get(tooltip_key))
+        except Exception as e:
+            print(f"Error updating widget {key} at index {i}: {e}")
+    root.title(lang_manager.get("title", version=get_version()))
+
 def create_ui(canvas):
-    global total_mods, total_patches, total_plugins, error_block, modloader_status
+    global total_mods, total_patches, total_plugins, error_block, modloader_status, translatable_widgets
     total_mods = tk.StringVar(value="0")
     total_patches = tk.StringVar(value="0")
     total_plugins = tk.StringVar(value="0")
+    modloader_status = tk.StringVar(value=lang_manager.get("toggle_modloader_status", status=funcs.get_modloader_status()))  # Initialize with current status
+    translatable_widgets = []
 
-    y_pos = 30  # Starting vertical position
-    vertical_spacing = 30  # Consistent spacing value
+    y_pos = 30
+    vertical_spacing = 30
 
-    # === Game Launch ===
+    # Dynamically detect available languages
+    language_dir = os.path.join(os.path.dirname(__file__), "languages")
+    available_languages = {}
+    if os.path.exists(language_dir):
+        for filename in os.listdir(language_dir):
+            if filename.endswith(".json"):
+                lang_code = filename.replace(".json", "")
+                # Load the language file to get the "Full Word For Language" translation
+                try:
+                    with open(os.path.join(language_dir, filename), "r", encoding="utf-8") as f:
+                        lang_data = json.load(f)
+                        full_name = lang_data.get("Full Word For Language", lang_code.capitalize())
+                        available_languages[full_name] = lang_code
+                except Exception as e:
+                    print(f"Error loading {filename}: {e}")
+                    continue
+    else:
+        available_languages = {"English": "en"}  # Fallback if directory doesn't exist
+        print(f"Warning: Languages directory not found at {language_dir}. Defaulting to English.")
+
+    # Ensure English is always included as a fallback
+    if "en" not in available_languages.values():
+        available_languages["English"] = "en"
+
+    selected_language = tk.StringVar(value=next((k for k, v in available_languages.items() if v == lang_manager.current_language), "English"))
+    
+    def update_language(*args):
+        lang_code = available_languages[selected_language.get()]
+        lang_manager.load_translations(lang_code)
+        update_setting("language", lang_code)
+        update_ui_translations()
+    
+    # Language and Font Size Selection Frame
+    selection_frame = tk.Frame(root, bg=bgY())
+    language_dropdown = tk.OptionMenu(selection_frame, selected_language, *available_languages.keys(), command=update_language)
+    language_dropdown.config(
+        bg=ButtonBackGround(),
+        fg=TextColor(),
+        activebackground=hover_bg(),
+        activeforeground=hover_fg(),
+        relief="groove",
+        highlightthickness=0,
+        cursor="hand2"
+    )
+    language_dropdown["menu"].config(
+        bg=ButtonBackGround(),
+        fg=TextColor(),
+        activebackground=hover_bg(),
+        activeforeground=hover_fg()
+    )
+    apply_hover_and_tooltip(language_dropdown, lang_manager.get("tooltip_language_dropdown"))
+    translatable_widgets.append(('text', language_dropdown, "tooltip_language_dropdown"))
+    language_dropdown.pack(side="left", padx=get_padding(0, 2))
+    font_sizes = [8, 10, 12, 14, 16]
+    selected_font_size = tk.StringVar(value=str(settings.get("font_sizes", {}).get("global_font", 10)))
+    
+    def update_font_size(*args):
+        size = int(selected_font_size.get())
+        set_font_size("global_font", size)
+        set_font_size("global_font_h", size + 2)  # Maintain relative difference
+        update_ui_translations()  # Reapply text to reflect new font sizes
+
+    font_size_dropdown = tk.OptionMenu(selection_frame, selected_font_size, *font_sizes, command=update_font_size)
+    font_size_dropdown.config(
+        bg=ButtonBackGround(),
+        fg=TextColor(),
+        activebackground=hover_bg(),
+        activeforeground=hover_fg(),
+        relief="groove",
+        highlightthickness=0,
+        cursor="hand2"
+    )
+    font_size_dropdown["menu"].config(
+        bg=ButtonBackGround(),
+        fg=TextColor(),
+        activebackground=hover_bg(),
+        activeforeground=hover_fg()
+    )
+    apply_hover_and_tooltip(font_size_dropdown, "Select the base font size for the interface")
+    translatable_widgets.append(('text', font_size_dropdown, "tooltip_font_size_dropdown"))
+    font_size_dropdown.pack(side="left", padx=get_padding(1, 2))  # Second button, 5px left, 5px right
+
+    canvas.create_window(width() // 2, y_pos, window=selection_frame)
+    y_pos += vertical_spacing
+
+    # Game Launch
     y_pos = create_game_launch_bar(canvas, y_pos)
     y_pos += vertical_spacing + 5
 
-    # === Directory Management ===
-    draw_centered_text_with_bg(canvas, width() // 2, y_pos, "MML Installed Dir Only", global_fill_color, JustBackGround(), font=global_font_h)
-    y_pos += vertical_spacing + 5
+    # Game Management
+    y_pos = create_mml_installer_tools(canvas, y_pos)
 
-    # === Game Management ===
-    game_management_frame = tk.Frame(root, bg=bgY())
-    game_management_buttons = [
-        ("Check for B.A.M.L Update", check_for_ba_update),
-        ("Update Mods", update_mods),
-        ("Build Tables", build_tables),
-        ("Repair Tables", repair_tables),
-        ("Mods Panel", lambda: toggle_mods_panels(show_error)),
-    ]
-
-
-    # Create and pack buttons using `get_padding`
-    for idx, (text, command) in enumerate(game_management_buttons):
-        button = tk.Button(game_management_frame, text=text, command=command, **get_label_style_alt())
-        button.pack(side="left", padx=get_padding(idx, len(game_management_buttons)))
-        apply_hover_effect(button)
-
-    labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=game_management_frame))
-    y_pos += vertical_spacing
-
-    # === Toggle Buttons ===
+    # Toggle Buttons
     toggle_buttons_frame = tk.Frame(root, bg=bgY())
-    modloader_status = tk.StringVar(value=f"Toggle Modloader Status: {funcs.get_modloader_status()}")
     toggle_buttons = [
-        (modloader_status, toggle_modloader_status),
-        ("Open The Current Dir", lambda: os.startfile(current_dir)),
+        (modloader_status, toggle_modloader_status, "toggle_modloader_status"),
+        ("open_current_dir", lambda: os.startfile(current_dir), "open_current_dir"),
     ]
 
-    # Create and pack toggle buttons using `get_padding`
-    for idx, (text_or_var, command) in enumerate(toggle_buttons):
+    toggle_widgets = []  # Temporary list to store button references
+    for idx, (text_or_var, command, translation_key) in enumerate(toggle_buttons):
+        style, tooltip = get_button_style(command=command, translation_key=translation_key)
         button = tk.Button(
             toggle_buttons_frame,
-            text=text_or_var if isinstance(text_or_var, str) else None,
+            text=lang_manager.get(translation_key) if isinstance(text_or_var, str) else None,
             textvariable=text_or_var if isinstance(text_or_var, tk.StringVar) else None,
-            command=command,
-            **get_button_style(),
+            **style
         )
-        apply_hover_effect(button)
+        apply_hover_and_tooltip(button, tooltip)
+        translatable_widgets.append(('text' if isinstance(text_or_var, str) else 'textvariable', button, translation_key))
+        toggle_widgets.append(button)
         button.pack(side="left", padx=get_padding(idx, len(toggle_buttons)))
 
     labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=toggle_buttons_frame))
     y_pos += vertical_spacing
 
-    # === Mod Information ===
+    # Mod Information
     y_pos = create_mod_info_buttons(canvas, y_pos)
     y_pos += 5
 
-    # === Save Folders Management ===
-    draw_centered_text_with_bg(canvas, width() // 2, y_pos, "Open Save Folders", global_fill_color, JustBackGround(), font=global_font_h)
+    # Save Folders Management
+    text_id = draw_centered_text_with_bg(canvas, width() // 2, y_pos, lang_manager.get("open_save_folders"), global_fill_color, JustBackGround(), font=global_font_h)
+    translatable_widgets.append(('canvas_text', text_id, canvas, "open_save_folders"))
     y_pos += vertical_spacing + 5
 
     save_folder_frame = tk.Frame(root, bg=bgY())
     save_folder_buttons = [
-        ("4.1", lambda: funcs.open_save_folder(show_error, "EARTH DEFENSE FORCE 4.1")),
-        ("5", lambda: funcs.open_save_folder(show_error, "EARTH DEFENSE FORCE 5")),
-        ("6", lambda: funcs.open_save_folder(show_error, "EARTH DEFENSE FORCE 6")),
+        ("save_folder_41", lambda: funcs.open_save_folder(show_error, "EARTH DEFENSE FORCE 4.1"), "save_folder_41"),
+        ("save_folder_5", lambda: funcs.open_save_folder(show_error, "EARTH DEFENSE FORCE 5"), "save_folder_5"),
+        ("save_folder_6", lambda: funcs.open_save_folder(show_error, "EARTH DEFENSE FORCE 6"), "save_folder_6"),
     ]
-
-    # Create and pack save folder buttons using `get_padding`
-    for idx, (text, command) in enumerate(save_folder_buttons):
-        button = tk.Button(save_folder_frame, text=text, command=command, **get_button_style())
-        apply_hover_effect(button)
+    for idx, (translation_key, command, tooltip_key) in enumerate(save_folder_buttons):
+        style, tooltip = get_button_style(command=command, translation_key=translation_key)
+        button = tk.Button(save_folder_frame, text=lang_manager.get(translation_key), **style)
+        apply_hover_and_tooltip(button, tooltip)
+        translatable_widgets.append(('text', button, translation_key, {}))
         button.pack(side="left", padx=get_padding(idx, len(save_folder_buttons)))
-
     labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=save_folder_frame))
     y_pos += vertical_spacing + 10
 
-    # === Mod Hosting Services ===
-    y_pos = create_mod_hosting_services(canvas, y_pos)
-    y_pos += vertical_spacing + 5
+    # Mod Hosting Services
+    text_id = draw_centered_text_with_bg(
+        canvas,
+        width() // 2,
+        y_pos,
+        lang_manager.get("mod_hosting_services"),
+        global_fill_color,
+        JustBackGround(),
+        font=global_font_h
+    )
+    translatable_widgets.append(('canvas_text', canvas, text_id, "mod_hosting_services", {}))
+    y_pos += vertical_spacing
+    y_pos = create_mod_hosting_services(canvas, y_pos)  # Call updated function
+    y_pos += vertical_spacing
 
-    # === Mod Request Input ===
+    # Mod Request Input
     y_pos = create_mod_request_input(canvas, y_pos)
     y_pos += vertical_spacing + 5
 
-    # === Console and Logs ===
-    draw_centered_text_with_bg(canvas, width() // 2, y_pos, "HQ Pager Console", global_fill_color, JustBackGround(), font=global_font_h)
+    # Console and Logs
+    text_id = draw_centered_text_with_bg(canvas, width() // 2, y_pos, lang_manager.get("hq_pager_console"), global_fill_color, JustBackGround(), font=global_font_h)
+    translatable_widgets.append(('canvas_text', canvas, text_id, "hq_pager_console"))
     y_pos += vertical_spacing + 35
 
     error_block = tk.Text(root, height=6, width=90, font=("Courier", 9), state=tk.DISABLED, bg=ButtonBackGround(), fg=TextColor(), wrap="word")
     canvas.create_window(width() // 2, y_pos, window=error_block)
     y_pos += 70
 
-    clear_console_button = tk.Button(root, text="Clear Console", **get_label_style_alt(clear_error))
-    apply_hover_effect(clear_console_button)  # Apply default hover effect
-
-    # Add the button to the canvas
-    labels_and_buttons.append(
-        canvas.create_window(width() // 2, y_pos, window=clear_console_button)
-    )
+    style, tooltip = get_label_style_alt(command=clear_error, translation_key="clear_console")
+    clear_console_button = tk.Button(root, text=lang_manager.get("clear_console"), **style)
+    apply_hover_and_tooltip(clear_console_button, tooltip)
+    translatable_widgets.append(('text', clear_console_button, "clear_console"))
+    labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=clear_console_button))
     y_pos += vertical_spacing
+
+    global modloader_toggle_button
+    modloader_toggle_button = toggle_widgets[0]  # Assuming first button is modloader toggle
+
+    def update_modloader_status():
+        try:
+            current_status = funcs.get_modloader_status()
+            modloader_status.set(lang_manager.get("toggle_modloader_status", status=current_status))
+            # Update translatable_widgets entry for the modloader toggle button
+            if modloader_toggle_button:
+                for i, item in enumerate(translatable_widgets):
+                    if item[1] == modloader_toggle_button:
+                        translatable_widgets[i] = ('textvariable', modloader_toggle_button, "toggle_modloader_status", {'status': current_status})
+                        break
+                update_ui_translations()  # Reapply all translations to ensure consistency
+        except Exception as e:
+            show_error(str(e))
 
     # Update mod counts and statuses on startup
     update_mod_counts()
@@ -1287,13 +2025,25 @@ def create_ui(canvas):
     update_modloader_status()
     create_social_media_links_horizontal(canvas, y_pos)
     
-    y_pos += 200
-    # Add button to UI if RUN_BAT_FILES_ENABLED is True
+    y_pos += 230
+
+    # Credits and BAT Files Buttons
+    buttons_frame = tk.Frame(root, bg=bgY())
+    button_configs = [
+        (lambda: threading.Thread(target=lambda: eggs.edf_credits_scroll(show_error, clear_error), daemon=True).start(), "show_credits", "show_credits"),
+    ]
     if RUN_BAT_FILES_ENABLED:
-        y_pos += 30  # Adjust the y position for the new button
-        bat_button = tk.Button(root, text="Run All BAT Files (Two Directories)", command=run_bat_files_from_dirs, **get_label_style_alt())
-        apply_hover_effect(bat_button) 
-        canvas.create_window(width() // 2, y_pos, window=bat_button)
+        button_configs.append((run_bat_files_from_dirs, "run_all_bat_files", "run_all_bat_files"))
+
+    for idx, (command, translation_key, tooltip_key) in enumerate(button_configs):
+        style, tooltip = get_label_style_alt(command=command, translation_key=translation_key)
+        button = tk.Button(buttons_frame, text=lang_manager.get(translation_key), **style)
+        apply_hover_and_tooltip(button, tooltip)
+        translatable_widgets.append(('text', button, translation_key))
+        button.pack(side="left", padx=get_padding(idx, len(button_configs)))
+
+    labels_and_buttons.append(canvas.create_window(width() // 2, y_pos, window=buttons_frame))
+    y_pos += vertical_spacing
 
 # Use canvas to create the UI elements
 create_ui(canvas)

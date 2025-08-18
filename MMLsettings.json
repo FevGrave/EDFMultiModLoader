@@ -1,0 +1,60 @@
+{
+    "edf6_platform": "steam",
+    "platform_can_be": "steam|epic",
+    "modloader_HAKKEN_style": "NI",
+    "base_dir": "F:\\SteamLibrary\\steamapps\\common\\EARTH DEFENSE FORCE 6\\EDFModloaderHead",
+    "language": "en",
+    "font_sizes": {
+        "global_font": 10,
+        "global_font_h": 12
+    },
+    "colors": {
+        "JustBackGround": "#484848",
+        "ButtonBackGround": "#000000",
+        "ButtonPressedBackGround": "#010e70",
+        "hover_bg": "#555555",
+        "hover_fg": "#ffffff",
+        "TextColor": "#B3FF00",
+        "PressedTextColor": "#ffffff",
+        "Helpful Color Blind Site": "https://davidmathlogic.com/colorblind/#%23484848-%23000000-%23010E70-%23FFFFFF"
+    },
+    "modloader_status": "Enabled",
+    "modloader_status_can_be": "Enabled|Disabled, DONT EDIT AS THIS IS VISUAL TEXT",
+    "progress": {
+        "Last Game": "EDF 6",
+        "EDF World Brothers 2": 0.0,
+        "(WB2) Extra Mission Pack: Robo Saurous vs the Mecharmy": 0.0,
+        "EDF 6": 20.95,
+        "( 6 ) DLC Lost Days": 0.0,
+        "( 6 ) DLC Visions of Malice": 0.0,
+        "EDF World Brothers": 0.0,
+        "(WB ) Additional Mission Pack: Another ResCUBE": 0.0,
+        "EDF: Iron Rain": 0.0,
+        "(IR ) Golden Storm": 0.0,
+        "EDF 5 Online": 0.0,
+        "EDF 5 Offline": 0.0,
+        "( 5 ) DLC Mission Pack 1": 0.0,
+        "( 5 ) DLC Mission Pack 2": 0.0,
+        "EDF 4.1 Online": 0.0,
+        "EDF 4.1 Offline": 0.0,
+        "(4.1) DLC Mission Pack 1": 0.0,
+        "(4.1) DLC Mission Pack 2": 0.0,
+        "EDF 2025": 0.0,
+        "(2025) DLC Mission Pack 1": 0.0,
+        "(2025) DLC Mission Pack 2": 0.0,
+        "(2025) DLC Mission Pack 3": 0.0,
+        "EDF 2 Portable (Vita)": 0.0,
+        "EDF 2017 Portable (Vita)": 0.0,
+        "EDF Insect Armageddon": 0.0,
+        "EDF 2017": 0.0,
+        "EDF 2": 0.0,
+        "Monster Attack (2003)": 0.0,
+        "Custom Mod Pack": 0.0
+    },
+    "Custom Mod Pack": {
+        "ClassCount": 4,
+        "Difficulties": 5,
+        "Missions": 100,
+        "NoLimits": 0.7
+    }
+}

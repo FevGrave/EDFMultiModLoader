@@ -74,8 +74,8 @@ def main(output_directory, current_directory):
     run_module(ConfigBuilder, output_directory, current_directory)
 
     # 4. Configure DLC Mission Packs Or Modded And Adjust Positions
-    log_message("\nEDIT out DLC in config...")
-    run_module(GamemodeConfig, output_directory, current_directory)
+    #log_message("\nEDIT out DLC in config...")
+    #run_module(GamemodeConfig, output_directory, current_directory)
 
     # 5. Process Text Tables and Subtitles
     log_message("\nProcessing text tables...")
@@ -88,16 +88,16 @@ def main(output_directory, current_directory):
     run_module(ConfigWeaponAppender, output_directory, current_directory)
 
     # 7.Cull DLC Weapon Tables of non selected mission packs
-    log_message("\nEDIT DLC Weapon drops for matching mission packs...")
-    run_module(ConfigDLCWeaponCuller, output_directory, current_directory)
+    #log_message("\nEDIT DLC Weapon drops for matching mission packs...")
+    #run_module(ConfigDLCWeaponCuller, output_directory, current_directory)
 
     # 8.Cull MODDED Weapon Tables of non selected mission packs
-    log_message("\nEDIT MODDED Weapon drops for matching mission packs...")
-    run_module(ConfigWeaponCuller, output_directory, current_directory)
+    #log_message("\nEDIT MODDED Weapon drops for matching mission packs...")
+    #run_module(ConfigWeaponCuller, output_directory, current_directory)
 
-    # 9. Compress Files
-    log_message("\nCompressing files...")
-    run_module(ConfigCompressor, output_directory, current_directory)
+    # 9. Compress Files, Brakes WEAPONTEXTTABLE.lang.json, Might be deprecated 
+    #log_message("\nCompressing files...")
+    #run_module(ConfigCompressor, output_directory, current_directory)
 
     # 10. SGO Conversion (only run if not in debug mode)
     if not debug_mode:
@@ -105,9 +105,18 @@ def main(output_directory, current_directory):
         if sgottPath:
             log_message("\nStarting SGO conversion...")
             for filename in os.listdir(output_directory):
-                if filename.lower().endswith(".json") and filename != "MMLsettings.json":
+                if (
+                    filename.lower().endswith(".json") 
+                    and filename not in ["MMLsettings.json", "user_selections.json"]
+                ):
                     filepath = os.path.join(output_directory, filename)
-                    result = subprocess.run([sgottPath, filepath], capture_output=True, text=True, encoding='utf-8', creationflags=subprocess.CREATE_NO_WINDOW)
+                    result = subprocess.run(
+                        [sgottPath, filepath],
+                        capture_output=True,
+                        text=True,
+                        encoding="utf-8",
+                        creationflags=subprocess.CREATE_NO_WINDOW,
+                    )
                     if result.returncode == 0:
                         log_message(f"Converted and removed {filename}")
                         os.remove(filepath)

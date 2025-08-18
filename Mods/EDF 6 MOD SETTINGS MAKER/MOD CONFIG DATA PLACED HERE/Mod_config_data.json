@@ -1,0 +1,96 @@
+{
+  "MOD_INFO": [
+    {
+      "AUTHOR": "",
+      "MOD NAME": "",
+      "DOWNLOAD FROM (GITHUB|NEXUS)": "GITHUB",
+      "LINK": "",
+      "VERSION": "0.1.0",
+      "MY WEAPONS DROP WITH MY TWO MISSION PACKS": false,
+      "NOTES": ""
+    }
+  ],
+  "CATEGORIES": [],
+  "DataReplacementTable": [],
+  "NewToAddTextTableEntries": {
+    "CN": [],
+    "EN": [],
+    "JA": [],
+    "KR": [],
+    "SC": []
+  },
+  "NewToAddModeList": [],
+  "NewToAddSubTitleList": {
+    "CN": [],
+    "EN": [],
+    "JA": [],
+    "KR": [],
+    "SC": []
+  },
+  "NewToAddSoldierWeaponCategory": [],
+  "NewToAddWeaponCatalog": {},
+  "NewToAddWeaponTables": {
+    "RANGER": {
+      "Assault Rifles": [],
+      "Shotguns": [],
+      "Snipers": [],
+      "Rocket Launchers": [],
+      "Missile Launchers": [],
+      "Grenades": [],
+      "Special": [],
+      "Support Equipment": [],
+      "Bikes": [],
+      "Tanks": [],
+      "Helicopters": [],
+      "New Ranger Category": [],
+      "New Ranger Support Slot": []
+    },
+    "WINGDIVER": {
+      "Short-Range": [],
+      "Mid-Range Kinetic Weapons": [],
+      "Mid-Range Pulse Weapons": [],
+      "Mid-Range Energy Weapons": [],
+      "Long-Range": [],
+      "Ranged Weapons": [],
+      "Homing Weapons": [],
+      "Special": [],
+      "Plasma Cores": [],
+      "New Wingdiver Weapon Slot": [],
+      "New Wingdiver Support Slot": []
+    },
+    "FENCER": {
+      "CC Strikers": [],
+      "CC Piercers": [],
+      "Shields": [],
+      "Autocannons": [],
+      "Cannons": [],
+      "Missile Launchers": [],
+      "Enhanced Boosters": [],
+      "Enhanced Shields": [],
+      "Enhanced Cannons": [],
+      "Enhanced Exoskeletons": [],
+      "New Fencer Weapon Slot": [],
+      "New Fencer Support Slot": []
+    },
+    "AIRRAIDER": {
+      "Request Artillery Units": [],
+      "Request Gunships": [],
+      "Request Bombers": [],
+      "Request Missiles": [],
+      "Request Satellites": [],
+      "Limpet Guns": [],
+      "Stationary Weapons": [],
+      "Support Equipment": [],
+      "Special": [],
+      "Powered Exoskeletons": [],
+      "Special Weapons": [],
+      "Helicopters": [],
+      "Ground Vehicles": [],
+      "Tanks": [],
+      "New AirRaider Weapon Slot": [],
+      "New AirRaider Support Slot": []
+    }
+  },
+  "DirManifestToFilesUninstaller": {},
+  "CHANGELOG": []
+}

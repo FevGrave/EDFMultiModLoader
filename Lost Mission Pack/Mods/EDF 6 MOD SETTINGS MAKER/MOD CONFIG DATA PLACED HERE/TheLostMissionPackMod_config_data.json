@@ -1,0 +1,2890 @@
+{
+  "MOD_INFO": [
+    {
+      "AUTHOR": "giantpanda_edf AKA xdiesp",
+      "MOD NAME": "The Lost Mission Pack",
+      "DOWNLOAD FROM (GITHUB|NEXUS)": "NEXUS",
+      "LINK": "",
+      "VERSION": "0.21",
+      "NOTES": ""
+    }
+  ],
+  "DataReplacementTable": [
+    {
+      "File": "P505_RANGER.json",
+      "Find": {
+        "value": [
+          {
+            "value": [
+              {
+                "value": [
+                  {
+                    "value": 0,
+                    "type": "double"
+                  },
+                  {
+                    "value": 1,
+                    "type": "double"
+                  }
+                ],
+                "type": "ptr"
+              },
+              {
+                "value": "weapon",
+                "type": "str"
+              },
+              {
+                "value": 0,
+                "type": "double"
+              },
+              {
+                "value": 0,
+                "type": "double"
+              }
+            ],
+            "type": "ptr"
+          }
+        ],
+        "type": "ptr",
+        "name": "soldier_weapon_slot"
+      },
+      "Replace": {
+        "value": [
+          {
+            "value": [
+              {
+                "value": [
+                  {
+                    "value": 0,
+                    "type": "double"
+                  },
+                  {
+                    "value": 1,
+                    "type": "double"
+                  }
+                ],
+                "type": "ptr"
+              },
+              {
+                "value": "weapon",
+                "type": "str"
+              },
+              {
+                "value": 0,
+                "type": "double"
+              },
+              {
+                "value": 0,
+                "type": "double"
+              }
+            ],
+            "type": "ptr"
+          }
+        ],
+        "type": "ptr",
+        "name": "soldier_weapon_slot"
+      }
+    }
+  ],
+  "NewToAddTextTableEntries": {
+    "CN": [],
+    "EN": [
+      {
+        "name": "LostMP_Scenario_F",
+        "type": "string",
+        "value": "Offline Lost Mission Pack Mode"
+      },
+      {
+        "name": "LostMP_Scenario_Desc_F",
+        "type": "string",
+        "value": "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      {
+        "name": "LostMP_Scenario_O",
+        "type": "string",
+        "value": "Online Lost Mission Pack"
+      },
+      {
+        "name": "LostMP_Scenario_Desc_O",
+        "type": "string",
+        "value": "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      },
+      {
+        "name": "Z_000",
+        "type": "string",
+        "value": "000"
+      },
+      {
+        "name": "Z_001",
+        "type": "string",
+        "value": "001"
+      },
+      {
+        "name": "Z_002",
+        "type": "string",
+        "value": "002"
+      },
+      {
+        "name": "Z_003",
+        "type": "string",
+        "value": "003"
+      },
+      {
+        "name": "Z_004",
+        "type": "string",
+        "value": "004"
+      },
+      {
+        "name": "Z_005",
+        "type": "string",
+        "value": "005"
+      },
+      {
+        "name": "Z_006",
+        "type": "string",
+        "value": "006"
+      },
+      {
+        "name": "Z_007",
+        "type": "string",
+        "value": "007"
+      },
+      {
+        "name": "Z_008",
+        "type": "string",
+        "value": "008"
+      },
+      {
+        "name": "Z_009",
+        "type": "string",
+        "value": "009"
+      },
+      {
+        "name": "Z_010",
+        "type": "string",
+        "value": "010"
+      },
+      {
+        "name": "Z_011",
+        "type": "string",
+        "value": "011"
+      },
+      {
+        "name": "Z_012",
+        "type": "string",
+        "value": "012"
+      },
+      {
+        "name": "Z_013",
+        "type": "string",
+        "value": "013"
+      },
+      {
+        "name": "Z_014",
+        "type": "string",
+        "value": "014"
+      },
+      {
+        "name": "Z_015",
+        "type": "string",
+        "value": "015"
+      },
+      {
+        "name": "Z_016",
+        "type": "string",
+        "value": "016"
+      },
+      {
+        "name": "Z_017",
+        "type": "string",
+        "value": "017"
+      },
+      {
+        "name": "Z_018",
+        "type": "string",
+        "value": "018"
+      },
+      {
+        "name": "Z_019",
+        "type": "string",
+        "value": "019"
+      },
+      {
+        "name": "Z_020",
+        "type": "string",
+        "value": "020"
+      },
+      {
+        "name": "Z_021",
+        "type": "string",
+        "value": "021"
+      },
+      {
+        "name": "Z_022",
+        "type": "string",
+        "value": "022"
+      },
+      {
+        "name": "Z_023",
+        "type": "string",
+        "value": "023"
+      },
+      {
+        "name": "Z_024",
+        "type": "string",
+        "value": "024"
+      },
+      {
+        "name": "Z_025",
+        "type": "string",
+        "value": "025"
+      },
+      {
+        "name": "Z_026",
+        "type": "string",
+        "value": "026"
+      },
+      {
+        "name": "Z_027",
+        "type": "string",
+        "value": "027"
+      },
+      {
+        "name": "Z_028",
+        "type": "string",
+        "value": "028"
+      },
+      {
+        "name": "Z_029",
+        "type": "string",
+        "value": "029"
+      },
+      {
+        "name": "Z_030",
+        "type": "string",
+        "value": "030"
+      },
+      {
+        "name": "Z_031",
+        "type": "string",
+        "value": "031"
+      },
+      {
+        "name": "Z_032",
+        "type": "string",
+        "value": "032"
+      },
+      {
+        "name": "Z_033",
+        "type": "string",
+        "value": "033"
+      },
+      {
+        "name": "Z_034",
+        "type": "string",
+        "value": "034"
+      },
+      {
+        "name": "Z_035",
+        "type": "string",
+        "value": "035"
+      },
+      {
+        "name": "Z_036",
+        "type": "string",
+        "value": "036"
+      },
+      {
+        "name": "Z_037",
+        "type": "string",
+        "value": "037"
+      },
+      {
+        "name": "Z_038",
+        "type": "string",
+        "value": "038"
+      },
+      {
+        "name": "Z_039",
+        "type": "string",
+        "value": "039"
+      },
+      {
+        "name": "Z_040",
+        "type": "string",
+        "value": "040"
+      },
+      {
+        "name": "Z_041",
+        "type": "string",
+        "value": "041"
+      },
+      {
+        "name": "Z_042",
+        "type": "string",
+        "value": "042"
+      },
+      {
+        "name": "Z_043",
+        "type": "string",
+        "value": "043"
+      },
+      {
+        "name": "Z_044",
+        "type": "string",
+        "value": "044"
+      },
+      {
+        "name": "Z_045",
+        "type": "string",
+        "value": "045"
+      },
+      {
+        "name": "Z_046",
+        "type": "string",
+        "value": "046"
+      },
+      {
+        "name": "Z_047",
+        "type": "string",
+        "value": "047"
+      },
+      {
+        "name": "Z_048",
+        "type": "string",
+        "value": "048"
+      },
+      {
+        "name": "Z_049",
+        "type": "string",
+        "value": "049"
+      },
+      {
+        "name": "Z_050",
+        "type": "string",
+        "value": "050"
+      },
+      {
+        "name": "Z_051",
+        "type": "string",
+        "value": "051"
+      },
+      {
+        "name": "Z_052",
+        "type": "string",
+        "value": "052"
+      },
+      {
+        "name": "Z_053",
+        "type": "string",
+        "value": "053"
+      },
+      {
+        "name": "Z_054",
+        "type": "string",
+        "value": "054"
+      },
+      {
+        "name": "Z_055",
+        "type": "string",
+        "value": "055"
+      },
+      {
+        "name": "Z_056",
+        "type": "string",
+        "value": "056"
+      },
+      {
+        "name": "Z_057",
+        "type": "string",
+        "value": "057"
+      },
+      {
+        "name": "Z_058",
+        "type": "string",
+        "value": "058"
+      },
+      {
+        "name": "Z_059",
+        "type": "string",
+        "value": "059"
+      },
+      {
+        "name": "Z_060",
+        "type": "string",
+        "value": "060"
+      },
+      {
+        "name": "Z_061",
+        "type": "string",
+        "value": "061"
+      },
+      {
+        "name": "Z_062",
+        "type": "string",
+        "value": "062"
+      },
+      {
+        "name": "Z_063",
+        "type": "string",
+        "value": "063"
+      },
+      {
+        "name": "Z_064",
+        "type": "string",
+        "value": "064"
+      },
+      {
+        "name": "Z_065",
+        "type": "string",
+        "value": "065"
+      },
+      {
+        "name": "Z_066",
+        "type": "string",
+        "value": "066"
+      },
+      {
+        "name": "Z_067",
+        "type": "string",
+        "value": "067"
+      },
+      {
+        "name": "Z_068",
+        "type": "string",
+        "value": "068"
+      },
+      {
+        "name": "Z_069",
+        "type": "string",
+        "value": "069"
+      },
+      {
+        "name": "Z_070",
+        "type": "string",
+        "value": "070"
+      },
+      {
+        "name": "Z_071",
+        "type": "string",
+        "value": "071"
+      },
+      {
+        "name": "Z_072",
+        "type": "string",
+        "value": "072"
+      },
+      {
+        "name": "Z_073",
+        "type": "string",
+        "value": "073"
+      },
+      {
+        "name": "Z_074",
+        "type": "string",
+        "value": "074"
+      },
+      {
+        "name": "Z_075",
+        "type": "string",
+        "value": "075"
+      },
+      {
+        "name": "Z_076",
+        "type": "string",
+        "value": "076"
+      },
+      {
+        "name": "Z_077",
+        "type": "string",
+        "value": "077"
+      },
+      {
+        "name": "Z_078",
+        "type": "string",
+        "value": "078"
+      },
+      {
+        "name": "Z_079",
+        "type": "string",
+        "value": "079"
+      },
+      {
+        "name": "Z_080",
+        "type": "string",
+        "value": "080"
+      },
+      {
+        "name": "Z_081",
+        "type": "string",
+        "value": "081"
+      },
+      {
+        "name": "Z_082",
+        "type": "string",
+        "value": "082"
+      },
+      {
+        "name": "Z_083",
+        "type": "string",
+        "value": "083"
+      },
+      {
+        "name": "Z_084",
+        "type": "string",
+        "value": "084"
+      },
+      {
+        "name": "Z_085",
+        "type": "string",
+        "value": "085"
+      },
+      {
+        "name": "Z_086",
+        "type": "string",
+        "value": "086"
+      },
+      {
+        "name": "Z_087",
+        "type": "string",
+        "value": "087"
+      },
+      {
+        "name": "Z_088",
+        "type": "string",
+        "value": "088"
+      },
+      {
+        "name": "Z_089",
+        "type": "string",
+        "value": "089"
+      },
+      {
+        "name": "Z_090",
+        "type": "string",
+        "value": "090"
+      },
+      {
+        "name": "Z_091",
+        "type": "string",
+        "value": "091"
+      },
+      {
+        "name": "Z_092",
+        "type": "string",
+        "value": "092"
+      },
+      {
+        "name": "Z_093",
+        "type": "string",
+        "value": "093"
+      },
+      {
+        "name": "Z_094",
+        "type": "string",
+        "value": "094"
+      },
+      {
+        "name": "Z_095",
+        "type": "string",
+        "value": "095"
+      },
+      {
+        "name": "Z_096",
+        "type": "string",
+        "value": "096"
+      },
+      {
+        "name": "Z_097",
+        "type": "string",
+        "value": "097"
+      },
+      {
+        "name": "Z_098",
+        "type": "string",
+        "value": "098"
+      },
+      {
+        "name": "Z_099",
+        "type": "string",
+        "value": "099"
+      },
+      {
+        "name": "Z_100",
+        "type": "string",
+        "value": "100"
+      },
+      {
+        "name": "Z_101",
+        "type": "string",
+        "value": "101"
+      },
+      {
+        "name": "Z_102",
+        "type": "string",
+        "value": "102"
+      },
+      {
+        "name": "Z_103",
+        "type": "string",
+        "value": "103"
+      },
+      {
+        "name": "Z_104",
+        "type": "string",
+        "value": "104"
+      },
+      {
+        "name": "Z_105",
+        "type": "string",
+        "value": "105"
+      },
+      {
+        "name": "Z_106",
+        "type": "string",
+        "value": "106"
+      },
+      {
+        "name": "Z_107",
+        "type": "string",
+        "value": "107"
+      },
+      {
+        "name": "Z_108",
+        "type": "string",
+        "value": "108"
+      },
+      {
+        "name": "Z_109",
+        "type": "string",
+        "value": "109"
+      },
+      {
+        "name": "Z_110",
+        "type": "string",
+        "value": "110"
+      },
+      {
+        "name": "Z_111",
+        "type": "string",
+        "value": "111"
+      },
+      {
+        "name": "Z_112",
+        "type": "string",
+        "value": "112"
+      },
+      {
+        "name": "Z_113",
+        "type": "string",
+        "value": "113"
+      },
+      {
+        "name": "Z_114",
+        "type": "string",
+        "value": "114"
+      },
+      {
+        "name": "Z_115",
+        "type": "string",
+        "value": "115"
+      },
+      {
+        "name": "Z_116",
+        "type": "string",
+        "value": "116"
+      },
+      {
+        "name": "Z_117",
+        "type": "string",
+        "value": "117"
+      },
+      {
+        "name": "Z_118",
+        "type": "string",
+        "value": "118"
+      },
+      {
+        "name": "Z_119",
+        "type": "string",
+        "value": "119"
+      },
+      {
+        "name": "Z_120",
+        "type": "string",
+        "value": "120"
+      },
+      {
+        "name": "Z_121",
+        "type": "string",
+        "value": "121"
+      },
+      {
+        "name": "Z_122",
+        "type": "string",
+        "value": "122"
+      },
+      {
+        "name": "Z_123",
+        "type": "string",
+        "value": "123"
+      },
+      {
+        "name": "Z_124",
+        "type": "string",
+        "value": "124"
+      },
+      {
+        "name": "Z_125",
+        "type": "string",
+        "value": "125"
+      },
+      {
+        "name": "Z_126",
+        "type": "string",
+        "value": "126"
+      },
+      {
+        "name": "Z_127",
+        "type": "string",
+        "value": "127"
+      },
+      {
+        "name": "Z_128",
+        "type": "string",
+        "value": "128"
+      },
+      {
+        "name": "Z_129",
+        "type": "string",
+        "value": "129"
+      },
+      {
+        "name": "Z_130",
+        "type": "string",
+        "value": "130"
+      },
+      {
+        "name": "Z_131",
+        "type": "string",
+        "value": "131"
+      },
+      {
+        "name": "Z_132",
+        "type": "string",
+        "value": "132"
+      },
+      {
+        "name": "Z_133",
+        "type": "string",
+        "value": "133"
+      },
+      {
+        "name": "Z_134",
+        "type": "string",
+        "value": "134"
+      },
+      {
+        "name": "Z_135",
+        "type": "string",
+        "value": "135"
+      },
+      {
+        "name": "Z_136",
+        "type": "string",
+        "value": "136"
+      },
+      {
+        "name": "Z_137",
+        "type": "string",
+        "value": "137"
+      },
+      {
+        "name": "Z_138",
+        "type": "string",
+        "value": "138"
+      },
+      {
+        "name": "Z_139",
+        "type": "string",
+        "value": "139"
+      },
+      {
+        "name": "Z_140",
+        "type": "string",
+        "value": "140"
+      },
+      {
+        "name": "Z_141",
+        "type": "string",
+        "value": "141"
+      },
+      {
+        "name": "Z_142",
+        "type": "string",
+        "value": "142"
+      },
+      {
+        "name": "Z_143",
+        "type": "string",
+        "value": "143"
+      },
+      {
+        "name": "Z_144",
+        "type": "string",
+        "value": "144"
+      },
+      {
+        "name": "Z_145",
+        "type": "string",
+        "value": "145"
+      },
+      {
+        "name": "Z_146",
+        "type": "string",
+        "value": "146"
+      },
+      {
+        "name": "Z_147",
+        "type": "string",
+        "value": "147"
+      },
+      {
+        "name": "Z_148",
+        "type": "string",
+        "value": "148"
+      },
+      {
+        "name": "Z_149",
+        "type": "string",
+        "value": "149"
+      },
+      {
+        "name": "Z_150",
+        "type": "string",
+        "value": "150"
+      },
+      {
+        "name": "Z_151",
+        "type": "string",
+        "value": "151"
+      },
+      {
+        "name": "Z_152",
+        "type": "string",
+        "value": "152"
+      },
+      {
+        "name": "Z_153",
+        "type": "string",
+        "value": "153"
+      },
+      {
+        "name": "Z_154",
+        "type": "string",
+        "value": "154"
+      },
+      {
+        "name": "Z_155",
+        "type": "string",
+        "value": "155"
+      },
+      {
+        "name": "Z_156",
+        "type": "string",
+        "value": "156"
+      },
+      {
+        "name": "Z_157",
+        "type": "string",
+        "value": "157"
+      },
+      {
+        "name": "Z_158",
+        "type": "string",
+        "value": "158"
+      },
+      {
+        "name": "Z_159",
+        "type": "string",
+        "value": "159"
+      },
+      {
+        "name": "Z_160",
+        "type": "string",
+        "value": "160"
+      },
+      {
+        "name": "Z_161",
+        "type": "string",
+        "value": "161"
+      },
+      {
+        "name": "Z_162",
+        "type": "string",
+        "value": "162"
+      },
+      {
+        "name": "Z_163",
+        "type": "string",
+        "value": "163"
+      },
+      {
+        "name": "Z_164",
+        "type": "string",
+        "value": "164"
+      },
+      {
+        "name": "Z_165",
+        "type": "string",
+        "value": "165"
+      },
+      {
+        "name": "Z_166",
+        "type": "string",
+        "value": "166"
+      },
+      {
+        "name": "Z_167",
+        "type": "string",
+        "value": "167"
+      },
+      {
+        "name": "Z_168",
+        "type": "string",
+        "value": "168"
+      },
+      {
+        "name": "Z_169",
+        "type": "string",
+        "value": "169"
+      },
+      {
+        "name": "Z_170",
+        "type": "string",
+        "value": "170"
+      },
+      {
+        "name": "Z_171",
+        "type": "string",
+        "value": "171"
+      },
+      {
+        "name": "Z_172",
+        "type": "string",
+        "value": "172"
+      },
+      {
+        "name": "Z_173",
+        "type": "string",
+        "value": "173"
+      },
+      {
+        "name": "Z_174",
+        "type": "string",
+        "value": "174"
+      },
+      {
+        "name": "Z_175",
+        "type": "string",
+        "value": "175"
+      },
+      {
+        "name": "Z_176",
+        "type": "string",
+        "value": "176"
+      },
+      {
+        "name": "Z_177",
+        "type": "string",
+        "value": "177"
+      },
+      {
+        "name": "Z_178",
+        "type": "string",
+        "value": "178"
+      },
+      {
+        "name": "Z_179",
+        "type": "string",
+        "value": "179"
+      },
+      {
+        "name": "Z_180",
+        "type": "string",
+        "value": "180"
+      },
+      {
+        "name": "Z_CODEN",
+        "type": "string",
+        "value": "Disable all beacons before time runs out!"
+      },
+      {
+        "name": "Z_CRATER0",
+        "type": "string",
+        "value": "We might not be the only ones searching for the doomsday weapon..."
+      },
+      {
+        "name": "Z_CRATER1",
+        "type": "string",
+        "value": "The fierce fighting revealed the doomsday weapon buried at the bottom of the crater."
+      },
+      {
+        "name": "Z_CRATER2",
+        "type": "string",
+        "value": "Storm Team, we witness your courageous actions. Prometheus has locked on the coordinates you provided.\nIt will commence firing in 10 seconds!"
+      },
+      {
+        "name": "Z_SHIELDDOWN",
+        "type": "string",
+        "value": "Enemy forces on full alert!"
+      },
+      {
+        "name": "Z_SHIELDRESTORE",
+        "type": "string",
+        "value": "All anchors receive heavy damage!"
+      },
+      {
+        "name": "Z_WEATHER1",
+        "type": "string",
+        "value": "Present Day"
+      },
+      {
+        "name": "Z_WEATHER2",
+        "type": "string",
+        "value": "January 1999 AD"
+      },
+      {
+        "name": "Z_WEATHER3",
+        "type": "string",
+        "value": "May 3502 AD"
+      },
+      {
+        "name": "Z_WEATHER4",
+        "type": "string",
+        "value": "March 1977 AD"
+      },
+      {
+        "name": "Z_WEATHER5",
+        "type": "string",
+        "value": "October 1066 AD"
+      },
+      {
+        "name": "Z_WEATHER6",
+        "type": "string",
+        "value": "July 130442 AD"
+      },
+      {
+        "name": "Z_WEATHER7",
+        "type": "string",
+        "value": "It looks like we made it just in time."
+      }
+    ],
+    "JA": [],
+    "KR": [],
+    "SC": []
+  },
+  "NewToAddModeList": [
+    {
+      "type": "ptr",
+      "value": [
+        {
+          "type": "string",
+          "value": "LostMP_Scenario_F"
+        },
+        {
+          "type": "string",
+          "value": "LostMP_Scenario_Desc_F"
+        },
+        {
+          "type": "string",
+          "value": "off_scenario.%LOCALE%.dds"
+        },
+        {
+          "type": "string",
+          "value": "BGM_E5S02_EDFHonbu"
+        },
+        {
+          "type": "string",
+          "value": "MAIN.GST"
+        },
+        {
+          "type": "string",
+          "value": "LostMP.MST"
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {
+              "type": "string",
+              "value": "app:/Mission/LMPMissionList.offline.list.sgo"
+            },
+            {
+              "type": "string",
+              "value": "app:/Mission/LMPMissionList.offline.txt.%LOCALE%.sgo"
+            },
+            {
+              "type": "string",
+              "value": "app:/Mission/LMPMissionList.offline.image.rab"
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 5
+                    },
+                    {
+                      "type": "float",
+                      "value": 5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 0.949999988079071
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.949999988079071
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.20000000298023224
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.75
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 10
+                    },
+                    {
+                      "type": "float",
+                      "value": 10
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.20000000298023224
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 20
+                    },
+                    {
+                      "type": "float",
+                      "value": 20
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.25
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 0.75
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 70
+                    },
+                    {
+                      "type": "float",
+                      "value": 70
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 3
+                    },
+                    {
+                      "type": "float",
+                      "value": 3
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.30000001192092896
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 160
+                    },
+                    {
+                      "type": "float",
+                      "value": 160
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 4
+                    },
+                    {
+                      "type": "float",
+                      "value": 4
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.25
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                },
+                {
+                  "type": "int",
+                  "value": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "int",
+          "value": 0
+        },
+        {
+          "type": "int",
+          "value": 0
+        },
+        {
+          "type": "int",
+          "value": 0
+        },
+        {
+          "type": "int",
+          "value": 0
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {
+              "type": "int",
+              "value": 1
+            },
+            {
+              "type": "int",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ptr",
+      "value": [
+        {
+          "type": "string",
+          "value": "LostMP_Scenario_O"
+        },
+        {
+          "type": "string",
+          "value": "LostMP_Scenario_Desc_O"
+        },
+        {
+          "type": "string",
+          "value": "on_scenario.%LOCALE%.dds"
+        },
+        {
+          "type": "string",
+          "value": "BGM_E5S02_EDFHonbu"
+        },
+        {
+          "type": "string",
+          "value": "MAIN.GST"
+        },
+        {
+          "type": "string",
+          "value": "LostMP.MST"
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {
+              "type": "string",
+              "value": "app:/Mission/MissionList.offline.list.sgo"
+            },
+            {
+              "type": "string",
+              "value": "app:/Mission/MissionList.offline.txt.%LOCALE%.sgo"
+            },
+            {
+              "type": "string",
+              "value": "app:/Mission/MissionList.offline.image.rab"
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 5
+                    },
+                    {
+                      "type": "float",
+                      "value": 5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.800000011920929
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 0.949999988079071
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.949999988079071
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.20000000298023224
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.7999999523162842
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.75
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.7999999523162842
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.7999999523162842
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 0.10000000149011612
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.100000023841858
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "int",
+                      "value": 358
+                    },
+                    {
+                      "type": "int",
+                      "value": 2322
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 10
+                    },
+                    {
+                      "type": "float",
+                      "value": 10
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.800000011920929
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.20000000298023224
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2.4000000953674316
+                    },
+                    {
+                      "type": "float",
+                      "value": 2.200000047683716
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 0.10000000149011612
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.100000023841858
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "int",
+                      "value": 358
+                    },
+                    {
+                      "type": "int",
+                      "value": 2322
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 20
+                    },
+                    {
+                      "type": "float",
+                      "value": 20
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.8999999761581421
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.0499999523162842
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.25
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2.299999952316284
+                    },
+                    {
+                      "type": "float",
+                      "value": 2.0999999046325684
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.25
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 0.20000000298023224
+                    },
+                    {
+                      "type": "float",
+                      "value": 2.0999999046325684
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "int",
+                      "value": 1072
+                    },
+                    {
+                      "type": "int",
+                      "value": 5000
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 70
+                    },
+                    {
+                      "type": "float",
+                      "value": 70
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.100000023841858
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 3
+                    },
+                    {
+                      "type": "float",
+                      "value": 3
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.30000001192092896
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2.200000047683716
+                    },
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.75
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.399999976158142
+                    },
+                    {
+                      "type": "float",
+                      "value": 3.0999999046325684
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "int",
+                      "value": 5000
+                    },
+                    {
+                      "type": "int",
+                      "value": 10358
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ptr",
+              "value": [
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 160
+                    },
+                    {
+                      "type": "float",
+                      "value": 160
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.100000023841858
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.149999976158142
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.2000000476837158
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 4
+                    },
+                    {
+                      "type": "float",
+                      "value": 4
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2.200000047683716
+                    },
+                    {
+                      "type": "float",
+                      "value": 2
+                    },
+                    {
+                      "type": "float",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 0.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    },
+                    {
+                      "type": "float",
+                      "value": 1.5
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "float",
+                      "value": 2.4000000953674316
+                    },
+                    {
+                      "type": "float",
+                      "value": 3.200000047683716
+                    },
+                    {
+                      "type": "float",
+                      "value": 3.999000072479248
+                    },
+                    {
+                      "type": "float",
+                      "value": 3.999000072479248
+                    }
+                  ]
+                },
+                {
+                  "type": "ptr",
+                  "value": [
+                    {
+                      "type": "int",
+                      "value": 8572
+                    },
+                    {
+                      "type": "int",
+                      "value": 22500
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "int",
+          "value": 1
+        },
+        {
+          "type": "int",
+          "value": 0
+        },
+        {
+          "type": "int",
+          "value": 1
+        },
+        {
+          "type": "int",
+          "value": 0
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {
+              "type": "int",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "NewToAddSubTitleList": {
+    "CN": [
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "不用担心，我会带你去一个安全的地方",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_1"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "第二个任务字幕",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "mission subtitle"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "时间循环任务字幕",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_3"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "任务结束字幕",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_4"
+      }
+    ],
+    "EN": [
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "Don't Worry, I'll take you to a safe place",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_1"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "Second mission subtitle",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "mission subtitle"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "Time loop mission subtitle",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_3"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "End mission subtitle",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_4"
+      }
+    ],
+    "JA": [
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "心配しないで、安全な場所へ連れて行きます",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_1"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "第二のミッション字幕",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "mission subtitle"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "タイムループミッション字幕",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_3"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "ミッション終了字幕",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_4"
+      }
+    ],
+    "KR": [
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "걱정하지 마세요, 안전한 곳으로 데려다 드릴게요",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_1"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "두 번째 임무 자막",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "mission subtitle"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "시간 루프 임무 자막",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_3"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "임무 종료 자막",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_4"
+      }
+    ],
+    "SC": [
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "别担心，我会带你去一个安全的地方",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_1"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "第二个任务字幕",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "mission subtitle"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "时间循环任务字幕",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_3"
+      },
+      {
+        "value": [
+          {
+            "value": "CharacterName",
+            "type": "str",
+            "name": "name"
+          },
+          {
+            "value": "任务结束字幕",
+            "type": "str",
+            "name": "caption"
+          }
+        ],
+        "type": "ptr",
+        "name": "YourModpackName_Mission001_4"
+      }
+    ]
+  },
+  "NewToAddSoldierWeaponCategory": [],
+  "NewToAddWeaponCatalog": {},
+  "NewToAddWeaponTables": {},
+  "DirManifestToFilesUninstaller": {
+    "EDF 6 MOD SETTINGS MAKER\\MOD CONFIG DATA PLACED HERE": [
+      "TheLostMissionPackMod_config_data.json"
+    ],
+    "MainScript": [
+      "MAINSCRIPT.AS"
+    ],
+    "MISSION": {
+      "Folders": [
+        "EDF6"
+      ],
+      "Files": [
+        "ASCOMMON.H",
+        "LMPMISSIONLIST.OFFLINE.IMAGE.rab",
+        "LMPMISSIONLIST.OFFLINE.LIST.sgo",
+        "LMPMISSIONLIST.OFFLINE.TXT.CN.SGO",
+        "LMPMISSIONLIST.OFFLINE.TXT.EN.SGO",
+        "LMPMISSIONLIST.OFFLINE.TXT.JA.SGO",
+        "LMPMISSIONLIST.OFFLINE.TXT.KR.SGO",
+        "LMPMISSIONLIST.OFFLINE.TXT.SC.SGO"
+      ]
+    },
+    "MISSION\\EDF6": {
+      "Folders": [
+        "GATE",
+        "M012_ERADICATIONPROTOCOL",
+        "M014_HEAVYSTRIKE",
+        "M072_4_CLASHWITHERGINUS",
+        "M102_ISLANDEMPIRE",
+        "M103_2_TWILIGHTOFFENSIVE",
+        "M103_THENIGHTRAID",
+        "M104_STEELBALLRUN",
+        "M105_2_MECHANICALMEN",
+        "M105_ARMYOFSTEEL",
+        "M106_2_THEREDTHREAT2",
+        "M106_THEREDTHREAT",
+        "M110_WINGSOFDEATH",
+        "M114_FUTUREPAST",
+        "M201_PRELUDETODESTRUCTION",
+        "M201_THECRADLE",
+        "M202_NESTINGGROUNDS",
+        "M502_INTOTHEDEPTHSBELOW",
+        "M505_AMBUSHINTHEVALLEY",
+        "M506_ADAMANTVANGUARD",
+        "M508_TERROROVERHEAD",
+        "M510A_PALERIDER",
+        "M510B_ULTRAVIOLET",
+        "M511_IMPACTCRATER",
+        "M513_FORTRESSOFMIRRORS",
+        "M514_TOMORROWSWAR",
+        "M516_M202_STALWARTDEFENDERS",
+        "RM072_4_MYSTERIOUSMONSTERS"
+      ]
+    },
+    "OBJECT": [
+      "ANTFALL.SGO",
+      "BLACKBARGA_AI.SGO",
+      "DAMAGE_TEST.rab",
+      "DAMAGE_TEST_SPHERE.rab",
+      "DEMOMISSILE_VSRADON2.SGO",
+      "DEMOMISSILE_VSRADON3.sgo",
+      "E504_MONSTERA.SGO",
+      "E504_MONSTERAmelee.SGO",
+      "E505_GENERATORSPAWNEFFECT2.SGO",
+      "E514_DANGO_GOLD.MRAB",
+      "E514_DANGO_GOLD.SGO",
+      "E514_DANGO_RED.mrab",
+      "E514_DANGO_RED.SGO",
+      "E514_DANGO_SILVER.MRAB",
+      "E514_DANGO_SILVER.SGO",
+      "E517_ANTHILLmute.SGO",
+      "E517_ANTHILL_LOWLIGHT.SGO",
+      "E601_MARTIAN_G.sgo",
+      "E602_BERSERKER_ACELITE.sgo",
+      "E603_MERMAN_RED.mrab",
+      "E604_RADON.SGO",
+      "E612_ANCHOR_BLUE.SGO",
+      "E612_ANCHOR_BLUE_NS.sgo",
+      "E612_ANCHOR_BLUE_NSW.sgo",
+      "E612_ANCHOR_HEAVYFIRE_NS.SGO",
+      "E612_ANCHOR_NS.SGO",
+      "E619_SQUID_SMALL_EGGC.SGO",
+      "E660_HEAVY_DANGO_L_GOLD.MRAB",
+      "E660_HEAVY_DANGO_L_GOLD.SGO",
+      "E660_HEAVY_DANGO_L_SILVER.MRAB",
+      "E660_HEAVY_DANGO_L_SILVER.SGO",
+      "E660_HEAVY_DANGO_M_GOLD.MRAB",
+      "E660_HEAVY_DANGO_M_GOLD.SGO",
+      "E660_HEAVY_DANGO_M_SILVER.MRAB",
+      "E660_HEAVY_DANGO_M_SILVER.SGO",
+      "E666_ANCHOR_SMALL_HEAVYFIRE_BLUE.SGO",
+      "E666_ANCHOR_SMALL_HEAVYFIRE_BLUE_NS.sgo",
+      "E666_ANCHOR_SMALL_HEAVYFIRE_BLUE_NSW.sgo",
+      "E666_ANCHOR_SMALL_HEAVYFIRE_NS.SGO",
+      "final_anthill.SGO",
+      "FireScylla.sgo",
+      "FIRESCYLLAFALL.SGO",
+      "FREEBIKE.sgo",
+      "MONSTER501.SGO",
+      "MONSTER501_KING.rab",
+      "MONSTER501_KING.SGO",
+      "SATATTACK1.SGO",
+      "SATATTACK2.SGO",
+      "SMALLEGG.mrab",
+      "SMALLEGG_ENEMY.SGO",
+      "SMALLEGG_FRIEND.SGO",
+      "V504_BEGARUTA_AI_BREAK.SGO",
+      "V504_BEGARUTA_G_AI_BREAK.SGO",
+      "V504_BEGARUTA_RED.SGO",
+      "V505_TANK_MPACK2.SGO",
+      "V515_BALAM.mrab",
+      "V515_BALAM.SGO",
+      "V601_TANK.SGO",
+      "V605_BARGA_CANNON_MISSION2.sgo",
+      "V608_OLDROBOT_AI_BREAK.sgo",
+      "V608_OLDROBOT_G_AI_BREAK.sgo",
+      "V608_OLDROBOT_LONG_AI_BREAK.sgo",
+      "V610_PTRUCK_GUN.sgo",
+      "V610_PTRUCK_GUN_AI.sgo",
+      "V611_PTRUCK_ROCKET.sgo",
+      "V611_PTRUCK_ROCKET_AI.sgo",
+      "V612_NIX_AI_BREAK.sgo",
+      "V612_NIX_G_AI_BREAK.sgo",
+      "VEHICLE401_STRIKER_MPACK2.SGO",
+      "VEHICLE502_GROUNDROBO_MISSION.SGO"
+    ],
+    "SOUND": [
+      "SEPRESET.json",
+      "SEPRESET.SGO"
+    ],
+    "WEAPON": [
+      "V605_BARGA_D_CANNON.SGO",
+      "V610_MACHINEGUN.SGO",
+      "V611_ROCKETLAUNCHER.SGO",
+      "V611_ROCKETLAUNCHER2.SGO"
+    ]
+  },
+  "CHANGELOG": [
+    "0.4.0",
+    "Play 27 missions that were cut from the game.",
+    "Available for solo and multiplayer."
+  ]
+}

@@ -3,19 +3,21 @@
 This documentation serves as a comprehensive guide to using EDF MML (Multi-Mod Loader) HAKKEN Core and the Mod_config_data.json (MCD) system for modding Earth Defense Force 6. Whether you are creating new missions, weapons, or localizations, this guide will help you understand the modding pipeline from setup to execution. Your Already [Ready to Get Started With Your MCD](#-ready-to-get-started-with-your-mcd)? WOW
 
 ### ❌Disclaimer 
+#### 🔹 Intented for you the mod makers to make a "MCD" generating entertainment content for EDF, and not the END USER players who play the mods
+
 #### 🔹 Important Modding Requirements
-- This tool requires knowledge of EDF asset modding.
+- This tool requires knowledge of EDF asset modding. This builds on it
 - EDF MML merges multiple mods into a structured list, ensuring correct file placement.
 - It uses SGOTT (Always Latest) to convert SGO ↔ JSON.
-#### 🔹 Not used by This Tools:
+
+#### 🔹 Not used by these Tools to edit or convert SGO files:
 - EDFTools (SGO ↔ XML) Allows MAB data to be read
-- DSGO (SGO ↔ JSON) Slight Different Format
+- DSGO (SGO ↔ JSON) Slightly Different Format
+
 #### 🔹 Need Help? Access the Modding Wiki & Guides!
-- Click "Get Into Modding" in the EDF MML UI to access useful resources:
+- Click "Get Into Modding" in the EDF MML UI to access useful resources.
 
-#### 🔹 Documentation/Wiki (Advanced & Comprehensive)
-
-- Covers detailed EDF modding knowledge, including asset modifications, advanced techniques, and full integration methods.
+- Covers detailed EDF modding knowledge, including asset modifications, advanced techniques, and full integration methods. 
 
 #### 🔹 Maybe Birb’s Guide to Mod EDF Assets (Beginner-Friendly)
 
@@ -23,8 +25,33 @@ This documentation serves as a comprehensive guide to using EDF MML (Multi-Mod L
 - This ensures both beginners and advanced users have access to the right tools and information for modding EDF 4.1, 5, 6.
 
 ### 📂 What’s in This Guide?
-- 🔹 Setup & Basics for content generation for EDF HAKKEN
-- ✅ How to Understand and configure the Mod_config_data.json (MCD)
+- Setup & Basics: The guide includes foundational steps for setting up EDF MML and understanding its integration with the HAKKEN core, specifically focusing on the Mod_config_data.json (MCD) file.
+
+- Mod_config_data.json (MCD) Configuration: Detailed instructions on how to create, format, and use the MCD file, including:
+
+- Naming conventions for Mod_config_data.json.
+Placement of the MCD file in the appropriate directory.
+Examples of properly formatted JSON structures for different blocks.
+Core Modding Sections:
+
+- Patching Content: Explains how to fix game data with DataReplacementTable.
+- Text Modifications: How to modify in-game UI text, subtitles, and localizations using NewToAddTextTableEntries and NewToAddSubTitleList.
+- Mission Pack Creation: Using NewToAddModeList to add custom mission sets.
+- Weapon & Soldier Expansion: Details on creating new weapons and soldier categories through NewToAddSoldierWeaponCategory, NewToAddWeaponCatalog, and NewToAddWeaponTables.
+- Mod Cleanup & Uninstallation: Proper use of DirManifestToFilesUninstaller to ensure clean removal of mods.
+- New Quality of Life Features: The CATEGORIES block is a recent addition, offering better organization within the Mods Panel. The guide explains:
+
+- How the Mods Panel integrates the categories into a search pool.
+The effect on the user interface with category-based filtering.
+Important Modding Practices: Best practices such as:
+
+- Always testing mods in "No Installer" mode.
+Backing up game files.
+Using JSON validators to prevent formatting errors.
+New Section Additions: The guide has evolved to include:
+
+- "Connections to Other Blocks": Showing how configuration blocks interact.
+- "Source File" and "End Product File" for each block section: Helping modders track data flow from input to final integration.
 
 ### 🔹 Core Modding Sections
 - 🛠 Patching Content → That Is Deemed Incorrect And Must Be Fixed
@@ -33,10 +60,13 @@ This documentation serves as a comprehensive guide to using EDF MML (Multi-Mod L
 - 🛠 Weapon & Soldier Expansion → Define new weapons & categories
 - 🛠 Mod Cleanup & Uninstallation → Ensure a clean Uninstallation mod process
 
-### 📢 Important Notes for Modders
-- ⚠ Repair Tables Before Modding! Always test changes before deploying.
+### 📢 Important Notes for you Mod Makers
+- ⚠ Repair Tables Before Modding!
 - ⚠ Check JSON Formatting! Use a JSON validator to avoid syntax errors.
-- ⚠ Use Unique Identifiers! Prevent text or weapon conflicts in game.
+- ⚠ Use Unique Identifiers! Prevent text or weapon conflicts in other mods or within the game. If its adding content
+- ⚠ Test in No Installer Mode! Use EDF HAKKEN NI.exe for testing before finalizing with EDF HAKKEN.exe.
+- ⚠ This cannot combine missions as they are single file .AC with .RMPA AND OR .BVM files. USE .AC & RMPA for online play
+- ⚠ This tool set is not for the faint of heart! It requires a good understanding of EDF modding and JSON formatting. If you are new to modding, consider starting with simpler tools or guides before diving into this advanced setup.
 
 ## 📌 EDF HAKKEN Core Executables (EDF HAKKEN.exe & EDF HAKKEN NI.exe)
 ### Double Meaning: Modding and Hardstyle/Gabber Dance (Hakken/Hakka) HUH?
@@ -45,26 +75,27 @@ This documentation serves as a comprehensive guide to using EDF MML (Multi-Mod L
 #### Hardstyle/Gabber Dance Aspect: 
 - The acronym of this HAKKEN tool ties into the Hakken/Hakka dance styles, known for their energetic, stomping, and rhythmic movements synced to the fast, pounding beats of Hardstyle and Gabber music genres (typically 140–150 BPM or WAYYY higher). "Highly Adaptive" mirrors a dancer’s ability to adapt to rapid tempo changes and intense rhythms, while "Kernel Kit" suggests the foundational beat and moves of the dance. "EDF Network" implies a network of ravers or EDF soldiers moving in unison, defending Earth with the same intensity as a Hardstyle/Gabber dance floor, adding a high-energy, cultural twist that resonates with EDF’s action-packed universe and modding’s dynamic creativity.
 
-### WHAT IS HAKKEN: Highly Adaptive Kernel Kit for the EDF Network
-- **Highly**: This word highlights HAKKEN’s exceptional capability and flexibility, emphasizing its ability to adapt to diverse modding needs in EDF 6—such as processing `Mod_config_data.json` for missions, weapons, and text (e.g., `NewToAddModeList`, `NewToAddWeaponTables`). In the Hardstyle/Gabber context, it mirrors the intense, high-energy beats that drive the Hakken/Hakka dance, suggesting a modding tool that moves with the same vigor and adaptability as a dancer stomping to rapid tempos.
-- **Adaptive**: Reinforces HAKKEN’s versatility, adjusting seamlessly to mod configurations, game updates, and user inputs (e.g., switching between EDF HAKKEN.exe and EDF HAKKEN NI.exe modes). It also evokes the fluid, responsive movements of Hakken/Hakka dancing, syncing with the modding "rhythm" of creativity and precision, much like a dancer adapting to the pounding beats of Hardstyle or Gabber.
-- **Kernel**: Positions HAKKEN as the core engine or processing unit, central to building modded tables and generating files like `CONFIG.json` and `WEAPONTEXT.json`. In the Hardstyle/Gabber context, it represents the steady, driving beat or core rhythm that fuels the Hakken/Hakka performance on the dance floor.
-- **Kit**: Suggests HAKKEN as a comprehensive toolkit for modders, aligning with its executable nature and the "Build Tables" functionality in the MML UI. In the Hardstyle/Gabber context, it evokes a collection of dance moves or techniques (e.g., stomping, kicking) that modders use to choreograph their "performance" in the EDF universe.
-- **for EDF**: Maintains the direct link to Earth Defense Force, ensuring specificity to EDF 6 modding and its military/sci-fi theme, with a nod to the disciplined, aggressive energy of military maneuvers (akin to the fierce, stomping energy of Hakken/Hakka dancing).
-- **Network**: Evokes a broader, interconnected system within EDF 6 modding, connecting modders, players, game data, and online/offline progress (e.g., via the Online Progress Tracker and Mods Panel). In the Hardstyle/Gabber context, it suggests a network of ravers or dancers at a festival, moving in sync to the music, reflecting the collaborative, synchronized nature of modding the EDF universe.
+### WHAT IS HAKKEN: Highly Adaptive Kernel Kit for the EDF's Network
+- **Highly**: Highlights HAKKEN’s exceptional capability and flexibility, emphasizing its ability to adapt to diverse modding needs in EDF 6—such as processing `Mod_config_data.json` for missions, weapons, and text.
+- **Adaptive**: Reinforces HAKKEN’s versatility, adjusting seamlessly to mod configurations, game updates, and user inputs (e.g., switching between EDF HAKKEN.exe and EDF HAKKEN NI.exe modes).
+- **Kernel**: Positions HAKKEN as the core engine or processing unit, central to building modded tables and generating files like `CONFIG.json` and `WEAPONTEXT.json`.
+- **Kit for**: HAKKEN as a comprehensive toolkit for modders, aligning with its executable nature and the "Build Tables" functionality in the MML UI.
+- **EDF's**: Maintains the direct link to Earth Defense Force, ensuring specificity to EDF 6 modding and its military/sci-fi theme. E! D! F!
+- **Network**: Evokes a broader, interconnected system within EDF 6 modding, connecting modders, players, and game data.
 
 #### 🛠 What Are These Files?
 - The HAKKEN Core executables are responsible for building and processing modded tables in EDF MML. They handle mod integration in two different ways:
 
 #### Executable Mode Purpose?
 - EDF HAKKEN.exe Installer Mode	Fully integrates mod data into game files for public release.
-- EDF HAKKEN NI.exe	No Installer Mode	Used for testing mods without modifying core game files, reducing crash risks.
+- EDF HAKKEN NI.exe	No Installer Mode	Used for testing mods without installing the modified core game files, reducing crash risks.
 
 ### 🛠 How They Work in MML
-- 1️⃣ User Clicks "Build Tables" in the EDF MML UI.
-- 2️⃣ Triggers EDF HAKKEN.exe or EDF HAKKEN NI.exe based on the mode.
-- 3️⃣ Processes Mod_config_data.json and builds the necessary game tables.
-- 4️⃣ Finalizes mod integration or prepares for testing.
+- Use input with in the "Request Code: Air Force Drop-Off" felid in the GUI to Switch Modes OR
+- User Clicks "Build Tables" in the EDF MML UI.
+- Triggers EDF HAKKEN.exe or EDF HAKKEN NI.exe based on the mode.
+- Processes Mod_config_data.json and builds the necessary game tables.
+- Finalizes mod integration or prepares for testing.
 
 ### 🚀 When to Use Each Mode?
 #### ✅ Use EDF HAKKEN NI.exe (No Installer Mode) For Testing And Verification Of Edits.
@@ -85,62 +116,69 @@ This documentation serves as a comprehensive guide to using EDF MML (Multi-Mod L
     - ⚠ Use NI mode first to test how this add data to the files before using full install mode.
     - ⚠ Some generated files require manual review for accuracy.
     - ⚠ Make backups before running HAKKEN in install mode.
-- ##### 🔹 Generated Files
-        /==================================|=====================================|=====================================\
-        |                                  |                                     |                                     |
-        | SOURCE STARTING JSON FILE        | FINISHED PRODUCT WITH MODIFICATIONS | WHAT ARE THEY ?                     |
-        |                                  |                                     |                                     |
-        |==================================|=====================================|=====================================|
-        | ImportDefaultData.json           | CONFIG.json                         |📂 Mission Pack Data                ::
-        |==================================|=====================================|=====================================|
-        | ImportSubtitleVoiceTable.CN.json | EDF6_VOICETABLE.CN.json             |📂 Subtitle Table Data              ::
-        | ImportSubtitleVoiceTable.EN.json | EDF6_VOICETABLE.EN.json             |  Holds All Text In The Missions     |
-        | ImportSubtitleVoiceTable.JA.json | EDF6_VOICETABLE.JA.json             |                                     |
-        | ImportSubtitleVoiceTable.KR.json | EDF6_VOICETABLE.KR.json             |                                     |
-        | ImportSubtitleVoiceTable.SC.json | EDF6_VOICETABLE.SC.json             |                                     |
-        |==================================|=====================================|=====================================|
-        | ImportTextTable-CN.json          | TEXTTABLE_STEAM.CN.TXT.json         |📂 GUI Text Tables (Localization)   ::
-        | ImportTextTable-EN.json          | TEXTTABLE_STEAM.EN.TXT.json         |  Holds All Text In The Games UI     |
-        | ImportTextTable-JA.json          | TEXTTABLE_STEAM.JA.TXT.json         |  Translators Of Other Languages     |
-        | ImportTextTable-KR.json          | TEXTTABLE_STEAM.KR.TXT.json         |  Use This File For Your Translation |
-        | ImportTextTable-SC.json          | TEXTTABLE_STEAM.SC.TXT.json         |                                     |
-        |==================================|=====================================|=====================================|
-        | ImportWeaponTextTable.json       | WEAPONTEXT.json                     |📂 Weapon Level, Config Data        ::
-        |==================================|=====================================|=====================================|
-        | ImportWeaponTextTable-CN.json    | WEAPONTEXT.CN.json                  |📂 Weapon Text Stats (Localization) ::
-        | ImportWeaponTextTable-EN.json    | WEAPONTEXT.EN.json                  |  Visual Text To Display The Items   |
-        | ImportWeaponTextTable-KR.json    | WEAPONTEXT.KR.json                  |  Stats.                             |
-        | ImportWeaponTextTable-SC.json    | WEAPONTEXT.SC.json                  |                                     |
-        |==================================|=====================================|=====================================|
-        | P501_PROTO_RANGER.json           | P501_PROTO_RANGER.json              | 📂 EDF 5 Civ Skin                  ::
-        | P502_PROTO_WINGDIVER.json        | P502_PROTO_WINGDIVER.json           |  Settings for Camera, Grip Offsets  |
-        | P503_PROTO_FENCER.json           | P503_PROTO_FENCER.json              |  "IK" lengths, Spotlight, Color,    |
-        | P504_PROTO_AIRRADER.json         | P504_PROTO_AIRRAIDER.json           |  And many more, Same Applies Bellow |
-        |==================================|=====================================|=====================================|
-        | P505_RANGER.json                 | P505_RANGER.json                    | 📂 EDF 5 Military Skin             ::
-        | P506_WINGDIVER.json              | P506_WINGDIVER.json                 |                                     |
-        | P507_FENCER.json                 | P507_FENCER.json                    |                                     |
-        | P508_AIRRADER.json               | P508_AIRRAIDER.json                 |                                     |
-        |==================================|=====================================|=====================================|
-        | P601_PROTO_RANGER.json           | P601_PROTO_RANGER.json              | 📂 EDF 6 Tattered Military Skin    ::
-        | P602_PROTO_WINGDIVER.json        | P602_PROTO_WINGDIVER.json           |                                     |
-        | P603_PROTO_FENCER.json           | P603_PROTO_FENCER.json              |                                     |
-        | P604_PROTO_AIRRADER.json         | P604_PROTO_AIRRAIDER.json           |                                     |
-        |==================================|=====================================|=====================================|
-        | P605_RANGER.json                 | P605_RANGER.json                    | 📂 EDF 6 Future Military Skin      ::
-        | P606_WINGDIVER.json              | P606_WINGDIVER.json                 |                                     |
-        | P607_FENCER.json                 | P607_FENCER.json                    |                                     |
-        | P608_AIRRADER.json               | P608_AIRRAIDER.json                 |                                     |
-        \==================================|=====================================|=====================================/
+
+    | Languages             | Two letter lang |
+    | :-------------------: | :-------------: |
+    | (Traditional Chinese) | CN |
+    | (English)             | EN |
+    | (Japanese)            | JP |
+    | (Korean)              | KR |
+    | (Simplified Chinese)  | SC |
+
+- ##### 🔹 Generated Files and EDF common conflict files MML can handel
+|     SOURCE STARTING JSON FILE    | FINISHED PRODUCT WITH MODIFICATIONS |           WHAT ARE THEY ?           |
+| :------------------------------: | :---------------------------------: | :---------------------------------: |
+|==================================|=====================================|=====================================|
+| ImportDefaultData.json           | CONFIG.SGO                          |📂 Mission Pack Data
+|==================================|=====================================|=====================================|
+| ImportSubtitleVoiceTable.CN.json | EDF6_VOICETABLE.CN.SGO              |📂 Subtitle Table Data
+| ImportSubtitleVoiceTable.EN.json | EDF6_VOICETABLE.EN.SGO              |  Holds All Text In The Missions     |
+| ImportSubtitleVoiceTable.JA.json | EDF6_VOICETABLE.JA.SGO              |                                     |
+| ImportSubtitleVoiceTable.KR.json | EDF6_VOICETABLE.KR.SGO              |                                     |
+| ImportSubtitleVoiceTable.SC.json | EDF6_VOICETABLE.SC.SGO              |                                     |
+|==================================|=====================================|=====================================|
+| ImportTextTable-CN.json          | TEXTTABLE_STEAM.CN.TXT_SGO          |📂 GUI Text Tables (Localization)
+| ImportTextTable-EN.json          | TEXTTABLE_STEAM.EN.TXT_SGO          |  Holds All Text In The Games UI     |
+| ImportTextTable-JA.json          | TEXTTABLE_STEAM.JA.TXT_SGO          |  Translators Of Other Languages     |
+| ImportTextTable-KR.json          | TEXTTABLE_STEAM.KR.TXT_SGO          |  Use This File For Your Translation |
+| ImportTextTable-SC.json          | TEXTTABLE_STEAM.SC.TXT_SGO          |     (ImportTextTable-EN.json)       |
+|==================================|=====================================|=====================================|
+| ImportWeaponTable.json           | WEAPONTABLE.SGO                     |📂 Weapon Level, Config Data, Setting to lock gun
+|==================================|=====================================|=====================================|
+| ImportWeaponTextTable-CN.json    | WEAPONTEXT.CN.SGO                   |📂 Weapon Text Stats (Localization)
+| ImportWeaponTextTable-EN.json    | WEAPONTEXT.EN.SGO                   |  Visual Text To Display The Items Stats.
+| ImportWeaponTextTable-JA.json    | WEAPONTEXT.JA.SGO                   |                                     |
+| ImportWeaponTextTable-KR.json    | WEAPONTEXT.KR.SGO                   |                                     |
+| ImportWeaponTextTable-SC.json    | WEAPONTEXT.SC.SGO                   |                                     |
+|==================================|=====================================|=====================================|
+| P501_PROTO_RANGER.json           | P501_PROTO_RANGER.SGO               | 📂 EDF 5 Civ Skin
+| P502_PROTO_WINGDIVER.json        | P502_PROTO_WINGDIVER.SGO            |  Settings for Camera, Grip Offsets  |
+| P503_PROTO_FENCER.json           | P503_PROTO_FENCER.SGO               |  "IK" lengths, Spotlight, Color,    |
+| P504_PROTO_AIRRADER.json         | P504_PROTO_AIRRAIDER.SGO            |  And many more, Same Applies Bellow |
+|==================================|=====================================|=====================================|
+| P505_RANGER.json                 | P505_RANGER.SGO                     | 📂 EDF 5 Military Skin
+| P506_WINGDIVER.json              | P506_WINGDIVER.SGO                  |                                     |
+| P507_FENCER.json                 | P507_FENCER.SGO                     |                                     |
+| P508_AIRRADER.json               | P508_AIRRAIDER.SGO                  |                                     |
+|==================================|=====================================|=====================================|
+| P601_PROTO_RANGER.json           | P601_PROTO_RANGER.SGO               | 📂 EDF 6 Tattered Military Skin
+| P602_PROTO_WINGDIVER.json        | P602_PROTO_WINGDIVER.SGO            |                                     |
+| P603_PROTO_FENCER.json           | P603_PROTO_FENCER.SGO               |                                     |
+| P604_PROTO_AIRRADER.json         | P604_PROTO_AIRRAIDER.SGO            |                                     |
+|==================================|=====================================|=====================================|
+| P605_RANGER.json                 | P605_RANGER.SGO                     | 📂 EDF 6 Future Military Skin
+| P606_WINGDIVER.json              | P606_WINGDIVER.SGO                  |                                     |
+| P607_FENCER.json                 | P607_FENCER.SGO                     |                                     |
+| P608_AIRRADER.json               | P608_AIRRAIDER.SGO                  |                                     |
 
 ### 🛠 How to Switch Modes
-    - 1️⃣ In EDF MML, locate the "Request Mod Code" text box. 
+    - 1️⃣ In EDF MML, locate the "Request Code: Air Force Drop-Off" text box. 
     - 2️⃣ Type ni → Press Enter → Switches to No Installer Mode.
     - 3️⃣ Type i → Press Enter → Switches to Installer Mode.
     - 4️⃣ The selected mode will be applied when clicking "Build Tables".
 
 ### 🚀 Best Practices
-    - ✅ Use ni mode for safe mod testing before finalizing changes.
+    - ✅ Again use ni mode for safe mod testing before finalizing changes.
     - ✅ If everything works in ni, then use i mode to fully install the mod.
     - ✅ Avoid using i mode first unless confident in your mod’s stability.
 
@@ -156,17 +194,43 @@ This documentation serves as a comprehensive guide to using EDF MML (Multi-Mod L
     - 3️⃣ The HAKKEN  Core installs the Modified Files → Your content is now integrated into EDF 6!
     - 4️⃣ Uninstall System → Mods can be safely removed using DirManifestToFilesUninstaller.
 
+### 🛠 How to Name Your Mod_config_data.json File
+- ##### MUST END WITH Mod_config_data.json
+- To ensure your mod works correctly, you must rename the Mod_config_data.json file to match your mod's unique name. This helps the mod loader identify and process your mod properly. Use the following format:
+
+#### ✅ Examples of naming your Mod_config_data.json File:
+- BUNGUS_Mod_config_data.json
+- STRONG_TEAMATES_Mod_config_data.json
+- OP_ANIME_WIFUSMod_config_data.json
+- Explosive_Human_MinesMod_config_data.json
+- HighkrealMod_config_data.json
+    ##### This naming convention avoids conflicts with other mods and keeps your files organized. Make sure not to confuse this with renaming a CONFIG.json file, as the Mod_config_data.json is a specific file used for defining mod interactions with EDF 6 with the HAKKEN.EXEs
+
+### 📂 Where to Place Your Mod_config_data.json File
+
+- To place your Mod_config_data.json file correctly, press the Mods button in the EDF MML GUI. This will open the correct folder automatically.
+
+- The exact directory for Steam or Epic installs is:
+
+        <Game Install Directory>\EARTH DEFENSE FORCE 6\Mods\EDF 6 MOD SETTINGS MAKER\MOD CONFIG DATA PLACED HERE
+
+- This ensures that your mod is properly recognized and loaded by the EDF MML.
+
 ### 💡 Ready to Get Started With Your MCD?
 - ##### [Step 1️⃣ MOD_INFO](#1️⃣-mod_info-metadata)
-- ##### [Step 2️⃣ DataReplacementTable](#2️⃣-datareplacementtable-modifies-existing-data)
-- ##### [Step 3️⃣ NewToAddTextTableEntries](#3️⃣-newtoaddtexttableentries-adds-new-text)
-- ##### [Step 4️⃣ NewToAddSubTitleList](#4️⃣-newtoaddsubtitlelist-adding-new-subtitles)
-- ##### [Step 5️⃣ NewToAddModeList](#5️⃣-newtoaddmodelist-adds-new-mission-packs)
-- ##### [Step 6️⃣ NewToAddSoldierWeaponCategory](#6️⃣-newtoaddsoldierweaponcategory-adding-new-soldier-weapon-slots)
-- ##### [Step 7️⃣ NewToAddWeaponCatalog ](#7️⃣-newtoaddweaponcatalog-assigning-weapons-to-soldier-slots)
-- ##### [Step 8️⃣ NewToAddWeaponTables](#8️⃣-newtoaddweapontables-adding-new-weapons-to-the-game)
-- ##### [Step 9️⃣ DirManifestToFilesUninstaller](#9️⃣-dirmanifesttofilesuninstaller-file-cleanup--uninstallation)
-- ##### [Step 1️⃣0️⃣ CHANGELOG](#1️⃣0️⃣-changelog-tracking-mod-version-history)
+- ##### [Step 2️⃣ CATEGORIES](#2️⃣-categories-block-organizing-mods)
+- ##### [Step 3️⃣ DataReplacementTable](#3️⃣-datareplacementtable-modifies-existing-data)
+- ##### [Step 4️⃣ NewToAddTextTableEntries](#4️⃣-newtoaddtexttableentries-adds-new-text)
+- ##### [Step 5️⃣ NewToAddSubTitleList](#5️⃣-newtoaddsubtitlelist-adding-new-subtitles)
+- ##### [Step 6️⃣ NewToAddModeList](#6️⃣-newtoaddmodelist-adds-new-mission-packs)
+- ##### [Step 7️⃣ NewToAddSoldierWeaponCategory](#7️⃣-newtoaddsoldierweaponcategory-adding-new-soldier-weapon-slots)
+- ##### [Step 8️⃣ NewToAddWeaponCatalog ](#8️⃣-newtoaddweaponcatalog-assigning-weapons-to-soldier-slots)
+- ##### [Step 9️⃣ NewToAddWeaponTables](#9️⃣-newtoaddweapontables-adding-new-weapons-to-the-game)
+- ##### [Step 1️⃣0️⃣ DirManifestToFilesUninstaller](#1️⃣0️⃣-dirmanifesttofilesuninstaller-file-cleanup--uninstallation)
+- ##### [Step 1️⃣1️⃣ CHANGELOG](#1️⃣1️⃣-changelog-tracking-mod-version-history)
+- ##### [Troubleshooting: Common Issues and How to Resolve Them](#troubleshooting-common-issues-and-how-to-resolve-them)
+
+
 
 ### 1️⃣ MOD_INFO (Metadata)
 - ##### 🔹 File from Source:
@@ -180,7 +244,8 @@ This documentation serves as a comprehensive guide to using EDF MML (Multi-Mod L
 
 - ##### 🔹 Purpose
     Stores metadata about the mod.
-Helps mod managers identify, track, and update mods.
+    Helps mod managers identify, track, and update mods.
+
 - ##### 🔹 Limitations & Tips
     ⚠ Must manually update VERSION when releasing updates to prevent conflicts.
 
@@ -207,7 +272,34 @@ Helps mod managers identify, track, and update mods.
     "NOTES": "Ensure compatibility with latest patch."
 }
 ```
-### 2️⃣ DataReplacementTable (Modifies Existing Data)
+
+### 2️⃣ CATEGORIES Block (Organizing Mods)
+
+- ##### 🔹 Purpose
+
+    The CATEGORIES block is a quality-of-life feature that allows mods to be categorized for easier searching and organization within the Mods Panel of the EDF MML. The Mods Panel pulls the names from the CATEGORIES block and adds them to a search pool. This allows users to quickly find mods based on their category using the "Filter by Category" dropdown menu.
+
+- ##### 🔹 Limitations & Tips
+
+    ⚠ Use capitalized first letters for each category name.
+    ⚠ Examples of categories include: "Weapons," "Gameplay," "Patch."
+    ⚠ Keep category names concise and relevant to the mod's purpose to not clutter the search pool.
+
+
+- ##### 🛠 JSON Skeleton
+
+        "CATEGORIES": []
+
+- ##### ✅ JSON Example (Filled)
+
+        "CATEGORIES": ["Weapons", "Gameplay", "Patch", "Localization", "Bug Fixes" "MEME"]
+
+- ##### 🔹 Limitations & Tips
+
+    - ⚠ Avoid duplicate or overly generic categories to maintain a clear and useful search pool.
+    - ⚠ Keep category names concise and relevant to the mod's purpose
+
+### 3️⃣ DataReplacementTable (Modifies Existing Data)
 - ##### 🔹 File from Source:
     📌 ConfigStringReplacer9000.py
 
@@ -217,10 +309,18 @@ Helps mod managers identify, track, and update mods.
 - ##### 🔹 Adds New Data?
     ❌ No
 
+- ##### 🔹 Source File:
+    - 📌 ConfigStringReplacer9000.py
+
+- ##### 🔹 End Product File:
+    - 📂 YES
+
 - ##### 🔹 Purpose
     Allows modifying in-game text (e.g., item descriptions, subtitles).
+    Used for replacing existing text in the game files.
+
 - ##### 🔹 Limitations & Tips
-    ⚠ Ensure Find values match exactly, including every possible character. and do the large enough to be unique out of the noise of data
+    ⚠ Ensure Find values match exactly, including every possible character. and do the large enough unique strings to get the right one.
 
 - #####  🛠 JSON Skeleton
 ```json
@@ -232,7 +332,7 @@ Helps mod managers identify, track, and update mods.
     }
 ]
 ```
-- ##### ✅ JSON Example (Filled)
+- ##### ✅ JSON Example (Filled) 3 items
 ```json
 "DataReplacementTable": [
     {
@@ -247,10 +347,28 @@ Helps mod managers identify, track, and update mods.
             "type": "string",
             "value": "Change Me (Joinable)"
         }
+    },
+    {
+        "File": "ImportTextTable-EN.json",
+        "Find": {
+            "value": "A standard room.\nStandard rooms are displayed in the lobby for everyone to join."
+        },
+        "Replace": {
+            "value": "Modded hosting in public lobbies is not recommended due to the potential for instability and  unexpected behavior..."
+        }
+    },
+    {
+        "File": "ImportTextTable-EN.json",
+        "Find": {
+            "value": "Passcode Only"
+        },
+        "Replace": {
+            "value": "Change Me (Password)"
+        }
     }
 ]
 ```
-### 3️⃣ NewToAddTextTableEntries (Adds New Text)
+### 4️⃣ NewToAddTextTableEntries (Adds New Text)
 - ##### 🔹 File from Source:
     📌 ConfigTextBuilder.py
 
@@ -260,11 +378,23 @@ Helps mod managers identify, track, and update mods.
 - ##### 🔹 Adds New Data?
     ✅ Yes – Adds new UI text & descriptions
 
+- ##### 🔹 Source File:
+    - 📌 ImportTextTable-EN.json
+
+- ##### 🔹 End Product File:
+    - 📂 TEXTTABLE_STEAM.EN.TXT.json
+
+- ##### 🔹 Connections to Other Blocks:
+    - ##### The name and value fields in NewToAddTextTableEntries are also connected to:
+        - NewToAddModeList: The first two strings in both connectivity nodes are directly linked to the entries in to this NewToAddTextTableEntries.
+        - NewToAddSoldierWeaponCategory Block: This block's String value is tied to the name values defined here to display Weapon categories.
+        - NewToAddWeaponCatalog Block: This block's String value is tied to the name values defined here to display Weapon categories.
+
 - ##### 🔹 Purpose
-    Adds new localizations across multiple languages.
-    Used for new mission names, item descriptions, etc.
+    Used for new mission names, item descriptions, ANYTHING WITH THE GAMES UI
+    
 - ##### 🔹 Limitations & Tips
-    ⚠ Use unique name values to avoid overwriting default game text.
+    ⚠ Use unique name values to avoid overwriting default game text. but needs to be the same with all LANG files
 
 🛠 JSON Skeleton
 ```json
@@ -279,12 +409,15 @@ Helps mod managers identify, track, and update mods.
 - ##### ✅ JSON Example (Filled)
 ```json
 "NewToAddTextTableEntries": {
+    "CN": [{ "name": "Test_Scenario", "type": "string", "value": "离线MODDED任务模式" }],
     "EN": [{ "name": "Test_Scenario", "type": "string", "value": "Offline MODDED Mission Mode" }],
-    "JA": [{ "name": "Test_Scenario", "type": "string", "value": "オフライン改造ミッションモード" }]
+    "KR": [{ "name": "Test_Scenario", "type": "string", "value": "오프라인 개조 미션 모드" }],
+    "JA": [{ "name": "Test_Scenario", "type": "string", "value": "オフライン改造ミッションモード" }],
+    "SC": [{ "name": "Test_Scenario", "type": "string", "value": "离线MODDED任务模式" }]
 }
 ```
 
-### 4️⃣ NewToAddSubTitleList (Adding New Subtitles)
+### 5️⃣ NewToAddSubTitleList (Adding New Subtitles)
 🛠 Section: NewToAddSubTitleList
 - ##### 🔹 File from Source:
     ##### 📌 ConfigSubtitleAppender.py
@@ -295,10 +428,16 @@ Helps mod managers identify, track, and update mods.
 - ##### 🔹 Adds New Data?
     ##### ✅ Yes – Adds new mission subtitles
 
+- ##### 🔹 Source File:
+    - 📌 ImportSubtitleVoiceTable.EN.json
+
+- ##### 🔹 End Product File:
+    - 📂 EDF6_VOICETABLE.EN.json
+
 - ##### 🔹 Purpose
     Adds custom subtitles for missions, cutscenes, or dialogue.
     Supports multiple languages (CN, EN, JA, KR, SC).
-    Allows for customized in-game text linked to missions.
+    Allows for customized in-game text linked to missions. .AC or .RMPA AND .BVM files. USE .AC for online
 
 - ##### 🔹 Limitations & Tips
     ⚠ Each subtitle must have a unique name to prevent overwriting existing data.
@@ -310,7 +449,16 @@ Helps mod managers identify, track, and update mods.
 ```json
 "NewToAddSubTitleList": {
     "CN": [],
-    "EN": [],
+    "EN": [
+        {
+        "value": [
+            {"value": "CharacterName", "type": "str", "name": ""},
+            {"value": "", "type": "str", "name": "caption"}
+        ],
+        "type": "ptr",
+        "name": ""
+        }
+    ],
     "JA": [],
     "KR": [],
     "SC": []
@@ -326,7 +474,7 @@ Helps mod managers identify, track, and update mods.
                 {
                     "value": "CharacterName",
                     "type": "str",
-                    "name": "name"
+                    "name": "SARGE"
                 },
                 {
                     "value": "Don't worry, I'll take you to a safe place.",
@@ -342,7 +490,7 @@ Helps mod managers identify, track, and update mods.
                 {
                     "value": "CharacterName",
                     "type": "str",
-                    "name": "name"
+                    "name": "SOMENPC"
                 },
                 {
                     "value": "Second mission subtitle",
@@ -358,7 +506,7 @@ Helps mod managers identify, track, and update mods.
                 {
                     "value": "CharacterName",
                     "type": "str",
-                    "name": "name"
+                    "name": "SOMENPC"
                 },
                 {
                     "value": "Time loop mission subtitle",
@@ -368,22 +516,6 @@ Helps mod managers identify, track, and update mods.
             ],
             "type": "ptr",
             "name": "YourModpackName_Mission001_3"
-        },
-        {
-            "value": [
-                {
-                    "value": "CharacterName",
-                    "type": "str",
-                    "name": "name"
-                },
-                {
-                    "value": "End mission subtitle",
-                    "type": "str",
-                    "name": "caption"
-                }
-            ],
-            "type": "ptr",
-            "name": "YourModpackName_Mission001_4"
         }
     ],
     "JA": [],
@@ -392,7 +524,7 @@ Helps mod managers identify, track, and update mods.
 }
 ```
 
-### 5️⃣ NewToAddModeList (Adds New Mission Packs)
+### 6️⃣ NewToAddModeList (Adds New Mission Packs)
 - ##### 🔹 File from Source:
     📌 ConfigBuilder.py
 
@@ -402,8 +534,21 @@ Helps mod managers identify, track, and update mods.
 - ##### 🔹 Adds New Data?
     ✅ Yes – Adds new mission packs
 
+- ##### 🔹 Source File:
+    - 📌 ImportDefaultData.json
+
+- ##### 🔹 End Product File:
+    - 📂 CONFIG.json
+
+- ##### 🔹 Connections to Other Blocks:
+    - ##### The name and value fields in NewToAddTextTableEntries are also connected to:
+        - This block is connected to `NewToAddTextTableEntries`, which provides the text entries for the mode names and descriptions.
+        - See [NewToAddTextTableEntries](#newtoaddtexttableentries-block) for details on adding new text entries.
+        - The `missionDifficultyScale`, `PlayerCountDiffScale`, and other variables used in this block are typically defined in the game's core files. Modders should be cautious when modifying these values.
+
 - ##### 🔹 Purpose
     Defines custom game modes or mission packs.
+
 - ##### 🔹 Limitations & Tips
     ⚠ Ensure unique identifiers (e.g., mission pack names) are used to prevent conflicts with existing game modes or other mods.
     ⚠ Test thoroughly in No Installer Mode (EDF HAKKEN NI.exe) before deploying with Installer Mode (EDF HAKKEN.exe) to avoid game instability, especially given the patch’s "nefarious" nature—back up files to maintain rhythm in your modding dance!
@@ -418,26 +563,104 @@ Helps mod managers identify, track, and update mods.
 - ##### 🛠 JSON Skeleton
 ```json
 "NewToAddModeList": [
-    {
-        "type": "ptr",
-        "value": []
-    }
+    1. **Offline Mode:** Defines settings and configurations for offline mission packs.
+    2. **Online Mode:** Defines settings and configurations for online mission packs.
 ]
 ```
-- ##### ✅ JSON Example (Filled)
+- ##### ✅ JSON Example (Filled) just for Offline
 ```json
 "NewToAddModeList": [
     {
         "type": "ptr",
         "value": [
-            { "type": "string", "value": "Test_Scenario" },
-            { "type": "string", "value": "Test_Scenario_Desc" }
+            {"type": "string", "value": "Test_Scenario_F"},
+            {"type": "string", "value": "Test_Scenario_Desc_F"},
+            {"type": "string", "value": "off_scenario.%LOCALE%.dds"},
+            {"type": "string", "value": "BGM_E5S02_EDFHonbu"},
+            {"type": "string", "value": "MAIN.GST"},
+            {"type": "string", "value": "MODTEST.MST"},
+            {
+                "type": "ptr",
+                "value": [
+                    {"type": "string", "value": "app:/Mission/YOUR_MissionList.offline.list.sgo"},
+                    {"type": "string", "value": "app:/Mission/YOUR_MissionList.offline.txt.%LOCALE%.sgo"},
+                    {"type": "string", "value": "app:/Mission/YOUR_MissionList.offline.image.rab"}
+                ]
+            },
+            {
+                "type": "ptr",
+                "value": [
+                    {
+                        "type": "ptr",
+                        "value": [
+                        {
+                            "type": "ptr",
+                            "value": [
+                                {{{missionDifficultyScale}}}
+                            ]
+                        },
+                        {
+                            "type": "ptr",
+                            "value": [
+                                {{{PlayerCountDiffScale}}}
+                            ]
+                        },
+                        {
+                            "type": "ptr",
+                            "value": [
+                                {{{WeaponDrops}}}
+                            ]
+                        },
+                        {
+                            "type": "ptr",
+                            "value": [
+                                {{{OnlineCorrection}}}
+                            ]
+                        },
+                        {
+                            "type": "ptr",
+                            "value": [
+                                {{{InfantryCorrection}}}
+                            ]
+                        },
+                        {
+                            "type": "ptr",
+                            "value": [
+                                {{{VehicleCorrection}}}
+                            ]
+                        },
+                        {
+                            "type": "ptr",
+                            "value": [
+                                {{{Weapon Limit}}}
+                            ]
+                        },
+                        {
+                            "type": "ptr",
+                            "value": [
+                                {{{Online Armor Limit}}}
+                            ]
+                        }
+                    ]
+                },
+                {
+                // Repeat the block above 4 more times to set Normal, Hard, Hardest, and Inferno difficulties.
+                }
+            ]
+            },
+            {{{Miscellaneous}}}
+            {
+                "type": "ptr",
+                "value": [
+                    {{{LocalPlayerCount}}}
+                ]
+            }
         ]
     }
 ]
 ```
 
-### 6️⃣ NewToAddSoldierWeaponCategory (Adding New Soldier Weapon Slots)
+### 7️⃣ NewToAddSoldierWeaponCategory (Adding New Soldier Weapon Slots)
 🛠 Section: NewToAddSoldierWeaponCategory
 - ##### 🔹 File from Source:
     📌 ConfigBuilder.py
@@ -448,10 +671,23 @@ Helps mod managers identify, track, and update mods.
 - ##### 🔹 Adds New Data?
     ✅ Yes – Adds new weapon slot categories for soldiers
 
+- ##### 🔹 Source File:
+    - 📌 ImportDefaultData.json
+
+- ##### 🔹 End Product File:
+    - 📂 CONFIG.json
+
+- ##### 🔹 Connections to Other Blocks:
+    - ##### The name and value fields in NewToAddTextTableEntries are also connected to:
+        - This block is directly linked to `NewToAddTextTableEntries`, where you define the names of the weapon slots.
+        - See [NewToAddTextTableEntries](#newtoaddtexttableentries-block) for instructions on adding new text entries for weapon slot names.
+        - The Weapon Category IDs defined here correspond to the categories in `NewToAddWeaponTables`.
+
 - ##### 🔹 Purpose
     Defines new weapon slots for each soldier class.
     Allows modders to add custom weapon types for Ranger, WingDiver, AirRaider, and Fencer.
     Used in conjunction with NewToAddWeaponCatalog-* to control weapon availability.
+
 - ##### 🔹 Limitations & Tips
     ⚠ Each value ID must be unique to prevent overwriting existing weapon slots.
     ⚠ The string name must match NewToAddWeaponCatalog-* entries to properly assign weapons.
@@ -531,7 +767,7 @@ Helps mod managers identify, track, and update mods.
 ]
 ```
 
-### 7️⃣ NewToAddWeaponCatalog (Assigning Weapons to Soldier Slots)
+### 8️⃣ NewToAddWeaponCatalog (Assigning Weapons to Soldier Slots)
 🛠 Section: NewToAddWeaponCatalog
 - ##### 🔹 File from Source:
     📌 ConfigWeaponAppender.py, ConfigDLCWeaponCuller.py, ConfigWeaponCuller.py
@@ -542,10 +778,23 @@ Helps mod managers identify, track, and update mods.
 - ##### 🔹 Adds New Data?
     ✅ Yes – Assigns weapons to specific soldier slots
 
+- ##### 🔹 Source File:
+    - 📌 ImportDefaultData.json
+
+- ##### 🔹 End Product File:
+    - 📂 CONFIG.json
+
+- ##### 🔹 Connections to Other Blocks:
+    - ##### The name and value fields in NewToAddTextTableEntries are also connected to:
+        - This block is directly linked to `NewToAddSoldierWeaponCategory`, where you define the weapon categories.
+        - See [NewToAddSoldierWeaponCategory](#newtoaddsoldierweaponcategory-block) for details on defining new weapon categories.
+        - The Weapon Category IDs used here should match those defined in `NewToAddSoldierWeaponCategory`.
+
 - ##### 🔹 Purpose
-Links weapon slots (defined in NewToAddSoldierWeaponCategory) to soldier classes.
-Controls which weapons are available in each slot.
-Allows multiple weapon categories per slot (e.g., support, vehicle, or dual-wielding).
+    Links weapon slots (defined in NewToAddSoldierWeaponCategory) to soldier classes.
+    Controls which weapons are available in each slot.
+    Allows multiple weapon categories per slot (e.g., support, vehicle, or dual-wielding).
+
 - ##### 🔹 Limitations & Tips
     - ⚠ Weapon category IDs must match NewToAddSoldierWeaponCategory to ensure proper assignments.
     - ⚠ Fencer has dual-wielding slots (L & R)—configure accordingly.
@@ -590,7 +839,7 @@ Allows multiple weapon categories per slot (e.g., support, vehicle, or dual-wiel
 }
 ```
 
-### 8️⃣ NewToAddWeaponTables (Adding New Weapons to the Game)
+### 9️⃣ NewToAddWeaponTables (Adding New Weapons to the Game)
 🛠 Section: NewToAddWeaponTables
 - ##### 🔹 File from Source:
     📌 ConfigWeaponAppender.py
@@ -601,15 +850,34 @@ Allows multiple weapon categories per slot (e.g., support, vehicle, or dual-wiel
 - ##### 🔹 Adds New Data?
     ✅ Yes – Adds new weapons for all soldier classes
 
+- ##### 🔹 Source File:
+    - 📌 ImportWeaponTextTable.json
+    - 📌 ImportWeaponTextTable-EN.json
+
+- ##### 🔹 End Product File:
+    - 📂 WEAPONTEXT.json
+    - 📂 WEAPONTEXT.EN.json
+
+- ##### 🔹 Connections to Other Blocks:
+    - ##### The name and value fields in NewToAddTextTableEntries are also connected to:
+        - NewToAddWeaponCatalog: Required if using custom weapon groups. This block links the weapon categories to the soldier classes.
+
 - ##### 🔹 Purpose
     Defines new weapons for Ranger, WingDiver, AirRaider, and Fencer.
     Each weapon entry includes name, stats, and text descriptions.
     Works with NewToAddWeaponCatalog to assign weapons to the correct slots.
+
 - ##### 🔹 Limitations & Tips
     ⚠ Ensure the weapon names are unique to prevent conflicts with existing weapons.
     ⚠ Stat values (e.g., damage, range, reload time) must be properly formatted in the "value" array. 
     ⚠ Localized text (EN, JA, etc.) must be structured correctly to display properly in-game.
     ⚠ Each weapon category (e.g., Assault Rifles, Shotguns) should be correctly assigned for organization.
+    Text can also use the WSRLF foumula to display stats. or use the WSRLF.EXE to display the formula to a graph.
+    - result = BASE_VALUE * (p1 * (TARGET_LEVEL / 5)^p2 - p1 + 1)
+    \[
+    \text{result} = \text{BASE\_VALUE} \times \left( p_1 \times \left( \frac{\text{TARGET\_LEVEL}}{5} \right)^{p_2} - p_1 + 1 \right)
+    \]
+
 
 - ##### 🛠 JSON Skeleton
 ```json
@@ -721,9 +989,7 @@ Allows multiple weapon categories per slot (e.g., support, vehicle, or dual-wiel
 }
 ```
 
-### 9️⃣ DirManifestToFilesUninstaller (File Cleanup & Uninstallation)
-- ##### 🔹 File from Source:
-    📌 ManifestMAKER.py & ConfigManifestUninstaller.exe
+### 1️⃣0️⃣ DirManifestToFilesUninstaller (File Cleanup & Uninstallation)
 
 - ##### 🔹 Modifies Game?
     ❌ No
@@ -731,9 +997,16 @@ Allows multiple weapon categories per slot (e.g., support, vehicle, or dual-wiel
 - ##### 🔹 Adds New Data?
     ❌ No
 
+- ##### 🔹 Source Files:
+    - 📌 ManifestMAKER.py
+    - 📌 NOT A PART, ITS IN THE MML GUI LOGIC,
+    - 📌 ConfigManifestUninstaller.exe
+
 - ##### 🔹 Purpose
     Ensures clean removal of mod files.
     Used by Mods Panel UI → "Uninstall" button.
+    Included in the ~~~mymodfolder\Mods~~~ folder is a ManifestMAKER.exe will write out the dir tree and can write to your MCD file
+
 - ##### 🔹 Limitations & Tips
     ⚠ Always use a single master folder for you mission packs.
 
@@ -741,8 +1014,9 @@ Allows multiple weapon categories per slot (e.g., support, vehicle, or dual-wiel
 ```json
 "DirManifestToFilesUninstaller": {
     "MISSION": { "Folders": [] "Files"; []},
-    "WEAPON": [],
-    "OBJECT": []
+    "WEAPON": ["Files": []],
+    "OBJECT": ["Files": []],
+    "HUD": ["Files": []]
 }
 ```
 - ##### ✅ JSON Example (Filled)
@@ -755,13 +1029,15 @@ Allows multiple weapon categories per slot (e.g., support, vehicle, or dual-wiel
     ],
     "OBJECT": [
         "DAMAGE_TEST.rab",
+        "DAMAGE_TEST.sgo",
+        "ANTFALL.rab",
         "ANTFALL.SGO"
     ]
 }
 ```
 
 
-### 1️⃣0️⃣ CHANGELOG (Tracking Mod Version History)
+### 1️⃣1️⃣ CHANGELOG (Tracking Mod Version History)
 🛠 Section: CHANGELOG
 - ##### 🔹 File from Source:
     📌 Not used by scripts – For Mod Pannel's Info only
@@ -794,3 +1070,12 @@ Allows multiple weapon categories per slot (e.g., support, vehicle, or dual-wiel
   "Building Phase"
 ]
 ```
+
+
+### Troubleshooting: Common Issues and How to Resolve Them
+
+- Most Common Issue: Formatting errors in Mod_config_data.json.
+
+    - ⚠ Solution: If there is a formatting issue, you will know it during the "i" mode installation of the generated content. as they will sit in
+    - Make sure if you dont need a block that was defined with [] that you replace with a {} and vice versa
+    - 🛠 Check AA-Log.txt: This log file will indicate what happened and provide clues to fix the error.

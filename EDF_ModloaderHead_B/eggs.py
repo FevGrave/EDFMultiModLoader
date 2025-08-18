@@ -1,6 +1,7 @@
 # eggs.py
 
-import random, time, sys, tkinter as tk
+import random, time, sys, tkinter as tk, os, requests, random, hashlib
+from datetime import date
 
 AsciiE = r''' ______    
 /\  ___\   
@@ -231,9 +232,9 @@ def edf_credits_scroll(show_error, clear_error, speed=0.1, timeout=10):
 
     static_text = [
         "Created By:",
-        "BlueAmulet: (Modloader)",
         "FevGrave: (GUI, MML Table Generator, BG Images)",
-        "MoistGoat: (Advanced Mission Pack Unlimiter Patch)",
+        "AUK: (Advanced Mission Pack Unlimiter Plugin),   MoistGoat: (Early patch Support)",
+        "BlueAmulet: (The REAL Modloader),       KittopiaCreator: (Change Online Room Patch)",
     ]
 
     def center_text(text):
@@ -347,6 +348,7 @@ def edf_quotes(show_error):
     edf_quotes = [
         "💀 *'You're finally here. You kept me waiting. Don't worry me like that.'*",
         "🎖️ *'Gather around, scum! Line up! Quit dragging your asses!'*",
+        "🎖️ *'that patch suits you, comrade!'*",
         "⚠️ *'HQ just said retreat is not an option. Welp, guess we’re fighting to the death!'*",
         "🔥 *'You idiots can't even line up right! You're slower than dimwitted turtles!'*",
         "💪 *'The war has no end in sight. So the time has come for even people like me to join the fight.'*",
@@ -434,12 +436,15 @@ def glitch_effect(show_error, text, speed=0.03, glitch_chance=0.1):
     show_error(f"\n\033[90m[Transmission Lost...]\033[0m")  # Dim message to simulate static
 
 def asciicow(show_error):
-    asciicow = r'''                              (__)
-                              (oo)_______
-                    Mooooooo  (__)       )/
-                               ||----w |  
-                               ||     ||'''
-    asciicow(show_error)
+    cow_art = r'''                              (__)
+                              (oo)________
+                   (Mooooooo> (__)        )
+                               ||----w-  / \_.
+                               ||      ||
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW'''
+    show_error(cow_art)
+    time.sleep(4)
+    clear_error()
 
 def erased_future_transmission(show_error, clear_error):
     """
@@ -511,6 +516,242 @@ def display_letters(show_error, clear_error, repeats=10, pause=0.5):
         show_error(AsciiF)
         time.sleep(pause)
         clear_error()
+
+def show_best_farming_missions(show_error, clear_error, current_game):
+    """
+    Display recommended farming missions for the specified EDF game in the console.
+
+    Args:
+        show_error (function): Function to display messages.
+        clear_error (function): Function to clear the display.
+        current_game (str): The currently selected EDF game.
+    """
+    clear_error()
+    show_error("=== Best Farming Missions === 128 crates can be on the map at once!, 1024 crates max pickup! Use auto-loot OR high mobility class to maximize drops!")
+    
+    # Dictionary of recommended farming missions for each EDF game
+    farming_missions = {
+        "Earth Defense Force 4.1": ["Mission 45: Crimson (High enemy density, good for weapon drops)"],
+        "Earth Defense Force 5": ["Mission 87: Brute Force (Large enemy waves, high loot drop rate)"],
+        "Earth Defense Force 6": [
+            "Mission 97: Alien Swarm (Powerful NPC allies, ideal for auto-loot)",
+            "Mission 109: Final Stand (High-level weapon drops, good for late-game farming)",
+            "Mission 51: Insect Frenzy (Balanced for mid-game farming)"
+        ]
+    }
+    
+    # Normalize current_game for lookup
+    normalized_game = current_game.strip() if current_game else "Earth Defense Force 6"
+    current_game_name = normalized_game if normalized_game in farming_missions else "Unknown Game"
+    show_error(f"Selected Game: {current_game_name}")
+    
+    if current_game_name in farming_missions:
+        for mission in farming_missions[current_game_name]:
+            show_error(f"- {mission}")
+    else:
+        show_error("No farming mission data available for this game.")
+
+def show_class_recommendation(show_error, clear_error):
+    """
+    Show recommended EDF classes based on a randomly selected playstyle or mission type.
+
+    Args:
+        show_error (function): Function to display messages.
+        clear_error (function): Function to clear the display.
+    """
+    clear_error()
+    show_error("=== Class Recommendation ===")
+    
+    # List of playstyles/mission types
+    options = [
+        "Close Combat",
+        "Long-Range Sniping",
+        "Mobility and Speed",
+        "Support and Vehicles",
+        "High Enemy Density Missions",
+        "Boss Fight Missions"
+    ]
+    playstyle = random.choice(options)
+    
+    # Recommendations based on playstyle/mission type
+    recommendations = {
+        "Close Combat": "Fencer - Excels with melee weapons (e.g., CC Strikers) and heavy armor.",
+        "Long-Range Sniping": "Ranger - Ideal for sniper rifles and long-range engagements.",
+        "Mobility and Speed": "Wing Diver - High mobility with jetpacks, great for dodging.",
+        "Support and Vehicles": "Air Raider - Can summon vehicles and deploy support devices.",
+        "High Enemy Density Missions": "Ranger or Fencer - High DPS weapons for crowd control.",
+        "Boss Fight Missions": "Air Raider or Wing Diver - Vehicles and mobility help against tough enemies."
+    }
+    
+    recommendation = recommendations.get(playstyle, "No recommendation available.")
+    show_error(f"Playstyle/Mission: {playstyle}")
+    show_error(f"Recommended Class: {recommendation}")
+    show_error("Tip: Experiment with different classes to find your favorite!")
+
+def quantum_edf_enigma(show_error, clear_error, mod_folder="Mods/EDF 6 MOD SETTINGS MAKER/MOD CONFIG DATA PLACED HERE"):
+    """
+    A multi-stage EDF Easter egg triggered by 'enigma_protocol'. Fits 6-line, 90-char console.
+    """
+    # Ensure mod folder exists
+    os.makedirs(mod_folder, exist_ok=True)
+    
+    # Stage 1: Initiation
+    def initiate_protocol():
+        clear_error()
+        show_error("[EDF TRANSMISSION] Quantum Enigma Protocol activated!")
+        time.sleep(0.5)
+        show_error("Storm 1, Ravager signal detected. Check mod folder.")
+        time.sleep(0.5)
+        show_error("Clue file: ENIGMA_CLUE.txt. Next command required.")
+        time.sleep(0.5)
+        
+        # Create ENIGMA_CLUE.txt with riddle (90 chars max per line)
+        clue_file = os.path.join(mod_folder, "ENIGMA_CLUE.txt")
+        riddle = (
+            "Storm 1, solve this:\n"
+            "Four digits, EDF's start year plus ant wave count.\n"
+            "Signal Ravagers to proceed.\n\n"
+            "Command: ravager_signal\n"
+            "Code: [EDF Year] + [Ants]\n"
+            "Hint: EDF began 2017, ants often 1000."
+        )
+        with open(clue_file, "w", encoding="utf-8") as f:
+            f.write(riddle)
+        clear_error()
+        show_error(f"Clue saved: {os.path.basename(clue_file)} in mod folder.")
+
+    # Stage 2: Ravager Signal
+    def check_ravager_signal():
+        clear_error()
+        show_error("[RAVAGER SIGNAL] Enter 4-digit code from clue.")
+        time.sleep(0.5)
+        show_error("Submit as 'code_XXXX' in request field.")
+        time.sleep(0.5)
+
+    # Stage 3: Code Verification and Unlock
+    def verify_code(code):
+        clear_error()
+        expected_code = "3017"  # 2017 (EDF year) + 1000 (ants)
+        if code == expected_code:
+            show_error("[CODE OK] Enigma Unlocked! Storm 1 wins!")
+            time.sleep(0.5)
+            show_error("Starting classified EDF sequence...")
+            time.sleep(0.5)
+            final_animation()
+        else:
+            clear_error()
+            show_error("[CODE FAIL] Check ENIGMA_CLUE.txt again.")
+            time.sleep(0.5)
+            show_error("Enter 'code_XXXX' with 4 digits.")
+
+    # Stage 4: Animation and Reward
+    def final_animation():
+        # Compact ASCII frames (6 lines, ~80 chars wide)
+        frames = [
+            "Storm 1: ====>  vs  Kaiju: [==]\n"
+            "EDF! EDF!\n"
+            "Fire Baguette Blaster!",
+            "Storm 1: ====>  vs  Kaiju: [X]\n"
+            "BOOM!\n"
+            "Kaiju hit!",
+            "Storm 1: ====>  Kaiju: DOWN!\n"
+            "Victory!\n"
+            "EDF! EDF!"
+        ]
+        
+        # Play animation
+        for _ in range(2):
+            for frame in frames:
+                clear_error()
+                show_error(frame)
+                time.sleep(0.3)
+        
+        # Save reward file
+        clear_error()
+        report_file = os.path.join(mod_folder, "EDF_ENIGMA_REPORT.txt")
+        report = (
+            "EDF REPORT\n"
+            "Op: Enigma\n"
+            "Agent: Storm 1\n"
+            "Status: Win\n"
+            "Reward: Baguette Blaster\n"
+            "EDF! EDF!"
+        )
+        with open(report_file, "w", encoding="utf-8") as f:
+            f.write(report)
+        show_error("Report unlocked: EDF_ENIGMA_REPORT.txt")
+        time.sleep(0.5)
+        clear_error()
+        show_error(f"Saved: {os.path.basename(report_file)}. You're an EDF hero!")
+
+    # Handle request code
+    def handle_request(request_code):
+        normalized_code = request_code.strip().lower()
+        if normalized_code == "enigma_protocol":
+            initiate_protocol()
+        elif normalized_code == "ravager_signal":
+            check_ravager_signal()
+        elif normalized_code.startswith("code_"):
+            code = normalized_code[5:]
+            if code.isdigit() and len(code) == 4:
+                verify_code(code)
+            else:
+                clear_error()
+                show_error("Invalid code. Use 'code_XXXX' (4 digits).")
+        else:
+            clear_error()
+            show_error("Unknown Enigma command.")
+
+    return handle_request
+
+# Optional: predefined translations
+TRANSLATIONS = ["web", "kjv", "esv"]  # Bible-API supports: web (default), kjv, etc.
+DEFAULT_TRANSLATION = "kjv"  # Hardcoded choice
+
+# Safe book/chapter/verse limits (expandable)
+SAFE_VERSES = {
+    "Genesis": {1: 31, 2: 25, 3: 24, 4: 26},
+    "Psalms": {23: 6, 91: 16, 100: 5, 119: 176},
+    "Proverbs": {3: 35, 16: 33},
+    "Isaiah": {40: 31, 53: 12},
+    "John": {3: 36, 14: 31},
+    "Romans": {5: 21, 8: 39},
+    "1 Corinthians": {13: 13, 15: 58},
+    "Revelation": {3: 22, 21: 27, 22: 21},
+}
+
+def get_random_reference():
+    today = date.today().isoformat()
+    hash_seed = hashlib.sha256(today.encode()).hexdigest()
+    rng = random.Random(int(hash_seed, 16))
+
+    book = rng.choice(list(SAFE_VERSES.keys()))
+    chapter = rng.choice(list(SAFE_VERSES[book].keys()))
+    verse = rng.randint(1, SAFE_VERSES[book][chapter])
+
+    return f"{book} {chapter}:{verse}"
+
+def get_daily_bible_verse(show_error, clear_error):
+    try:
+        clear_error()
+
+        reference = get_random_reference()
+        translation = DEFAULT_TRANSLATION
+        url = f"https://bible-api.com/{reference.replace(' ', '+')}?translation={translation}"
+
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+
+        data = response.json()
+        verse_text = data["text"].strip()
+        verse_ref = data["reference"]
+
+        show_error(f"{verse_text} ({verse_ref})")
+
+    except requests.exceptions.RequestException as e:
+        show_error(f"Error fetching verse: {str(e)}")
+    except (KeyError, ValueError) as e:
+        show_error(f"Error processing verse: {str(e)}")
 
 def show_error(message):
     """

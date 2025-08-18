@@ -1,0 +1,1674 @@
+﻿//
+// Future Past
+//
+
+#include "app:/Mission/AsCommon.h"
+
+Talkers g_soldiers;
+
+class __EventData {
+	uint m_counter  = 0;
+	bool m_is_break = false;
+	bool m_is_pass = false;
+	internal_SyncCounter m_game_thread_sync;
+	internal_SyncCounter m_voice_thread_sync;
+	Mutex m_mutex;
+};
+
+__EventData __0000_data;
+__EventData __0001_data;
+__EventData __0002_data;
+__EventData __0003_data;
+__EventData __0004_data;
+__EventData __0005_data;
+
+Object GOOD_PYLON1;
+Object GOOD_PYLON2;
+Object GOOD_PYLON3;
+
+Object GOOD_FROG1;
+Object GOOD_FROG2;
+Object GOOD_FROG3;
+
+Object UFO1;
+Object UFO2;
+Object UFO3;
+Object UFO4;
+
+Object TIMESHIP1;
+Object TIMESHIP2;
+Object TIMESHIP3;
+Object TIMESHIP4;
+
+Object CUTSCENE_TIMESHIP1;
+Object CUTSCENE_TIMESHIP2;
+Object CUTSCENE_TIMESHIP3;
+Object CUTSCENE_TIMESHIP4;
+Object CUTSCENE_TIMESHIP5;
+
+Object TANK1;
+Object TANK2;
+Object TANK3;
+Object TANK4;
+
+Object SQUAD1_1;
+Object SQUAD1_2;
+Object SQUAD1_3;
+Object SQUAD2_1;
+Object SQUAD2_2;
+Object SQUAD2_3;
+
+UI handle;
+
+EventLightTool tool;
+
+const uint __END_SYNC = 0x7fffffff;
+
+// [e2d_section_data] {"GUID":null,"Name":"グローバル定義","Type":"Global"}
+
+
+//======================================
+// 開始
+void Main()
+{
+	if( IsBoolState(0,::__0000_data.m_is_break,::__0000_data.m_is_break) ) return;
+	
+	::__0000_data.m_counter++;
+	const uint32 MAX_EVENT_ID = 5;
+	internal_Initialize(MAX_EVENT_ID);
+	internal_GetEventState(0).SetName("開始");
+	internal_GetEventState(1).SetName("終了");
+	internal_GetEventState(2).SetName("無名");
+	internal_GetEventState(3).SetName("無名");
+	internal_GetEventState(4).SetName("無名");
+	internal_GetEventState(5).SetName("無名");
+	
+	Mutex_LockObject@ __internal_thread_lock = ::__0000_data.m_mutex.Lock();
+	internal_InitEventThread(0, ::__0000_data.m_counter, "Main", "開始");
+	
+	// --------------------- pre loading begin.
+	BeginLoading();
+	PreloadMap("app:/map/nw_jyousuicity.mac", "cloudy2", -1);
+	Preload("app:/ui/UiResourceGroup_InMission.sgo", -1);
+	Preload("app:/ui/UiResourceGroup_MissionCleared.sgo", -1);
+	Preload("app:/ui/UiResourceGroup_MissionFailed.sgo", -1);
+	Preload("app:/object/AIARMYSOLDIER_AF_LEADER.sgo", -1);
+	Preload("app:/object/AIARMYSOLDIER_AF.sgo", -1);
+	Preload("app:/object/AIARMYSOLDIER_RL_LEADER.sgo", -1);
+	Preload("app:/object/AIARMYSOLDIER_RL.sgo", -1);
+	Preload("app:/object/AIHEAVYARMOR_SP_LEADER.sgo", -1);
+	Preload("app:/object/AIHEAVYARMOR_SP.sgo", -1);
+	Preload("app:/object/AIPALEWING_ELITE_LR_LEADER.sgo", -1);
+	Preload("app:/object/AIPALEWING_ELITE_LR.sgo", -1);
+	Preload("app:/object/AIPALEWING_IZN_LEADER.sgo", -1);
+	Preload("app:/object/AIPALEWING_IZN.sgo", -1);
+	Preload("app:/object/V504_BEGARUTA_G_AI.sgo", -1);
+	Preload("app:/object/V601_TANK_AI.sgo", -1);
+	Preload("app:/object/V603_FLAK_AI.sgo", -1);
+	Preload("app:/object/e508_carrier.sgo", -1);
+	Preload("app:/object/e505_generator.sgo", -1);
+	Preload("app:/object/E650_GIANTANT01.sgo", -1);
+	Preload("app:/object/E650_GIANTANT02B.sgo", -1);
+	Preload("app:/object/E651_SPIDER01.sgo", -1);
+	Preload("app:/object/GIANTANT01.sgo", -1);
+	Preload("app:/object/GIANTANT02B.sgo", -1);
+	Preload("app:/object/GIANTSPIDER01.sgo", -1);
+	Preload("app:/object/E503_FROG_AF.sgo", -1);
+	Preload("app:/object/e507_goldufo.sgo", -1);
+	Preload("app:/object/V504_BEGARUTA_G_MISSION.sgo", -1);
+	Preload("app:/object/V504_BEGARUTA_MISSION.sgo", -1);
+	Preload("app:/object/E611_TIMESHIP_FULL_LIGHT.sgo", -1);
+	Preload("app:/object/E665_GIANTANT_MEDIUM.sgo", -1);
+	Preload("app:/object/E669_SHELLFISH_MEDIUM.sgo", -1);
+	Preload("app:/object/E612_ANCHOR_HEAVYFIRE.sgo", -1);
+	Preload("app:/object/E651_SPIDER01_SILVER.sgo", -1);
+	Preload("app:/object/E515_IMPERIALUFO.sgo", -1);
+	Preload("app:/object/E515_IMPERIALUFO_PROTOTYPE.sgo", -1);
+	Preload("app:/object/E605_SPINNERUFO.sgo", -1);
+	Preload("app:/object/E507_GOLDUFO_HI.sgo", -1);
+	Preload("app:/object/E506_HA_BIGGREY_FL.sgo", -1);
+	Preload("app:/object/E511_MOTHERSHIP.sgo", -1);
+	Preload("app:/object/ShelterDoor.sgo", -1);
+	PreloadPlayerResource();
+	WaitPreload();
+	Online_WaitStart();
+	EndLoading();
+	// --------------------- pre loading end.
+
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0000_data.m_game_thread_sync.Reset();
+	::__0000_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0000_voice_event");
+
+	Main_usercode();
+	
+	::__0000_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void Main_usercode()
+{
+	// [e2d_section_data] {"GUID":"d8cb777a-eff9-4565-9b26-52c2f8217690","Name":"開始","Type":"game_script"}
+	if( IsBoolState(0,::__0000_data.m_is_pass,::__0000_data.m_is_pass) == false){
+
+		Map("app:/map/nw_jyousuicity.mac" /*マップファイルパス*/, "cloudy2" /*天候名*/);//暗闇ミッション専用天候。cloudyの環境マップのみを夜のテクスチャに入れ替えてある。
+
+		SetWeaponCondition(WEAPON_CONDITION_FORCE_ENABLE /*環境*/);
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD", "ディロイ増援01", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ディロイ増援01
+		e.Factor_Wait(0.0);
+	}
+
+		CreatePlayer("GOOD_PLAYER");
+
+	}
+	::__0000_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_voice_thread_sync.Wait(__END_SYNC);
+
+}
+
+void __0000_voice_event()
+{
+	__0000_voice_event_usercode();
+	
+	::__0000_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0000_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0000_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"d8cb777a-eff9-4565-9b26-52c2f8217690","Name":"開始","Type":"voice_script"}
+	if( IsBoolState(0,::__0000_data.m_is_pass,::__0000_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void __0001_game_event()
+{
+	if( IsBoolState(1,::__0001_data.m_is_break,::__0001_data.m_is_break) ) return;
+	
+	::__0001_data.m_counter++;
+	if( ::__0001_data.m_counter != 1 ) return;
+	if( internal_BeginFinishing() == false ) return; // 終了処理が開始済みなら帰る
+	Mutex_LockObject@ __internal_thread_lock = ::__0001_data.m_mutex.Lock();
+	internal_InitEventThread(1, ::__0001_data.m_counter, "__0001_game_event", "終了");
+	
+	WaitVoice();
+	g_soldiers = GetTalkers();
+	::__0001_data.m_game_thread_sync.Reset();
+	::__0001_data.m_voice_thread_sync.Reset();
+	::internal_CreateThread("__0001_voice_event");
+
+	__0001_game_event_usercode();
+	
+	::__0001_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0001_data.m_voice_thread_sync.Wait(__END_SYNC);
+	while(true) sys_Yield();
+}
+
+void __0001_game_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"4e6ce436-827b-4c9c-9f79-ccd7986ba33c","Name":"終了","Type":"game_script"}
+	if( IsBoolState(1,::__0001_data.m_is_pass,::__0001_data.m_is_pass) == false){
+		// ゲーム進行スクリプト
+
+
+		Wait(4);
+
+		Speak_Radio("AE113_031",0.0 ); //オペレーター「この戦果は……無茶苦茶です。レポートになんて書けば……。」
+
+
+
+		MissionClear();
+	}
+	// -----------------
+	::__0001_data.m_game_thread_sync.Update(__END_SYNC);
+	::__0001_data.m_voice_thread_sync.Wait(__END_SYNC);
+}
+
+void __0001_voice_event()
+{
+	__0001_voice_event_usercode();
+	
+	::__0001_data.m_voice_thread_sync.Update(__END_SYNC);
+	::__0001_data.m_game_thread_sync.Wait(__END_SYNC);
+}
+
+void __0001_voice_event_usercode()
+{
+	// [e2d_section_data] {"GUID":"4e6ce436-827b-4c9c-9f79-ccd7986ba33c","Name":"終了","Type":"voice_script"}
+	if( IsBoolState(1,::__0001_data.m_is_pass,::__0001_data.m_is_pass) == false){
+		// 音声スクリプト
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void TIMELINE_GOOD()
+{
+
+		MapObjectDestroy4("WIPE1", MOD4_FLAG_IGNORE_SMALL);
+		MapObjectDestroy4("WIPE2", MOD4_FLAG_IGNORE_SMALL);
+		MapObjectDestroy4("WIPE3", MOD4_FLAG_IGNORE_SMALL);
+		MapObjectDestroy4("WIPE4", MOD4_FLAG_IGNORE_SMALL);
+		MapObjectDestroy4("WIPE5", MOD4_FLAG_IGNORE_SMALL);
+
+		Merman_FogScene(0, 0, 0, 0.25);
+		SceneEffect_Rain(0.45, 0.9, 1, 7000, 4, 1.0);
+
+		CreateLieutenantSquad(
+			"GOOD_ALLY1",	// 配置ポイント
+			10,	// 部下の配置半径
+			"app:/object/AIARMYSOLDIER_AF_LEADER.sgo",	// リーダー sgo パス
+			"app:/object/AIARMYSOLDIER_AF.sgo",	// 部下 sgo パス
+			3,	// 部下の数
+			1,	// レベル
+			true	// プレイヤーに合流する？
+		).SetAutoResurrection(true);
+
+		CreateLieutenantSquad(
+			"GOOD_ALLY2",	// 配置ポイント
+			10,	// 部下の配置半径
+			"app:/object/AIARMYSOLDIER_RL_LEADER.sgo",	// リーダー sgo パス
+			"app:/object/AIARMYSOLDIER_RL.sgo",	// 部下 sgo パス
+			3,	// 部下の数
+			1,	// レベル
+			true	// プレイヤーに合流する？
+		).SetAutoResurrection(true);
+
+		CreateLieutenantSquad(
+			"GOOD_ALLY3",	// 配置ポイント
+			10,	// 部下の配置半径
+			"app:/object/AIHEAVYARMOR_SP_LEADER.sgo",	// リーダー sgo パス
+			"app:/object/AIHEAVYARMOR_SP.sgo",	// 部下 sgo パス
+			3,	// 部下の数
+			1,	// レベル
+			true	// プレイヤーに合流する？
+		).SetAutoResurrection(true).SetDurability(200);
+
+		TANK1=CreateFriend("GOOD_VEHICLE1", "app:/object/V504_BEGARUTA_G_AI.sgo", 1.0f, FALSE ).SetDurability(200);
+		TANK2=CreateFriend("GOOD_VEHICLE2", "app:/object/V603_FLAK_AI.sgo", 1.0f, FALSE ).SetDurability(200);
+		TANK3=CreateFriend("GOOD_VEHICLE3", "app:/object/V601_TANK_AI.sgo", 1.0f, FALSE ).SetDurability(200);
+		TANK4=CreateFriend("GOOD_VEHICLE4", "app:/object/V601_TANK_AI.sgo", 1.0f, FALSE ).SetDurability(200);
+
+		GOOD_FROG1=CreateEnemy(
+			"GOOD_FROG1",	// 配置ポイント
+			"app:/object/E503_FROG_AF.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		GOOD_FROG2=CreateEnemy(
+			"GOOD_FROG2",	// 配置ポイント
+			"app:/object/E503_FROG_AF.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		GOOD_FROG3=CreateEnemy(
+			"GOOD_FROG3",	// 配置ポイント
+			"app:/object/E503_FROG_AF.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		UFO1=CreateEnemy(
+			"GOOD_CARRIER1",	// 配置ポイント
+			"app:/object/e508_carrier.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		UFO2=CreateEnemy(
+			"GOOD_CARRIER2",	// 配置ポイント
+			"app:/object/e508_carrier.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		UFO3=CreateEnemy(
+			"GOOD_CARRIER3",	// 配置ポイント
+			"app:/object/e508_carrier.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		UFO4=CreateEnemy(
+			"GOOD_CARRIER4",	// 配置ポイント
+			"app:/object/e508_carrier.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_CUTSCENE", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(UFO1);
+			e.Factor_ObjectDestroy(UFO2);
+			e.Factor_ObjectDestroy(UFO3);
+			e.Factor_ObjectDestroy(UFO4);
+			e.Factor_ObjectDestroy(GOOD_PYLON1);
+			e.Factor_ObjectDestroy(GOOD_PYLON2);
+			e.Factor_ObjectDestroy(GOOD_PYLON3);
+			e.Factor_TeamObjectCount(TEAM_ID_ENEMY, 15);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_INTRO", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_Wait(1.0f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_SHIPMOVE", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_Wait(0.0f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_GENERATOR1", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_Wait(6.0f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_GENERATOR2", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_Wait(12.0f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_GENERATOR3", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_Wait(18.0f);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_GENERATOR4", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_Wait(24.0f);
+		}
+
+// PYLONS
+
+		GOOD_PYLON2=CreateEnemy2(
+			"GOOD_PYLON2",	// 配置ポイント
+			"app:/object/E505_GENERATOR.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Action(E505_GENERATOR_ACTION_FALL);
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_PYLON2SPAWN", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(8.0f);
+	}
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_PYLON1", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(10.0f);
+	}
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_PYLON3", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(20.0f);
+	}
+
+// STATIC UFOS
+
+		int count = 15;
+		if( GetDifficulty() >= MISSION_DIFFICULTY_HARDEST ) count = 30;
+
+		CreateFlyingEnemyGroup_Area(
+			"GOOD_AREA",	// エリア名
+			"app:/object/E507_GOLDUFO.sgo",	// sgo ファイルパス
+			count,	// 作成数
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		CreateFlyingEnemyGroup_Area(
+			"GOOD_AREA2",	// エリア名
+			"app:/object/E507_GOLDUFO.sgo",	// sgo ファイルパス
+			count,	// 作成数
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+}
+
+void TIMELINE_GOOD_SHIPMOVE()
+{
+		SetAiRoute( UFO3, "GOOD_CARRIER3_WAYPOINT");
+		SetAiMoveSpeed( UFO3, 0.12f );
+
+		SetAiRoute( UFO4, "GOOD_CARRIER4_WAYPOINT");
+		SetAiMoveSpeed( UFO4, 0.12f );
+}
+
+void TIMELINE_GOOD_GENERATOR1()
+{
+		SetEnemyGenerator(UFO1, 0, "app:/object/E650_GIANTANT01.sgo", 14, 1, 0.5, 30, FALSE );
+		SetEncount(TANK1);
+}
+
+void TIMELINE_GOOD_GENERATOR2()
+{
+		SetEnemyGenerator(UFO2, 0, "app:/object/E650_GIANTANT02B.sgo", 16, 1, 0.5, 30, FALSE );
+		SetEncount(TANK2);
+}
+
+void TIMELINE_GOOD_GENERATOR3()
+{
+		SetEnemyGenerator(UFO3, 0, "app:/object/GIANTANT01.sgo", 20, 1, 0.5, 30, FALSE );
+		SetEncount(TANK3);
+}
+
+void TIMELINE_GOOD_GENERATOR4()
+{
+		SetEnemyGenerator(UFO4, 0, "app:/object/GIANTANT02B.sgo", 20, 1, 0.5, 30, FALSE );
+		SetEncount(TANK4);
+}
+
+void TIMELINE_GOOD_PYLON1()
+{
+		GOOD_PYLON1=CreateEnemy2(
+			"GOOD_PYLON1",	// 配置ポイント
+			"app:/object/E505_GENERATOR.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Action(E505_GENERATOR_ACTION_FALL);
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_PYLON1SPAWN", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(8.0f);
+	}
+
+}
+
+void TIMELINE_GOOD_PYLON3()
+{
+		GOOD_PYLON3=CreateEnemy2(
+			"GOOD_PYLON3",	// 配置ポイント
+			"app:/object/E505_GENERATOR.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		).Action(E505_GENERATOR_ACTION_FALL);
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_PYLON3SPAWN", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(8.0f);
+	}
+
+// GENERATOR COUNT
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_INTRO5", "敵ジェネレータ１機追加", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 敵ジェネレータ１機追加
+		e.Factor_GeneratorEnemyCount(3);
+	}
+
+}
+
+void TIMELINE_GOOD_PYLON1SPAWN()
+{
+		SetEnemyGenerator(GOOD_PYLON1, 0, "app:/object/E651_SPIDER01.sgo", 10, 1, 0.5, 30, FALSE );
+}
+
+void TIMELINE_GOOD_PYLON2SPAWN()
+{
+		SetEnemyGenerator(GOOD_PYLON2, 0, "app:/object/GIANTSPIDER01.sgo", 20, 1, 0.5, 30, FALSE );
+}
+
+void TIMELINE_GOOD_PYLON3SPAWN()
+{
+		SetEnemyGenerator(GOOD_PYLON3, 0, "app:/object/E651_SPIDER01.sgo", 15, 1, 0.5, 30, FALSE );
+}
+
+void TIMELINE_GOOD_CUTSCENE()
+{
+
+		CrossFadeBgm("BGM_E6M13_TimeTravelMotherShip", 2.0f);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_CUTSCENEB", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(5.0f);
+		}
+}
+
+void TIMELINE_GOOD_CUTSCENEB()
+{
+
+		SetAlternateHistorySky2(50);
+
+		tool.EnvFadeAnimation(EVENT_LIGHT_ENV_FADE_AMBIENT_COLOR, 0.125, 0.1, 0.0, 0.0, 50);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG001", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(10.0f);
+		}
+
+		CUTSCENE_TIMESHIP1=CreateEnemy(
+			"CUTSCENE_TIMESHIP1",	// 配置ポイント
+			"app:/object/E611_TIMESHIP_FULL_LIGHT.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		CUTSCENE_TIMESHIP2=CreateEnemy(
+			"CUTSCENE_TIMESHIP2",	// 配置ポイント
+			"app:/object/E611_TIMESHIP_FULL_LIGHT.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		CUTSCENE_TIMESHIP3=CreateEnemy(
+			"CUTSCENE_TIMESHIP3",	// 配置ポイント
+			"app:/object/E611_TIMESHIP_FULL_LIGHT.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		CUTSCENE_TIMESHIP4=CreateEnemy(
+			"CUTSCENE_TIMESHIP4",	// 配置ポイント
+			"app:/object/E611_TIMESHIP_FULL_LIGHT.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		CUTSCENE_TIMESHIP5=CreateEnemy(
+			"CUTSCENE_TIMESHIP5",	// 配置ポイント
+			"app:/object/E611_TIMESHIP_FULL_LIGHT.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		CUTSCENE_TIMESHIP1.EDF6_TimeShip_Warp(2);
+
+		CUTSCENE_TIMESHIP2.EDF6_TimeShip_Warp(4);
+
+		CUTSCENE_TIMESHIP3.EDF6_TimeShip_Warp(6);
+
+		CUTSCENE_TIMESHIP4.EDF6_TimeShip_Warp(8);
+
+		CUTSCENE_TIMESHIP5.EDF6_TimeShip_Warp(10);
+}
+
+void TIMELINE_GOOD_INTRO()
+{
+
+// enemy dropships confirmed (mei ling)
+		Speak_Radio("BE107_010",0.0 ); //斥候128-1「敵船は停止したままです。」
+
+		Bgm("BGM_E6M26_Sentou");//非戦闘_地底
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_INTRO2", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(0.6f);
+		}
+}
+
+void TIMELINE_GOOD_INTRO2()
+{
+
+// all units, attack (campbell)
+		Speak_Radio("BE093_020",0.0 ); //斥候128-1「敵船は停止したままです。」
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_INTRO3", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(2.0f);
+		}
+
+}
+
+void TIMELINE_GOOD_INTRO3()
+{
+		handle = Dialog_Notification( "Z_FUTUREPAST_INTRO" );
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_INTRO4", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(5.0f);
+		}
+}
+
+void TIMELINE_GOOD_INTRO4()
+{
+		CloseUi( handle );
+}
+
+void TIMELINE_GOOD_INTRO5()
+{
+// discorso (campbell)
+		Speak_Radio("BEX16_010",0.0 ); //斥候128-1「敵船は停止したままです。」
+}
+
+void TIMELINE_GOOD_MSG001()
+{
+		handle = Dialog_Notification( "Z_FUTUREPAST001" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG002", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(6.0f);
+		}
+}
+
+void TIMELINE_GOOD_MSG002()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST002" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG003", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG003()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST003" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG004", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG004()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST004" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG005", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG005()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST005" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG006", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG006()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST006" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG007", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG007()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST007" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG008", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG008()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST008" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG009", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG009()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST009" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG010", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG010()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST010" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG011", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG011()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST011" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG012", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG012()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST012" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG013", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG013()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST013" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG014", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG014()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST014" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG015", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG015()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST015" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG016", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG016()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST016" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG017", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG017()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST017" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG018", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG018()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST018" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG019", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG019()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST019" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG020", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG020()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST020" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG021", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG021()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST021" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG022", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG022()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST022" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG023", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG023()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST023" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_GOOD_MSG024", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void TIMELINE_GOOD_MSG024()
+{
+		CloseUi( handle );
+		handle = Dialog_Notification( "Z_FUTUREPAST024" );
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("QUANTUM_LEAP", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.5f);
+		}
+}
+
+void QUANTUM_LEAP()
+{
+		CloseUi( handle );
+
+		PlaySe("母船UFO511リングユニット極太レーザーチャージ");
+		PlaySe("母船UFO511リングユニット極太レーザーチャージ");
+		PlaySe("母船UFO511リングユニット極太レーザーチャージ");
+
+		EventLightTool_EnvFadeAnimation( EVENT_LIGHT_ENV_FADE_FOG_DISTANCE, 5, 0, 0, 0, 0.0f );
+		EventLightTool_EnvFadeAnimation( EVENT_LIGHT_ENV_FADE_FOG_COLOR, 1, 1, 1, 20, 0.0f );
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("QUANTUM_LEAP2", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(5.0f);
+		}
+}
+
+void QUANTUM_LEAP2()
+{
+		PlaySe("母船UFO511リングユニットプラズマ通常発射");
+		PlaySe("母船UFO511リングユニットプラズマ通常発射");
+		PlaySe("母船UFO511リングユニットプラズマ通常発射");
+		PlaySe("母船UFO511リングユニットプラズマ通常発射");
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_BAD", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(1.3f);
+		}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void TIMELINE_BAD()
+{
+
+// MAP SWAP
+
+		ResetScene();
+
+		BeginLoading();
+		PreloadMap("app:/map/nw_Haikyo602.mac", "sunset", -1);
+		PreloadPlayerResource();
+		WaitPreload();
+		Online_WaitStart();
+		EndLoading();
+
+		Map("app:/map/nw_Haikyo602.mac" /*マップファイルパス*/, "sunset" /*天候名*/);//暗闇ミッション専用天候。cloudyの環境マップのみを夜のテクスチャに入れ替えてある。
+
+		CreateNeutral("Map外部シャッター1", "app:/object/ShelterDoor.sgo", 1);
+
+// RESUME PLAY
+
+		tool.EnvFadeAnimation(EVENT_LIGHT_ENV_FADE_AMBIENT_COLOR, -0.1, -0.1, -0.1, -0.1, 0);
+
+		SceneEffect_Snow(0.9f, 1.8f, 50000, 0.0);
+        SetDarkEnv(100, 1000, 0.125, 0.1, 0.0);
+
+		SetWeaponCondition( WEAPON_CONDITION_FORCE_ENABLE );
+
+		CreatePlayer("プレイヤー" /*プレイヤーを作成するポイント*/);
+
+		Bgm("BGM_E6M12_ZetsuboutekinaSenkyou");//非戦闘_地底
+
+		SQUAD1_1=CreateFriend(
+			"FRIEND1",
+			"app:/object/AIPALEWING_ELITE_LR_LEADER.sgo",
+			1,
+			true
+		).SetAutoResurrection(true).SetDurability(200);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_1);
+		}
+
+		SQUAD1_2=CreateFriend(
+			"FRIEND1B",
+			"app:/object/AIPALEWING_ELITE_LR.sgo",
+			1,
+			true
+		).SetAutoResurrection(true).SetDurability(200);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_2);
+		}
+
+		SQUAD1_3=CreateFriend(
+			"FRIEND1C",
+			"app:/object/AIPALEWING_ELITE_LR.sgo",
+			1,
+			true
+		).SetAutoResurrection(true).SetDurability(200);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_3);
+		}
+
+
+		SQUAD2_1=CreateFriend(
+			"FRIEND2",
+			"app:/object/AIPALEWING_IZN_LEADER.sgo",
+			1,
+			true
+		).SetAutoResurrection(true).SetDurability(200);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_1);
+		}
+
+		SQUAD2_2=CreateFriend(
+			"FRIEND2B",
+			"app:/object/AIPALEWING_IZN.sgo",
+			1,
+			true
+		).SetAutoResurrection(true).SetDurability(200);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_2);
+		}
+
+		SQUAD2_3=CreateFriend(
+			"FRIEND2C",
+			"app:/object/AIPALEWING_IZN.sgo",
+			1,
+			true
+		).SetAutoResurrection(true).SetDurability(200);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_3);
+		}
+
+		CreateVehicle("BAD_VEHICLE1", "app:/object/V504_BEGARUTA_G_MISSION.sgo");
+		CreateVehicle("BAD_VEHICLE2", "app:/object/V504_BEGARUTA_MISSION.sgo");
+		CreateVehicle("BAD_VEHICLE3", "app:/object/V504_BEGARUTA_G_MISSION.sgo");
+
+// TIMESHIP 1 FIXED
+
+		TIMESHIP1=CreateEnemy(
+			"中型UFO1_01",	// 配置ポイント
+			"app:/object/E611_TIMESHIP_FULL_LIGHT.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).SetEnemyGenerator(
+			0,	// 内部ジェネレータ番号
+			"app:/object/E665_GIANTANT_MEDIUM.sgo",	// 発生させるオブジェクトの sgo ファイルパス
+			7,	// 発生数
+			0.85,	// レベル
+			0.5,	// １体毎の発生間隔
+			30,	// 次回の集団発生までの間隔
+			false	// 遭遇状態で作成する？
+		);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE1", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(TIMESHIP1);
+		}
+
+// TIMESHIP 2 FIXED
+
+		TIMESHIP2=CreateEnemy(
+			"中型UFO1_02",	// 配置ポイント
+			"app:/object/E611_TIMESHIP_FULL_LIGHT.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).SetEnemyGenerator(
+			0,	// 内部ジェネレータ番号
+			"app:/object/E669_SHELLFISH_MEDIUM.sgo",	// 発生させるオブジェクトの sgo ファイルパス
+			8,	// 発生数
+			1,	// レベル
+			0.5,	// １体毎の発生間隔
+			30,	// 次回の集団発生までの間隔
+			false	// 遭遇状態で作成する？
+		);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE2", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(TIMESHIP2);
+		}
+
+// TIMESHIP 3 MOBILE CLOSEST
+
+		TIMESHIP3=CreateEnemy(
+			"中型UFO1_03",	// 配置ポイント
+			"app:/object/E611_TIMESHIP_FULL_LIGHT.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).SetAiRoute("中型UFO1_03ルート").SetAiMoveSpeed(0.5).SetEnemyGenerator(
+			0,	// 内部ジェネレータ番号
+			"app:/object/E665_GIANTANT_MEDIUM.sgo",	// 発生させるオブジェクトの sgo ファイルパス
+			9,	// 発生数
+			0.85,	// レベル
+			0.5,	// １体毎の発生間隔
+			30,	// 次回の集団発生までの間隔
+			false	// 遭遇状態で作成する？
+		);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE3", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(TIMESHIP3);
+		}
+
+// TIMESHIP 4 MOBILE FARTEST
+
+		TIMESHIP4=CreateEnemy(
+			"中型UFO1_04",	// 配置ポイント
+			"app:/object/E611_TIMESHIP_FULL_LIGHT.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).SetAiRoute("中型UFO1_04ルート").SetAiMoveSpeed(0.5).SetEnemyGenerator(
+			0,	// 内部ジェネレータ番号
+			"app:/object/E669_SHELLFISH_MEDIUM.sgo",	// 発生させるオブジェクトの sgo ファイルパス
+			9,	// 発生数
+			1,	// レベル
+			0.5,	// １体毎の発生間隔
+			30,	// 次回の集団発生までの間隔
+			false	// 遭遇状態で作成する？
+		);
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE4", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(TIMESHIP4);
+		}
+
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("VICTORY_CHECK", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(TIMESHIP1);
+			e.Factor_ObjectDestroy(TIMESHIP2);
+			e.Factor_ObjectDestroy(TIMESHIP3);
+			e.Factor_ObjectDestroy(TIMESHIP4);
+		}
+
+		CreateEnemy2(
+			"BAD_GREY1",	// 配置ポイント
+			"app:/object/E506_HA_BIGGREY_FL.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+		CreateEnemy2(
+			"BAD_GREY2",	// 配置ポイント
+			"app:/object/E506_HA_BIGGREY_FL.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+// PYLONS
+
+		CreateEnemy2(
+			"アンカー1_01",	// 配置ポイント
+			"app:/object/E612_ANCHOR_HEAVYFIRE.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).SetEnemyGenerator(
+			0,	// 内部ジェネレータ番号
+			"app:/object/E651_SPIDER01_SILVER.sgo",	// 発生させるオブジェクトの sgo ファイルパス
+			5,	// 発生数
+			0.75,	// レベル
+			0.5,	// １体毎の発生間隔
+			30,	// 次回の集団発生までの間隔
+			false	// 遭遇状態で作成する？
+		);
+
+		CreateEnemy2(
+			"アンカー1_02",	// 配置ポイント
+			"app:/object/E612_ANCHOR_HEAVYFIRE.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).SetEnemyGenerator(
+			0,	// 内部ジェネレータ番号
+			"app:/object/E651_SPIDER01_SILVER.sgo",	// 発生させるオブジェクトの sgo ファイルパス
+			8,	// 発生数
+			0.75,	// レベル
+			0.5,	// １体毎の発生間隔
+			30,	// 次回の集団発生までの間隔
+			false	// 遭遇状態で作成する？
+		);
+
+		CreateEnemy2(
+			"アンカー1_03",	// 配置ポイント
+			"app:/object/E612_ANCHOR_HEAVYFIRE.sgo",	// sgo ファイルパス
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		).SetEnemyGenerator(
+			0,	// 内部ジェネレータ番号
+			"app:/object/E651_SPIDER01_SILVER.sgo",	// 発生させるオブジェクトの sgo ファイルパス
+			10,	// 発生数
+			0.75,	// レベル
+			0.5,	// １体毎の発生間隔
+			30,	// 次回の集団発生までの間隔
+			false	// 遭遇状態で作成する？
+		);
+
+// GENERATOR COUNT
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("TIMELINE_BAD_INTRO", "敵ジェネレータ１機追加", 0.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 敵ジェネレータ１機追加
+		e.Factor_GeneratorEnemyCount(6);
+	}
+
+// STATIC UFOS
+
+		int count = 10;
+		if( GetDifficulty() >= MISSION_DIFFICULTY_HARDEST ) count =20;
+
+		CreateFlyingEnemyGroup_Area(
+			"AREA",	// エリア名
+			"app:/object/E515_IMPERIALUFO.sgo",	// sgo ファイルパス
+			count,	// 作成数
+			1,	// レベル（標準：1）
+			false	// true に設定すると遭遇状態
+		);
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("__0001_game_event", "終了", 100000000.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 終了
+		e.Factor_AllEnemyDestroy(0);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("SPRIGGAN_JOINED", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_AiFollow(SQUAD1_1);
+	}
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("SPRIGGAN_TALK1", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(1);
+	}
+}
+
+void ENRAGE1()
+{
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE1B", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(5.0f);
+	}
+}
+
+void ENRAGE1B()
+{
+		CreateFlyingEnemyGroup_Area(
+			"AREA_SHIP1",	// エリア名
+			"app:/object/E507_GOLDUFO_HI.sgo",	// sgo ファイルパス
+			8,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE1C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(5.0f);
+	}
+}
+
+void ENRAGE1C()
+{
+		CreateFlyingEnemyGroup_Area(
+			"AREA_SHIP1",	// エリア名
+			"app:/object/E507_GOLDUFO_HI.sgo",	// sgo ファイルパス
+			8,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE1D", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(5.0f);
+	}
+}
+
+void ENRAGE1D()
+{
+		CreateFlyingEnemyGroup_Area(
+			"AREA_SHIP1",	// エリア名
+			"app:/object/E507_GOLDUFO_HI.sgo",	// sgo ファイルパス
+			8,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void ENRAGE2()
+{
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE2B", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(5.0f);
+	}
+}
+
+void ENRAGE2B()
+{
+		CreateFlyingEnemyGroup_Area(
+			"AREA_SHIP2",	// エリア名
+			"app:/object/E515_IMPERIALUFO.sgo",	// sgo ファイルパス
+			6,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE2C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(5.0f);
+	}
+}
+
+void ENRAGE2C()
+{
+		CreateFlyingEnemyGroup_Area(
+			"AREA_SHIP2",	// エリア名
+			"app:/object/E515_IMPERIALUFO.sgo",	// sgo ファイルパス
+			6,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE2D", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(5.0f);
+	}
+}
+
+void ENRAGE2D()
+{
+		CreateFlyingEnemyGroup_Area(
+			"AREA_SHIP2",	// エリア名
+			"app:/object/E515_IMPERIALUFO.sgo",	// sgo ファイルパス
+			6,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void ENRAGE3()
+{
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE3B", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(5.0f);
+	}
+}
+
+void ENRAGE3B()
+{
+		CreateFlyingEnemyGroup_Area(
+			"AREA_SHIP3",	// エリア名
+			"app:/object/E605_SPINNERUFO.sgo",	// sgo ファイルパス
+			5,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE3C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(5.0f);
+	}
+}
+
+void ENRAGE3C()
+{
+		CreateFlyingEnemyGroup_Area(
+			"AREA_SHIP3",	// エリア名
+			"app:/object/E605_SPINNERUFO.sgo",	// sgo ファイルパス
+			5,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE3D", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(5.0f);
+	}
+}
+
+void ENRAGE3D()
+{
+		CreateFlyingEnemyGroup_Area(
+			"AREA_SHIP3",	// エリア名
+			"app:/object/E605_SPINNERUFO.sgo",	// sgo ファイルパス
+			5,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void ENRAGE4()
+{
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE4B", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(5.0f);
+	}
+}
+
+void ENRAGE4B()
+{
+		CreateFlyingEnemyGroup_Area(
+			"AREA_SHIP4",	// エリア名
+			"app:/object/E515_IMPERIALUFO_PROTOTYPE.sgo",	// sgo ファイルパス
+			7,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE4C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(5.0f);
+	}
+}
+
+void ENRAGE4C()
+{
+		CreateFlyingEnemyGroup_Area(
+			"AREA_SHIP4",	// エリア名
+			"app:/object/E515_IMPERIALUFO_PROTOTYPE.sgo",	// sgo ファイルパス
+			7,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("ENRAGE4D", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(5.0f);
+	}
+}
+
+void ENRAGE4D()
+{
+		CreateFlyingEnemyGroup_Area(
+			"AREA_SHIP4",	// エリア名
+			"app:/object/E515_IMPERIALUFO_PROTOTYPE.sgo",	// sgo ファイルパス
+			7,	// 作成数
+			1,	// レベル（標準：1）
+			true	// true に設定すると遭遇状態
+		);
+}
+
+void TIMELINE_BAD_INTRO()
+{
+// discorso chief commander
+		Speak_Radio("AEX02_036",0.0 ); //斥候128-1「敵船は停止したままです。」
+}
+
+void SPRIGGAN_JOINED()
+{
+		SQUAD1_1.SetAiObjectDirection_Object( GetPlayerObjectID(0),-1,FALSE);
+
+		SQUAD1_1.AppealAnimation("npc_ap014_charWD" /*アニメーション名*/);
+		Speak_Single(SQUAD1_1, "BE128_005", SPK_DEFAULT, 0.0 ); //スプリガン隊長「我々は夜戦のプロだ。任せておけ。」
+
+		SQUAD1_1.ClearAiObjectDirection(true);
+}
+
+void SPRIGGAN_TALK1()
+{
+
+		Wait(1);
+		
+		Speak_Single(SQUAD1_1, "BE128_002", SPK_DEFAULT, 0.0 ); //スプリガン隊長「闇にまぎれて敵船に近づく。行くぞ。」
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("SPRIGGAN_TALK2", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(5);
+	}
+}
+
+void SPRIGGAN_TALK2()
+{
+		Speak_Single(SQUAD1_1, "BE128_003", SPK_DEFAULT, 0.0 ); //スプリガン隊長「真下から敵船を破壊する。」
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("SPRIGGAN_TALK3", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(2);
+	}
+}
+
+void SPRIGGAN_TALK3()
+{
+		Speak_Radio("AE126_006",0.0 ); //本部「敵船の下には怪物が残っている。十分に注意しろ。」
+}
+
+void VICTORY_CHECK()
+{
+
+	tool.RevertAllEnvFadeAnimation(1.0, 45);
+
+	tool.EnvFadeAnimation(
+		EVENT_LIGHT_ENV_FADE_SKY_COLOR, // アニメーションさせるパラメータタイプ
+		0.03,								// x
+		0.03,								// y
+		0.12,								// z
+		0.15,								// w
+		45								// アニメーション時間
+	);
+
+	Merman_FogScene(45, 0, 0, 0.2);
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("VICTORY_CHECK2", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(16.0f);
+	}
+}
+
+void VICTORY_CHECK2()
+{
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("AGGRO", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(0.0f);
+	}
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("VICTORY_CHECK", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_TeamObjectCount(TEAM_ID_ENEMY, 0);
+	}
+}
+
+void AGGRO()
+{
+
+	SendTeamEncount( TEAM_ID_ENEMY );
+
+	{
+		internal_EventFactorRegister@ e = internal_CreateEvent("AGGRO", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+		e.Factor_Wait(5.0f);
+	}
+}
+
+void SQUAD1_1_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(60.0f);
+		}
+}
+
+void SQUAD1_1_REVIVE_B()
+{
+		SQUAD1_1.Resurrection();
+}
+
+void SQUAD1_1_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_1, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_1);
+		}
+}
+
+void SQUAD1_2_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(60.0f);
+		}
+}
+
+void SQUAD1_2_REVIVE_B()
+{
+		SQUAD1_2.Resurrection();
+}
+
+void SQUAD1_2_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_2, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_2);
+		}
+}
+
+void SQUAD1_3_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(60.0f);
+		}
+}
+
+void SQUAD1_3_REVIVE_B()
+{
+		SQUAD1_3.Resurrection();
+}
+
+void SQUAD1_3_REVIVE_C()
+{
+		SetObjectDurability(SQUAD1_3, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD1_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD1_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD1_3);
+		}
+}
+
+void SQUAD2_1_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(60.0f);
+		}
+}
+
+void SQUAD2_1_REVIVE_B()
+{
+		SQUAD2_1.Resurrection();
+}
+
+void SQUAD2_1_REVIVE_C()
+{
+		SetObjectDurability(SQUAD2_1, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_1);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_1_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_1);
+		}
+}
+
+void SQUAD2_2_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(60.0f);
+		}
+}
+
+void SQUAD2_2_REVIVE_B()
+{
+		SQUAD2_2.Resurrection();
+}
+
+void SQUAD2_2_REVIVE_C()
+{
+		SetObjectDurability(SQUAD2_2, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_2);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_2_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_2);
+		}
+}
+
+void SQUAD2_3_REVIVE_A()
+{
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_B", "ジェネレーター稼働2", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // ジェネレーター稼働2
+			e.Factor_Wait(60.0f);
+		}
+}
+
+void SQUAD2_3_REVIVE_B()
+{
+		SQUAD2_3.Resurrection();
+}
+
+void SQUAD2_3_REVIVE_C()
+{
+		SetObjectDurability(SQUAD2_3, 110.0f);
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_A", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectDestroy(SQUAD2_3);
+		}
+		{
+			internal_EventFactorRegister@ e = internal_CreateEvent("SQUAD2_3_REVIVE_C", "無名", 1.00, EVENT_TYPE_SYNC, EVENT_CHECK_AND, 1); // 無名
+			e.Factor_ObjectResurrection(SQUAD2_3);
+		}
+}

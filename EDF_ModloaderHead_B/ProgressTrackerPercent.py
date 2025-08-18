@@ -7,7 +7,7 @@ NOTE THE HEAD USES THE THIS AS EXE NOT THE PY
 '''
 
 def get_version():
-    return "0.0.2"
+    return "0.0.3"
 
 # Initialize as None to be set by an external function
 settings = {}
@@ -22,19 +22,25 @@ def initialize_settings(current_dir):
     current_directory = current_dir
     settings = load_settings(current_directory)
     
-
 def load_settings(current_directory):
     """Load settings from a JSON file, with default fallback and validation."""
     settings_file = "MMLsettings.json"
     default_settings = {
         "edf6_platform": "steam",
         "platform_can_be": "steam|epic",
+        "modloader_HAKKEN_style": "NI",  # Change to "I" Installer or "NI" NO INSTALL,
         "base_dir": current_directory,
-        "modloader_HAKKEN_style": "NI",
+        "language": "en",
+        "font_sizes": {
+            "global_font": 10,
+            "global_font_h": 12
+        },
         "colors": {
             "JustBackGround": "#484848",
             "ButtonBackGround": "#000000",
             "ButtonPressedBackGround": "#010e70",
+            "hover_bg": "#555555",
+            "hover_fg": "#ffffff",
             "TextColor": "#B3FF00",
             "PressedTextColor": "#ffffff",
             "Helpful Color Blind Site": "https://davidmathlogic.com/colorblind/#%23484848-%23000000-%23010E70-%23FFFFFF"
@@ -43,20 +49,34 @@ def load_settings(current_directory):
         "modloader_status_can_be": "Enabled|Disabled, DONT EDIT AS THIS IS VISUAL TEXT",
         "progress": {
             "Last Game": "EDF 6",
-            "EDF 6": 0.0,
+            "EDF World Brothers 2": 0.0,  # Sep 2024
+            "(WB2) Extra Mission Pack: Robo Saurous vs the Mecharmy": 0.0,
+            "EDF 6": 0.0,  # Jul 2024 (West)
             "( 6 ) DLC Lost Days": 0.0,
             "( 6 ) DLC Visions of Malice": 0.0,
-            "EDF 5": 0.0,
+            "EDF World Brothers": 0.0,  # May 2021
+            "(WB ) Additional Mission Pack: Another ResCUBE": 0.0,
+            "EDF: Iron Rain": 0.0,  # Apr 2019
+            "(IR ) Golden Storm": 0.0,
+            "EDF 5 Online": 0.0,  # Dec 2018
+            "EDF 5 Offline": 0.0,
             "( 5 ) DLC Mission Pack 1": 0.0,
             "( 5 ) DLC Mission Pack 2": 0.0,
-            "EDF 4.1": 0.0,
+            "EDF 4.1 Online": 0.0,  # Apr 2016
+            "EDF 4.1 Offline": 0.0,
             "(4.1) DLC Mission Pack 1": 0.0,
             "(4.1) DLC Mission Pack 2": 0.0,
-            "EDF World Brothers": 0.0,
-            "(WB ) Additional Mission Pack: Another ResCUBE": 0.0,
-            "EDF World Brothers 2": 0.0,
-            "(WB2) Extra Mission Pack: Robo Saurous vs the Mecharmy": 0.0,
-            "Custom Mod Pack": 0.0
+            "EDF 2025": 0.0,  # Feb 2014
+            "(2025) DLC Mission Pack 1": 0.0,
+            "(2025) DLC Mission Pack 2": 0.0,
+            "(2025) DLC Mission Pack 3": 0.0,
+            "EDF 2 Portable (Vita)": 0.0,  # Apr 2013
+            "EDF 2017 Portable (Vita)": 0.0,  # Jan 2013
+            "EDF Insect Armageddon": 0.0,  # Jul 2011
+            "EDF 2017": 0.0,  # Mar 2007
+            "EDF 2": 0.0,  # Jul 2005
+            "Monster Attack (2003)": 0.0,  # Mar 2004 (EU)
+            "Custom Mod Pack": 0.0  # No date
         },
         "Custom Mod Pack": {
             "ClassCount": 4,
@@ -102,19 +122,33 @@ def debug_tk_instances():
 # Tuple of games with parameters, notes and mod pack support
 games = {
     #"Game": (ClassCount, Difficulties, Missions, NoLimits, Notes)
-    "EDF 6": (4, 5, 147, 0.70, "`Hard` diff can give you `Normal` & `Easy` Medals, Online & Offline share progress"),
-    "( 6 ) DLC Lost Days": (4, 5, 19, 0.70, "`Hard` diff can give you `Normal` & `Easy` Medals, Online & Offline share progress"),
-    "( 6 ) DLC Visions of Malice": (4, 5, 40, 0.70, "`Hard` diff can give you `Normal` & `Easy` Medals, Online & Offline share progress"),
-    "EDF 5": (4, 5, 111, 0.70, "`Hard` diff can give you `Normal` & `Easy` Medals, Online & Offline can't share progress"),
-    "( 5 ) DLC Mission Pack 1": (4, 5, 15, 0.70, "`Hard` diff can give you `Normal` & `Easy` Medals, Online & Offline can't share progress"),
-    "( 5 ) DLC Mission Pack 2": (4, 5, 14, 0.70, "`Hard` diff can give you `Normal` & `Easy` Medals, Online & Offline can't share progress"),
-    "EDF 4.1": (4, 5, 98, 0.70, "You have to play each diff per class, Online & Offline can't share progress"),
-    "(4.1) DLC Mission Pack 1": (4, 5, 26, 0.70, "You have to play each diff per class, Online & Offline can't share progress"),
-    "(4.1) DLC Mission Pack 2": (4, 5, 20, 0.70, "You have to play each diff per class, Online & Offline can't share progress"),
-    "EDF World Brothers": (1, 5, 60, 0.80, "Voxel EDF"),
-    "(WB ) Additional Mission Pack: Another ResCUBE": (1, 6, 11, 0.80, "Voxel EDF"),
-    "EDF World Brothers 2": (1, 5, 104, 0.80, "Voxel EDF The sequel"),
-    "(WB2) Extra Mission Pack: Robo Saurous vs the Mecharmy": (1, 6, 16, 0.80, "Voxel EDF The sequel"),
+    "EDF World Brothers 2": (1, 5, 104, 0.80, "Voxel EDF The sequel"),  # Sep 2024
+    "(WB2) Extra Mission Pack: Robo Saurous vs the Mecharmy": (1, 6, 16, 0.80, "Voxel EDF The sequel"),  # 2024 (post-base)
+    "EDF 6": (4, 5, 147, 0.70, "`Hard` diff can give you `Normal` & `Easy` Medals, Online & Offline share progress"),  # Jul 2024 (post-base)
+    "( 6 ) DLC Lost Days": (4, 5, 19, 0.70, "`Hard` diff can give you `Normal` & `Easy` Medals, Online & Offline share progress"),  # 2024 (post-base)
+    "( 6 ) DLC Visions of Malice": (4, 5, 40, 0.70, "`Hard` diff can give you `Normal` & `Easy` Medals, Online & Offline share progress"),  # 2024 (post-base)
+    "EDF World Brothers": (1, 5, 60, 0.80, "Voxel EDF"),  # May 2021
+    "(WB ) Additional Mission Pack: Another ResCUBE": (1, 6, 11, 0.80, "Voxel EDF"),  # 2021 (post-base)
+    "EDF: Iron Rain": (1, 5, 52, 1, "Disaster difficulty unlocks post-campaign, no explicit No Limits %"),  # Apr 2019
+    "(IR ): Golden Storm": (1, 5, 14, 1, "Disaster difficulty unlocks post-campaign, no explicit No Limits %"),  # 2019 (post-base)
+    "EDF 5 Online": (4, 5, 111, 0.70, "`Hard` diff can give you `Normal` & `Easy` Medals, Online & Offline can't share progress"),  # Dec 2018
+    "EDF 5 Offline": (4, 5, 110, 0.70, "`Hard` diff can give you `Normal` & `Easy` Medals, Online & Offline can't share progress"),  # Dec 2018
+    "( 5 ) DLC Mission Pack 1": (4, 5, 15, 0.70, "`Hard` diff can give you `Normal` & `Easy` Medals, Online & Offline can't share progress"),  # 2018
+    "( 5 ) DLC Mission Pack 2": (4, 5, 14, 0.70, "`Hard` diff can give you `Normal` & `Easy` Medals, Online & Offline can't share progress"),  # 2018
+    "EDF 4.1 Online": (4, 5, 98, 0.70, "You have to play each diff per class, Online & Offline can't share progress"),  # Apr 2016
+    "EDF 4.1 Offline": (4, 5, 89, 0.70, "You have to play each diff per class, Online & Offline can't share progress"),  # Apr 2016
+    "(4.1) DLC Mission Pack 1": (4, 5, 26, 0.70, "You have to play each diff per class, Online & Offline can't share progress"),  # 2016
+    "(4.1) DLC Mission Pack 2": (4, 5, 20, 0.70, "You have to play each diff per class, Online & Offline can't share progress"),  # 2016
+    "EDF 2025": (4, 5, 85, 1, "First with Ranger, Wing Diver, Air Raider, Fencer; online limits exist but no removal % specified"),  # Feb 2014
+    "(2025) DLC Mission Pack 1": (4, 5, 20, 1, "Extra missions, online limits exist but no removal % specified"),  # 2014
+    "(2025) DLC Mission Pack 2": (4, 5, 20, 1, "Extra missions, online limits exist but no removal % specified"),  # 2014
+    "(2025) DLC Mission Pack 3": (4, 5, 15, 1, "Extra missions, online limits exist but no removal % specified"),  # 2014
+    "EDF 2 Portable (Vita)": (3, 6, 78, 1, "Adds Air Raider, online co-op introduced"),  # Apr 2013
+    "EDF 2017 Portable (Vita)": (2, 5, 60, 1, "Adds Pale Wing, online co-op introduced"),  # Jan 2013
+    "EDF Insect Armageddon": (4, 3, 15, 1, "Unique classes: Trooper, Jet, Tactical, Battle Armor; no limits mechanic"),  # Jul 2011
+    "EDF 2017": (1, 5, 53, 1, "Xbox 360 original, local co-op only"),  # Mar 2007
+    "EDF 2": (2, 6, 71, 1, "Added Pale Wing class, Impossible difficulty unlocks after full clear"),  # Jul 2005
+    "Monster Attack (2003)": (1, 5, 25, 1, "Original PS2 game (Simple 2000 Vol. 31: The Earth Defense Force in JP), no online mode"),  # Mar 2004 (EU)
     "Custom Mod Pack": (None, None, None, None, "Custom mod pack: Edit: Class Count, Difficulties, Missions, No Limits Percentage.")
 }
 
@@ -486,6 +520,28 @@ def calculate_results():
 
 def launch_progress_tracker():
     root.title(f"Progress Tracker " + get_version())
+    root.configure(bg=settings["colors"]["JustBackGround"])
+    style = ttk.Style()
+    style.configure("TButton",
+                    background=settings["colors"]["ButtonBackGround"],
+                    foreground=settings["colors"]["ButtonBackGround"])
+    style.map("TButton",
+              background=[('pressed', settings["colors"]["ButtonPressedBackGround"]),
+                          ('active', settings["colors"]["ButtonBackGround"])],
+              foreground=[('pressed', settings["colors"]["ButtonBackGround"]),
+                          ('active', settings["colors"]["TextColor"])])
+
+    for widget in root.winfo_children():
+        if isinstance(widget, ttk.Button):
+            widget.configure(style="TButton")
+
+    for widget in root.winfo_children():
+        if isinstance(widget, ttk.Label):
+            widget.configure(background=settings["colors"]["JustBackGround"],
+                             foreground=settings["colors"]["TextColor"])
+        elif isinstance(widget, ttk.Entry):
+            widget.configure(background=settings["colors"]["ButtonBackGround"],
+                             foreground=settings["colors"]["TextColor"])
 
     def on_closing():
         save_progress_on_close()
@@ -535,6 +591,11 @@ def launch_progress_tracker():
 
     # Bind the mouse click event to the slider to simulate +1 or -1 Medal buttons
     completion_slider.bind("<Button-1>", on_slider_click)
+
+    completion_slider.config(bg=settings["colors"]["JustBackGround"],
+                        fg=settings["colors"]["TextColor"],
+                        highlightbackground=settings["colors"]["ButtonBackGround"])
+
 
     # Custom Mod Pack fields (hidden by default)
     global class_count_label, class_count_entry, difficulties_label, difficulties_entry, missions_label, missions_entry, no_limits_label, no_limits_entry

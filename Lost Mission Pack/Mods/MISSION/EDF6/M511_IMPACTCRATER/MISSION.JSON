@@ -1,0 +1,2913 @@
+{
+    "camera": null,
+    "routes": null,
+    "shapes": {
+        "groups": [
+            {
+                "name": "行動範囲",
+                "shapes": [
+                    {
+                        "data": {
+                            "height": 0.0,
+                            "position": [
+                                -116.36190795898438,
+                                817.6088256835938,
+                                191.95668029785156
+                            ],
+                            "radius": 0.0,
+                            "rec_size": [
+                                360.0,
+                                1000.0,
+                                360.0
+                            ],
+                            "unk_vec": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        "id": 3,
+                        "info": {
+                            "param": "Usage",
+                            "value": "通常"
+                        },
+                        "name": "行動範囲",
+                        "type": "Rectangle",
+                        "unk1": 1,
+                        "unk2": 1
+                    },
+
+
+
+
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -360.6934204, -38.62479019, 116.776741 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL01",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -299.4030151, -72.21533966, 112.278656 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL02",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -244.1622467, -113.2035751, 118.3384094 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL03",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -205.8101654, -129.6747894, 133.8558502 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL04",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -136.7326355, -142.3750153, 163.912735 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL05",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -82.46833038, -142.4323425, 169.1566772 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL06",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -33.64174271, -136.9268341, 223.3251801 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL07",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -65.1805191, -132.437645, 275.0782471 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL08",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -4.492192268, -114.4341431, 287.149292 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL09",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ 50.91962433, -70.54203033, 284.4671326 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL10",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ 114.7448502, -43.55016327, 292.8928833 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL11",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -34.8514595, -45.88558197, 433.5782166 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL12",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -119.2105026, -50.24461365, 437.7579346 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL13",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -181.1544495, -51.19474411, 427.1039124 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL14",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -237.0483551, -48.78966904, 419.2362976 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL15",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -26.41647148, -74.71065521, 373.412262 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL16",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -105.6985397, -110.71315, 328.2952271 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL17",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -5.550122738, -114.564827, 288.3432922 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL18",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ 29.50511551, -113.1748199, 213.836853 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL19",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ 23.84764862, -112.9482193, 150.8769226 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL20",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -10.25282574, -107.6753387, 90.10420227 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL21",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -330.2365723, -35.24900627, 59.49544525 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL22",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -295.5839233, -35.73779106, 17.46365166 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL23",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -247.4893951, -35.46323395, -23.9790287 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL24",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -198.3147278, -37.32792664, -45.37588501 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL25",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -129.92276, -43.90953445, -54.15113831 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL26",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -46.59671402, -42.41250229, -49.29668427 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL27",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -0.3165753782, -45.35437012, -21.01202393 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL28",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ 57.39392853, -45.48498535, 19.22218704 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL29",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ 114.6379089, -39.85830688, 57.94971085 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL30",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -384.4598083, -40.08716965, 189.6882324 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL31",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -380.034729, -38.60388947, 256.1080933 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL32",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -353.7469177, -36.37129021, 324.590332 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL33",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -304.2401733, -37.34222031, 390.7450562 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL34",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -322.2725525, -74.9970932, 183.4156036 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL35",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -339.7771912, -60.7082634, 246.6066589 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL36",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -297.9954834, -65.58392334, 291.1968994 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL37",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -278.6340637, -62.70174789, 357.0113525 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL38",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -263.6573792, -70.49737549, 317.2403259 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL39",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -213.1526794, -76.14232635, 367.6870728 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL40",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -144.2016296, -79.12436676, 386.5062256 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL41",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -172.8419189, -110.9388657, 326.616272 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL42",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -222.7183075, -115.8568726, 278.3602905 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL43",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -256.8707581, -114.4333191, 226.1618042 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL44",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -196.8632507, -132.5310059, 219.92276 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL45",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -136.5075226, -136.4435883, 263.9493103 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL46",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -103.9496765, -131.9726486, 96.33985138 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL47",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -94.85968781, -104.56481934, 48.96435928 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL48",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -186.5245972, -113.960083, 68.41392517 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL49",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -256.0337219, -74.75931549, 53.25971222 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL50",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -197.496048, -74.12944794, 17.43404961 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL51",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -125.7219772, -77.46142578, 0.6440532804 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL52",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -53.86725998, -71.91866302, 19.57450294 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL53",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ 29.2915802, -72.99143219, 60.09123611 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL54",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ 77.10254669, -79.72452545, 135.4551239 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL55",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ 80.1720047, -72.27000427, 229.0792084 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL56",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ 43.27690506, -47.08146286, 359.6011658 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL57",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ -28.92128944, -130.7098465, 127.2755661 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL58",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ 141.2951965, -43.74825668, 215.0515594 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL59",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					},
+					{
+						"data": {
+							"height": 0.0,
+							"position": [ 137.1940155, -44.10411835, 126.7764206 ],
+							"radius": 5.0,
+							"rec_size": [ 0.0, 0.0, 0.0 ],
+							"unk_vec": [ 0.0, 0.0, 0.0 ]
+						},
+						"id": 3,
+						"info": {
+							"param": "Usage",
+							"value": "通常"
+						},
+						"name": "ANTHILL60",
+						"type": "Sphere",
+						"unk1": 1,
+						"unk2": 1
+					}
+
+
+
+
+
+                ]
+            }
+        ]
+    },
+    "spawnpoints": {
+        "groups": [
+            {
+                "name": "味方",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "プレイヤー",
+                        "position": [ -418.3362427, 26.92146111, 85.60058594 ]
+                    }
+                ]
+            },
+            {
+                "name": "FRIEND1",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND1",
+                        "position": [ -423.3198242, 25.50900078, 96.8297348 ]
+                    },
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND1B",
+                        "position": [ -418.3198242, 25.50900078, 101.8297348 ]
+                    },
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND1C",
+                        "position": [ -428.3198242, 25.50900078, 91.8297348 ]
+                    },
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND1D",
+                        "position": [ -418.3198242, 25.50900078, 91.8297348 ]
+                    }
+                ]
+            },
+            {
+                "name": "FRIEND2",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND2",
+                        "position": [ -407.1468201, 25.6989975, 58.12668991 ]
+                    },
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND2B",
+                        "position": [ -402.1468201, 25.6989975, 63.12668991 ]
+                    },
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND2C",
+                        "position": [ -412.1468201, 25.6989975, 53.12668991 ]
+                    },
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND2D",
+                        "position": [ -402.1468201, 25.6989975, 53.12668991 ]
+                    }
+                ]
+            },
+            {
+                "name": "FRIEND3",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND3",
+                        "position": [ -427.1322632, 23.67298126, 119.3061295 ]
+                    },
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND3B",
+                        "position": [ -422.1322632, 23.67298126, 124.3061295 ]
+                    },
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND3C",
+                        "position": [ -432.1322632, 23.67298126, 114.3061295 ]
+                    },
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND3D",
+                        "position": [ -422.1322632, 23.67298126, 114.3061295 ]
+                    }
+                ]
+            },
+            {
+                "name": "FRIEND4",
+                "spawnpoints": [
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND4",
+                        "position": [ -414.9042053, 26.26592445, 75.13778687 ]
+                    },
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND4B",
+                        "position": [ -409.9042053, 26.26592445, 80.13778687 ]
+                    },
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND4C",
+                        "position": [ -419.9042053, 26.26592445, 70.13778687 ]
+                    },
+                    {
+                        "facing": [
+                            -373.14898681640625,
+                            6.776500225067139,
+                            105.11978912353516
+                        ],
+                        "id": 6,
+                        "name": "FRIEND4D",
+                        "position": [ -409.9042053, 26.26592445, 70.13778687 ]
+                    }
+                ]
+            },
+
+            {
+                "name": "ANTHILL01",
+                "spawnpoints": [
+                    {
+                        "facing": [ -360.6934204, -38.62479019, 116.776741 ],
+                        "id": 6,
+                        "name": "ANTHILL01",
+                        "position": [ -360.6934204, -38.62479019, 116.776741 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL02",
+                "spawnpoints": [
+                    {
+                        "facing": [ -299.4030151, -72.21533966, 112.278656 ],
+                        "id": 6,
+                        "name": "ANTHILL02",
+                        "position": [ -299.4030151, -72.21533966, 112.278656 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL03",
+                "spawnpoints": [
+                    {
+                        "facing": [ -244.1622467, -113.2035751, 118.3384094 ],
+                        "id": 6,
+                        "name": "ANTHILL03",
+                        "position": [ -244.1622467, -113.2035751, 118.3384094 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL04",
+                "spawnpoints": [
+                    {
+                        "facing": [ -205.8101654, -129.6747894, 133.8558502 ],
+                        "id": 6,
+                        "name": "ANTHILL04",
+                        "position": [ -205.8101654, -129.6747894, 133.8558502 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL05",
+                "spawnpoints": [
+                    {
+                        "facing": [ -136.7326355, -142.3750153, 163.912735 ],
+                        "id": 6,
+                        "name": "ANTHILL05",
+                        "position": [ -136.7326355, -142.3750153, 163.912735 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL06",
+                "spawnpoints": [
+                    {
+                        "facing": [ -82.46833038, -142.4323425, 169.1566772 ],
+                        "id": 6,
+                        "name": "ANTHILL06",
+                        "position": [ -82.46833038, -142.4323425, 169.1566772 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL07",
+                "spawnpoints": [
+                    {
+                        "facing": [ -33.64174271, -136.9268341, 223.3251801 ],
+                        "id": 6,
+                        "name": "ANTHILL07",
+                        "position": [ -33.64174271, -136.9268341, 223.3251801 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL08",
+                "spawnpoints": [
+                    {
+                        "facing": [ -65.1805191, -132.437645, 275.0782471 ],
+                        "id": 6,
+                        "name": "ANTHILL08",
+                        "position": [ -65.1805191, -132.437645, 275.0782471 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL09",
+                "spawnpoints": [
+                    {
+                        "facing": [ -4.492192268, -114.4341431, 287.149292 ],
+                        "id": 6,
+                        "name": "ANTHILL09",
+                        "position": [ -4.492192268, -114.4341431, 287.149292 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL10",
+                "spawnpoints": [
+                    {
+                        "facing": [ 50.91962433, -70.54203033, 284.4671326 ],
+                        "id": 6,
+                        "name": "ANTHILL10",
+                        "position": [ 50.91962433, -70.54203033, 284.4671326 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL11",
+                "spawnpoints": [
+                    {
+                        "facing": [ 114.7448502, -43.55016327, 292.8928833 ],
+                        "id": 6,
+                        "name": "ANTHILL11",
+                        "position": [ 114.7448502, -43.55016327, 292.8928833 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL12",
+                "spawnpoints": [
+                    {
+                        "facing": [ -34.8514595, -45.88558197, 433.5782166 ],
+                        "id": 6,
+                        "name": "ANTHILL12",
+                        "position": [ -34.8514595, -45.88558197, 433.5782166 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL13",
+                "spawnpoints": [
+                    {
+                        "facing": [ -119.2105026, -50.24461365, 437.7579346 ],
+                        "id": 6,
+                        "name": "ANTHILL13",
+                        "position": [ -119.2105026, -50.24461365, 437.7579346 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL14",
+                "spawnpoints": [
+                    {
+                        "facing": [ -181.1544495, -51.19474411, 427.1039124 ],
+                        "id": 6,
+                        "name": "ANTHILL14",
+                        "position": [ -181.1544495, -51.19474411, 427.1039124 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL15",
+                "spawnpoints": [
+                    {
+                        "facing": [ -237.0483551, -48.78966904, 419.2362976 ],
+                        "id": 6,
+                        "name": "ANTHILL15",
+                        "position": [ -237.0483551, -48.78966904, 419.2362976 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL16",
+                "spawnpoints": [
+                    {
+                        "facing": [ -26.41647148, -74.71065521, 373.412262 ],
+                        "id": 6,
+                        "name": "ANTHILL16",
+                        "position": [ -26.41647148, -74.71065521, 373.412262 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL17",
+                "spawnpoints": [
+                    {
+                        "facing": [ -105.6985397, -110.71315, 328.2952271 ],
+                        "id": 6,
+                        "name": "ANTHILL17",
+                        "position": [ -105.6985397, -110.71315, 328.2952271 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL18",
+                "spawnpoints": [
+                    {
+                        "facing": [ -5.550122738, -114.564827, 288.3432922 ],
+                        "id": 6,
+                        "name": "ANTHILL18",
+                        "position": [ -5.550122738, -114.564827, 288.3432922 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL19",
+                "spawnpoints": [
+                    {
+                        "facing": [ 29.50511551, -113.1748199, 213.836853 ],
+                        "id": 6,
+                        "name": "ANTHILL19",
+                        "position": [ 29.50511551, -113.1748199, 213.836853 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL20",
+                "spawnpoints": [
+                    {
+                        "facing": [ 23.84764862, -112.9482193, 150.8769226 ],
+                        "id": 6,
+                        "name": "ANTHILL20",
+                        "position": [ 23.84764862, -112.9482193, 150.8769226 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL21",
+                "spawnpoints": [
+                    {
+                        "facing": [ -10.25282574, -107.6753387, 90.10420227 ],
+                        "id": 6,
+                        "name": "ANTHILL21",
+                        "position": [ -10.25282574, -107.6753387, 90.10420227 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL22",
+                "spawnpoints": [
+                    {
+                        "facing": [ -330.2365723, -35.24900627, 59.49544525 ],
+                        "id": 6,
+                        "name": "ANTHILL22",
+                        "position": [ -330.2365723, -35.24900627, 59.49544525 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL23",
+                "spawnpoints": [
+                    {
+                        "facing": [ -295.5839233, -35.73779106, 17.46365166 ],
+                        "id": 6,
+                        "name": "ANTHILL23",
+                        "position": [ -295.5839233, -35.73779106, 17.46365166 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL24",
+                "spawnpoints": [
+                    {
+                        "facing": [ -247.4893951, -35.46323395, -23.9790287 ],
+                        "id": 6,
+                        "name": "ANTHILL24",
+                        "position": [ -247.4893951, -35.46323395, -23.9790287 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL25",
+                "spawnpoints": [
+                    {
+                        "facing": [ -198.3147278, -37.32792664, -45.37588501 ],
+                        "id": 6,
+                        "name": "ANTHILL25",
+                        "position": [ -198.3147278, -37.32792664, -45.37588501 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL26",
+                "spawnpoints": [
+                    {
+                        "facing": [ -129.92276, -43.90953445, -54.15113831 ],
+                        "id": 6,
+                        "name": "ANTHILL26",
+                        "position": [ -129.92276, -43.90953445, -54.15113831 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL27",
+                "spawnpoints": [
+                    {
+                        "facing": [ -46.59671402, -42.41250229, -49.29668427 ],
+                        "id": 6,
+                        "name": "ANTHILL27",
+                        "position": [ -46.59671402, -42.41250229, -49.29668427 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL28",
+                "spawnpoints": [
+                    {
+                        "facing": [ -0.3165753782, -45.35437012, -21.01202393 ],
+                        "id": 6,
+                        "name": "ANTHILL28",
+                        "position": [ -0.3165753782, -45.35437012, -21.01202393 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL29",
+                "spawnpoints": [
+                    {
+                        "facing": [ 57.39392853, -45.48498535, 19.22218704 ],
+                        "id": 6,
+                        "name": "ANTHILL29",
+                        "position": [ 57.39392853, -45.48498535, 19.22218704 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL30",
+                "spawnpoints": [
+                    {
+                        "facing": [ 114.6379089, -39.85830688, 57.94971085 ],
+                        "id": 6,
+                        "name": "ANTHILL30",
+                        "position": [ 114.6379089, -39.85830688, 57.94971085 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL31",
+                "spawnpoints": [
+                    {
+                        "facing": [ -384.4598083, -40.08716965, 189.6882324 ],
+                        "id": 6,
+                        "name": "ANTHILL31",
+                        "position": [ -384.4598083, -40.08716965, 189.6882324 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL32",
+                "spawnpoints": [
+                    {
+                        "facing": [ -380.034729, -38.60388947, 256.1080933 ],
+                        "id": 6,
+                        "name": "ANTHILL32",
+                        "position": [ -380.034729, -38.60388947, 256.1080933 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL33",
+                "spawnpoints": [
+                    {
+                        "facing": [ -353.7469177, -36.37129021, 324.590332 ],
+                        "id": 6,
+                        "name": "ANTHILL33",
+                        "position": [ -353.7469177, -36.37129021, 324.590332 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL34",
+                "spawnpoints": [
+                    {
+                        "facing": [ -304.2401733, -37.34222031, 390.7450562 ],
+                        "id": 6,
+                        "name": "ANTHILL34",
+                        "position": [ -304.2401733, -37.34222031, 390.7450562 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL35",
+                "spawnpoints": [
+                    {
+                        "facing": [ -322.2725525, -74.9970932, 183.4156036 ],
+                        "id": 6,
+                        "name": "ANTHILL35",
+                        "position": [ -322.2725525, -74.9970932, 183.4156036 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL36",
+                "spawnpoints": [
+                    {
+                        "facing": [ -339.7771912, -60.7082634, 246.6066589 ],
+                        "id": 6,
+                        "name": "ANTHILL36",
+                        "position": [ -339.7771912, -60.7082634, 246.6066589 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL37",
+                "spawnpoints": [
+                    {
+                        "facing": [ -297.9954834, -65.58392334, 291.1968994 ],
+                        "id": 6,
+                        "name": "ANTHILL37",
+                        "position": [ -297.9954834, -65.58392334, 291.1968994 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL38",
+                "spawnpoints": [
+                    {
+                        "facing": [ -278.6340637, -62.70174789, 357.0113525 ],
+                        "id": 6,
+                        "name": "ANTHILL38",
+                        "position": [ -278.6340637, -62.70174789, 357.0113525 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL39",
+                "spawnpoints": [
+                    {
+                        "facing": [ -263.6573792, -70.49737549, 317.2403259 ],
+                        "id": 6,
+                        "name": "ANTHILL39",
+                        "position": [ -263.6573792, -70.49737549, 317.2403259 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL40",
+                "spawnpoints": [
+                    {
+                        "facing": [ -213.1526794, -76.14232635, 367.6870728 ],
+                        "id": 6,
+                        "name": "ANTHILL40",
+                        "position": [ -213.1526794, -76.14232635, 367.6870728 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL41",
+                "spawnpoints": [
+                    {
+                        "facing": [ -144.2016296, -79.12436676, 386.5062256 ],
+                        "id": 6,
+                        "name": "ANTHILL41",
+                        "position": [ -144.2016296, -79.12436676, 386.5062256 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL42",
+                "spawnpoints": [
+                    {
+                        "facing": [ -172.8419189, -110.9388657, 326.616272 ],
+                        "id": 6,
+                        "name": "ANTHILL42",
+                        "position": [ -172.8419189, -110.9388657, 326.616272 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL43",
+                "spawnpoints": [
+                    {
+                        "facing": [ -222.7183075, -115.8568726, 278.3602905 ],
+                        "id": 6,
+                        "name": "ANTHILL43",
+                        "position": [ -222.7183075, -115.8568726, 278.3602905 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL44",
+                "spawnpoints": [
+                    {
+                        "facing": [ -256.8707581, -114.4333191, 226.1618042 ],
+                        "id": 6,
+                        "name": "ANTHILL44",
+                        "position": [ -256.8707581, -114.4333191, 226.1618042 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL45",
+                "spawnpoints": [
+                    {
+                        "facing": [ -196.8632507, -132.5310059, 219.92276 ],
+                        "id": 6,
+                        "name": "ANTHILL45",
+                        "position": [ -196.8632507, -132.5310059, 219.92276 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL46",
+                "spawnpoints": [
+                    {
+                        "facing": [ -136.5075226, -136.4435883, 263.9493103 ],
+                        "id": 6,
+                        "name": "ANTHILL46",
+                        "position": [ -136.5075226, -136.4435883, 263.9493103 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL47",
+                "spawnpoints": [
+                    {
+                        "facing": [ -103.9496765, -131.9726486, 96.33985138 ],
+                        "id": 6,
+                        "name": "ANTHILL47",
+                        "position": [ -103.9496765, -131.9726486, 96.33985138 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL48",
+                "spawnpoints": [
+                    {
+                        "facing": [ -94.85968781, -104.56481934, 48.96435928 ],
+                        "id": 6,
+                        "name": "ANTHILL48",
+                        "position": [ -94.85968781, -104.56481934, 48.96435928 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL49",
+                "spawnpoints": [
+                    {
+                        "facing": [ -186.5245972, -113.960083, 68.41392517 ],
+                        "id": 6,
+                        "name": "ANTHILL49",
+                        "position": [ -186.5245972, -113.960083, 68.41392517 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL50",
+                "spawnpoints": [
+                    {
+                        "facing": [ -256.0337219, -74.75931549, 53.25971222 ],
+                        "id": 6,
+                        "name": "ANTHILL50",
+                        "position": [ -256.0337219, -74.75931549, 53.25971222 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL51",
+                "spawnpoints": [
+                    {
+                        "facing": [ -197.496048, -74.12944794, 17.43404961 ],
+                        "id": 6,
+                        "name": "ANTHILL51",
+                        "position": [ -197.496048, -74.12944794, 17.43404961 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL52",
+                "spawnpoints": [
+                    {
+                        "facing": [ -125.7219772, -77.46142578, 0.6440532804 ],
+                        "id": 6,
+                        "name": "ANTHILL52",
+                        "position": [ -125.7219772, -77.46142578, 0.6440532804 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL53",
+                "spawnpoints": [
+                    {
+                        "facing": [ -53.86725998, -71.91866302, 19.57450294 ],
+                        "id": 6,
+                        "name": "ANTHILL53",
+                        "position": [ -53.86725998, -71.91866302, 19.57450294 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL54",
+                "spawnpoints": [
+                    {
+                        "facing": [ 29.2915802, -72.99143219, 60.09123611 ],
+                        "id": 6,
+                        "name": "ANTHILL54",
+                        "position": [ 29.2915802, -72.99143219, 60.09123611 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL55",
+                "spawnpoints": [
+                    {
+                        "facing": [ 77.10254669, -79.72452545, 135.4551239 ],
+                        "id": 6,
+                        "name": "ANTHILL55",
+                        "position": [ 77.10254669, -79.72452545, 135.4551239 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL56",
+                "spawnpoints": [
+                    {
+                        "facing": [ 80.1720047, -72.27000427, 229.0792084 ],
+                        "id": 6,
+                        "name": "ANTHILL56",
+                        "position": [ 80.1720047, -72.27000427, 229.0792084 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL57",
+                "spawnpoints": [
+                    {
+                        "facing": [ 43.27690506, -47.08146286, 359.6011658 ],
+                        "id": 6,
+                        "name": "ANTHILL57",
+                        "position": [ 43.27690506, -47.08146286, 359.6011658 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL58",
+                "spawnpoints": [
+                    {
+                        "facing": [ -28.92128944, -130.7098465, 127.2755661 ],
+                        "id": 6,
+                        "name": "ANTHILL58",
+                        "position": [ -28.92128944, -130.7098465, 127.2755661 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL59",
+                "spawnpoints": [
+                    {
+                        "facing": [ 141.2951965, -43.74825668, 215.0515594 ],
+                        "id": 6,
+                        "name": "ANTHILL59",
+                        "position": [ 141.2951965, -43.74825668, 215.0515594 ]
+                    }
+                ]
+            },
+            {
+                "name": "ANTHILL60",
+                "spawnpoints": [
+                    {
+                        "facing": [ 137.1940155, -44.10411835, 126.7764206 ],
+                        "id": 6,
+                        "name": "ANTHILL60",
+                        "position": [ 137.1940155, -44.10411835, 126.7764206 ]
+                    }
+                ]
+            },
+            {
+                "name": "CAPSULE",
+                "spawnpoints": [
+                    {
+                        "facing": [ -138.8405457, -138.9814606, 214.6591034 ],
+                        "id": 6,
+                        "name": "CAPSULE",
+                        "position": [ -138.8405457, -138.9814606, 214.6591034 ]
+                    }
+                ]
+            },
+
+            {
+                "name": "SQUID01",
+                "spawnpoints": [
+                    {
+                        "facing": [ -360.6934204, -33.62479019, 116.776741 ],
+                        "id": 6,
+                        "name": "SQUID01",
+                        "position": [ -360.6934204, -33.62479019, 116.776741 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID02",
+                "spawnpoints": [
+                    {
+                        "facing": [ -299.4030151, -67.21533966, 112.278656 ],
+                        "id": 6,
+                        "name": "SQUID02",
+                        "position": [ -299.4030151, -67.21533966, 112.278656 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID03",
+                "spawnpoints": [
+                    {
+                        "facing": [ -244.1622467, -108.2035751, 118.3384094 ],
+                        "id": 6,
+                        "name": "SQUID03",
+                        "position": [ -244.1622467, -108.2035751, 118.3384094 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID04",
+                "spawnpoints": [
+                    {
+                        "facing": [ -205.8101654, -124.6747894, 133.8558502 ],
+                        "id": 6,
+                        "name": "SQUID04",
+                        "position": [ -205.8101654, -124.6747894, 133.8558502 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID05",
+                "spawnpoints": [
+                    {
+                        "facing": [ -136.7326355, -137.3750153, 163.912735 ],
+                        "id": 6,
+                        "name": "SQUID05",
+                        "position": [ -136.7326355, -137.3750153, 163.912735 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID06",
+                "spawnpoints": [
+                    {
+                        "facing": [ -82.46833038, -137.4323425, 169.1566772 ],
+                        "id": 6,
+                        "name": "SQUID06",
+                        "position": [ -82.46833038, -137.4323425, 169.1566772 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID07",
+                "spawnpoints": [
+                    {
+                        "facing": [ -33.64174271, -131.9268341, 223.3251801 ],
+                        "id": 6,
+                        "name": "SQUID07",
+                        "position": [ -33.64174271, -131.9268341, 223.3251801 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID08",
+                "spawnpoints": [
+                    {
+                        "facing": [ -65.1805191, -127.437645, 275.0782471 ],
+                        "id": 6,
+                        "name": "SQUID08",
+                        "position": [ -65.1805191, -127.437645, 275.0782471 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID09",
+                "spawnpoints": [
+                    {
+                        "facing": [ -4.492192268, -109.4341431, 287.149292 ],
+                        "id": 6,
+                        "name": "SQUID09",
+                        "position": [ -4.492192268, -109.4341431, 287.149292 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID10",
+                "spawnpoints": [
+                    {
+                        "facing": [ 50.91962433, -65.54203033, 284.4671326 ],
+                        "id": 6,
+                        "name": "SQUID10",
+                        "position": [ 50.91962433, -65.54203033, 284.4671326 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID11",
+                "spawnpoints": [
+                    {
+                        "facing": [ 114.7448502, -38.55016327, 292.8928833 ],
+                        "id": 6,
+                        "name": "SQUID11",
+                        "position": [ 114.7448502, -38.55016327, 292.8928833 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID12",
+                "spawnpoints": [
+                    {
+                        "facing": [ -34.8514595, -40.88558197, 433.5782166 ],
+                        "id": 6,
+                        "name": "SQUID12",
+                        "position": [ -34.8514595, -40.88558197, 433.5782166 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID13",
+                "spawnpoints": [
+                    {
+                        "facing": [ -119.2105026, -45.24461365, 437.7579346 ],
+                        "id": 6,
+                        "name": "SQUID13",
+                        "position": [ -119.2105026, -45.24461365, 437.7579346 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID14",
+                "spawnpoints": [
+                    {
+                        "facing": [ -181.1544495, -46.19474411, 427.1039124 ],
+                        "id": 6,
+                        "name": "SQUID14",
+                        "position": [ -181.1544495, -46.19474411, 427.1039124 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID15",
+                "spawnpoints": [
+                    {
+                        "facing": [ -237.0483551, -43.78966904, 419.2362976 ],
+                        "id": 6,
+                        "name": "SQUID15",
+                        "position": [ -237.0483551, -43.78966904, 419.2362976 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID16",
+                "spawnpoints": [
+                    {
+                        "facing": [ -26.41647148, -69.71065521, 373.412262 ],
+                        "id": 6,
+                        "name": "SQUID16",
+                        "position": [ -26.41647148, -69.71065521, 373.412262 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID17",
+                "spawnpoints": [
+                    {
+                        "facing": [ -105.6985397, -105.71315, 328.2952271 ],
+                        "id": 6,
+                        "name": "SQUID17",
+                        "position": [ -105.6985397, -105.71315, 328.2952271 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID18",
+                "spawnpoints": [
+                    {
+                        "facing": [ -5.550122738, -109.564827, 288.3432922 ],
+                        "id": 6,
+                        "name": "SQUID18",
+                        "position": [ -5.550122738, -109.564827, 288.3432922 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID19",
+                "spawnpoints": [
+                    {
+                        "facing": [ 29.50511551, -108.1748199, 213.836853 ],
+                        "id": 6,
+                        "name": "SQUID19",
+                        "position": [ 29.50511551, -108.1748199, 213.836853 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID20",
+                "spawnpoints": [
+                    {
+                        "facing": [ 23.84764862, -107.9482193, 150.8769226 ],
+                        "id": 6,
+                        "name": "SQUID20",
+                        "position": [ 23.84764862, -107.9482193, 150.8769226 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID21",
+                "spawnpoints": [
+                    {
+                        "facing": [ -10.25282574, -102.6753387, 90.10420227 ],
+                        "id": 6,
+                        "name": "SQUID21",
+                        "position": [ -10.25282574, -102.6753387, 90.10420227 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID22",
+                "spawnpoints": [
+                    {
+                        "facing": [ -330.2365723, -30.24900627, 59.49544525 ],
+                        "id": 6,
+                        "name": "SQUID22",
+                        "position": [ -330.2365723, -30.24900627, 59.49544525 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID23",
+                "spawnpoints": [
+                    {
+                        "facing": [ -295.5839233, -30.73779106, 17.46365166 ],
+                        "id": 6,
+                        "name": "SQUID23",
+                        "position": [ -295.5839233, -30.73779106, 17.46365166 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID24",
+                "spawnpoints": [
+                    {
+                        "facing": [ -247.4893951, -30.46323395, -23.9790287 ],
+                        "id": 6,
+                        "name": "SQUID24",
+                        "position": [ -247.4893951, -30.46323395, -23.9790287 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID25",
+                "spawnpoints": [
+                    {
+                        "facing": [ -198.3147278, -32.32792664, -45.37588501 ],
+                        "id": 6,
+                        "name": "SQUID25",
+                        "position": [ -198.3147278, -32.32792664, -45.37588501 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID26",
+                "spawnpoints": [
+                    {
+                        "facing": [ -129.92276, -38.90953445, -54.15113831 ],
+                        "id": 6,
+                        "name": "SQUID26",
+                        "position": [ -129.92276, -38.90953445, -54.15113831 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID27",
+                "spawnpoints": [
+                    {
+                        "facing": [ -46.59671402, -37.41250229, -49.29668427 ],
+                        "id": 6,
+                        "name": "SQUID27",
+                        "position": [ -46.59671402, -37.41250229, -49.29668427 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID28",
+                "spawnpoints": [
+                    {
+                        "facing": [ -0.3165753782, -40.35437012, -21.01202393 ],
+                        "id": 6,
+                        "name": "SQUID28",
+                        "position": [ -0.3165753782, -40.35437012, -21.01202393 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID29",
+                "spawnpoints": [
+                    {
+                        "facing": [ 57.39392853, -40.48498535, 19.22218704 ],
+                        "id": 6,
+                        "name": "SQUID29",
+                        "position": [ 57.39392853, -40.48498535, 19.22218704 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID30",
+                "spawnpoints": [
+                    {
+                        "facing": [ 114.6379089, -34.85830688, 57.94971085 ],
+                        "id": 6,
+                        "name": "SQUID30",
+                        "position": [ 114.6379089, -34.85830688, 57.94971085 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID31",
+                "spawnpoints": [
+                    {
+                        "facing": [ -384.4598083, -35.08716965, 189.6882324 ],
+                        "id": 6,
+                        "name": "SQUID31",
+                        "position": [ -384.4598083, -35.08716965, 189.6882324 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID32",
+                "spawnpoints": [
+                    {
+                        "facing": [ -380.034729, -33.60388947, 256.1080933 ],
+                        "id": 6,
+                        "name": "SQUID32",
+                        "position": [ -380.034729, -33.60388947, 256.1080933 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID33",
+                "spawnpoints": [
+                    {
+                        "facing": [ -353.7469177, -31.37129021, 324.590332 ],
+                        "id": 6,
+                        "name": "SQUID33",
+                        "position": [ -353.7469177, -31.37129021, 324.590332 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID34",
+                "spawnpoints": [
+                    {
+                        "facing": [ -304.2401733, -32.34222031, 390.7450562 ],
+                        "id": 6,
+                        "name": "SQUID34",
+                        "position": [ -304.2401733, -32.34222031, 390.7450562 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID35",
+                "spawnpoints": [
+                    {
+                        "facing": [ -322.2725525, -69.9970932, 183.4156036 ],
+                        "id": 6,
+                        "name": "SQUID35",
+                        "position": [ -322.2725525, -69.9970932, 183.4156036 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID36",
+                "spawnpoints": [
+                    {
+                        "facing": [ -339.7771912, -55.7082634, 246.6066589 ],
+                        "id": 6,
+                        "name": "SQUID36",
+                        "position": [ -339.7771912, -55.7082634, 246.6066589 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID37",
+                "spawnpoints": [
+                    {
+                        "facing": [ -297.9954834, -60.58392334, 291.1968994 ],
+                        "id": 6,
+                        "name": "SQUID37",
+                        "position": [ -297.9954834, -60.58392334, 291.1968994 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID38",
+                "spawnpoints": [
+                    {
+                        "facing": [ -278.6340637, -57.70174789, 357.0113525 ],
+                        "id": 6,
+                        "name": "SQUID38",
+                        "position": [ -278.6340637, -57.70174789, 357.0113525 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID39",
+                "spawnpoints": [
+                    {
+                        "facing": [ -263.6573792, -65.49737549, 317.2403259 ],
+                        "id": 6,
+                        "name": "SQUID39",
+                        "position": [ -263.6573792, -65.49737549, 317.2403259 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID40",
+                "spawnpoints": [
+                    {
+                        "facing": [ -213.1526794, -71.14232635, 367.6870728 ],
+                        "id": 6,
+                        "name": "SQUID40",
+                        "position": [ -213.1526794, -71.14232635, 367.6870728 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID41",
+                "spawnpoints": [
+                    {
+                        "facing": [ -144.2016296, -74.12436676, 386.5062256 ],
+                        "id": 6,
+                        "name": "SQUID41",
+                        "position": [ -144.2016296, -74.12436676, 386.5062256 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID42",
+                "spawnpoints": [
+                    {
+                        "facing": [ -172.8419189, -105.9388657, 326.616272 ],
+                        "id": 6,
+                        "name": "SQUID42",
+                        "position": [ -172.8419189, -105.9388657, 326.616272 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID43",
+                "spawnpoints": [
+                    {
+                        "facing": [ -222.7183075, -110.8568726, 278.3602905 ],
+                        "id": 6,
+                        "name": "SQUID43",
+                        "position": [ -222.7183075, -110.8568726, 278.3602905 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID44",
+                "spawnpoints": [
+                    {
+                        "facing": [ -256.8707581, -109.4333191, 226.1618042 ],
+                        "id": 6,
+                        "name": "SQUID44",
+                        "position": [ -256.8707581, -109.4333191, 226.1618042 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID45",
+                "spawnpoints": [
+                    {
+                        "facing": [ -196.8632507, -127.5310059, 219.92276 ],
+                        "id": 6,
+                        "name": "SQUID45",
+                        "position": [ -196.8632507, -127.5310059, 219.92276 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID46",
+                "spawnpoints": [
+                    {
+                        "facing": [ -136.5075226, -131.4435883, 263.9493103 ],
+                        "id": 6,
+                        "name": "SQUID46",
+                        "position": [ -136.5075226, -131.4435883, 263.9493103 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID47",
+                "spawnpoints": [
+                    {
+                        "facing": [ -103.9496765, -126.9726486, 96.33985138 ],
+                        "id": 6,
+                        "name": "SQUID47",
+                        "position": [ -103.9496765, -126.9726486, 96.33985138 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID48",
+                "spawnpoints": [
+                    {
+                        "facing": [ -94.85968781, -99.56481934, 48.96435928 ],
+                        "id": 6,
+                        "name": "SQUID48",
+                        "position": [ -94.85968781, -99.56481934, 48.96435928 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID49",
+                "spawnpoints": [
+                    {
+                        "facing": [ -186.5245972, -108.960083, 68.41392517 ],
+                        "id": 6,
+                        "name": "SQUID49",
+                        "position": [ -186.5245972, -108.960083, 68.41392517 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID50",
+                "spawnpoints": [
+                    {
+                        "facing": [ -256.0337219, -69.75931549, 53.25971222 ],
+                        "id": 6,
+                        "name": "SQUID50",
+                        "position": [ -256.0337219, -69.75931549, 53.25971222 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID51",
+                "spawnpoints": [
+                    {
+                        "facing": [ -197.496048, -69.12944794, 17.43404961 ],
+                        "id": 6,
+                        "name": "SQUID51",
+                        "position": [ -197.496048, -69.12944794, 17.43404961 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID52",
+                "spawnpoints": [
+                    {
+                        "facing": [ -125.7219772, -72.46142578, 0.6440532804 ],
+                        "id": 6,
+                        "name": "SQUID52",
+                        "position": [ -125.7219772, -72.46142578, 0.6440532804 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID53",
+                "spawnpoints": [
+                    {
+                        "facing": [ -53.86725998, -66.91866302, 19.57450294 ],
+                        "id": 6,
+                        "name": "SQUID53",
+                        "position": [ -53.86725998, -66.91866302, 19.57450294 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID54",
+                "spawnpoints": [
+                    {
+                        "facing": [ 29.2915802, -67.99143219, 60.09123611 ],
+                        "id": 6,
+                        "name": "SQUID54",
+                        "position": [ 29.2915802, -67.99143219, 60.09123611 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID55",
+                "spawnpoints": [
+                    {
+                        "facing": [ 77.10254669, -74.72452545, 135.4551239 ],
+                        "id": 6,
+                        "name": "SQUID55",
+                        "position": [ 77.10254669, -74.72452545, 135.4551239 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID56",
+                "spawnpoints": [
+                    {
+                        "facing": [ 80.1720047, -67.27000427, 229.0792084 ],
+                        "id": 6,
+                        "name": "SQUID56",
+                        "position": [ 80.1720047, -67.27000427, 229.0792084 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID57",
+                "spawnpoints": [
+                    {
+                        "facing": [ 43.27690506, -42.08146286, 359.6011658 ],
+                        "id": 6,
+                        "name": "SQUID57",
+                        "position": [ 43.27690506, -42.08146286, 359.6011658 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID58",
+                "spawnpoints": [
+                    {
+                        "facing": [ -28.92128944, -125.7098465, 127.2755661 ],
+                        "id": 6,
+                        "name": "SQUID58",
+                        "position": [ -28.92128944, -125.7098465, 127.2755661 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID59",
+                "spawnpoints": [
+                    {
+                        "facing": [ 141.2951965, -38.74825668, 215.0515594 ],
+                        "id": 6,
+                        "name": "SQUID59",
+                        "position": [ 141.2951965, -38.74825668, 215.0515594 ]
+                    }
+                ]
+            },
+            {
+                "name": "SQUID60",
+                "spawnpoints": [
+                    {
+                        "facing": [ 137.1940155, -39.10411835, 126.7764206 ],
+                        "id": 6,
+                        "name": "SQUID60",
+                        "position": [ 137.1940155, -39.10411835, 126.7764206 ]
+                    }
+                ]
+            },
+            {
+                "name": "敵出現",
+                "spawnpoints": [
+                    {
+                        "facing": [ -74.508461, -42.79556274, 436.0784302 ],
+                        "id": 7,
+                        "name": "敵A01",
+                        "position": [ -74.508461, -42.79556274, 436.0784302 ]
+                    },
+                    {
+                        "facing": [
+                            -371.400146484375,
+                            75.31752014160156,
+                            68.79364776611328
+                        ],
+                        "id": 8,
+                        "name": "敵A02",
+                        "position": [
+                            -198.44839477539063,
+                            -126.28241729736328,
+                            208.0378875732422
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -308.25067138671875,
+                            71.08522033691406,
+                            -25.63179588317871
+                        ],
+                        "id": 9,
+                        "name": "敵A03",
+                        "position": [
+                            -135.29891967773438,
+                            -130.51473999023438,
+                            113.6124496459961
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -204.8887176513672,
+                            70.34950256347656,
+                            69.14386749267578
+                        ],
+                        "id": 10,
+                        "name": "敵A04",
+                        "position": [
+                            -31.936931610107422,
+                            -131.25048828125,
+                            208.3881072998047
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -155.93336486816406,
+                            93.28138732910156,
+                            119.01122283935547
+                        ],
+                        "id": 11,
+                        "name": "敵B01",
+                        "position": [
+                            17.018421173095703,
+                            -108.31856536865234,
+                            258.2554626464844
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -376.39788818359375,
+                            91.65730285644531,
+                            159.39463806152344
+                        ],
+                        "id": 12,
+                        "name": "敵B02",
+                        "position": [
+                            -203.44610595703125,
+                            -109.94266510009766,
+                            298.6388854980469
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -379.65264892578125,
+                            91.88893127441406,
+                            -58.640960693359375
+                        ],
+                        "id": 13,
+                        "name": "敵B03",
+                        "position": [
+                            -206.70086669921875,
+                            -109.7110366821289,
+                            80.60328674316406
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -352.9578857421875,
+                            127.42927551269531,
+                            235.23060607910156
+                        ],
+                        "id": 14,
+                        "name": "敵C01",
+                        "position": [
+                            -180.00608825683594,
+                            -74.17070007324219,
+                            374.474853515625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -193.85546875,
+                            133.40382385253906,
+                            -101.5019302368164
+                        ],
+                        "id": 15,
+                        "name": "敵C02",
+                        "position": [
+                            -20.9036808013916,
+                            -68.19624328613281,
+                            37.7423095703125
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -472.98004150390625,
+                            131.67457580566406,
+                            -3.525710105895996
+                        ],
+                        "id": 16,
+                        "name": "敵C03",
+                        "position": [
+                            -300.0283203125,
+                            -69.92538452148438,
+                            135.71853637695313
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -295.76153564453125,
+                            156.33570861816406,
+                            -198.99441528320313
+                        ],
+                        "id": 17,
+                        "name": "敵D01",
+                        "position": [
+                            -122.80973815917969,
+                            -38.07421875,
+                            -59.75016784667969
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -422.607666015625,
+                            152.16700744628906,
+                            -165.32073974609375
+                        ],
+                        "id": 18,
+                        "name": "敵D02",
+                        "position": [
+                            -248.7770233154297,
+                            -29.50263214111328,
+                            -26.637468338012695
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -38.33647155761719,
+                            162.5219268798828,
+                            82.8105239868164
+                        ],
+                        "id": 19,
+                        "name": "敵D03",
+                        "position": [
+                            134.6153106689453,
+                            -43.47803497314453,
+                            222.0547637939453
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -282.4974365234375,
+                            156.8013458251953,
+                            298.38189697265625
+                        ],
+                        "id": 20,
+                        "name": "敵D04",
+                        "position": [
+                            -109.54564666748047,
+                            -44.798614501953125,
+                            437.6261291503906
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -477.3699951171875,
+                            148.6018829345703,
+                            244.08067321777344
+                        ],
+                        "id": 21,
+                        "name": "敵D05",
+                        "position": [
+                            -303.366943359375,
+                            -33.202545166015625,
+                            383.6694641113281
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -550.6210327148438,
+                            160.97608947753906,
+                            47.63722229003906
+                        ],
+                        "id": 22,
+                        "name": "敵D06",
+                        "position": [
+                            -377.6692810058594,
+                            -36.014434814453125,
+                            186.8814697265625
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -497.68145751953125,
+                            172.22023010253906,
+                            -90.18610382080078
+                        ],
+                        "id": 23,
+                        "name": "敵D07",
+                        "position": [
+                            -324.7297058105469,
+                            -29.379737854003906,
+                            49.058143615722656
+                        ]
+                    },
+                    {
+                        "facing": [
+                            -103.15477752685547,
+                            162.5797882080078,
+                            -115.88433074951172
+                        ],
+                        "id": 24,
+                        "name": "敵D08",
+                        "position": [
+                            69.79700469970703,
+                            -39.02018737792969,
+                            23.35990333557129
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

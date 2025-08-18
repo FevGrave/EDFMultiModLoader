@@ -1,0 +1,1497 @@
+{
+  "format": "SGO",
+  "endian": "LE",
+  "version": 258,
+  "variables": [
+    {
+      "name": "table",
+      "type": "ptr",
+      "value": [
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Adamant Vanguard"},
+            {
+              "type": "string",
+              "value": "The invaders made landfall and entranched into a fortified stronghold along the coast. Their defensive strategy has been flawless and left no flanks unprotected. Our options are limited. The mechanized team will attempt to lure out the defenders, distracting the enemy just long enough for the infantry to sneak in and destroy the camp. Good luck!"
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Ambush in the Valley"},
+            {
+              "type": "string",
+              "value": "An important staging ground for the alien invasion sits just past this mountain range. From there, enemy troops descend from Mothership number 3 and are sent to battlefields all around the world. You are to reach the target area across the ridge, and rendez-vous with Team Bravo to set up the attack. Hopefully, the journey through the mountains will prove uneventful."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Army of Steel"},
+            {
+              "type": "string",
+              "value": "We received a distress call from Team Bravo, currently under siege by an army of androids, led by aliens. Actually it is not clear, whether it is the aliens leading the androids, or the other way around. What matters is that the situation is critical. Find Team Bravo and join them in the fight against the invaders."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Clash with Erginus"},
+            {
+              "type": "string",
+              "value": "To combat the mysterious monster Erginus, headquarters decided to make use of our brand new Walking Fortress Balam. It’s in transit right now. Once we crash all of its 2000 tons of steel into it, Erginus will be history! This is the first time that the Balam is tested in battle, but it should be alright. Storm Team, head out to the scene and support the operation."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Eradication Protocol"},
+            {
+              "type": "string",
+              "value": "Encounters with mutant monsters are intensifying and our defensive line is taking a heavy hit. Scouts have confirmed that the monsters originate from an atypical nest on the outskirts of town. The fate of this war may very well rest on our ability to destroy this mutant nest. Eradication Protocol is in effect: clear out the infested area by any means necessary!"
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Fortress of Mirrors"},
+            {
+              "type": "string",
+              "value": "The entire expeditionary force en route to the Outpost Base has been reduced to sitting ducks by the diabolical machinations of the kraken. Their astute deployment of shieldbearers cast a net of forcefields over hundreds of men and combat vehicles, leaving them all but incapable to fight back. So far our soldiers have managed to elude the kruul snipers, but it is only a matter of time until the enemy patrols find them. To rescue them, you will have to outsmart the enemy. Plan out your every move with care, and make your way to the shieldbearers while remaining undetected. The kraken cannot be fought while the forcefields are still up, but once they are disabled, we will make sure that the invaders get their comeuppance."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Future Past"},
+            {
+              "type": "string",
+              "value": "This is EDN, reporting to you live from the theatre of war. Victory is close at hand! The enemy invasion forces have been almost routed, with only a handful stragglers still holding out in a few key locations. Yet, even they cannot stop the lancets of time! The EDF is riding high on a sensational streak of wins, and will stop at nothing until this tragic page of history reaches its fateful conclusion. Alien Alamo! Only available to subscribers of the Earth Defense Network. Your number 1 source of news on the galactic war. Is Central Command going to deploy the Wing Divers? Or will the infantry seize the day once again? Find out after a short commercial break."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Heavy Strike"},
+            {
+              "type": "string",
+              "value": "This is an emergency alert. A platoon of heavily armed aliens has surrounded the area where the evacuation of refugees is taking place. We need to buy Team Bravo more time, so they can finish directing the crowds to the safety of the underground shelters. Intercept the invaders before they reach the civilians!"
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Impact Crater"},
+            {
+              "type": "string",
+              "value": "An elaborate ruse and much fearless bravery have allowed the EDF to shoot down the doomsday weapon of the invaders: an orbital installation with power so great, it surpassed even that of Mothership number 3. The weapon was hit by one of our missiles and crashed through the atmosphere, leaving behind a massive crater after its impact with the ground. Strategic Command wants you to investigate the crash site and confirm the destruction of the doomsday weapon. The site is close to a monster nest, so it is imperative for the search party to keep a low profile, lest they rile up the whole horde."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Into the Depths Below"},
+            {
+              "type": "string",
+              "value": "We have lost contact with one of our recon teams. Team Bravo had been sent to investigate a perimeter alert in the underground facilities, and were just reporting about possible activity in the deepest chasms, when their signal abruptly broke off. They must have found something down there... and it’s dangerous! Exercise the utmost caution, as you head to Bravo's last known position. Whatever lurks in the earth is just waiting for you to get careless."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Island Empire"},
+            {
+              "type": "string",
+              "value": "Submarine carrier Prometheus narrowly escaped destruction at the hands of the enemy fleet and is now trapped in the shallow waters of an archipelago, surrounded by mines laid by the invaders. We need to rescue them! Your objective is to locate and defuse the mines threatening the Prometheus. Since the enemy has near total control of the area, we can only airdrop you on a small island near the main atoll. You will have to fight tooth and nail to gain every inch of ground."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Mechanical Men"},
+            {
+              "type": "string",
+              "value": "Team Bravo made a startling discovery in one of the infested zones. The androids set up a heavily defended base, undisturbed among the nests, and are now using monsters to support their advance. If we don’t stop those scheming robots now, every last monster of the infested zones will become part of their army!"
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Mysterious Monsters"},
+            {
+              "type": "string",
+              "value": "The operation to take down Archelus is under way. All variables were taken into account in order to formulate the most effective methodology of battle, and to pick a most suitable location for the fight. Now we just have to wait for the preparations on the Barga to be completed, so the plan can be set into motion. All units, head to the scene!"
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Nesting Grounds"},
+            {
+              "type": "string",
+              "value": "A large herd of monsters has been spotted leaving the hills, and is currently heading toward the coast. Intelligence reports that this area has been taken over by the kraken, which use it to farm multiple species of monsters. Are the kraken moving the monsters in between their farms, as if they were cattle?! Stop those space cowboys once and for all."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Pale Rider"},
+            {
+              "type": "string",
+              "value": "Get on your vehicle and ride like the wind, soldier! We found tracking beacons among the wreckage of the latest swarm of flying drones, and there are surely more of them, scattered around. If we don't find and disable all of the becons at once, the enemy will surely use them to launch a devastating attack against Base 251. Your radar should have no trouble locating the beacons. The hard part will be to get them all, fast!"
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Prelude to Destruction"},
+            {
+              "type": "string",
+              "value": "The situation is looking dire. City defenders have been fighting an uphill battle against a rising tide of monsters. All attempts to destroy their eggs proved unsuccessful, and now the whole urban area has become a huge monster nest. We must eradicate this infestation and save the city: else, more extreme countermeasures will have to be considered."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Stalwart Defenders"},
+            {
+              "type": "string",
+              "value": "It's me, listen, I might have made a bit of a blunder. The Research Division has been working on cracking the code of the anchors for quite a while. We went as far as forcing a shutdown of their shield system. What we did not anticipate, is that reprogramming the anchors would increase their performance tenfold. I think we might have actually improved on their original design. Now my team is trying to shut down the hacked towers, but they can't make it without your help. Theoretically, you may even just skip ahead and destroy the master anchor, to disable the rest instantly. But that is too great a risk. Please, keep quiet about this with Strategic Command, or she will never let me hear the end of it."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Steel Ball Run"},
+            {
+              "type": "string",
+              "value": "It has come to the attention of Strategic Command that wild rumors have been spreading about a mutated form of species gamma. These tall tales may one day describe the mutants as being made of pure gold, and the very next, recount they were actually silver giants. The intelligence committee wishes to remind all troops that none of these reports have ever been substantiated by any evidence, therefore, the existence of these mutants can be dismissed as whimsy. Wait, can you hear this rumbling?!"
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Terror Overhead"},
+            {
+              "type": "string",
+              "value": "We paid a high price, but Operation N proved a major success. Mothership number 3 was destroyed by a nuclear strike as it was hiding on the dark side of the Moon. However, some of its convoy was spared from the explosion and is now heading toward our planet. If we don’t destroy those dropships before they release their deadly haul of monsters, it will all have been for naught."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "The Cradle"},
+            {
+              "type": "string",
+              "value": "Be quiet, we can't let the enemy know we're here! It’s been weeks since we started taking down the monsters in these caverns: but no matter what we do, another nest is built in no time. The situation seems hopeless... but I have a theory. There were no mother monsters in any of the nests we destroyed: so if the monsters weren’t actually multiplying in the tunnels, someone must have transported them underground! This was never a nest, but a cradle of monsters! The invaders must have hidden one of their teleportation devices down here, somewhere we would never expect. In a place like... this!"
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "The Night Raid"},
+            {
+              "type": "string",
+              "value": "We fell into a trap! After our mission in the infested zone, we set up base among the ruins of the industrial area and waited for the light of day to join Team Bravo. Little did we know, a force of androids were waiting for us among the wreckage, and come nightfall, they ambushed us from all sides. We are now fighting in pitch black darkness, with only the perilous flame of airstrikes to light up the night."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "The Red Threat"},
+            {
+              "type": "string",
+              "value": "A group of red flying monsters has invaded a seaport town, swarming in from all directions. Our scouts report that they are now turning the local construction yards into one of their nests. As if we are going to let that happen! Strangely, the report also warns that a sizable force of automated drones was observed guarding the monster site, so watch out."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "The Red Threat II"},
+            {
+              "type": "string",
+              "value": "The attack of the red monsters has not let up. More cities were attacked: but we now realize that before every invasion, red drones had been visiting the targeted area. Could they be responsible for these attacks, gathering and assembling different monsters for a single purpose? Let's wipe them out, before they call in even more monsters!"
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Tomorrow’s War"},
+            {
+              "type": "string",
+              "value": "The battle in the plains is lost. Or is it? The enemy was so unhinged in rearranging the events of the latest 24 hours, that the flow of time itself has shattered. Day and night alternate every hour. Radio messages speak of events that never happened or will happen. Soldiers in a frantic retreat see themselves as they rush during yesterday’s first assault. Storm Team alone stands their ground and pursues a daring mission: to band together all fighters from the different timelines, and win this battle in all possible futures."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Twilight Offensive"},
+            {
+              "type": "string",
+              "value": "The western front has been fighting the relentless assault of the android army for days, but now an even larger pack of monsters is coming from the east. If both forces are allowed to link up, our defenders will be crushed beneath their combined might. We need to counterattack now, before we are surrounded! The air force will have to watch our back. All men, attack!"
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Ultraviolet"},
+            {
+              "type": "string",
+              "value": "The Research Division finally found a solution to our chronic shortage of personnel. Automated robot troops. What can I say, those eggheads sure have a unique sense of humor to them! Tin cans like that will never replace the human spirit. Hell, they probably can’t even climb down stairs. But here in this base, we follow protocol to a T: so we will make the effort of taking their toasters for a spin, just once. Then we will pack them back, with a polite but firm “NO!”. You, recruit, get the remote control and take those damn things out. Take a stroll, but keep them on a short leash. And remember: watch out for stairs."
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": "Wings of Death"},
+            {
+              "type": "string",
+              "value": "The snowstorm has finally cleared after days of wintry winds, leaving behind a frozen cityscape and thousands of civilians in need of rescue. But that is not all that came with the cold. Unbothered by the weather, flying monsters have swarmed into the city and are eagerly turning its buildings into massive hives. I say it’s time we bring the heat to them."
+            }
+          ]
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "ptr",
+          "value": [
+            {"type": "string", "value": ""},
+            {
+              "type": "string",
+              "value": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

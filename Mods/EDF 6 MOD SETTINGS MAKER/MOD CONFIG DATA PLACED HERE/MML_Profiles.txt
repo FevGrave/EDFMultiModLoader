@@ -1,2 +1,3 @@
-B: {TheLostMissionPackMod_config_data:1, NeoprimalsWeaponPackMod_config_data:1, Mod_config_data:1}
-C: {Mod_config_data:0, NeoprimalsWeaponPackMod_config_data:1, TheLostMissionPackMod_config_data:1}
+LOAD PROFILE = Xiheese
+Yes: {EDF_MML_Mod_config_data:1, NeoprimalsWeaponPackMod_config_data:0, TheLostMissionPackMod_config_data:0}
+Xiheese: {EDF_MML_Mod_config_data:1, NeoprimalsWeaponPackMod_config_data:0, TheLostMissionPackMod_config_data:0}
