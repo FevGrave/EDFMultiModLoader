@@ -1,9 +1,10 @@
-import os, re, sys, threading, webbrowser, requests, shutil, subprocess, json, time, uuid
+import os, re, sys, threading, webbrowser, requests, shutil, subprocess, json, time, uuid, zipfile
 import tkinter as tk, tkinter.messagebox as messagebox, eggs as eggs, random
 import tkinter.font as tkFont, EDF_ModloaderHeadFunc as funcs, ImageResources as img_res
 from PIL import Image, ImageTk, ImageFont
 from ImageResources import *
 from EDF_ModloaderHeadFunc import *
+from collections import defaultdict
 
 '''
 #TODO
@@ -11,9 +12,68 @@ Conflict Detection
 Load Order Management
 Are not implemented yet, but are planned for future releases.
 
-get coding support for nexus, and GET PREMIUM PAYWALL YEETED INTO THE SUN, ie paying once for a lifetime of premium support.
+get coding support for nexus, and GET PREMIUM PAYWALL YEETED INTO THE SUN, ie paying once for a lifetime of premium support. Or plugin you'r
 finalize R2Modman code share support for MML, IE UUID SUPPORT.
 EDF EDF EDF
+
+EarthDefenseForceModloaderHead.py
+🚨 EDF 6 Thunderstore Page Support Needed
+EDF 6 Thunderstore (to be created)
+A dedicated EDF 6 page will centralize the modded multiplayer EDF community!
+
+Existing pages for reference:
+
+EDF 5 Thunderstore
+EDF 4.1 Thunderstore
+🌟 EDF Multi-Mod-Loader (MML) Ecosystem Overview
+EDF Multi-Mod-Loader (MML) is a comprehensive, AI- and community-driven, open-source Python application for managing mods, patches, and plugins for Earth Defense Force 6 (EDF 6), built on top of Blue Amulet’s Modloader for the EDF XGS engine.
+MML features a robust, Tkinter-based GUI and supports both Steam and Epic versions of EDF 6.
+It is extensible for EDF 4.1 and 5, but not supported at the moment and will need additional logic for missing features.
+
+🖥️ Key Features
+LanguageManager: Dynamic loading and switching of UI translations from JSON files.
+Customizable UI: Theme colors, font sizes, and background images (random/manual selection).
+Game Management: Launches EDF games via Steam/Epic, manages modloader status, and provides quick access to save folders.
+Mod Management: Displays mod/patch/plugin counts, enables folder access, and supports mod importing via .r2z files (R2Modman profiles or drag-and-drop).
+Update System: Checks for and downloads updates for both MML and BlueAmulet's EDFModLoader.
+Batch File Execution: Runs specified .bat files for building itself and related scripts.
+Social & Documentation Links: Grouped links to official channels, documentation, and community resources.
+Console & Logging: Scrollable console for status messages, errors, and command outputs.
+Easter Eggs: Hidden commands and fun features for users to discover.
+🏗️ Structure
+Global configuration and color/theme management.
+Language and font management utilities.
+Core UI construction functions (create_ui, create_game_launch_bar, etc.).
+Mod and game management logic (update_mods, build_tables, repair_tables, etc.).
+Event handlers for user actions and command processing.
+Helper functions for background images, tooltips, and error handling.
+🚧 Current Status
+MML is mostly ready for use!
+Robust mod importing, patching, and management features.
+.r2z zip file support for R2Modman profiles (UUID code sharing not yet implemented).
+Modded public lobbies are forced to be private for stability and safety.
+Save editor is not yet implemented, but close to being ready.
+All information here is to inform what has been developed so far and what is possible with the current toolset.
+Some advanced features (conflict detection, load order management) are planned for future releases.
+The HAKKEN engine is currently Python-based and may be replaced with a C language version for performance.
+The code is modular, extensible, and open to community contributions.
+CustomTkinter is planned for a more modern, user-friendly look while keeping the EDF series UI style.
+📦 What gets loaded on R2Modman servers for EDF?
+Mod_config_data.json (MCD):
+Each mod is defined by a (ModNameHere)Mod_config_data.json file—a combinable metadata/config table for new weapons/categories, mission packs, UI/subtitle text, and uninstall manifests.
+
+Main tree paths in Mod_config_data.json:
+
+MOD_INFO: Author, mod name, version, download link, and small notes (not a changelog).
+DataReplacementTable: Text or data patches.
+NewToAddTextTableEntries: New UI/localization text.
+NewToAddModeList: Custom mission pack pairs for online and offline. (Modded mission pack saves are incomplete.)
+NewToAddSoldierWeaponCategory & NewToAddWeaponCatalog: New weapon slots and assignments.
+NewToAddWeaponTables: New weapons and stats.
+DirManifestToFilesUninstaller: Uninstall manifest.
+CHANGELOG: Version history.
+Documentation:
+A detailed guide (Notes.txt) is included, explaining every section of the config file, best practices, and how to use the loader and "HAKKEN" core tools.
 '''
 
 class LanguageManager:
@@ -66,9 +126,16 @@ def height():
 root = tk.Tk()
 root.title(title())
 root.geometry(f"{width()}x{height()}")
-#root.resizable(False, False)
+root.resizable(False, False)
 
-RUN_BAT_FILES_ENABLED = True  # Set to False to hide the debug build HAKKEN exe button
+# Shared request input variable to ensure handlers always read current text
+request_code_var = tk.StringVar()
+request_code_entry = None  # will hold the Entry widget instance for direct reads
+
+# Command usage stats for normalized_code function tree
+command_counts = defaultdict(int)
+
+RUN_BAT_FILES_ENABLED = True  # Set to False to hide the debug button for build HAKKEN exe button or other MML batch files
 
 BAT_FILES_DIRS = ( # Change this to where the batch files you want run here
     r"F:\SteamLibrary\steamapps\common\EARTH DEFENSE FORCE 6", # ALL FILES TO DO MML EXPORT DIR
@@ -76,9 +143,20 @@ BAT_FILES_DIRS = ( # Change this to where the batch files you want run here
     r"F:\SteamLibrary\steamapps\common\EARTH DEFENSE FORCE 6\EDF_ModloaderHead_B", #MML DIR
 )
 
-EXCLUDED_BAT_FILES = {
+EXCLUDED_BAT_FILES = { #
     "Python Install PREREQUISETS.bat",  # BLACK list any batch files you want to exclude here
 }
+
+def increment_cmd(tag):
+    command_counts[tag] += 1
+
+def render_command_stats():
+    show_error("=== Request command usage ===")
+    total = command_counts.get("total", 0)
+    show_error(f"total: {total}")
+    # Sort by count desc, then name
+    for key, val in sorted([(k, v) for k, v in command_counts.items() if k != "total"], key=lambda kv: (-kv[1], kv[0])):
+        show_error(f"{key}: {val}")
 
 def run_bat_files_from_dirs():
     """Runs all .bat files from specified directories sequentially in a new thread."""
@@ -114,6 +192,7 @@ def run_bat_files_from_dirs():
                 show_error(f"Error executing {bat_file_path}: {str(e)}")
                 break  # Stop execution on failure
 
+        clear_error()
         show_error("All batch files executed successfully.")
 
     # Run in a separate thread to keep the GUI responsive
@@ -837,6 +916,7 @@ def run_build_tables():
         
         show_error(f"Starting build process using: {exe_name}")
         funcs.build_tables(show_error, exe_name=exe_name)
+        clear_error()
         show_error("Build process completed successfully.")
     except Exception as e:
         show_error(f"An error occurred during the build process: {str(e)}")
@@ -1514,31 +1594,59 @@ def fallback_process_r2z_profile(uuid_code, r2z_file):
         show_error(f"❌ Error in fallback processing: {str(e)}")
         return False
 
-def handle_request_drop_off(request_code):
+def handle_request_drop_off(request_code=None):
     """Handle the request drop-off button click with support for text-based commands."""
-    def process_request():
+    # Capture the input on the main thread to avoid Tkinter cross-thread issues
+    if request_code is None or not isinstance(request_code, str):
+        try:
+            # Prefer StringVar, but fall back to direct Entry read if needed
+            value = request_code_var.get()
+            if not value.strip():
+                global request_code_entry
+                if request_code_entry is not None:
+                    value = request_code_entry.get()
+            request_code = value
+        except Exception:
+            request_code = ""
+    captured_code = str(request_code)
+
+    def process_request(code):
         def is_valid_uuid(candidate):
             # Basic UUID format validation of 36 characters in HEX For R2Modman code sharing
             return bool(re.match(r"^[0-9a-fA-F\-]{36}$", candidate))
             #0195686c-6290-f2e2-f0a8-c208f1b368e8
         clear_error()
-        if not request_code.strip():
+
+        # Validate captured input
+        if not code.strip():
             show_error("Error: Request code cannot be empty!")
             return None
-        normalized_code = request_code.strip().lower() # Normalize the input by trimming whitespace and converting to lowercase
+
+        normalized_code = code.strip().lower()  # Normalize the input by trimming whitespace and converting to lowercase
+        increment_cmd("total")
         
         if normalized_code in ["debug_cmd"]:
-            clear_error()
+            increment_cmd("debug_cmd")
+            render_command_stats()
+            # keep console clear toggle
+            # clear_error()  # optional
 
         elif normalized_code in ["bg list"]:
+            increment_cmd("bg_list")
             result = cmd_bg_list(return_text=True)
             show_error(result)
+
+        elif normalized_code == "bg":
+            increment_cmd("bg")
+            show_error("Usage: bg random | bg r | bg <image_name> | bg list")
 
         elif normalized_code.startswith("bg "):
             cmd = normalized_code.strip().lower()
             if cmd == "bg random" or cmd == "bg r":
+                increment_cmd("bg_random")
                 set_random_background_image()
             elif cmd.startswith("bg "):
+                increment_cmd("bg_named")
                 image_name = normalized_code[3:].strip()  # Extract the image name after "bg "
                 if not image_name:
                     show_error("❌ No image name provided. Use 'bg [image_name]' with a valid JPG, PNG, or WEBP file.")
@@ -1552,18 +1660,21 @@ def handle_request_drop_off(request_code):
                 show_error(f"Unknown command: {normalized_code}")
 
         elif normalized_code in ["no install", "ni"]:
+            increment_cmd("no_install")
             show_error("Processing No Install (NI) request...")
             repair_tables()
             funcs.build_tables(show_error, exe_name="EDF HAKKEN NI.exe")
             update_setting("modloader_HAKKEN_style", "NI")
 
         elif normalized_code in ["install", "i"]:
+            increment_cmd("install")
             show_error("Processing Install (I) request...")
             repair_tables()
             funcs.build_tables(show_error, exe_name="EDF HAKKEN.exe")
             update_setting("modloader_HAKKEN_style", "I")
 
         elif normalized_code in ["help", "h"]:
+            increment_cmd("help")
             show_error("'help', 'h', 'HELP': Show console commands (SCROLL DOWN IN THIS WINDOW)")
             show_error("'install', 'i': Install all files that will be generated from the 'Build Tables' button. AUTO_BUILDS\n")
             show_error("'no install', 'ni': Debug mode - generates files but does NOT install them. AUTO_BUILDS\n")
@@ -1571,18 +1682,22 @@ def handle_request_drop_off(request_code):
             show_error("EASTER EGGS HIDDEN WITHIN ME, ALWAYS LOWERCASE, SPACES ARE _, THREE WORDS MAX, NUMBERS SPELT ARE CRINGE, SO DO THE ARABIC SYMBOLS AS A EXAMPLE COMMAND beans_1234567890_test, NUMBERS ARE ALWAYS ARE SURROUND BY _, IF YE SEEK A TRAIL, hint_me")
 
         elif normalized_code in ["bob_the_builder"]:
+            increment_cmd("bob_the_builder")
             clear_error()
             run_bat_files_from_dirs()
 
         elif normalized_code in ["e_d_f"]:
+            increment_cmd("e_d_f")
             clear_error()
             eggs.display_letters(show_error, clear_error)
 
         elif normalized_code in ["credits", "who_made_this"]:
+            increment_cmd("credits")
             clear_error()
             eggs.edf_credits_scroll(show_error, clear_error, speed=0.1)
 
         elif normalized_code in ["hint_me"]:
+            increment_cmd("hint_me")
             rhyming_hints = [
                 "Want text to scroll like a marquee? This command makes words glide smoothly in EDF style.",  # edf_marquee
                 "Summon the storm with one transmission. A message from the battlefield awaits.",  # storm_1_transmission
@@ -1598,18 +1713,21 @@ def handle_request_drop_off(request_code):
             show_error(f"🤔 HINT: {random.choice(rhyming_hints)}")
 
         elif normalized_code in ["moo"]:
+            increment_cmd("moo")
             show_error("You found an Easter Egg! 🥚🐣")
             time.sleep(3)
             clear_error()
             eggs.asciicow(show_error)
 
         elif normalized_code in ["erased_future", "time_rewrite"]:
+            increment_cmd("erased_future")
             show_error("You found a Classified Easter Egg! 🕵️‍♂️")
             time.sleep(3)
             clear_error()
             eggs.erased_future_transmission(show_error, clear_error)
 
         elif normalized_code in ["beans_1234567890_test"]:
+            increment_cmd("beans_test")
             show_error("You found an Easter Egg! 🥚🐣")
             time.sleep(1)
             show_error("Wait... you actually used that?")
@@ -1622,49 +1740,58 @@ def handle_request_drop_off(request_code):
             show_error("10 different eggs can be found minus me...")
 
         elif normalized_code in ["edf_marquee"]:
+            increment_cmd("edf_marquee")
             show_error("You found an Easter Egg! 🥚🐣")
             time.sleep(3)
             clear_error()
             eggs.side_scroll_edf_multiline(show_error, clear_error, speed=0.1)
 
         elif normalized_code in ["chant_edf"]:
+            increment_cmd("chant_edf")
             show_error("You found an Easter Egg! 🥚🐣")
             time.sleep(3)
             clear_error()
             eggs.play_edf_chant(show_error, clear_error)
 
         elif normalized_code in ["storm_1_transmission"]:
+            increment_cmd("storm_1_transmission")
             show_error("You found an Easter Egg! 🥚🐣")
             time.sleep(3)
             clear_error()
             eggs.someegg(show_error)
 
         elif normalized_code in ["incoming_transmission"]:
+            increment_cmd("incoming_transmission")
             show_error("You found an Easter Egg! 🥚🐣")
             time.sleep(3)
             clear_error()
             eggs.edf_quotes(show_error)
 
         elif normalized_code in ["deployment_orders", "mission_briefing"]:
+            increment_cmd("deployment_orders")
             show_error("You found an Easter Egg! 🥚🐣")
             time.sleep(3)
             clear_error()
             eggs.edf_mission_generator(show_error)
 
         elif normalized_code in ["jesus", "jesus_christ"]:
+            increment_cmd("jesus")
             clear_error()
-            eggs.get_daily_bible_verse(show_error)
+            eggs.get_daily_bible_verse(show_error, clear_error)
 
         elif is_valid_uuid(normalized_code):
+            increment_cmd("uuid")
             show_error(f"Valid Mod request UUID")
+            show_error(f"R2MODMAN UUID processing not implemented in this tool.")
             # Add R2MODMAN UUID processing logic here
             #update_mods()
 
         else:
+            increment_cmd("unknown")
             show_error("Error: Invalid request code or command!")
 
-    # Run the processing in a separate thread
-    threading.Thread(target=process_request, daemon=True).start()
+    # Run the processing in a separate thread with the captured input
+    threading.Thread(target=lambda: process_request(captured_code), daemon=True).start()
 
 def create_mod_request_input(canvas, y_position):
     y_pos = y_position
@@ -1690,23 +1817,25 @@ def create_mod_request_input(canvas, y_position):
         relief="groove"
     )
     # Add the text input field
-    text_var = tk.StringVar()
+    global request_code_var
+    global request_code_entry
     text_input = tk.Entry(
         input_frame,
-        textvariable=text_var,
+        textvariable=request_code_var,
         font=global_font,
         width=65,
         bg="#EDFEDF",
         fg="black",
         relief="groove"
     )
+    request_code_entry = text_input  # keep a direct handle on the Entry for fallback reads
     apply_hover_and_tooltip(text_input, lang_manager.get("tooltip_request_code_input"))
     text_input.pack(side="left", padx=get_padding(2, 4), pady=0)
-    text_input.bind("<Return>", lambda event: handle_request_drop_off(text_var.get()))
+    text_input.bind("<Return>", lambda event: handle_request_drop_off())
     translatable_widgets.append(('text', text_input, "tooltip_request_code_input"))
 
     # Add the "Request Drop Off Now" button
-    style, tooltip = get_label_style_alt(command=lambda: handle_request_drop_off(text_var.get()), translation_key="request_drop_off_now")
+    style, tooltip = get_label_style_alt(command=lambda: handle_request_drop_off(), translation_key="request_drop_off_now")
     drop_off_button = tk.Button(input_frame, text=lang_manager.get("request_drop_off_now"), **style)
     apply_hover_and_tooltip(drop_off_button, tooltip)
     translatable_widgets.append(('text', drop_off_button, "request_drop_off_now"))
@@ -1792,26 +1921,33 @@ def update_ui_translations():
                 attr, widget, key = item
                 kwargs = {}
             elif len(item) == 4:
-                attr, widget, key, kwargs = item
+                attr, widget, key, kwargs = item[0], item[1], item[2], {} if len(item) < 4 else item[3]
+            elif len(item) == 5:
+                attr, widget, key, kwargs = item[0], item[1], item[2], item[3] if isinstance(item[3], dict) else {}
             else:
                 print(f"Warning: Invalid translatable_widgets entry at index {i}: {item}")
                 continue
+
             if attr == 'text':
                 widget.config(text=lang_manager.get(key, **kwargs))
             elif attr == 'textvariable':
-                if 'textvariable' in widget.keys() and isinstance(widget['textvariable'], tk.StringVar):
-                    widget['textvariable'].set(lang_manager.get(key, **kwargs))
+                if isinstance(widget, tk.Widget) and hasattr(widget, 'cget') and 'textvariable' in widget.keys():
+                    widget_textvar = widget.cget('textvariable')
+                    if isinstance(widget_textvar, tk.StringVar):
+                        widget_textvar.set(lang_manager.get(key, **kwargs))
+                    else:
+                        print(f"Warning: Widget {key} has no valid textvariable")
                 else:
-                    print(f"Warning: Widget {key} has no valid textvariable")
+                    print(f"Warning: Widget {key} is not configurable or has no textvariable")
             elif attr == 'canvas_text':
-                canvas, text_id, _, _ = item
-                if isinstance(text_id, int):
+                if len(item) >= 4 and isinstance(item[1], tk.Canvas) and isinstance(item[2], int):
+                    canvas, text_id = item[1], item[2]
                     canvas.itemconfig(text_id, text=lang_manager.get(key, **kwargs))
                 else:
-                    print(f"Warning: Invalid text_id {text_id} for key {key}")
+                    print(f"Warning: Invalid canvas_text entry at index {i}: {item}")
             tooltip_key = f"tooltip_{key}"
             if tooltip_key in lang_manager.translations:
-                apply_hover_and_tooltip(widget, lang_manager.get(tooltip_key))
+                apply_hover_and_tooltip(widget, lang_manager.get(tooltip_key, **kwargs))
         except Exception as e:
             print(f"Error updating widget {key} at index {i}: {e}")
     root.title(lang_manager.get("title", version=get_version()))
@@ -1949,7 +2085,7 @@ def create_ui(canvas):
 
     # Save Folders Management
     text_id = draw_centered_text_with_bg(canvas, width() // 2, y_pos, lang_manager.get("open_save_folders"), global_fill_color, JustBackGround(), font=global_font_h)
-    translatable_widgets.append(('canvas_text', text_id, canvas, "open_save_folders"))
+    translatable_widgets.append(('canvas_text', canvas, text_id, "open_save_folders"))
     y_pos += vertical_spacing + 5
 
     save_folder_frame = tk.Frame(root, bg=bgY())
@@ -1977,7 +2113,8 @@ def create_ui(canvas):
         JustBackGround(),
         font=global_font_h
     )
-    translatable_widgets.append(('canvas_text', canvas, text_id, "mod_hosting_services", {}))
+    text_id = draw_centered_text_with_bg(canvas, width() // 2, y_pos, lang_manager.get("mod_hosting_services"), global_fill_color, JustBackGround(), font=global_font_h)
+    translatable_widgets.append(('canvas_text', canvas, 12, "mod_hosting_services", {})) 
     y_pos += vertical_spacing
     y_pos = create_mod_hosting_services(canvas, y_pos)  # Call updated function
     y_pos += vertical_spacing
@@ -1988,7 +2125,7 @@ def create_ui(canvas):
 
     # Console and Logs
     text_id = draw_centered_text_with_bg(canvas, width() // 2, y_pos, lang_manager.get("hq_pager_console"), global_fill_color, JustBackGround(), font=global_font_h)
-    translatable_widgets.append(('canvas_text', canvas, text_id, "hq_pager_console"))
+    translatable_widgets.append(('canvas_text', canvas, 16, 'hq_pager_console'))
     y_pos += vertical_spacing + 35
 
     error_block = tk.Text(root, height=6, width=90, font=("Courier", 9), state=tk.DISABLED, bg=ButtonBackGround(), fg=TextColor(), wrap="word")
@@ -2051,3 +2188,6 @@ create_ui(canvas)
 start_update_check()
 
 root.mainloop()
+
+
+

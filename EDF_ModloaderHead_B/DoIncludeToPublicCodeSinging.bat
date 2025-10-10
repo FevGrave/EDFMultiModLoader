@@ -122,6 +122,7 @@ pyinstaller --noconfirm --name "EDF MML" --clean --noconsole ^
 --add-data "ProgressTrackerPercent.exe;." ^
 --add-data "ImageResources.py;." ^
 --add-data "images/*;images" ^
+--add-data "languages/*;languages" ^
 --add-data "Icon_256.ico;." ^
 --add-data "eggs.py;." ^
 --hidden-import "PIL" ^
