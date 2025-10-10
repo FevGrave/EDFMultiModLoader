@@ -21,7 +21,7 @@
 Welcome to Earth Defense Force 6 modding! This guide will help you create your first mod configuration file.
 
 1. **Set up your development environment**:
- - Install the latest version of the BA. Mod loader.
+ - Install the latest version of the BA. Mod loader You can do that with the "Update ModLoader (BA)" button.
  - Familiarize yourself with JSON formatting.
 
 2. **modifying your mod configuration file**:
